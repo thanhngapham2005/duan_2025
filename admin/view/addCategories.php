@@ -1,3 +1,9 @@
+<?php
+
+require_once 'layout/css.php';
+?>
+
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -12,8 +18,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
-    <link href="assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
-    <link href="assets/libs/jquery-steps/steps.css" rel="stylesheet">
+    <!-- <link href="assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
+    <link href="assets/libs/jquery-steps/steps.css" rel="stylesheet"> -->
     <link href="dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -226,7 +232,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
+                <!-- <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
@@ -271,7 +277,10 @@
                             </ul>
                         </li>
                     </ul>
-                </nav>
+                </nav> -->
+                <?php
+                require_once 'layout/sidebar.php';
+                ?>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -286,7 +295,7 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            <div class="page-breadcrumb">
+            <!-- <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <h4 class="page-title">Form Wizard</h4>
@@ -300,7 +309,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -311,7 +320,7 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="card">
+                <!-- <div class="card">
                     <div class="card-body wizard-content">
                         <h4 class="card-title">Basic Form Example</h4>
                         <h6 class="card-subtitle"></h6>
@@ -355,6 +364,50 @@
                             </div>
                         </form>
                     </div>
+                </div> -->
+                <!-- code chức năng -->
+                <h1 class="h3 mb-2 text-gray-800">THEM DANH MUC</h1>
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <form action="" method="POST">
+                                <div class="input">
+                                    Ma loai <br>
+                                    <input type="text" name="maloai" disabled id="maloai">
+                                </div>
+                                <div class="input">
+                                    Ten loai <br>
+                                    <input type="text" name="tenloai" id="tenloai">
+                                    <br>
+                                    <p style="color: red;" id="loitl"></p>
+                                    <br>
+                                </div>
+                                <div style="margin-top: 20px;" class="input">
+                                    <input class="btn btn-primary" type="submit" name="themoi" value="Thêm mới" onclick="return validate()">
+                                    <a href="index.php?act=listCategories"><input type="button" class="btn btn-success" value="DANH SACH"></a>
+
+                                </div>
+                                <?php
+                                if(isset($thongbao)&&($thongbao!=""))
+                                {
+                                    echo $thongbao;
+                                }
+                                ?>
+                            </form>
+
+                        </div>
+
+                    </div>
+                                <script>
+                                    function validate(){
+                                        var tenloai = document.getElementById("tenloai").value;
+                                        if(tenloai==""){
+                                            document.getElementById("loitl").innerHTML = "Tên loại không được de trong";
+                                            return false;
+                                    }else document.getElementById("loitl").innerHTML = "";
+
+                                    }
+                                </script>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
@@ -373,9 +426,12 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
+            <!-- <footer class="footer text-center">
                 All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
+            </footer> -->
+            <?php
+            require_once 'layout/footer.php';
+            ?>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
