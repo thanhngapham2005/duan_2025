@@ -11,7 +11,7 @@ function connDBAss()
         return $conn;
     } catch (PDOException $th) {
         echo "kết nối lỗi:" . $th->getMessage();
-        return null;
+        // return null;
     }
 }
 $conn = connDBAss();

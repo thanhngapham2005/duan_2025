@@ -19,6 +19,9 @@ match ($act) {
     'deleteUser' => (new UserController())->deleteUser($id_user),
     'addCategories' => (new categoriesController())->insert(),
     'listCategories' => (new categoriesController())->listcategories(),
+    'deleteCategories' =>(new categoriesController())->delete($id_category),
+     'updateCategories' =>(new categoriesController())->update($id_category),
+
     default => throw new Exception("No matching action found for '$act'"),
 };
 

@@ -1,6 +1,11 @@
 <?php
 
 require_once 'layout/css.php';
+
+if(is_array($stmt)){
+    extract($stmt);
+}
+
 ?>
 
 
@@ -366,24 +371,24 @@ require_once 'layout/css.php';
                     </div>
                 </div> -->
                 <!-- code chức năng -->
-                <h1 class="h3 mb-2 text-gray-800">THÊM DANH MỤC</h1>
+                <h1 class="h3 mb-2 text-gray-800">CẬP NHẬT BIẾN THỂ</h1>
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
             <form action="" method="POST" onsubmit="return validate()">
                 <div class="input">
-                    Mã loại <br>
-                    <input type="text" name="maloai" disabled id="maloai">
+                    Mã bien the <br>
+                    <input type="text" name="maloai" disabled id="maloai" value="<?= htmlspecialchars($id_category) ?>">
                 </div>
                 <div class="input">
-                    Tên loại <br>
-                    <input type="text" name="tenloai" id="tenloai">
+                    Tên bien the <br>
+                    <input type="text" name="tenloai" id="tenloai" value="<?= htmlspecialchars($name_cat) ?>">
                     <br>
                     <p style="color: red;" id="loitl"></p>
                     <br>
                 </div>
                 <div style="margin-top: 20px;" class="input">
-                    <input class="btn btn-primary" type="submit" name="themmoi" value="Thêm mới">
+                    <input class="btn btn-primary" type="submit" name="themmoi" value="CẬP NHẬT">
                     <a href="index.php?act=listCategories">
                         <input type="button" class="btn btn-success" value="DANH SÁCH">
                     </a>
