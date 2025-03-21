@@ -31,6 +31,15 @@ class UserModel
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
+    public function checkuser($email, $password)
+    {
+        $conn = connDBAss();
+        $query = "SELECT * FROM users WHERE email = :email AND password = :password";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
 
-    // Add more methods for updateUser as needed
+        // Add more methods for updateUser as needed
+    }
 }
