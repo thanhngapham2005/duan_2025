@@ -9,6 +9,7 @@ if (isset($_SESSION['Message'])) {
 require_once 'controller/loginController.php';
 require_once 'controller/homeController.php';
 require_once 'controller/registerController.php';
+require_once 'controller/profileController.php';
 require_once 'controller/logoutController.php';
 require_once 'model/homeModel.php';
 require_once 'model/userModel.php';

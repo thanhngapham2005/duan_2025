@@ -7,8 +7,14 @@ class ProfileController
         if ($_SESSION['user']) {
             $email = $_SESSION['user']['email'];
             $password = $_SESSION['user']['password'];
+            // var_dump($_SESSION['user']);
+            // exit;
+
             $userProfile = getUserProfile($email, $password);
+
             if ($userProfile) {
+                // Kiểm tra xem đoạn này có hiển thị không
+
                 require_once 'view/profile.php';
             } else {
                 $error = "Khoong tim thay thong tin nguoi dung";

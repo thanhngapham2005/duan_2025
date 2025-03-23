@@ -1,6 +1,6 @@
 <?php
 
-require_once 'commoms/function.php';
+require_once __DIR__ . '/../commoms/function.php';
 
 function checkLogin($email, $password)
 {
@@ -87,18 +87,41 @@ function getUserProfile($email)
 {
     try {
         $conn = connDBAss();
-        $sql = "SELECT u.email, c.full_name, c.address, c.phone, u.password 
-            FROM users u
-            JOIN customers c ON u.id_user = c.id_user
-            WHERE u.email = :email";
+        $sql = "SELECT u.id_user, u.email, c.full_name, c.address, c.phone 
+                FROM users u
+                JOIN customers c ON u.id_user = c.id_user
+                WHERE u.email = :email";
 
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
+
         return $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         return false;
     }
 }
+function checkUser($email, $password)
+{
+    try {
+        $conn = connDBAss();
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Kiểm tra user có tồn tại và mật khẩu có đúng không
+        if ($user && password_verify($password, $user['password'])) {
+            return $user; // Trả về thông tin user nếu mật khẩu đúng
+        }
+
+        return false; // Trả về false nếu tài khoản không tồn tại hoặc mật khẩu sai
+    } catch (PDOException $e) {
+        return false;
+    }
+}
+
+
+
 
 // Compare this snippet from controller/logoutController.php:

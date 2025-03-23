@@ -2,20 +2,34 @@
 session_start();
 ob_start();
 
-// require_once __DIR__ . '/../../commoms/function.php';
-// require_once __DIR__ . '/../../model/userModel.php';
-// if (isset($_POST('dangnhap'))) {
-//     $email = $_POST['email'];
-//     $password = $_POST['password'];
-//     $checkuser = checkuser($email, $password);
-//     if ($checkuser) {
-//         $_SESSION['user'] = $checkuser;
-//         $_SESSION['role'] = $checkuser['role'];
-//         header('Location: dashboard.php');
-//     } else {
-//         $thongbao = "Tài khoản không tồn tại";
-//     }
-// }
+require_once __DIR__ . '/../../commoms/function.php';
+require_once __DIR__ . '/../../model/userModel.php';
+$thongbao = ''; // Khởi tạo biến thông báo lỗi
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dangnhap'])) {
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if (!empty($email) && !empty($password)) {
+        $checkuser = checkUser($email, $password);
+
+        if ($checkuser) {
+            if ($checkuser['role'] == 2) { // Kiểm tra nếu là admin (role = 1)
+                $_SESSION['user'] = $checkuser;
+                $_SESSION['role'] = $checkuser['role'];
+                header('Location: ../'); // Điều hướng ra ngoài thư mục cha
+                exit;
+            } else {
+                $thongbao = "❌ Bạn không có quyền truy cập!";
+            }
+        } else {
+            $thongbao = "❌ Tài khoản hoặc mật khẩu không đúng!";
+        }
+    } else {
+        $thongbao = "⚠️ Vui lòng nhập đầy đủ thông tin!";
+    }
+}
+
 ?>
 
 
@@ -256,17 +270,20 @@ ob_start();
 
                 <h2>Sign In</h2>
 
+                <?php if (!empty($thongbao)) : ?>
+                <p style="color: red; font-weight: bold; text-align: center;"><?php echo $thongbao; ?></p>
+                <?php endif; ?>
 
                 <form class="form" action="login.php" method="POST">
                     <div class="inputBox">
 
-                        <input type="email" name="email" required> <i>Username</i>
+                        <input type="email" name="email"> <i>Username</i>
 
                     </div>
 
                     <div class="inputBox">
 
-                        <input type="password" name="pass" required> <i>Password</i>
+                        <input type="password" name="password"> <i>Password</i>
 
                     </div>
 

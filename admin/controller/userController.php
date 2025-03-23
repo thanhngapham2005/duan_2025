@@ -36,6 +36,45 @@ class UserController
         header("Location: index.php?act=listUser");
         exit();
     }
+    public function logout()
+    {
+        session_destroy();
+        header("Location: ../");
+        exit();
+    }
+    public function showUser($id_user)
+    {
+        $userModel = new UserModel();
+        $user = $userModel->getUserById($id_user);
+
+        if (!$user) {
+            die("Người dùng không tồn tại!");
+        }
+
+        require_once __DIR__ . '/../view/showUser.php';
+    }
+    public function editUser($id_user)
+    {
+        $userModel = new UserModel();
+        $user = $userModel->getUserById($id_user);
+        require_once __DIR__ . '/../view/editUser.php';
+    }
+
+    public function updateUser($id_user)
+    {
+        $email = $_POST['email'];
+        $full_name = $_POST['full_name'];
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
+        $role = $_POST['role'];
+
+        $userModel = new UserModel();
+        $userModel->updateUser($id_user, $email, $full_name, $phone, $address, $role);
+
+        header("Location: index.php?act=listUser");
+        exit();
+    }
+
 
     // Add more methods for editUser and updateUser as needed
 }
