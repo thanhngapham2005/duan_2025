@@ -49,26 +49,26 @@
                 </a>
 
                 <?php if (isset($_SESSION['user'])) : ?>
-                    <div class="dropdown">
-                        <a href="" class="drop-toggle text-decoration-none" role="button" data-bs-toggle="dropdown">
-                            <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                            <?php echo isset($_SESSION['user']['customer_info']['full_name'])
+                <div class="dropdown">
+                    <a href="" class="drop-toggle text-decoration-none" role="button" data-bs-toggle="dropdown">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <?php echo isset($_SESSION['user']['customer_info']['full_name'])
                                 ? $_SESSION['user']['customer_info']['full_name']
                                 : 'Tài khoản'; ?>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="?act=profile">Hồ sơ</a></li>
-                            <li><a class="dropdown-item" href="?act=order">Đơn hàng</a></li>
-                            <?php if ($_SESSION['user']['role'] == 2) : ?>
-                                <li><a class="dropdown-item" href="?act=logout">Quản trị</a></li>
-                            <?php endif; ?>
-                            <li><a class="dropdown-item" href="?act=logout">Đăng xuất</a></li>
-                        </ul>
-                    </div>
-                <?php else : ?>
-                    <a class="nav-icon position-relative text-decoration-none" href="?act=login">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
                     </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="?act=profile">Hồ sơ</a></li>
+                        <li><a class="dropdown-item" href="?act=order">Đơn hàng</a></li>
+                        <?php if ($_SESSION['user']['role'] == 2) : ?>
+                        <li><a class="dropdown-item" href="./admin/">Quản trị</a></li>
+                        <?php endif; ?>
+                        <li><a class="dropdown-item" href="?act=logout">Đăng xuất</a></li>
+                    </ul>
+                </div>
+                <?php else : ?>
+                <a class="nav-icon position-relative text-decoration-none" href="?act=login">
+                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                </a>
                 <?php endif; ?>
 
             </div>
