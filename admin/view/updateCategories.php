@@ -371,52 +371,52 @@ if(is_array($stmt)){
                     </div>
                 </div> -->
                 <!-- code chức năng -->
-                <h1 class="h3 mb-2 text-gray-800">CẬP NHẬT BIẾN THỂ</h1>
-<div class="card shadow mb-4">
-    <div class="card-body">
-        <div class="table-responsive">
-            <form action="" method="POST" onsubmit="return validate()">
-                <div class="input">
-                    Mã bien the <br>
-                    <input type="text" name="maloai" disabled id="maloai" value="<?= htmlspecialchars($id_category) ?>">
-                </div>
-                <div class="input">
-                    Tên bien the <br>
-                    <input type="text" name="tenloai" id="tenloai" value="<?= htmlspecialchars($name_cat) ?>">
-                    <br>
-                    <p style="color: red;" id="loitl"></p>
-                    <br>
-                </div>
-                <div style="margin-top: 20px;" class="input">
-                    <input class="btn btn-primary" type="submit" name="themmoi" value="CẬP NHẬT">
-                    <a href="index.php?act=listCategories">
-                        <input type="button" class="btn btn-success" value="DANH SÁCH">
-                    </a>
-                </div>
-                <?php
-                if (!empty($thongbao)) {
-                    echo "<p style='color: green;'>$thongbao</p>";
-                }
-                ?>
-            </form>
-        </div>
-    </div>
-</div>
+                    <h1 class="h3 mb-2 text-gray-800">CẬP NHẬT DANH MỤC</h1>
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <form action="" method="POST" onsubmit="return validate()">
+                                    <div class="input">
+                                        Mã loại<br>
+                                        <input type="text" name="maloai" disabled id="maloai" value="<?= htmlspecialchars($id_category) ?>">
+                                    </div>
+                                    <div class="input">
+                                        Tên loại<br>
+                                        <input type="text" name="tenloai" id="tenloai" value="<?= htmlspecialchars($name_cat) ?>">
+                                        <br>
+                                        <p style="color: red;" id="loitl"></p>
+                                        <br>
+                                    </div>
+                                    <div style="margin-top: 20px;" class="input">
+                                        <input class="btn btn-primary" type="submit" name="themmoi" value="CẬP NHẬT">
+                                        <a href="index.php?act=listCategories">
+                                            <input type="button" class="btn btn-success" value="DANH SÁCH">
+                                        </a>
+                                    </div>
+                                    <?php
+                                    if (!empty($thongbao)) {
+                                        echo "<p style='color: green;'>$thongbao</p>";
+                                    }
+                                    ?>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
-<script>
-    function validate() {
-        var tenloai = document.getElementById("tenloai").value.trim();
-        var loiTl = document.getElementById("loitl");
+                    <script>
+                        function validate() {
+                            var tenloai = document.getElementById("tenloai").value.trim();
+                            var loiTl = document.getElementById("loitl");
 
-        if (tenloai === "") {
-            loiTl.innerHTML = "Tên loại không được để trống";
-            return false;
-        } else {
-            loiTl.innerHTML = ""; // Xóa thông báo lỗi khi hợp lệ
-            return true;
-        }
-    }
-</script>
+                            if (tenloai === "") {
+                                loiTl.innerHTML = "Tên loại không được để trống";
+                                return false;
+                            } else {
+                                loiTl.innerHTML = ""; // Xóa thông báo lỗi khi hợp lệ
+                                return true;
+                            }
+                        }
+                    </script>
 
                 </div>
                 <!-- ============================================================== -->

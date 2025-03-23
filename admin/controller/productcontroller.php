@@ -54,7 +54,8 @@ class productController{
                 echo"Them that bai";
             }
         }
-    }function update($id){
+    }
+    function update($id){
         $oneProduct = $this->productModel->findProductById(($id));
         $category = $this->productModel->category();
         require_once "view/updateProduct.php";
