@@ -564,7 +564,7 @@ require_once 'layout/css.php';
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Số lượng</label>
-                                    <input type="number" class="form-control" name="quantity" required>
+                                    <input type="number" class="form-control" id="variant_quantity" name="variant_quantity[]" required>
                                 </div>
                                 <div class="variant-section mb-4 p-4 border rounded">
                                     <h5 class="mb-3 text-primary">Biến thể sản phẩm</h5>
