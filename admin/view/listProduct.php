@@ -226,7 +226,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
+                <!-- <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
@@ -271,7 +271,10 @@
                             </ul>
                         </li>
                     </ul>
-                </nav>
+                </nav> -->
+                <?php
+                    require_once 'layout/sidebar.php'
+                ?>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -286,61 +289,61 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Dashboard-2</h4>
-                        <div class="ml-auto text-right">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
+                <div class="page-breadcrumb">
+                    <div class="row">
+                        <div class="col-12 d-flex no-block align-items-center">
+                            <h4 class="page-title">San pham</h4>
+                            <div class="ml-auto text-right">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">San pham</li>
+                                    </ol>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
                 <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Container fluid  -->
+                <!-- ============================================================== -->
+                <!-- <div class="container-fluid">
+                <!- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-md-6 col-lg-3">
+                <!-- <div class="row">
+                    <!- Column -->
+                    <!-- <div class="col-md-6 col-lg-3">
                         <div class="card card-hover">
                             <div class="box bg-cyan text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
                                 <h6 class="text-white">Dashboard</h6>
                             </div>
                         </div>
-                    </div>
+                    </div> - -->
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-3">
+                    <!-- <div class="col-md-6 col-lg-3">
                         <div class="card card-hover">
                             <div class="box bg-success text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
                                 <h6 class="text-white">Charts</h6>
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                      <!-- Column -->
-                    <div class="col-md-6 col-lg-3">
+                    <!-- <div class="col-md-6 col-lg-3">
                         <div class="card card-hover">
                             <div class="box bg-warning text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-collage"></i></h1>
                                 <h6 class="text-white">Widgets</h6>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Column -->
-                    <div class="col-md-6 col-lg-3">
+                    <!-- <div class="col-md-6 col-lg-3">
                         <div class="card card-hover">
                             <div class="box bg-danger text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
@@ -355,9 +358,9 @@
                             <div class="card-body">
                                 <h4 class="card-title">Latest Posts</h4>
                             </div>
-                            <div class="comment-widgets scrollable">
+                            <div class="comment-widgets scrollable"> -->
                                 <!-- Comment Row -->
-                                <div class="d-flex flex-row comment-row m-t-0">
+                                <!-- <div class="d-flex flex-row comment-row m-t-0">
                                     <div class="p-2"><img src="assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle"></div>
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium">James Anderson</h6>
@@ -369,9 +372,9 @@
                                             <button type="button" class="btn btn-danger btn-sm">Delete</button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Comment Row -->
-                                <div class="d-flex flex-row comment-row">
+                                <!-- <div class="d-flex flex-row comment-row">
                                     <div class="p-2"><img src="assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle"></div>
                                     <div class="comment-text active w-100">
                                         <h6 class="font-medium">Michael Jorden</h6>
@@ -383,9 +386,9 @@
                                             <button type="button" class="btn btn-danger btn-sm">Delete</button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Comment Row -->
-                                <div class="d-flex flex-row comment-row">
+                                <!-- <div class="d-flex flex-row comment-row">
                                     <div class="p-2"><img src="assets/images/users/5.jpg" alt="user" width="50" class="rounded-circle"></div>
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium">Johnathan Doeting</h6>
@@ -399,9 +402,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                          <!-- Card -->
-                        <div class="card">
+                        <!-- <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">To Do List</h4>
                                 <div class="todo-widget scrollable" style="height:450px;">
@@ -467,9 +470,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6"> -->
                          <!-- card -->
-                        <div class="card">
+                        <!-- <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title m-b-0">Progress Box</h4>
                                 <div class="m-t-20">
@@ -517,9 +520,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- card new -->
-                        <div class="card">
+                        <!-- <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title m-b-0">News Updates</h4>
                             </div>
@@ -611,9 +614,9 @@
                                                         <div class="calendar-events m-b-20" data-class="bg-success"><i class="fa fa-circle text-success m-r-10"></i> Event Two</div>
                                                         <div class="calendar-events m-b-20" data-class="bg-danger"><i class="fa fa-circle text-danger m-r-10"></i>Event Three</div>
                                                         <div class="calendar-events m-b-20" data-class="bg-warning"><i class="fa fa-circle text-warning m-r-10"></i>Event Four</div>
-                                                    </div>
+                                                    </div> -->
                                                     <!-- checkbox -->
-                                                    <div class="custom-control custom-checkbox">
+                                                    <!-- <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input" id="drop-remove">
                                                         <label class="custom-control-label" for="drop-remove">Remove after drop</label>
                                                     </div>
@@ -633,9 +636,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- BEGIN MODAL -->
-                <div class="modal none-border" id="my-event">
+                <!-- <div class="modal none-border" id="my-event">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -650,9 +653,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Modal Add Category -->
-                <div class="modal fade none-border" id="add-new-event">
+                <!-- <div class="modal fade none-border" id="add-new-event">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -686,7 +689,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -> -->
                 <!-- END MODAL -->
 
                 <!-- ============================================================== -->
@@ -699,6 +702,101 @@
                 <!-- ============================================================== -->
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Danh sách sản phẩm</h1>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Bảng sản phẩm</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <form method="GET" class="mb-4">
+                                            <input type="hidden" name="act" value="listProduct">
+                                            <div class="form-group d-flex align-items-center">
+                                                <label for="category" class="me-2">Lọc theo danh mục:</label>
+                                                <select id="category" name="category" class="form-select w-auto me-3">
+                                                    <option value="">Tất cả</option>
+                                                    <?php
+                                                    foreach ($category as $cat) {
+                                                        ?>
+                                                        <option value="<?= $cat['id_category'] ?>" <?= isset($_GET['category']) && $_GET['category'] == $cat['id_category'] ? 'selected' : '' ?>>
+                                                            <?= $cat['name_cat'] ?>
+                                                        </option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <button type="submit" class="btn btn-primary">Lọc</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã SP</th>
+                                            <th>Ảnh</th>
+                                            <th>Tên</th>
+                                            <th>Hãng</th>
+                                            <th>Giá</th>
+                                            <th>Giảm giá</th>
+                                            <th>Số lượng</th>
+                                            <th>Mô tả</th>
+                                            <th>Danh mục</th>
+                                            <th>Lượt xem</th>
+                                            <th>Trạng thái</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($products as $key => $value) {
+                                            ?>
+                                                <tr>
+                                                    <td><?= $value['id_product'] ?></td>
+                                                    <td><img src="../assets/images/<?= $value['img_product'] ?>"
+                                                            class="img-fluid rounded-top" alt="" width="180px" height="80px"
+                                                            class="rounded" />
+                                                    </td>
+                                                    <td><?= $value['name'] ?></td>
+                                                    <td><?= $value['firms'] ?></td>
+                                                    <td><?= number_format($value['price']) ?>đ</td>
+                                                    <td><?= $value['discount'] ?>%</td>
+                                                    <td><?= $value['amount'] ?></td>
+                                                    <td style="max-width: 220px"><?= $value['description'] ?></td>
+                                                    <td><?= $value['name_cat'] ?></td>
+                                                    <td><?= $value['view'] ?></td>
+                                                    <td><?= ($value['censorship'] == 0) ? 'Đang hiện' : 'Đã ẩn' ?></td>
+                                                    <td>
+                                                        <a class="btn btn-info"
+                                                            href="?act=listProduct_variant&id=<?= $value['id_product'] ?>"
+                                                            role="button">Biến thể</a>
+                                                        <a class="btn btn-primary"
+                                                            href="?act=updateProduct&id=<?= $value['id_product'] ?>"
+                                                            role="button">Sửa</a>
+                                                        <a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa ko?')"
+                                                            href="?act=deleteProduct&id=<?= $value['id_product'] ?>"
+                                                            role="button">Xóa</a>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    </div>
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -706,9 +804,13 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
+            <!-- <footer class="footer text-center">
                 All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
+            </footer> -->
+            <?php
+                require_once 'layout/footer.php';
+                require_once 'layout/scripts.php';
+            ?>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

@@ -1,3 +1,8 @@
+<?php
+
+require_once 'layout/css.php';
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -225,7 +230,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
+                <!-- <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
@@ -270,7 +275,10 @@
                             </ul>
                         </li>
                     </ul>
-                </nav>
+                </nav> -->
+                <?php
+                require_once 'layout/sidebar.php';
+                ?>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -286,7 +294,7 @@
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <div class="page-breadcrumb">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <h4 class="page-title">Full Width</h4>
                         <div class="ml-auto text-right">
@@ -298,8 +306,8 @@
                             </nav>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -310,7 +318,7 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row el-element-overlay">
+                <!-- <div class="row el-element-overlay">
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="el-card-item">
@@ -515,6 +523,92 @@
                             </div>
                         </div>
                     </div>
+                </div> -->
+
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Thêm sản phẩm</h1>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row-cols-auto">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Tên</label>
+                                <input type="text" class="form-control" name="name" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Hãng</label>
+                                <input type="text" class="form-control" name="firms" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Giá</label>
+                                <input type="number" class="form-control" name="price" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Giảm giá</label>
+                                <input type="number" class="form-control" name="discount" value="0" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Chọn ảnh</label>
+                                <input type="file" class="" name="img" placeholder="" aria-describedby="fileHelpId" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Mô tả</label>
+                                <textarea class="form-control" name="description" rows="2"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Loại hàng</label>
+                                <select class="form-select form-select-lg" name="category">
+                                    <?php
+                                    foreach ($category as $key => $value) {
+                                        ?>
+                                        <option value="<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+
+                            <div class="variant-section mb-4 p-4 border rounded">
+                                <h5 class="mb-3 text-primary">Biến thể sản phẩm</h5>
+
+                                <!-- Màu sắc -->
+                                <div class="mb-3">
+                                    <label for="variant_color" class="form-label">Màu sắc</label>
+                                    <select class="form-select" id="variant_color" name="variant_color[]">
+                                        <?php
+                                        foreach ($variant as $key => $value) {
+                                            ?>
+                                            <option value="<?= $value['id_variant'] ?>"><?= $value['name_color'] ?></option>
+                                            <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <!-- Số lượng -->
+                                <div class="mb-3">
+                                    <label for="variant_quantity" class="form-label">Số lượng</label>
+                                    <input class="form-control" type="number" id="variant_quantity" name="variant_quantity[]"
+                                        placeholder="Số lượng" required />
+                                </div>
+                                
+                            </div>
+                            <!-- Khu vực chứa các biến thể -->
+                            <div id="variantContainer"></div>
+                            <!-- Nút Thêm biến thể -->
+                            <div class="mb-3">
+                                    <button class="btn btn-info" type="button" id="addVariant">Thêm biến thể</button>
+                                </div>
+                            <button class="btn btn-primary" type="submit" name="btn_insert">Thêm sản phẩm</button>
+                        </form>
+
+                    </div>
+
+
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
@@ -533,9 +627,12 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
+            <!-- <footer class="footer text-center">
                 All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
+            </footer> -->
+            <?php
+            require_once 'layout/footer.php';
+            ?>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -566,6 +663,33 @@
     <!-- this page js -->
     <script src="assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
     <script src="assets/libs/magnific-popup/meg.init.js"></script>
+    <script>
+        document.getElementById('addVariant').addEventListener('click', function () {
+            var variantContainer = document.getElementById('variantContainer');
+            var newVariant = document.createElement('div');
+            newVariant.classList.add('variant-section', 'border', 'p-4', 'rounded', 'mb-4');
+
+            newVariant.innerHTML = `
+            <h5 class="mb-3 text-primary">Biến thể sản phẩm</h5>
+            <div class="mb-3">
+                <label for="variant_color" class="form-label">Màu sắc</label>
+                <select class="form-select" name="variant_color[]">
+                    <?php
+                    foreach ($variant as $key => $value) {
+                        echo '<option value="' . $value['id_variant'] . '">' . $value['name_color'] . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="variant_quantity" class="form-label">Số lượng</label>
+                <input class="form-control" type="number" name="variant_quantity[]" placeholder="Số lượng" required />
+            </div>
+        `;
+
+            variantContainer.appendChild(newVariant);
+        });
+    </script>
 </body>
 
 </html>
