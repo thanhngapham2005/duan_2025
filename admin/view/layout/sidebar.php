@@ -24,10 +24,10 @@
                         href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
                             class="hide-menu">Biến thể </span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="?act=listVariant" class="sidebar-link"><i
+                        <li class="sidebar-item"><a href="?act=listvariant" class="sidebar-link"><i
                                     class="mdi mdi-emoticon"></i><span class="hide-menu"> Danh sách biến thể
                                 </span></a></li>
-                        <li class="sidebar-item"><a href="?act=addVariant" class="sidebar-link"><i
+                        <li class="sidebar-item"><a href="?act=addvariant" class="sidebar-link"><i
                                     class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Thêm biến thể mới
                                 </span></a></li>
                     </ul>
