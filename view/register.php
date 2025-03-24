@@ -1,5 +1,11 @@
-<?php require_once 'layout/header.php'; ?>
-<?php include 'layout/head.php'; ?>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+require_once 'layout/header.php';
+require_once 'layout/head.php';
+
+?>
 <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -45,7 +51,16 @@
                             <input type="password" class="form-control" id="confirm_password" name="confirm_password"
                                 required>
                         </div>
-
+                        <?php
+                        if (isset($_SESSION['success_message'])) {
+                            echo "<script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    alert('" . $_SESSION['success_message'] . "');
+                                });
+                            </script>";
+                            unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
+                        }
+                        ?>
                         <button type="submit" name="submit" class="btn btn-success">Đăng ký</button>
                         <a href="?act=login" class="btn btn-link">Đã có tài khoản? Đăng nhập ngay</a>
                     </form>
