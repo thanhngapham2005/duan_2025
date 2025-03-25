@@ -2,9 +2,9 @@
 
 require_once 'layout/css.php';
 
-if(is_array($stmt)){
-    extract($stmt);
-}
+// if(is_array($stmt)){
+//     extract($stmt);
+// }
 
 ?>
 

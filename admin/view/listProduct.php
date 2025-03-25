@@ -731,7 +731,7 @@
                                         <?php foreach ($products as $key => $value) { ?>
                                             <tr>
                                                 <td><?= $value['id_product'] ?></td>
-                                                <td><img src="../assets/images/<?= $value['img_product'] ?>" class="img-fluid rounded" alt="" width="80px" height="80px" /></td>
+                                                <td><img src="assets/images/<?= $value['img_product'] ?>" class="img-fluid rounded" alt="" width="80px" height="80px" /></td>
                                                 <td><?= $value['name'] ?></td>
                                                 <td><?= $value['firms'] ?></td>
                                                 <td><?= number_format($value['price']) ?>đ</td>
@@ -744,7 +744,7 @@
                                                 <td>
                                                     <a class="btn btn-info btn-sm" href="?act=listProduct_variant&id=<?= $value['id_product'] ?>">Biến thể</a>
                                                     <a class="btn btn-primary btn-sm" href="?act=updateProduct&id=<?= $value['id_product'] ?>">Sửa</a>
-                                                    <a class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không?')" href="?act=deleteProduct&id=<?= $value['id_product'] ?>">Xóa</a>
+                                                    <!-- <a class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không?')" href="?act=deleteProduct&id=<?= $value['id_product'] ?>">Xóa</a> -->
                                                 </td>
                                             </tr>
                                         <?php } ?>
