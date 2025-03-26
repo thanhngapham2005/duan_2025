@@ -708,8 +708,31 @@
                         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                             <h4 class="mb-0">Bảng sản phẩm</h4>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                    <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <form method="GET" class="mb-4">
+                                            <input type="hidden" name="act" value="listProduct">
+                                            <div class="form-group d-flex align-items-center">
+                                                <label for="category" class="me-2">Lọc theo danh mục:</label>
+                                                <select id="category" name="category" class="form-select w-auto me-3">
+                                                    <option value="">Tất cả</option>
+                                                    <?php
+                                                    foreach ($category as $cat) {
+                                                        ?>
+                                                        <option value="<?= $cat['id_category'] ?>" <?= isset($_GET['category']) && $_GET['category'] == $cat['id_category'] ? 'selected' : '' ?>>
+                                                            <?= $cat['name_cat'] ?>
+                                                        </option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <button type="submit" class="btn btn-primary">Lọc</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="thead-dark">
                                         <tr>
