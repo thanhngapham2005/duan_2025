@@ -7,6 +7,8 @@ require_once __DIR__ . '/controller/trangchu.php';
 require_once __DIR__ . '/model/userModel.php';
 require_once __DIR__ . '/model/categoriesModel.php';
 require_once __DIR__ . '/controller/categoriesController.php';
+require_once __DIR__ . '/controller/billcontroller.php';
+require_once __DIR__ . '/model/billmodel.php';
 // abcgit add
 $act = $_GET['act'] ?? '/';
 $id_user = $_GET['id_user'] ?? null;
@@ -20,7 +22,9 @@ match ($act) {
     'addCategories' => (new categoriesController())->insert(),
     'listCategories' => (new categoriesController())->listcategories(),
     'deleteCategories' =>(new categoriesController())->delete($id_category),
-     'updateCategories' =>(new categoriesController())->update($id_category),
+    'updateCategories' =>(new categoriesController())->update($id_category),
+    'listBill' =>(new billController())->listBill(),
+    'updateBill' =>(new billController())->updateBill($_GET['id']),
 
     default => throw new Exception("No matching action found for '$act'"),
 };

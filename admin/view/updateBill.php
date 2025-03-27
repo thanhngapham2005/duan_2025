@@ -1,15 +1,3 @@
-<?php
-
-require_once 'layout/css.php';
-require_once 'layout/css.php';
-
-if(is_array($stmt)){
-    extract($stmt);
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -24,9 +12,8 @@ if(is_array($stmt)){
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
-    <!-- <link href="assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
-    <link href="assets/libs/jquery-steps/steps.css" rel="stylesheet"> -->
     <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="assets/libs/toastr/build/toastr.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -234,9 +221,9 @@ if(is_array($stmt)){
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar" data-sidebarbg="skin5">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
+        <!-- <aside class="left-sidebar" data-sidebarbg="skin5">
+            Sidebar scroll-->
+            <!-- <div class="scroll-sidebar"> -->
                 <!-- Sidebar navigation-->
                 <!-- <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
@@ -284,13 +271,13 @@ if(is_array($stmt)){
                         </li>
                     </ul>
                 </nav> -->
-                <?php
-                require_once 'layout/sidebar.php';
-                ?>
                 <!-- End Sidebar navigation -->
-            </div>
+            <!-- </div> -->
             <!-- End Sidebar scroll-->
-        </aside>
+        <!-- </aside> -->
+         <?php
+         require_once 'layout/sidebar.php'
+         ?>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -301,21 +288,21 @@ if(is_array($stmt)){
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            <!-- <div class="page-breadcrumb">
+            <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Form Wizard</h4>
+                        <h4 class="page-title">Don hang</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Don hang</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -326,100 +313,90 @@ if(is_array($stmt)){
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <!-- <div class="card">
-                    <div class="card-body wizard-content">
-                        <h4 class="card-title">Basic Form Example</h4>
-                        <h6 class="card-subtitle"></h6>
-                        <form id="example-form" action="#" class="m-t-40">
-                            <div>
-                                <h3>Account</h3>
-                                <section>
-                                    <label for="userName">User name *</label>
-                                    <input id="userName" name="userName" type="text" class="required form-control">
-                                    <label for="password">Password *</label>
-                                    <input id="password" name="password" type="text" class="required form-control">
-                                    <label for="confirm">Confirm Password *</label>
-                                    <input id="confirm" name="confirm" type="text" class="required form-control">
-                                    <p>(*) Mandatory</p>
-                                </section>
-                                <h3>Profile</h3>
-                                <section>
-                                    <label for="name">First name *</label>
-                                    <input id="name" name="name" type="text" class="required form-control">
-                                    <label for="surname">Last name *</label>
-                                    <input id="surname" name="surname" type="text" class="required form-control">
-                                    <label for="email">Email *</label>
-                                    <input id="email" name="email" type="text" class="required email form-control">
-                                    <label for="address">Address</label>
-                                    <input id="address" name="address" type="text" class=" form-control">
-                                    <p>(*) Mandatory</p>
-                                </section>
-                                <h3>Hints</h3>
-                                <section>
-                                    <ul>
-                                        <li>Foo</li>
-                                        <li>Bar</li>
-                                        <li>Foobar</li>
-                                    </ul>
-                                </section>
-                                <h3>Finish</h3>
-                                <section>
-                                    <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required">
-                                    <label for="acceptTerms">I agree with the Terms and Conditions.</label>
-                                </section>
-                            </div>
-                        </form>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Chi tiet don hang</h1>
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Thong tin san pham trong don hang</h6>
                     </div>
-                </div> -->
-                <!-- code chức năng -->
-                <h1 class="h3 mb-2 text-gray-800">CẬP NHẬT BIẾN THỂ</h1>
-<div class="card shadow mb-4">
-    <div class="card-body">
-        <div class="table-responsive">
-            <form action="" method="POST" onsubmit="return validate()">
-                <div class="input">
-                    Mã bien the <br>
-                    <input type="text" name="maloai" disabled id="maloai" value="<?= htmlspecialchars($id_category) ?>">
-                </div>
-                <div class="input">
-                    Tên bien the <br>
-                    <input type="text" name="tenloai" id="tenloai" value="<?= htmlspecialchars($name_cat) ?>">
-                    <br>
-                    <p style="color: red;" id="loitl"></p>
-                    <br>
-                </div>
-                <div style="margin-top: 20px;" class="input">
-                    <input class="btn btn-primary" type="submit" name="themmoi" value="CẬP NHẬT">
-                    <a href="index.php?act=listCategories">
-                        <input type="button" class="btn btn-success" value="DANH SÁCH">
-                    </a>
-                </div>
-                <?php
-                if (!empty($thongbao)) {
-                    echo "<p style='color: green;'>$thongbao</p>";
-                }
-                ?>
-            </form>
-        </div>
-    </div>
-</div>
+                    <div class="card-body">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Thong tin san pham trong don hang</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Anh</th>
+                                                <th>Ten san pham</th>
+                                                <th>Mau sac</th>
+                                                <th>Gia</th>
+                                                <th>So luong</th>
+                                                <th>Tong tien</th>
+                                            </tr>
 
-<script>
-    function validate() {
-        var tenloai = document.getElementById("tenloai").value.trim();
-        var loiTl = document.getElementById("loitl");
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                            $total = 0;
+                            foreach ($oneBill as $index => $item):
+                                $itemTotal = $item['price'] * $item['quantity'];
+                                $total += $itemTotal;
+                            ?>
+                                <tr>
+                                    <td><img src="../assets/img<?= ['img_product'] ?>" alt="" width="100px"></td>
+                                    <td><?= $item['name_product'] ?></td>
+                                    <td><?= $item['name_color'] ?></td>
+                                    <td><?= number_format($item['price']) ?></td>
+                                    <td><?= $item['quantity'] ?></td>
+                                    <td><?= number_format($item['price']) * $item['quantity'] ?>đ</td>
+                                </tr>
+                            <?php endforeach ?>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="5" class="text-right">Tổng tiền</td>
+                                                <td><?= number_format($total) ?>đ</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Cap nhat trang thai don hang</h6>
+                                </div>
+                                <div class="card-body">
+                                    <form action="" method="post">
+                                        <label for="status" class="form-label">Trang thai</label>
+                                        <select name="status" id="status" class="form-select">
+                                        <?php foreach ($statusDescription as $key => $value): ?>
+                            <?php if ($key >= $status): ?>
+                                <option value="<?= $key ?>" <?= $key == $status ? 'selected' : '' ?>>
+                                    <?= $value ?>
+                                </option>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
 
-        if (tenloai === "") {
-            loiTl.innerHTML = "Tên loại không được để trống";
-            return false;
-        } else {
-            loiTl.innerHTML = ""; // Xóa thông báo lỗi khi hợp lệ
-            return true;
-        }
-    }
-</script>
-
+                                        </select>
+                                        </div>
+                                        <button type="submit" name="btn_update" class="btn btn-primary mt-3">Cap nhat</button>
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
                 </div>
+                
+              
+                 <!-- ============================================================== -->
+                <!-- Sales Cards  -->
+                <!-- ============================================================== -->
+                
+                
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -442,6 +419,7 @@ if(is_array($stmt)){
             </footer> -->
             <?php
             require_once 'layout/footer.php';
+            require_once 'layout/scripts.php';
             ?>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -471,37 +449,29 @@ if(is_array($stmt)){
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
     <!-- this page js -->
-    <script src="assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
-    <script src="assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="assets/libs/toastr/build/toastr.min.js"></script>
     <script>
-        // Basic Example with form
-    var form = $("#example-form");
-    form.validate({
-        errorPlacement: function errorPlacement(error, element) { element.before(error); },
-        rules: {
-            confirm: {
-                equalTo: "#password"
-            }
-        }
-    });
-     form.children("div").steps({
-        headerTag: "h3",
-        bodyTag: "section",
-        transitionEffect: "slideLeft",
-        onStepChanging: function(event, currentIndex, newIndex) {
-            form.validate().settings.ignore = ":disabled,:hidden";
-            return form.valid();
-        },
-        onFinishing: function(event, currentIndex) {
-            form.validate().settings.ignore = ":disabled";
-            return form.valid();
-        },
-        onFinished: function(event, currentIndex) {
-            alert("Submitted!");
-        }
-    });
+        $(function(){
+            // Success Type
+            $('#ts-success').on('click', function() {
+                toastr.success('Have fun storming the castle!', 'Miracle Max Says');
+            });
 
+            // Success Type
+            $('#ts-info').on('click', function() {
+                toastr.info('We do have the Kapua suite available.', 'Turtle Bay Resort');
+            });
 
+            // Success Type
+            $('#ts-warning').on('click', function() {
+                toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!');
+            });
+
+            // Success Type
+            $('#ts-error').on('click', function() {
+                toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
+            });
+        });
     </script>
 </body>
 
