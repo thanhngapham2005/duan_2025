@@ -44,7 +44,8 @@ class ProfileController
 
         if ($updateSuccess) {
             $_SESSION['user']['fullname'] = $fullname;
-            header('Location: ?act=profile');
+            $_SESSION['success_message'] = "Cập nhật hồ sơ thành công!";
+            header('Location: ./');
             exit;
         } else {
             echo "Cap nhat thong tin that bai";

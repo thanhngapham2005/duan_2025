@@ -19,15 +19,24 @@ class UserController
 
     public function insertUser()
     {
-        $email = $_POST['email'];
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $email = $_POST['email'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $userModel = new UserModel();
-        $userModel->insertUser($email, $password);
+            $userModel = new UserModel();
+            $result = $userModel->insertUser($email, $password);
 
-        header("Location: index.php?act=listUser");
-        exit();
+            if ($result) {
+                $_SESSION['success_message'] = "Đăng ký thành công! Đang chuyển hướng...";
+            } else {
+                $_SESSION['error_message'] = "Đăng ký thất bại! Vui lòng thử lại.";
+            }
+
+            header("Location: index.php?act=listUser");
+            exit();
+        }
     }
+
 
     public function deleteUser($id_user)
     {
@@ -62,14 +71,11 @@ class UserController
 
     public function updateUser($id_user)
     {
-        $email = $_POST['email'];
-        $full_name = $_POST['full_name'];
-        $phone = $_POST['phone'];
-        $address = $_POST['address'];
+
         $role = $_POST['role'];
 
         $userModel = new UserModel();
-        $userModel->updateUser($id_user, $email, $full_name, $phone, $address, $role);
+        $userModel->updateUser($id_user, $role);
 
         header("Location: index.php?act=listUser");
         exit();

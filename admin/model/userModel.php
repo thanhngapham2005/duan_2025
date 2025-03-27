@@ -15,13 +15,33 @@ class UserModel
 
     public function insertUser($email, $password)
     {
-        $conn = connDBAss();
-        $query = "INSERT INTO users (email, password, role) VALUES (:email, :password, 0)";
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
-        $stmt->execute();
+        try {
+            $conn = connDBAss();
+            $conn->beginTransaction();
+
+            // Thêm user vào bảng users
+            $stmt = $conn->prepare("INSERT INTO users (email, password, role) VALUES (:email, :password, 0)");
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password', $password);
+            $stmt->execute();
+
+            // Lấy ID của user vừa tạo
+            $userId = $conn->lastInsertId();
+
+            // Thêm user vào bảng customers (để fullname, address, phone rỗng)
+            $stmt = $conn->prepare("INSERT INTO customers (id_user, full_name, address, phone) VALUES (:id_user, '', '', '')");
+            $stmt->bindParam(':id_user', $userId);
+            $stmt->execute();
+
+            $conn->commit();
+            return true;
+        } catch (PDOException $e) {
+            $conn->rollBack();
+            return false;
+        }
     }
+
+
 
     public function deleteUser($id)
     {
@@ -72,7 +92,7 @@ class UserModel
     }
 
 
-    public function updateUser($id, $email, $full_name, $phone, $address, $role)
+    public function updateUser($id, $role)
     {
         $conn = connDBAss();
 
@@ -84,25 +104,12 @@ class UserModel
 
         // Cập nhật bảng users
         $query = "UPDATE users 
-              SET email = :email, role = :role 
+              SET role = :role 
               WHERE id_user = :id";
 
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(':email', $email);
         $stmt->bindParam(':role', $role, PDO::PARAM_INT);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-
-        // Cập nhật bảng customers
-        $query_customer = "UPDATE customers 
-                       SET full_name = :full_name, phone = :phone, address = :address 
-                       WHERE id_user = :id";
-
-        $stmt_customer = $conn->prepare($query_customer);
-        $stmt_customer->bindParam(':full_name', $full_name);
-        $stmt_customer->bindParam(':phone', $phone);
-        $stmt_customer->bindParam(':address', $address);
-        $stmt_customer->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt_customer->execute();
     }
 }

@@ -40,22 +40,24 @@ function checkEmailExists($email)
 
 function registerUser($fullname, $email, $password)
 {
-
     try {
         $conn = connDBAss();
         $conn->beginTransaction();
 
         $stmt = $conn->prepare("INSERT INTO users (email, password, role) VALUES (?, ?, 0)");
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
         $stmt->execute([$email, $hashedPassword]);
         $userId = $conn->lastInsertId();
 
-        $stmt = $conn->prepare("INSERT INTO customers (id_user, full_name, address, phone)
-     VALUES (?, ?, '','' )");
+        $stmt = $conn->prepare("INSERT INTO customers (id_user, full_name, address, phone) VALUES (?, ?, '', '')");
         $stmt->execute([$userId, $fullname]);
+
         $conn->commit();
-        return true;
+
+        // ✅ Lưu thông báo vào SESSION và chuyển hướng
+        $_SESSION['success_message'] = "Đăng ký thành công!";
+        header("Location: ?act=login"); // Quay lại trang đăng ký để hiển thị thông báo
+        exit;
     } catch (PDOException $e) {
         if ($conn) {
             $conn->rollBack();
@@ -64,13 +66,14 @@ function registerUser($fullname, $email, $password)
     }
 }
 
-function updateUserProfile($userId, $fullname, $address, $phone, $password = null)
+
+function updateUserProfile($userId, $fullname, $phone, $address, $password = null)
 {
     try {
         $conn = connDBAss();
         $stmt = $conn->prepare("UPDATE customers SET full_name = ?,
-         address = ?, phone = ? WHERE id_user = ?");
-        $stmt->execute([$fullname, $address, $phone, $userId]);
+        phone = ?, address = ? WHERE id_user = ?");
+        $stmt->execute([$fullname, $phone, $address, $userId]);
         if (!empty($password)) {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $conn->prepare("UPDATE users SET password = ? WHERE id_user = ?");
@@ -87,7 +90,7 @@ function getUserProfile($email)
 {
     try {
         $conn = connDBAss();
-        $sql = "SELECT u.id_user, u.email, c.full_name, c.address, c.phone 
+        $sql = "SELECT u.email, u.password, c.full_name, c.phone, c.address 
                 FROM users u
                 JOIN customers c ON u.id_user = c.id_user
                 WHERE u.email = :email";

@@ -5,6 +5,11 @@ if (isset($_SESSION['Message'])) {
     unset($_SESSION['Message']);
     echo "<script>alert('$successMessage');</script>";
 }
+if (isset($_SESSION['success_message'])) {
+    echo "<div class='alert alert-success'>" . $_SESSION['success_message'] . "</div>";
+    unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
+}
+
 
 require_once 'controller/loginController.php';
 require_once 'controller/homeController.php';
@@ -23,7 +28,7 @@ match ($act) {
     'register' => (new RegisterController())->register(),
     'logout' => (new LogoutController())->logout(),
     'profile' => (new ProfileController())->profile(),
-    'update-profile' => (new ProfileController())->updateProfile(),
+    'updateProfile' => (new ProfileController())->updateProfile(),
     // 'order' => (new OrderController())->order(),
     default => (new HomeController())->home(),
 };
