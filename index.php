@@ -11,6 +11,7 @@ if (isset($_SESSION['success_message'])) {
 }
 
 require_once 'controller/shopController.php';
+require_once 'controller/cartController.php';
 require_once 'controller/loginController.php';
 require_once 'controller/homeController.php';
 require_once 'controller/registerController.php';
@@ -31,7 +32,7 @@ match ($act) {
     'logout' => (new LogoutController())->logout(),
     'profile' => (new ProfileController())->profile(),
     'updateProfile' => (new ProfileController())->updateProfile(),
-    'shop' => (new shopController())->showShop(),
+    'shop' => (new shopController())->allProduct(),
     'shop_cat' => (new shopController())->cat_pro($_GET['id']),
     // 'order' => (new OrderController())->order(),
     default => (new HomeController())->home(),

@@ -3,23 +3,35 @@ require_once __DIR__ . '/../model/shopModel.php'; // Đảm bảo đường dẫ
 
 class ShopController
 {
-    private $model;
+    public $shopModel;
 
     public function __construct()
     {
-        $this->model = new shopModel();
+        $this->shopModel = new shopModel();
     }
 
-    public function showShop()
+    function allProduct() {
+        if (isset($_POST['search']) && !empty($_POST['search'])) {
+            $search = $_POST['search']; // Lấy dữ liệu tìm kiếm từ form
+            // Gọi phương thức tìm kiếm sản phẩm trong model
+            $product = $this->shopModel->searchProducts($search); 
+        } else {
+            $product = $this->shopModel->allProduct(); // Lấy tất cả sản phẩm nếu không tìm kiếm
+        }
+        $category = $this->shopModel->allCategory();
+        require_once 'view/shop.php';
+    }
+    function cat_pro($id)
     {
-        $category = $this->model->allCategory(); // Lấy danh mục từ model
-        // var_dump($category); // Kiểm tra dữ liệu
-        // die();
-        require_once __DIR__ . '/../view/shop.php';
+        if (isset($_POST['search'])) {
+            $product = $this->shopModel->searchProducts($_POST['search']);
+        } else {
+            $product = $this->shopModel->cat_pro($id);
+        }
+        $category = $this->shopModel->allCategory();
+        require_once 'view/shop.php';
     }
     
 }
 
-// Khởi tạo controller và gọi hàm hiển thị
-$shopController = new ShopController();
-$shopController->showShop();
+

@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../commoms/function.php';
 class shopModel{
 
     public $conn;
