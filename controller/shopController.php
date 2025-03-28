@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/shopModel.php'; // Đảm bảo đường dẫn chính xác
+require_once __DIR__ . '/../model/shopModel.php'; // Đảm bảo đường dẫn chính xác  
 
 class ShopController
 {
@@ -13,13 +13,6 @@ class ShopController
     public function showShop()
     {
         $category = $this->model->allCategory(); // Lấy danh mục từ model
-        // var_dump($category); // Kiểm tra dữ liệu
-        // die();
-        require_once __DIR__ . '/../view/shop.php';
+        require_once 'view/shop.php'; // ✅ Chỉ gọi khi được gọi từ index.php
     }
-    
 }
-
-// Khởi tạo controller và gọi hàm hiển thị
-$shopController = new ShopController();
-$shopController->showShop();
