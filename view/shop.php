@@ -19,7 +19,8 @@ include 'layout/head.php';
     <!-- Close Header -->
 
     <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="w-100 pt-1 mb-5 text-right">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -60,20 +61,22 @@ include 'layout/head.php';
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                           <?php
-                           
-                            foreach ($category as $value){
-                            ?>
-                            <li><a class="text-decoration-none" href="?act=shop_cat&id=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a></li>
                             <?php
-                           }
-                           ?>
-                           
+
+                            foreach ($category as $value) {
+                            ?>
+                            <li><a class="text-decoration-none"
+                                    href="?act=shop_cat&id=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a>
+                            </li>
+                            <?php
+                            }
+                            ?>
+
                         </ul>
                     </li>
                 </ul>
             </div>
-                    <!-- <li class="pb-3">
+            <!-- <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
                             Product
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
@@ -90,9 +93,9 @@ include 'layout/head.php';
             <div class="col-lg-9">
                 <div class="row">
                     <div class="col-md-6">
-                       <h2>Tat ca san pham</h2>
+                        <h2>Tat ca san pham</h2>
                     </div>
-                        
+
                     <div class="col-md-6 pb-4">
                         <div class="d-flex">
                             <select class="form-control">
@@ -108,55 +111,57 @@ include 'layout/head.php';
                         <?php
                         if (!empty($product)) {
                             foreach ($product as $key => $value) {
-                        
+
                         ?>
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="assets/img/<?= $value['img_product'] ?>">
-                                <div  class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <img class="card-img rounded-0 img-fluid"
+                                    src="./assets/img/<?= $value['img_product'] ?>">
+                                <div
+                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white mt-2" href="?act=shop_single&id=<?= $value['id_product'] ?>"><i
-                                        class="far fa-eye">
-                                            
-                                        </i></a></li>
                                         <li><a class="btn btn-success text-white mt-2"
-                                                href="index.php?act=cart"><i
+                                                href="?act=shop_single&id=<?= $value['id_product'] ?>"><i
+                                                    class="far fa-eye">
+
+                                                </i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="index.php?act=cart"><i
                                                     class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
-                    </div>
-                   
-                   
-                    
-                    
-                 
-                    
-                            
-                            <div class="card-body">
-                                <a href="?act=shop_single" class="h3 text-decoration-none"><?= $value['name'] ?></a>
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                    
-                                    
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0"><?= number_format($value['price']) ?>đ</p>
-                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="card-body">
+                            <a href="?act=shop_single" class="h3 text-decoration-none"><?= $value['name'] ?></a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+
+
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0"><?= number_format($value['price']) ?>đ</p>
                         </div>
                     </div>
-                    <?php
+                </div>
+                <?php
                             }
-                        }else{ ?>
-                            <p class="text-center">Không có sản phẩm.</p>
-                       <?php } ?>
+                        } else { ?>
+                <p class="text-center">Không có sản phẩm.</p>
+                <?php } ?>
             </div>
-                    <!-- <div class="col-md-4">
+            <!-- <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" src="assets/img/shop_08.jpg">
@@ -231,7 +236,7 @@ include 'layout/head.php';
                         </div>
                     </div>
                 </div> -->
-                <!-- <div div="row">
+            <!-- <div div="row">
                     <ul class="pagination pagination-lg justify-content-end">
                         <li class="page-item disabled">
                             <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
@@ -244,10 +249,10 @@ include 'layout/head.php';
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
 
         </div>
-    </div> -->
+    </div>
     <!-- End Content -->
 
     <!-- Start Brands -->
@@ -263,22 +268,22 @@ include 'layout/head.php';
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row"> -->
-                        <!--Controls-->
-                        <!-- <div class="col-1 align-self-center">
+    <!--Controls-->
+    <!-- <div class="col-1 align-self-center">
                             <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev">
                                 <i class="text-light fas fa-chevron-left"></i>
                             </a>
                         </div> -->
-                        <!--End Controls-->
+    <!--End Controls-->
 
-                        <!--Carousel Wrapper-->
-                        <!-- <div class="col">
+    <!--Carousel Wrapper-->
+    <!-- <div class="col">
                             <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example" data-bs-ride="carousel">
                                 <Slides-->
-                                <!-- <div class="carousel-inner product-links-wap" role="listbox"> -->
+    <!-- <div class="carousel-inner product-links-wap" role="listbox"> -->
 
-                                    <!--First slide-->
-                                    <!-- <div class="carousel-item active">
+    <!--First slide-->
+    <!-- <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
@@ -294,10 +299,10 @@ include 'layout/head.php';
                                             </div>
                                         </div>
                                     </div> -->
-                                    <!--End First slide-->
+    <!--End First slide-->
 
-                                    <!--Second slide-->
-                                    <!-- <div class="carousel-item">
+    <!--Second slide-->
+    <!-- <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
@@ -313,10 +318,10 @@ include 'layout/head.php';
                                             </div>
                                         </div>
                                     </div> -->
-                                    <!--End Second slide-->
+    <!--End Second slide-->
 
-                                    <!--Third slide-->
-                                    <!-- <div class="carousel-item">
+    <!--Third slide-->
+    <!-- <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
                                                 <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
@@ -332,22 +337,22 @@ include 'layout/head.php';
                                             </div>
                                         </div>
                                     </div> -->
-                                    <!--End Third slide-->
+    <!--End Third slide-->
 
-                                <!-- </div> -->
-                                <!--End Slides-->
-                            <!-- </div>
+    <!-- </div> -->
+    <!--End Slides-->
+    <!-- </div>
                         </div> -->
-                        <!--End Carousel Wrapper-->
+    <!--End Carousel Wrapper-->
 
-                        <!--Controls-->
-                        <!-- <div class="col-1 align-self-center">
+    <!--Controls-->
+    <!-- <div class="col-1 align-self-center">
                             <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
                                 <i class="text-light fas fa-chevron-right"></i>
                             </a>
                         </div> -->
-                        <!--End Controls-->
-                    <!-- </div>
+    <!--End Controls-->
+    <!-- </div>
                 </div>
             </div>
         </div>
@@ -356,12 +361,12 @@ include 'layout/head.php';
 
 
     <!-- Start Footer -->
-     <?php
+    <?php
     require_once 'layout/scripts.php';
     require_once 'layout/footer.php'
     ?>
     <!-- End Footer -->
 
     <!-- Start Script -->
-    
+
     <!-- End Script -->

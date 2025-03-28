@@ -32,7 +32,7 @@ match ($act) {
     'profile' => (new ProfileController())->profile(),
     'updateProfile' => (new ProfileController())->updateProfile(),
     'shop' => (new shopController())->showShop(),
-    'shop_cat' => (new shopController())->cat_pro($_GET['id']),
+    // 'shop_cat' => (new shopController())->cat_pro($_GET['id']),
     // 'order' => (new OrderController())->order(),
     default => (new HomeController())->home(),
 };
