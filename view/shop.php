@@ -59,21 +59,31 @@ include 'layout/head.php';
                             Danh mục sản phẩm
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
-                        <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                           <?php
-                           
-                            foreach ($category as $value){
-                            ?>
-                            <li><a class="text-decoration-none" href="?act=shop_cat&id=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a></li>
-                            <?php
-                           }
-                           ?>
-                           
+                        <ul  class="list-unstyled">
+                            <?php foreach ($category as $cat) : ?>
+                                <li>
+                                    <a href="?id_category=<?= $cat['id_category'] ?>"><?= $cat['name_cat'] ?></a>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
+
                     </li>
                 </ul>
             </div>
-                    
+                    <!-- <li class="pb-3">
+                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                            Product
+                            <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul id="collapseThree" class="collapse list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="#">Bag</a></li>
+                            <li><a class="text-decoration-none" href="#">Sweather</a></li>
+                            <li><a class="text-decoration-none" href="#">Sunglass</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div> -->
+
             <div class="col-lg-9">
                 <div class="row">
                     <div class="col-md-6">
@@ -91,57 +101,241 @@ include 'layout/head.php';
                     </div>
                 </div>
                 <div class="row">
+                    <?php
+                    if (!empty($product)) {
+                        foreach ($product as $value) {
+                    ?>
                     <div class="col-md-4">
-                        <?php
-                        if (!empty($product)) {
-                            foreach ($product as $key => $value) {
-                        
-                        ?>
                         <div class="card mb-4 product-wap rounded-0">
                             <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="assets/img/<?= $value['img_product'] ?>">
-                                <div  class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <img class="card-img rounded-0 img-fluid" src="admin/assets/images/<?= $value['img_product'] ?>">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white mt-2" href="?act=shop_single&id=<?= $value['id_product'] ?>"><i
-                                        class="far fa-eye">
-                                            
-                                        </i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2"
-                                                href="index.php?act=cart"><i
-                                                    class="fas fa-cart-plus"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="?act=shop_single&id=<?= $value['id_product'] ?>">
+                                            <i class="far fa-eye"></i></a>
+                                        </li>
+                                        <li><a class="btn btn-success text-white mt-2" href="index.php?act=cart">
+                                            <i class="fas fa-cart-plus"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="?act=shop_single" class="h3 text-decoration-none"><?= $value['name'] ?></a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0"><?= number_format($value['price']) ?>đ</p>
+                            <div class="card-body">
+                                <a href="?act=shop_single&id=<?= $value['id_product'] ?>" class="h3 text-decoration-none"><?= $value['name'] ?></a>
+                                <p class="text-center mb-0"><?= number_format($value['price']) ?>đ</p>
+                            </div>
                         </div>
                     </div>
+                    <?php
+                        }
+                    } else {
+                        echo "<p class='text-center'>Không có sản phẩm nào.</p>";
+                    }
+                    ?>
                 </div>
-                <?php
-                }
-                }else{ ?>
-                    <p class="text-center">Không có sản phẩm.</p>
-                <?php } ?>
+
+            </div>
+                    <!-- <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/shop_08.jpg">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>M/L/X/XL</li>
+                                    <li class="pt-2">
+                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                    </li>
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/shop_09.jpg">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>M/L/X/XL</li>
+                                    <li class="pt-2">
+                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                    </li>
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div div="row">
+                    <ul class="pagination pagination-lg justify-content-end">
+                        <li class="page-item disabled">
+                            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+    <!-- End Content -->
+
+    <!-- Start Brands -->
+    <!-- <section class="bg-light py-5">
+        <div class="container my-4">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Our Brands</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        Lorem ipsum dolor sit amet.
+                    </p>
+                </div>
+                <div class="col-lg-9 m-auto tempaltemo-carousel">
+                    <div class="row d-flex flex-row"> -->
+                        <!--Controls-->
+                        <!-- <div class="col-1 align-self-center">
+                            <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev">
+                                <i class="text-light fas fa-chevron-left"></i>
+                            </a>
+                        </div> -->
+                        <!--End Controls-->
+
+                        <!--Carousel Wrapper-->
+                        <!-- <div class="col">
+                            <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example" data-bs-ride="carousel">
+                                <Slides-->
+                                <!-- <div class="carousel-inner product-links-wap" role="listbox"> -->
+
+                                    <!--First slide-->
+                                    <!-- <div class="carousel-item active">
+                                        <div class="row">
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!--End First slide-->
+
+                                    <!--Second slide-->
+                                    <!-- <div class="carousel-item">
+                                        <div class="row">
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!--End Second slide-->
+
+                                    <!--Third slide-->
+                                    <!-- <div class="carousel-item">
+                                        <div class="row">
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
+                                            </div>
+                                            <div class="col-3 p-md-5">
+                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!--End Third slide-->
+
+                                <!-- </div> -->
+                                <!--End Slides-->
+                            <!-- </div>
+                        </div> -->
+                        <!--End Carousel Wrapper-->
+
+                        <!--Controls-->
+                        <!-- <div class="col-1 align-self-center">
+                            <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
+                                <i class="text-light fas fa-chevron-right"></i>
+                            </a>
+                        </div> -->
+                        <!--End Controls-->
+                    <!-- </div>
+                </div>
             </div>
         </div>
-    
-    </div>
+    </section> -->
     <!--End Brands-->
 
 
     <!-- Start Footer -->
-    <?php
+     <?php
     require_once 'layout/scripts.php';
     require_once 'layout/footer.php'
     ?>
@@ -150,6 +344,6 @@ include 'layout/head.php';
     <!-- Start Script -->
     
     <!-- End Script -->
-</body>
+    </body>
 
 </html>

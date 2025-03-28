@@ -3,35 +3,28 @@ require_once __DIR__ . '/../model/shopModel.php'; // Đảm bảo đường dẫ
 
 class ShopController
 {
-    public $shopModel;
+    private $model;
 
     public function __construct()
     {
-        $this->shopModel = new shopModel();
+        $this->model = new shopModel();
     }
 
-    function allProduct() {
-        if (isset($_POST['search']) && !empty($_POST['search'])) {
-            $search = $_POST['search']; // Lấy dữ liệu tìm kiếm từ form
-            // Gọi phương thức tìm kiếm sản phẩm trong model
-            $product = $this->shopModel->searchProducts($search); 
-        } else {
-            $product = $this->shopModel->allProduct(); // Lấy tất cả sản phẩm nếu không tìm kiếm
-        }
-        $category = $this->shopModel->allCategory();
-        require_once 'view/shop.php';
-    }
-    function cat_pro($id)
+    public function showShop()
     {
-        if (isset($_POST['search'])) {
-            $product = $this->shopModel->searchProducts($_POST['search']);
-        } else {
-            $product = $this->shopModel->cat_pro($id);
-        }
-        $category = $this->shopModel->allCategory();
-        require_once 'view/shop.php';
+        $category = $this->model->allCategory();
+    
+    if (isset($_GET['id_category']) && is_numeric($_GET['id_category'])) {
+        $id_category = $_GET['id_category'];
+        $product = $this->model->cat_pro($id_category);
+    } else {
+        $product = $this->model->allProduct();
+    }
+
+        require_once __DIR__ . '/../view/shop.php';
     }
     
 }
 
-
+$shopController = new ShopController();
+$shopController->showShop();

@@ -1,15 +1,11 @@
 <?php
-require_once __DIR__ . '/../commoms/function.php';
-class shopModel{
-
+include_once __DIR__ . '/../commoms/function.php';
+class shopModel
+{
     public $conn;
     function __construct()
     {
         $this->conn = connDBAss();
-    }
-    function cat_pro($id) {
-        $sql="SELECT * FROM products WHERE id_category = $id";
-        return $this->conn->query($sql)->fetchAll();
     }
     function allCategory()
     {
@@ -23,12 +19,12 @@ class shopModel{
         $result = $this->conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-    function searchProducts($search) {
-        $sql = "SELECT * FROM products WHERE name LIKE :search";
+    function cat_pro($id) {
+        $sql = "SELECT * FROM products WHERE id_category = :id_category";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['search' => '%' . $search . '%']);
-        return $stmt->fetchAll();
+        $stmt->bindParam(':id_category', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); 
     }
     
 }
-
