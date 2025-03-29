@@ -1,3 +1,8 @@
+<?php
+// Xác định trang hiện tại dựa trên tham số 'act' trong URL
+$current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container d-flex justify-content-between align-items-center">
 
@@ -11,21 +16,25 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+        <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
             id="templatemo_main_nav">
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="./">Home</a>
+                        <a class="nav-link <?= ($current_page == 'home' || $current_page == '') ? 'active text-primary fw-bold' : '' ?>"
+                            href="./">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?act=about">About</a>
+                        <a class="nav-link <?= ($current_page == 'about') ? 'active text-primary fw-bold' : '' ?>"
+                            href="?act=about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?act=shop">Shop</a>
+                        <a class="nav-link <?= ($current_page == 'shop') ? 'active text-primary fw-bold' : '' ?>"
+                            href="?act=shop">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?act=contact">Contact</a>
+                        <a class="nav-link <?= ($current_page == 'contact') ? 'active text-primary fw-bold' : '' ?>"
+                            href="?act=contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -47,10 +56,9 @@
                     <span
                         class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                 </a>
-
                 <?php if (isset($_SESSION['user'])) : ?>
                 <div class="dropdown">
-                    <a href="" class="drop-toggle text-decoration-none" role="button" data-bs-toggle="dropdown">
+                    <a href="#" class="drop-toggle text-decoration-none" role="button" data-bs-toggle="dropdown">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         <?php echo isset($_SESSION['user']['customer_info']['full_name'])
                                 ? $_SESSION['user']['customer_info']['full_name']
@@ -70,7 +78,6 @@
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
                 </a>
                 <?php endif; ?>
-
             </div>
         </div>
 

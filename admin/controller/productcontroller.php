@@ -34,7 +34,7 @@ class productController
             $description = $_POST['description'];
             $img = $_FILES['img']['name'];
             $img_tmp = $_FILES['img']['tmp_name'];
-            $target_file = "assets/images/" . basename($img);
+            $target_file = "images/" . basename($img);
             move_uploaded_file($img_tmp, $target_file);
             $variants = [];
             if (isset($_POST['variant_color'])) {
@@ -76,13 +76,13 @@ class productController
             if (empty($_FILES['img']['name'])) {
                 $img = $oneProduct['img_product'];
             } else {
-                $old_image_path = "assets/images/" . $oneProduct['img_product'];
+                $old_image_path = "images/" . $oneProduct['img_product'];
                 if (!empty($oneProduct['img_product']) && file_exists($old_image_path)) {
                     unlink($old_image_path);
                 }
                 $img = $_FILES['img']['name'];
                 $img_tmp = $_FILES['img']['tmp_name'];
-                $target_file = "assets/images/" . basename($img);
+                $target_file = "images/" . basename($img);
                 move_uploaded_file($img_tmp, $target_file);
             }
 
@@ -99,7 +99,7 @@ class productController
     // function delete($id)
     // {
     //     $oneProduct = $this->productModel->findProductById($id);
-    //     $old_image_path = "assets/images/" . $oneProduct['img_product'];
+    //     $old_image_path = "images/" . $oneProduct['img_product'];
     //     if (!empty($oneProduct['img_product']) && file_exists($old_image_path)) {
     //         unlink($old_image_path);
     //     }

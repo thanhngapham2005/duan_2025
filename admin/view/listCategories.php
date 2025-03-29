@@ -11,13 +11,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/libs/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/libs/jquery-minicolors/jquery.minicolors.css">
-    <link rel="stylesheet" type="text/css" href="assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/libs/quill/dist/quill.snow.css">
+    <link rel="stylesheet" type="text/css" href="libs/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/jquery-minicolors/jquery.minicolors.css">
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/quill/dist/quill.snow.css">
     <link href="dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,21 +57,21 @@
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                            <img src="images/logo-icon.png" alt="homepage" class="light-logo" />
                            
                         </b>
                         <!--End Logo icon -->
                          <!-- Logo text -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
-                             <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                             <img src="images/logo-text.png" alt="homepage" class="light-logo" />
                             
                         </span>
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+                            <!-- <img src="images/logo-text.png" alt="homepage" class="light-logo" /> -->
                             
                         <!-- </b> -->
                         <!--End Logo icon -->
@@ -200,7 +200,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
@@ -907,13 +907,13 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="extra-libs/sparkline/sparkline.js"></script>
     <!--Wave Effects -->
     <script src="dist/js/waves.js"></script>
     <!--Menu sidebar -->
@@ -921,16 +921,16 @@
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
     <!-- This Page JS -->
-    <script src="assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+    <script src="libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
     <script src="dist/js/pages/mask/mask.init.js"></script>
-    <script src="assets/libs/select2/dist/js/select2.full.min.js"></script>
-    <script src="assets/libs/select2/dist/js/select2.min.js"></script>
-    <script src="assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
-    <script src="assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
-    <script src="assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
-    <script src="assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
-    <script src="assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="assets/libs/quill/dist/quill.min.js"></script>
+    <script src="libs/select2/dist/js/select2.full.min.js"></script>
+    <script src="libs/select2/dist/js/select2.min.js"></script>
+    <script src="libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
+    <script src="libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
+    <script src="libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
+    <script src="libs/jquery-minicolors/jquery.minicolors.min.js"></script>
+    <script src="libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="libs/quill/dist/quill.min.js"></script>
     <script>
         //***********************************//
         // For select 2
