@@ -13,7 +13,7 @@ require_once 'layout/css.php';
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
@@ -45,6 +45,7 @@ require_once 'layout/css.php';
         <?php
         require_once 'layout/sidebar.php';
         ?>
+
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -112,13 +113,12 @@ require_once 'layout/css.php';
                                     ?>
 
                                 </tbody>
-                            </table>
-                            <div class="input_button">
-                                <input type="button" onclick="selects()" class="btn btn-info" value="Chọn tất cả">
-                                <input type="button" onclick="deSelect()" class="btn btn-info" value="Bỏ chọn tất cả">
-                                <input type="button" value="Xoá các mục đã chọn" class="btn btn-danger">
-                                <a href="index.php?act=addvariant"><input type="button" class="btn btn-success"
-                                        value="Nhập thêm"></a>
+                                </table>
+                                    <div class="input_button">
+                                        <input type="button" onclick="selects()" class="btn btn-info" value="Chọn tất cả">
+                                        <input type="button" onclick="deSelect()" class="btn btn-info" value="Bỏ chọn tất cả">
+                                        <a href="index.php?act=addvariant"><input type="button" class="btn btn-success" value="Nhập thêm"></a>
+
 
                             </div>
                         </div>
@@ -182,7 +182,6 @@ require_once 'layout/css.php';
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-
 </body>
 
 </html>

@@ -15,8 +15,9 @@ require_once 'layout/header.php';
 <div class="container py-5">
     <div class="row">
 
+
         <div class="col-lg-3">
-            <h1 class="h2 pb-4">Danh mục</h1>
+            
             <ul class="list-unstyled templatemo-accordion">
                 <!-- <li class="pb-3">
                     <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
@@ -30,14 +31,14 @@ require_once 'layout/header.php';
                 </li> -->
                 <li class="pb-3">
                     <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                        Sản phẩm
+                        <h1 class="h2 pb-4">Danh mục</h1>
                         <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                     </a>
                     <ul id="collapseThree" class="collapse list-unstyled pl-3">
                         <?php foreach ($category as $key => $value) {
                         ?>
                         <li><a class="text-decoration-none"
-                                href="?act=shop_cat&id=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a></li>
+                                href="?act=shop&id_category=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a></li>
                         <?php
                         }
                         ?>
@@ -60,6 +61,7 @@ require_once 'layout/header.php';
                         </select>
                     </div>
                 </div>
+
             </div>
             <div class="row">
                 <?php
@@ -69,7 +71,7 @@ require_once 'layout/header.php';
                 <div class="col-md-4">
                     <div class="card mb-4 product-wap rounded-0">
                         <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/<?= $value['img_product'] ?>">
+                        <img class="card-img rounded-0 img-fluid w-100" style="height: 200px; object-fit: cover;" src="admin/images/<?= $value['img_product'] ?>">
                             <div
                                 class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
@@ -120,7 +122,9 @@ require_once 'layout/header.php';
 </div>
 <!-- End Content -->
 
+
 <?php
 require_once 'layout/scripts.php';
 require_once 'layout/footer.php'
 ?>
+
