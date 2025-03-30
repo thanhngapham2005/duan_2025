@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    #product-detail {
+    width: 400px;
+    height: 502px;
+    object-fit: contain;
+}
 
+</style>
 <?php
 require_once 'layout/head.php';
 ?>

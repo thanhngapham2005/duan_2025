@@ -64,7 +64,7 @@
                     ?>
                         <div class="col-12 col-md-4 mb-4">
                             <div class="card h-100">
-                                <a href="shop-single&id=<?= $value['id_product'] ?>">
+                                <a href="?act=shop_single&id=<?= $value['id_product'] ?>">
                                     <img src="admin/images/<?= $value['img_product'] ?>" class="card-img" alt="...">
                                 </a>
                                 <div class="card-body">
