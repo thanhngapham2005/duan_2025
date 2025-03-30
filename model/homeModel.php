@@ -8,7 +8,7 @@ class homeModel
     }
     function topProduct()
     {
-        $sql = "SELECT * FROM products ORDER BY view DESC LIMIT 8";
+        $sql = "SELECT * FROM products order by view desc limit 6";
         return $this->conn->query($sql)->fetchAll();
     }
 }

@@ -1,7 +1,14 @@
 <?php
 echo "<script>console.log('Shop view loaded');</script>";
 ?>
-
+<style>
+    .card-img {
+        aspect-ratio: 4 / 3;
+        object-fit: contain;
+        max-height: 250px;
+        width: 100%;
+    }
+</style>
 <?php
 require_once 'layout/head.php';
 require_once 'layout/topnav.php';
@@ -71,7 +78,7 @@ require_once 'layout/header.php';
                 <div class="col-md-4">
                     <div class="card mb-4 product-wap rounded-0">
                         <div class="card rounded-0">
-                        <img class="card-img rounded-0 img-fluid w-100" style="height: 200px; object-fit: cover;" src="admin/images/<?= $value['img_product'] ?>">
+                        <img class="card-img" src="admin/images/<?= $value['img_product'] ?>">
                             <div
                                 class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
