@@ -703,48 +703,32 @@
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->
                 <div class="container-fluid mt-4">
-                    <h1 class="h3 mb-2 text-gray-800">Danh sách sản phẩm</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Danh sách biến thể sản phẩm: <?= $product['name'] ?></h1>
                     <div class="card shadow mb-4">
                         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                            <h4 class="mb-0">Bảng sản phẩm</h4>
+                            <h4 class="mb-0">Bảng biến thể sản phẩm</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="thead-dark">
                                         <tr>
-                                            <th>Mã SP</th>
                                             <th>Ảnh</th>
-                                            <th>Tên</th>
-                                            <th>Hãng</th>
-                                            <th>Giá</th>
-                                            <th>Giảm giá</th>
+                                            <th>Biến thể màu</th>
                                             <th>Số lượng</th>
-                                            <th>Mô tả</th>
-                                            <th>Danh mục</th>
-                                            <th>Lượt xem</th>
-                                            <th>Trạng thái</th>
                                             <th>Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($products as $key => $value) { ?>
+                                        <?php foreach ($variants as $variant) { ?>
                                             <tr>
-                                                <td><?= $value['id_product'] ?></td>
-                                                <td><img src="assets/images/<?= $value['img_product'] ?>" class="img-fluid rounded" alt="" width="80px" height="80px" /></td>
-                                                <td><?= $value['name'] ?></td>
-                                                <td><?= $value['firms'] ?></td>
-                                                <td><?= number_format($value['price']) ?>đ</td>
-                                                <td><?= $value['discount'] ?>%</td>
-                                                <td><?= $value['amount'] ?></td>
-                                                <td style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> <?= $value['description'] ?></td>
-                                                <td><?= $value['name_cat'] ?></td>
-                                                <td><?= $value['view'] ?></td>
-                                                <td><?= ($value['censorship'] == 0) ? '<span class="badge badge-success">Đang hiện</span>' : '<span class="badge badge-danger">Đã ẩn</span>' ?></td>
+                                                <td><img src="assets/images/<?= $variant['img_product'] ?>" alt="" width="80px" height="100px">
+                                                </td>
+                                                <td><?= $variant['name_color'] ?></td>
+                                                <td><?= $variant['quantity'] ?></td>
                                                 <td>
-                                                    <a class="btn btn-info btn-sm" href="?act=listProduct_variant&id=<?= $value['id_product'] ?>">Biến thể</a>
-                                                    <a class="btn btn-primary btn-sm" href="?act=updateProduct&id=<?= $value['id_product'] ?>">Sửa</a>
-                                                    <!-- <a class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không?')" href="?act=deleteProduct&id=<?= $value['id_product'] ?>">Xóa</a> -->
+                                                    <a class="btn btn-primary btn-sm" href="?act=updateProduct_variant&id_pro=<?= $variant['id_variant'] ?>" role="button">Sửa</a>
+                                                    <a class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không?')" href="?act=deleteProduct_variant&id_pro=<?= $variant['id_variant'] ?>" role="button">Xóa</a>
                                                 </td>
                                             </tr>
                                         <?php } ?>

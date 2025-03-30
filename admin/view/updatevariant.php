@@ -1,11 +1,10 @@
 <?php
 
 require_once 'layout/css.php';
-require_once 'layout/css.php';
 
-if(is_array($stmt)){
-    extract($stmt);
-}
+// if(is_array($stmt)){
+//     extract($stmt);
+// }
 
 ?>
 
@@ -372,25 +371,24 @@ if(is_array($stmt)){
                     </div>
                 </div> -->
                 <!-- code chức năng -->
-                    <h1 class="h3 mb-2 text-gray-800">CẬP NHẬT DANH MỤC</h1>
+                    <h1 class="h3 mb-2 text-gray-800">CẬP NHẬT BIẾN THỂ</h1>
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <form action="" method="POST" onsubmit="return validate()">
                                     <div class="input">
-                                        Mã loại<br>
-                                        <input type="text" name="maloai" disabled id="maloai" value="<?= htmlspecialchars($id_category) ?>">
+                                        Mã biến thể<br>
+                                        <input type="text" name="maloai" disabled id="maloai" value="<?= htmlspecialchars($id_variant) ?>">
                                     </div>
                                     <div class="input">
-                                        Tên loại<br>
-                                        <input type="text" name="tenloai" id="tenloai" value="<?= htmlspecialchars($name_cat) ?>">
+                                        Tên biến thể<br>
+                                        <input type="text" name="tenloai" id="tenloai" value="<?= htmlspecialchars($name_color ?? '', ENT_QUOTES, 'UTF-8') ?>">
                                         <br>
                                         <p style="color: red;" id="loitl"></p>
-                                        <br>
                                     </div>
                                     <div style="margin-top: 20px;" class="input">
                                         <input class="btn btn-primary" type="submit" name="themmoi" value="CẬP NHẬT">
-                                        <a href="index.php?act=listCategories">
+                                        <a href="index.php?act=listvariant">
                                             <input type="button" class="btn btn-success" value="DANH SÁCH">
                                         </a>
                                     </div>

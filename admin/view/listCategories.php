@@ -812,72 +812,72 @@
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->
                  <!-- code chuc nang -->
-                  <div class="container-fluid">
-                    <h1 class="h3 mb-2 text-gray-800">DANH SÁCH DANH MỤC</h1>
-                   <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>MÃ LOẠI</th>
-                                    <th>TÊN LOẠI</th>
-                                    <th>THAO TÁC</th>
+                    <div class="container-fluid">
+                        <h1 class="h3 mb-2 text-gray-800">DANH SÁCH DANH MỤC</h1>
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>MÃ LOẠI</th>
+                                        <th>TÊN LOẠI</th>
+                                        <th>THAO TÁC</th>
 
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                                    <?php
-                                    foreach ($categoriess as $categories){
-                                        extract($categories);//Lay cac bien tu mnag nhu id,name
-                                        $suabt = "index.php?act=updateCategories&id_category=".$id_category;
-                                        $xoabt = "index.php?act=deleteCategories&id_category=".$id_category;
-                                        echo '
-                                        <tr>
-                                            <td><input type="checkbox" name="ck" id=""></td>
-                                            <td>'.$id_category.'</td> <!-- hien thi id-->
-                                            <td>'.$name_cat.'</td>  <!-- hien thi ten loai-->
-                                            <td><a href="'.$suabt.'"><input class="btn btn-primary" type="button" value="Sửa"></a> <a href="'.$xoabt.'"><input class="btn btn-danger" type="button" value="Xóa"></a></td>
-                                        </tr>
-                                        ';
-                                    }
-                                    ?>
-                                
-                            </tbody>
-                            </table>
-                                <div class="input_button">
-                                    <input type="button" onclick="selects()" class="btn btn-info" value="Chọn tất cả">
-                                    <input type="button" onclick="deSelect()" class="btn btn-info" value="Bỏ chọn tất cả">
-                                    <input type="button" value="Xoo cac muc da chon" class="btn btn-danger">
-                                    <a href="index.php?act=addCategories"><input type="button" class="btn btn-success" value="Nhap them"></a>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                        <?php
+                                        foreach ($categoriess as $categories){
+                                            extract($categories);//Lay cac bien tu mnag nhu id,name
+                                            $suabt = "index.php?act=updateCategories&id_category=".$id_category;
+                                            $xoabt = "index.php?act=deleteCategories&id_category=".$id_category;
+                                            echo '
+                                            <tr>
+                                                <td><input type="checkbox" name="ck" id=""></td>
+                                                <td>'.$id_category.'</td> <!-- hien thi id-->
+                                                <td>'.$name_cat.'</td>  <!-- hien thi ten loai-->
+                                                <td><a href="'.$suabt.'"><input class="btn btn-primary" type="button" value="Sửa"></a> <a href="'.$xoabt.'"><input class="btn btn-danger" type="button" value="Xóa"></a></td>
+                                            </tr>
+                                            ';
+                                        }
+                                        ?>
+                                    
+                                </tbody>
+                                </table>
+                                    <div class="input_button">
+                                        <input type="button" onclick="selects()" class="btn btn-info" value="Chọn tất cả">
+                                        <input type="button" onclick="deSelect()" class="btn btn-info" value="Bỏ chọn tất cả">
+                                        <input type="button" value="Xoo cac muc da chon" class="btn btn-danger">
+                                        <a href="index.php?act=addCategories"><input type="button" class="btn btn-success" value="Nhap them"></a>
 
-                                </div>    
+                                    </div>    
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <script type="text/javascript">
-                    function selects(){
-                        var ele=document.getElementsByName('ck');
-                        for(var i=0; i<ele.length; i++){
-                            if(ele[i].type=='checkbox'){
-                                ele[i].checked=true;
+                        <script type="text/javascript">
+                            function selects(){
+                                var ele=document.getElementsByName('ck');
+                                for(var i=0; i<ele.length; i++){
+                                    if(ele[i].type=='checkbox'){
+                                        ele[i].checked=true;
+                                    }
+                                }
+                                function deSelect(){
+                                    var ele=document.getElementsByName('ck');
+                                    for(var i=0; i<ele.length; i++){
+                                        if(ele[i].type=='checkbox')
+                                        ele[i].checked=false;
+                                    }
+                                }
                             }
-                        }
-                        function deSelect(){
-                            var ele=document.getElementsByName('ck');
-                            for(var i=0; i<ele.length; i++){
-                                if(ele[i].type=='checkbox')
-                                ele[i].checked=false;
-                            }
-                        }
-                    }
 
-                </script>
-                  </div>
+                        </script>
+                    </div>
 
             </div>
             <!-- ============================================================== -->

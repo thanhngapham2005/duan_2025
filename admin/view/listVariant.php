@@ -224,7 +224,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
+                <!-- <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
@@ -269,7 +269,10 @@
                             </ul>
                         </li>
                     </ul>
-                </nav>
+                </nav> -->
+                <?php
+                    require_once 'layout/sidebar.php'
+                ?>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -287,12 +290,12 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Material Icons</h4>
+                        <h4 class="page-title">Bien the</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Bien the</li>
                                 </ol>
                             </nav>
                         </div>
@@ -305,11 +308,11 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
+            <!-- <div class="container-fluid">
+                <!- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -2155,8 +2158,72 @@
                                         <div class="m-icon"><i class="m-r-10 mdi mdi-zip-box"></i><code class="m-r-10">f5c4</code><span>mdi-zip-box</span></div>
                                     </div>
                                 </div>
+                            </div> -->
+                        <!-- </div>
+                    </div> -->
+                    <div class="container-fluid">
+                        <h1 class="h3 mb-2 text-gray-800">DANH SÁCH BIẾN THỂ</h1>
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>MÃ LOẠI</th>
+                                        <th>TÊN LOẠI</th>
+                                        <th>THAO TÁC</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                        <?php
+                                        foreach ($variants as $variant){
+                                            extract($variant);
+                                            $suabt = "index.php?act=updatevariant&id_variant=".$id_variant;
+                                            $xoabt = "index.php?act=deletevariant&id_variant=".$id_variant;
+                                            echo '
+                                            <tr>
+                                                <td><input type="checkbox" name="chk" id=""></td>
+                                                <td>'.$id_variant.'</td> <!-- hien thi id-->
+                                                <td>'.$name_color.'</td>  <!-- hien thi ten loai-->
+                                                <td><a href="'.$suabt.'"><input class="btn btn-primary" type="button" value="Sửa"></a> <a href="'.$xoabt.'"><input class="btn btn-danger" type="button" value="Xóa"></a></td>
+                                            </tr>
+                                            ';
+                                        }
+                                        ?>
+                                    
+                                </tbody>
+                                </table>
+                                    <div class="input_button">
+                                        <input type="button" onclick="selects()" class="btn btn-info" value="Chọn tất cả">
+                                        <input type="button" onclick="deSelect()" class="btn btn-info" value="Bỏ chọn tất cả">
+                                        <input type="button" value="Xoá các mục đã chọn" class="btn btn-danger">
+                                        <a href="index.php?act=addvariant"><input type="button" class="btn btn-success" value="Nhập thêm"></a>
+
+                                    </div>    
+                                </div>
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            function selects(){
+                                var ele=document.getElementsByName('chk');
+                                for(var i=0; i<ele.length; i++){
+                                    if(ele[i].type=='checkbox'){
+                                        ele[i].checked=true;
+                                    }
+                                }
+                                function deSelect(){
+                                    var ele=document.getElementsByName('chk');
+                                    for(var i=0; i<ele.length; i++){
+                                        if(ele[i].type=='checkbox')
+                                        ele[i].checked=false;
+                                    }
+                                }
+                            }
+
+                        </script>
                     </div>
                 </div>
                 <!-- ============================================================== -->
@@ -2169,16 +2236,20 @@
                 <!-- ============================================================== -->
                 <!-- End Right sidebar -->
                 <!-- ============================================================== -->
-            </div>
+            <!-- </div> -> -->
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
+            <!-- <footer class="footer text-center">
                 All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
+            </footer> -->
+            <?php
+            require_once 'layout/footer.php';
+           require_once 'layout/scripts.php';
+            ?>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

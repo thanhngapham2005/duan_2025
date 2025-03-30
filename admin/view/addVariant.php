@@ -224,7 +224,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
+                <!-- <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
@@ -269,7 +269,10 @@
                             </ul>
                         </li>
                     </ul>
-                </nav>
+                </nav> -->
+                <?php
+                require_once 'layout/sidebar.php';
+                ?>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -284,7 +287,7 @@
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
-            <div class="page-breadcrumb">
+            <!-- <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <h4 class="page-title">Fontawesome Icons</h4>
@@ -298,7 +301,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -309,7 +312,7 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -1380,7 +1383,53 @@
                                 </div>
                             </div>
                         </div>
+                    </div> -->
+                    <h1 class="h3 mb-2 text-gray-800">THÊM BIẾN THỂ</h1>
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <form action="" method="POST" onsubmit="return validate()">
+                                <div class="input">
+                                    Mã biến thể <br>
+                                    <input type="text" name="maloai" disabled id="maloai">
+                                </div>
+                                <div class="input">
+                                    Tên biến thể <br>
+                                    <input type="text" name="tenloai" id="tenloai">
+                                    <br>
+                                    <p style="color: red;" id="loitl"></p>
+                                    <br>
+                                </div>
+                                <div style="margin-top: 20px;" class="input">
+                                    <input class="btn btn-primary" type="submit" name="themmoi" value="Thêm mới">
+                                    <a href="index.php?act=listvariant">
+                                        <input type="button" class="btn btn-success" value="DANH SÁCH">
+                                    </a>
+                                </div>
+                                <?php
+                                if (!empty($thongbao)) {
+                                    echo "<p style='color: green;'>$thongbao</p>";
+                                }
+                                ?>
+                            </form>
+                        </div>
                     </div>
+                </div>
+
+                <script>
+                    function validate() {
+                        var tenloai = document.getElementById("tenloai").value.trim();
+                        var loiTl = document.getElementById("loitl");
+
+                        if (tenloai === "") {
+                            loiTl.innerHTML = "Tên biến thể không được để trống";
+                            return false;
+                        } else {
+                            loiTl.innerHTML = ""; // Xóa thông báo lỗi khi hợp lệ
+                            return true;
+                        }
+                    }
+                </script>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
@@ -1399,9 +1448,13 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
+            <!-- <footer class="footer text-center">
                 All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
+            </footer> -->
+            <?php
+                require_once 'layout/scripts.php';
+                require_once 'layout/footer.php';
+            ?>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

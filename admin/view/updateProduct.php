@@ -1,11 +1,10 @@
 <?php
 
 require_once 'layout/css.php';
-require_once 'layout/css.php';
 
-if(is_array($stmt)){
-    extract($stmt);
-}
+// if(is_array($stmt)){
+//     extract($stmt);
+// }
 
 ?>
 
@@ -372,52 +371,58 @@ if(is_array($stmt)){
                     </div>
                 </div> -->
                 <!-- code chức năng -->
-                    <h1 class="h3 mb-2 text-gray-800">CẬP NHẬT DANH MỤC</h1>
+                <div class="container-fluid mt-4">
+                    <h1 class="h3 mb-2 text-gray-800">Cập nhật sản phẩm</h1>
                     <div class="card shadow mb-4">
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <form action="" method="POST" onsubmit="return validate()">
-                                    <div class="input">
-                                        Mã loại<br>
-                                        <input type="text" name="maloai" disabled id="maloai" value="<?= htmlspecialchars($id_category) ?>">
-                                    </div>
-                                    <div class="input">
-                                        Tên loại<br>
-                                        <input type="text" name="tenloai" id="tenloai" value="<?= htmlspecialchars($name_cat) ?>">
-                                        <br>
-                                        <p style="color: red;" id="loitl"></p>
-                                        <br>
-                                    </div>
-                                    <div style="margin-top: 20px;" class="input">
-                                        <input class="btn btn-primary" type="submit" name="themmoi" value="CẬP NHẬT">
-                                        <a href="index.php?act=listCategories">
-                                            <input type="button" class="btn btn-success" value="DANH SÁCH">
-                                        </a>
-                                    </div>
-                                    <?php
-                                    if (!empty($thongbao)) {
-                                        echo "<p style='color: green;'>$thongbao</p>";
-                                    }
-                                    ?>
-                                </form>
-                            </div>
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <input type="hidden" class="visually-hidden" name="amount" value="<?= $oneProduct['amount'] ?>" />
+                                <div class="mb-3">
+                                    <label class="form-label">Tên sản phẩm</label>
+                                    <input type="text" class="form-control" name="name" value="<?= $oneProduct['name'] ?? '' ?>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Hãng</label>
+                                    <input type="text" class="form-control" name="firms" value="<?= $oneProduct['firms'] ?? '' ?>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Giá</label>
+                                    <input type="number" class="form-control" name="price" value="<?= $oneProduct['price'] ?? 0 ?>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Giảm giá</label>
+                                    <input type="number" class="form-control" name="discount" value="<?= $oneProduct['discount'] ?? 0 ?>" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Chọn ảnh (Bỏ trống nếu không thay đổi)</label>
+                                    <input type="file" class="form-control" name="img">
+                                    <?php if (!empty($oneProduct['img'])) { ?>
+                                        <img src="../assets/images/<?= $oneProduct['img'] ?>" alt="Ảnh sản phẩm" width="100">
+                                    <?php } ?>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mô tả</label>
+                                    <textarea class="form-control" name="description" rows="3"><?= $oneProduct['description'] ?? '' ?></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Loại hàng</label>
+                                    <select class="form-select" name="category">
+                                        <?php foreach ($category as $key => $value) { ?>
+                                            <option value="<?= $value['id_category'] ?>" <?= ($value['id_category'] == ($oneProduct['category'] ?? '')) ? 'selected' : '' ?>>
+                                                <?= $value['name_cat'] ?>
+                                            </option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <button class="btn btn-primary" type="submit" name="btn_update">Sửa sản phẩm</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-
-                    <script>
-                        function validate() {
-                            var tenloai = document.getElementById("tenloai").value.trim();
-                            var loiTl = document.getElementById("loitl");
-
-                            if (tenloai === "") {
-                                loiTl.innerHTML = "Tên loại không được để trống";
-                                return false;
-                            } else {
-                                loiTl.innerHTML = ""; // Xóa thông báo lỗi khi hợp lệ
-                                return true;
-                            }
-                        }
-                    </script>
+                </div>
+                
 
                 </div>
                 <!-- ============================================================== -->
