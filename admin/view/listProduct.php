@@ -95,88 +95,116 @@ require_once 'layout/css.php';
                 <div class="card shadow mb-4">
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <h4 class="mb-0">Bảng sản phẩm</h4>
+
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>Mã SP</th>
-                                        <th>Ảnh</th>
-                                        <th>Tên</th>
-                                        <th>Hãng</th>
-                                        <th>Giá</th>
-                                        <th>Giảm giá</th>
-                                        <th>Số lượng</th>
-                                        <th>Mô tả</th>
-                                        <th>Danh mục</th>
-                                        <th>Lượt xem</th>
-                                        <th>Trạng thái</th>
-                                        <th>Thao tác</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($products as $key => $value) { ?>
-                                    <tr>
-                                        <td><?= $value['id_product'] ?></td>
-                                        <td><img src="assets/images/<?= $value['img_product'] ?>"
-                                                class="img-fluid rounded" alt="" width="80px" height="80px" /></td>
-                                        <td><?= $value['name'] ?></td>
-                                        <td><?= $value['firms'] ?></td>
-                                        <td><?= number_format($value['price']) ?>đ</td>
-                                        <td><?= $value['discount'] ?>%</td>
-                                        <td><?= $value['amount'] ?></td>
-                                        <td
-                                            style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                            <?= $value['description'] ?></td>
-                                        <td><?= $value['name_cat'] ?></td>
-                                        <td><?= $value['view'] ?></td>
-                                        <td><?= ($value['censorship'] == 0) ? '<span class="badge badge-success">Đang hiện</span>' : '<span class="badge badge-danger">Đã ẩn</span>' ?>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-info btn-sm"
-                                                href="?act=listProduct_variant&id=<?= $value['id_product'] ?>">Biến
-                                                thể</a>
-                                            <a class="btn btn-primary btn-sm"
-                                                href="?act=updateProduct&id=<?= $value['id_product'] ?>">Sửa</a>
-                                            <!-- <a class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không?')" href="?act=deleteProduct&id=<?= $value['id_product'] ?>">Xóa</a> -->
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <form method="GET" class="mb-4">
+                                        <input type="hidden" name="act" value="listProduct">
+                                        <div class="form-group d-flex align-items-center">
+                                            <label for="category" class="me-2">Lọc theo danh mục:</label>
+                                            <select id="category" name="category" class="form-select w-auto me-3">
+                                                <option value="">Tất cả</option>
+                                                <?php
+                                                foreach ($category as $cat) {
+                                                ?>
+                                                    <option value="<?= $cat['id_category'] ?>"
+                                                        <?= isset($_GET['category']) && $_GET['category'] == $cat['id_category'] ? 'selected' : '' ?>>
+                                                        <?= $cat['name_cat'] ?>
+                                                    </option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                            <button type="submit" class="btn btn-primary">Lọc</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Mã SP</th>
+                                                <th>Ảnh</th>
+                                                <th>Tên</th>
+                                                <th>Hãng</th>
+                                                <th>Giá</th>
+                                                <th>Giảm giá</th>
+                                                <th>Số lượng</th>
+                                                <th>Mô tả</th>
+                                                <th>Danh mục</th>
+                                                <th>Lượt xem</th>
+                                                <th>Trạng thái</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($products as $key => $value) { ?>
+                                                <tr>
+                                                    <td><?= $value['id_product'] ?></td>
+                                                    <td><img src="images/<?= $value['img_product'] ?>"
+                                                            class="img-fluid rounded" alt="" width="80px" height="80px" />
+                                                    </td>
+                                                    <td><?= $value['name'] ?></td>
+                                                    <td><?= $value['firms'] ?></td>
+                                                    <td><?= number_format($value['price']) ?>đ</td>
+                                                    <td><?= $value['discount'] ?>%</td>
+                                                    <td><?= $value['amount'] ?></td>
+                                                    <td
+                                                        style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                                        <?= $value['description'] ?></td>
+                                                    <td><?= $value['name_cat'] ?></td>
+                                                    <td><?= $value['view'] ?></td>
+                                                    <td><?= ($value['censorship'] == 0) ? '<span class="badge badge-success">Đang hiện</span>' : '<span class="badge badge-danger">Đã ẩn</span>' ?>
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-info btn-sm"
+                                                            href="?act=listProduct_variant&id=<?= $value['id_product'] ?>">Biến
+                                                            thể</a>
+                                                        <a class="btn btn-primary btn-sm"
+                                                            href="?act=updateProduct&id=<?= $value['id_product'] ?>">Sửa</a>
+                                                        <!-- <a class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không?')" href="?act=deleteProduct&id=<?= $value['id_product'] ?>">Xóa</a> -->
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Container fluid  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <!-- <footer class="footer text-center">
+                <!-- ============================================================== -->
+                <!-- End Container fluid  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <!-- <footer class="footer text-center">
                 All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
             </footer> -->
-        <?php
-        require_once 'layout/footer.php';
-        require_once 'layout/scripts.php';
-        ?>
+                <?php
+                require_once 'layout/footer.php';
+                require_once 'layout/scripts.php';
+                ?>
+                <!-- ============================================================== -->
+                <!-- End footer -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
+        </div>
         <!-- ============================================================== -->
-        <!-- End footer -->
+        <!-- End Wrapper -->
         <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
 
 
 </body>
