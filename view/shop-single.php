@@ -43,14 +43,17 @@ require_once 'layout/head.php';
             <div class="row">
                 <div class="col-lg-5 mt-5">
                     <div class="card mb-3">
+
                         <img class="card-img img-fluid" src="admin/images/<?= $productOne['img_product'] ?>" alt="Card image cap"
                             id="product-detail">
                     </div>
+
                 </div>
                 <!-- col end -->
                 <div class="col-lg-7 mt-5">
                     <div class="card">
                         <div class="card-body">
+
                             <h1 class="h2"><?= $productOne['name'] ?></h1>
                             <p class="h3 py-2"><?= number_format($productOne['price']) ?>đ</p>
                             <p class="py-2">
@@ -96,6 +99,7 @@ require_once 'layout/head.php';
                             </ul>
 
                             <form action="index.php?act=addToCart" method="POST">
+
                                 <input type="hidden" name="product-title" value="Activewear">
                                 <div class="row">
                                     <div class="col-auto">
@@ -134,6 +138,7 @@ require_once 'layout/head.php';
 
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -146,8 +151,14 @@ require_once 'layout/head.php';
     <section class="py-5">
         <div class="container">
 
+            <div class="row text-left p-2 pb-3">
+                <h4>Related Products</h4>
+            </div>
+
+
             <!--Start Carousel Wrapper-->
             <div id="carousel-related-product">
+
 
             </div>
         </div>
@@ -172,6 +183,7 @@ require_once 'layout/head.php';
             </div>
         </div>
     </section>                                            
+
 
     <!-- Start Footer -->
     <?php include 'layout/footer.php'; ?>
