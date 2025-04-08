@@ -30,7 +30,34 @@ class orderController
             5 => "Giao hang thanh cong",
             6 => "Da huy"
         ];
-        require_once "../commoms/function.php";
+        require_once __DIR__ . '/../commoms/function.php';
         require_once "view/order.php";
     }
+    function orderDetail($id_bill){
+        $orderDetail = $this->orderModel->getOrderDetails($id_bill);
+        // if(empty($orderDetail)){
+        //    echo "<script>alert('Không tìm thấy đơn hàng'); window.location.href='?act=order';</script>";
+        //     exit();
+            
+        // }
+        require_once "view/orderDetail.php";
+    }
+    function cancelOrder(){
+        if (isset($_POST['cancel'])){
+            $id_bill = $_POST['id_bill'];
+            $currentStatus = $this->orderModel->getOrderStatus($id_bill);
+            if (in_array($currentStatus, [0, 1])){
+                $updateted = $this->orderModel->cancelOrder($id_bill);
+                if ($updateted){
+                    $_SESSION['Message'] = "Hủy đơn hàng thành công";
+                }else{
+                    $_SESSION['Message'] = "Hủy đơn hàng thất bại";
+                }
+            }else{
+                $_SESSION['Message'] = "Không thể hủy đơn hàng này";
+            }
+            header('Location: ?act=oder');
+        }
+    }
+
 }

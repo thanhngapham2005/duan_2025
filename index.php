@@ -1,6 +1,10 @@
 <?php
 session_start();
-
+if (isset($_SESSION['Message'])) {
+    $successMessage = $_SESSION['Message'];
+    unset($_SESSION['Message']);
+    echo "<script>alert('$successMessage');</script>";
+}
 
 // Require các file cần thiết
 require_once 'commoms/function.php';
@@ -16,6 +20,7 @@ require_once 'controller/shopController.php';
 require_once 'controller/shop-singleController.php';
 require_once 'controller/orderController.php';
 require_once 'controller/payController.php';
+
 // require_once 'controller/orderController.php';
 require_once 'model/cartModel.php';
 require_once 'model/homeModel.php';
@@ -25,6 +30,7 @@ require_once 'model/shop-singleModel.php';
 require_once 'model/shopModel.php';
 require_once 'model/orderModel.php';
 require_once 'model/payModel.php';
+require_once 'model/orderModel.php';
 $act = $_GET['act'] ?? '/';
 
 if(!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
@@ -45,7 +51,8 @@ match ($act) {
     'cart' => (new cartController())->cart(),
     'pay' => (new payController())->pay(),
     'payment' => (new payController())->payment(),
-   
+    'orderDetail' => (new orderController())->orderDetail($_GET['id']),
+    'cancelOrder' => (new orderController())->cancelOrder(),
     'order' => (new orderController())->order($_SESSION['user']['customer_info']['id_customer']),
     // 'order' => (new OrderController())->order(),
     default => (new HomeController())->home(),

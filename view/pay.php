@@ -111,7 +111,14 @@ require_once 'layout/head.php';
                                 value="<?= htmlspecialchars($customer_info['address']) ?>" required>
                         </div>
 
-                        <p class="mb-4">Hình thức thanh toán: <strong>Thanh toán khi nhận hàng</strong></p>
+                        <div class="form-check mt-3">
+                                        <input type="radio" id="tienmat" class="form-check-input" name="pttt" value="1" checked>
+                                        <label for="tienmat" class="form-check-label">Thanh toán tiền mặt</label><br>
+
+                                        <input type="radio" id="chuyenkhoan" class="form-check-input" name="pttt" value="0">
+                                        <label for="chuyenkhoan" class="form-check-label">Thanh toán bằng chuyển khoản</label><br>
+                                    </div>
+
 
                         <input type="submit" class="btn btn-primary btn-block btn-lg" name="order_cart" value="Đặt hàng">
 

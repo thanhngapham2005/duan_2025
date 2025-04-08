@@ -21,6 +21,6 @@ class ShopController
         }
         require_once 'view/shop.php'; 
     }
-
+    
 
 }
