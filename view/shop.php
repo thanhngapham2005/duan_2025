@@ -44,8 +44,14 @@ require_once 'layout/header.php';
                     <ul id="collapseThree" class="collapse list-unstyled pl-3">
                         <?php foreach ($category as $key => $value) {
                         ?>
+<<<<<<< HEAD
                         <li><a class="text-decoration-none"
                                 href="?act=shop&id_category=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a></li>
+=======
+
+                            <li><a class="text-decoration-none"
+                                    href="?act=shop&id_category=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a></li>
+>>>>>>> 6d41ed2c59117572fa21a4097ec2fa3f44bb39fe
                         <?php
                         }
                         ?>
@@ -78,7 +84,12 @@ require_once 'layout/header.php';
                 <div class="col-md-4">
                     <div class="card mb-4 product-wap rounded-0">
                         <div class="card rounded-0">
+<<<<<<< HEAD
                         <img class="card-img" src="admin/images/<?= $value['img_product'] ?>">
+=======
+                            <img class="card-img rounded-0 img-fluid w-100" style="height: 200px; object-fit: cover;"
+                                src="admin/images/<?= $value['img_product'] ?>">
+>>>>>>> 6d41ed2c59117572fa21a4097ec2fa3f44bb39fe
                             <div
                                 class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
@@ -88,6 +99,10 @@ require_once 'layout/header.php';
                                     <li><a class="btn btn-success text-white mt-2" href="index.php?act=cart"><i
                                                 class="fas fa-cart-plus"></i></a></li>
                                 </ul>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6d41ed2c59117572fa21a4097ec2fa3f44bb39fe
                             </div>
                         </div>
                         <div class="card-body">

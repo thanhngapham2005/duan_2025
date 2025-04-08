@@ -55,6 +55,7 @@ match ($act) {
     'cancelOrder' => (new orderController())->cancelOrder(),
     'order' => (new orderController())->order($_SESSION['user']['customer_info']['id_customer']),
     // 'order' => (new OrderController())->order(),
+    'addComment' => (new detailController())->addComment(),
     default => (new HomeController())->home(),
 };
 
