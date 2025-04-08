@@ -37,9 +37,9 @@ require_once 'layout/header.php';
                     <ul id="collapseThree" class="collapse list-unstyled pl-3">
                         <?php foreach ($category as $key => $value) {
                         ?>
-                        <li><a class="text-decoration-none"
-                                href="?act=shop&id_category=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a>
-                        </li>
+
+                            <li><a class="text-decoration-none"
+                                    href="?act=shop&id_category=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a></li>
                         <?php
                         }
                         ?>
@@ -83,26 +83,12 @@ require_once 'layout/header.php';
                                     <li><a class="btn btn-success text-white mt-2" href="index.php?act=cart"><i
                                                 class="fas fa-cart-plus"></i></a></li>
                                 </ul>
+
                             </div>
                         </div>
-                        <div class="card-body">
-                            <a href="?act=shop_single" class="h3 text-decoration-none"><?= $value['name'] ?></a>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0"><?= number_format($value['price']) ?>đ</p>
-                        </div>
-                    </div>
-                </div>
-                <?php }
+                    <?php }
                 } else { ?>
-                <p class="text-center">Không tìm thấy sản phẩm nào.</p>
+                    <p class="text-center">Không tìm thấy sản phẩm nào.</p>
                 <?php } ?>
             </div>
             <!-- <div div="row">

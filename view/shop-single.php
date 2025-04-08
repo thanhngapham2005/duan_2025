@@ -47,7 +47,31 @@
 <?php
 require_once 'layout/head.php';
 ?>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let quantityInput = document.getElementById("product-quantity");
+    let quantityDisplay = document.getElementById("var-value");
+    let remainingQuantity = parseInt(document.getElementById("remaining-quantity").innerText);
+    
+    document.getElementById("btn-plus").addEventListener("click", function () {
+        let quantity = parseInt(quantityDisplay.innerText);
+        if (quantity < remainingQuantity) {
+            quantity++;
+            quantityDisplay.innerText = quantity;
+            quantityInput.value = quantity;
+        }
+    });
 
+    document.getElementById("btn-minus").addEventListener("click", function () {
+        let quantity = parseInt(quantityDisplay.innerText);
+        if (quantity > 1) {
+            quantity--;
+            quantityDisplay.innerText = quantity;
+            quantityInput.value = quantity;
+        }
+    });
+});
+</script>
 <body>
     <!-- Start Top Nav -->
     <?php require_once 'layout/topnav.php'; ?>
@@ -130,7 +154,7 @@ require_once 'layout/head.php';
                                 </li>
                             </ul>
 
-                            <form action="index.php?act=addToCart" method="POST">
+                            <form action="index.php?act=addToCart" enctype="multipart/form-data" method="POST">
                                 <input type="hidden" name="product-title" value="Activewear">
                                 <div class="row">
                                     <div class="col-auto">
@@ -150,6 +174,7 @@ require_once 'layout/head.php';
                                         </ul>
                                     </div>
                                 </div>
+
                         </div>
                         <div class="row pb-3">
                             <div class="col d-grid">
@@ -167,6 +192,7 @@ require_once 'layout/head.php';
                                 <button href="index.php?act=cart" type="submit" class="btn btn-success btn-lg"
                                     name="addtocart">Add To Cart</button>
                             </div>
+
 
                         </div>
                         </form>

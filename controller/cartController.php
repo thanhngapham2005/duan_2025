@@ -43,6 +43,20 @@ class cartController {
     public function cart(){
         require_once 'view/cart.php';
     }
+    // public function deleteToCart(){
+    //     if(isset($_GET['id'])){
+    //         $productId = $_GET['id'];
+    //         foreach ($_SESSION['mycart'] as $index => $item){
+    //             if($item['id'] == $productId){
+    //                 unset($_SESSION['mycart'][$index]);
+    //                 break;
+    //             }
+    //         }
+    //         $_SESSION['mycart'] = array_values($_SESSION['mycart']);
+    //     }
+    //     header('Location: '.$_SERVER['HTTP_REFERER']);
+    //     exit();
+    // }
     public function deleteToCart(){
         if(isset($_GET['id'])){
             $productId = $_GET['id'];
@@ -51,10 +65,12 @@ class cartController {
                     unset($_SESSION['mycart'][$index]);
                     break;
                 }
+
             }
             $_SESSION['mycart'] = array_values($_SESSION['mycart']);
+            }
+            header('Location: '.$_SERVER['HTTP_REFERER']);
+            exit();
         }
-        header('Location: '.$_SERVER['HTTP_REFERER']);
-        exit();
     }
-}
+?>
