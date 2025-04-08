@@ -38,6 +38,7 @@ match ($act) {
     'addToCart' => (new cartController())->addToCart(),
     'deleteToCart' => (new cartController())->deleteToCart(),
     // 'order' => (new OrderController())->order(),
+    'addComment' => (new detailController())->addComment(),
     default => (new HomeController())->home(),
 };
 
