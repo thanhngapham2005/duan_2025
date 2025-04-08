@@ -45,13 +45,16 @@ require_once 'layout/head.php';
     <section class="py-5">
         <div class="container">
         <div class="container py-5">
+
     <h2 class="h2 text-success mb-4">Giỏ hàng của bạn</h2>
+    
     <?php
     if (!isset($_SESSION['mycart']) || empty($_SESSION['mycart'])) {
         echo '<p>Giỏ hàng của bạn đang trống.</p>';
     } else {
         echo '<table class="table">';
         echo '<thead>
+
         <tr>
           <th>STT</th>
           <th>Tên sản phẩm</th>

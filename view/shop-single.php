@@ -52,22 +52,25 @@ document.addEventListener("DOMContentLoaded", function () {
     let quantityInput = document.getElementById("product-quantity");
     let quantityDisplay = document.getElementById("var-value");
     let remainingQuantity = parseInt(document.getElementById("remaining-quantity").innerText);
-    
-    document.getElementById("btn-plus").addEventListener("click", function () {
-        let quantity = parseInt(quantityDisplay.innerText);
+
+    // Đồng bộ hiển thị ban đầu
+    quantityDisplay.innerText = quantityInput.value;
+
+    document.querySelector('.quantity-btn-plus').addEventListener("click", function () {
+        let quantity = parseInt(quantityInput.value);
         if (quantity < remainingQuantity) {
             quantity++;
-            quantityDisplay.innerText = quantity;
             quantityInput.value = quantity;
+            quantityDisplay.innerText = quantity;
         }
     });
 
-    document.getElementById("btn-minus").addEventListener("click", function () {
-        let quantity = parseInt(quantityDisplay.innerText);
+    document.querySelector('.quantity-btn-minus').addEventListener("click", function () {
+        let quantity = parseInt(quantityInput.value);
         if (quantity > 1) {
             quantity--;
-            quantityDisplay.innerText = quantity;
             quantityInput.value = quantity;
+            quantityDisplay.innerText = quantity;
         }
     });
 });
@@ -147,11 +150,9 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <li class="list-inline-item text-right">
                                     Số lượng
                                 </li>
-                                <li class="list-inline-item"><span class="btn btn-succcess" id="btn-minus">-</span></li>
-                                <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span>
-                                </li>
-                                <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
-                                </li>
+                                <li class="list-inline-item"><span class="btn btn-success quantity-btn-minus">-</span></li>
+                                    <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
+                                    <li class="list-inline-item"><span class="btn btn-success quantity-btn-plus">+</span></li>
                             </ul>
 
                             <form action="index.php?act=addToCart" enctype="multipart/form-data" method="POST">
@@ -186,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <input type="hidden" name="name" value="<?= $productOne['name'] ?>">
                             <input type="hidden" name="price" value="<?= $productOne['price'] ?>">
                             <input type="hidden" name="brand" value="<?= $productOne['firms'] ?>">
-                            <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+                            <input type="hidden" name="product-quantity" id="product-quantity" value="1">
                             <input type="hidden" name="img" value="<?= $productOne['img_product'] ?>">
                             <div class="col d-grid">
                                 <button href="index.php?act=cart" type="submit" class="btn btn-success btn-lg"
