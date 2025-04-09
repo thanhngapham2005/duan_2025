@@ -24,7 +24,7 @@ require_once 'layout/header.php';
 
 
         <div class="col-lg-3">
-
+            
             <ul class="list-unstyled templatemo-accordion">
                 <!-- <li class="pb-3">
                     <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
@@ -44,6 +44,8 @@ require_once 'layout/header.php';
                     <ul id="collapseThree" class="collapse list-unstyled pl-3">
                         <?php foreach ($category as $key => $value) {
                         ?>
+                        
+
                             <li><a class="text-decoration-none"
                                     href="?act=shop&id_category=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a></li>
                         <?php
@@ -75,6 +77,7 @@ require_once 'layout/header.php';
                 if (!empty($product)) {
                     foreach ($product as $key => $value) {
                 ?>
+
                         <div class="col-md-4">
                             <div class="card mb-4 product-wap rounded-0">
                                 <div class="card rounded-0">
@@ -93,21 +96,31 @@ require_once 'layout/header.php';
                                 <div class="card-body">
                                     <a href="?act=shop_single&id=<?= $value['id_product'] ?>" class="h3 text-decoration-none"><?= $value['name'] ?></a>
                                     <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                        <li>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-muted fa fa-star"></i>
-                                            <i class="text-muted fa fa-star"></i>
-                                        </li>
+                                        
                                     </ul>
                                     <p class="text-center mb-0"><?= number_format($value['price']) ?>đ</p>
                                 </div>
+
                             </div>
                         </div>
-                    <?php }
+                        <div class="card-body">
+                            <a href="?act=shop_single" class="h3 text-decoration-none"><?= $value['name'] ?></a>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0"><?= number_format($value['price']) ?>đ</p>
+                        </div>
+                    </div>
+                </div>
+                <?php }
                 } else { ?>
-                    <p class="text-center">Không tìm thấy sản phẩm nào.</p>
+                <p class="text-center">Không tìm thấy sản phẩm nào.</p>
                 <?php } ?>
             </div>
             <!-- <div div="row">

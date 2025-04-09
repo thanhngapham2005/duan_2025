@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 30, 2025 at 08:49 AM
+-- Generation Time: Apr 08, 2025 at 03:03 PM
 -- Server version: 8.0.30
--- PHP Version: 8.2.27
+-- PHP Version: 8.3.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -69,10 +69,39 @@ CREATE TABLE `comments` (
   `id_comment` int NOT NULL COMMENT 'Mã bình luận',
   `id_product` int NOT NULL COMMENT '	Mã sản phẩm	',
   `id_user` int NOT NULL COMMENT 'Mã user',
+  `rating` int NOT NULL,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '	Nội dung bình luận	',
   `censorship` tinyint NOT NULL COMMENT '0 là hiện, 1 là đã ẩn	',
   `day_post` datetime DEFAULT NULL COMMENT 'Ngày tạo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id_comment`, `id_product`, `id_user`, `rating`, `content`, `censorship`, `day_post`) VALUES
+(1, 1, 1, 0, 'sản phẩm xấu vl', 0, NULL),
+(2, 11, 1, 5, 'aaaa', 0, NULL),
+(3, 12, 1, 5, 'a', 0, NULL),
+(9, 10, 1, 3, 'aa', 0, '2025-04-04 09:02:33'),
+(10, 10, 1, 4, 'aaaaaaaaaa', 0, '2025-04-04 10:44:32'),
+(11, 10, 1, 1, 'như lonnn', 0, '2025-04-04 10:45:23'),
+(12, 10, 1, 4, 'a', 0, '2025-04-04 10:46:35'),
+(13, 10, 1, 3, 'a', 0, '2025-04-04 10:48:23'),
+(14, 10, 1, 2, 'a', 0, '2025-04-04 10:49:49'),
+(15, 10, 1, 3, 'a', 0, '2025-04-04 10:51:13'),
+(16, 10, 1, 4, 'ccc', 0, '2025-04-04 10:56:39'),
+(17, 10, 1, 4, 'ccc', 0, '2025-04-04 10:56:40'),
+(18, 10, 1, 4, 'ccc', 0, '2025-04-04 10:56:40'),
+(19, 10, 1, 4, 'ccc', 0, '2025-04-04 10:56:40'),
+(20, 10, 1, 4, 'ccc', 0, '2025-04-04 10:56:41'),
+(21, 10, 1, 4, 'ccc', 0, '2025-04-04 10:56:51'),
+(22, 10, 1, 4, 'ccc', 0, '2025-04-04 10:56:55'),
+(23, 10, 1, 4, 'ccc', 0, '2025-04-04 10:56:56'),
+(24, 10, 1, 3, 'c', 0, '2025-04-04 10:57:04'),
+(25, 12, 1, 3, 'hahah', 0, '2025-04-04 11:02:49'),
+(26, 12, 1, 4, 'q', 0, '2025-04-04 11:03:42'),
+(27, 11, 3, 1, 'nhu cut', 0, '2025-04-04 19:43:36');
 
 -- --------------------------------------------------------
 
@@ -94,7 +123,9 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id_customer`, `id_user`, `full_name`, `phone`, `address`, `note`) VALUES
-(1, 1, 'xđxdxf', '', '', NULL);
+(1, 1, 'đỗ tuấn thiện', '0329714023', 'nghệ an', NULL),
+(2, 2, 'đỗ tuấn thiện', '', '', NULL),
+(3, 3, 'tthien', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -196,20 +227,6 @@ INSERT INTO `product_variant` (`id_product`, `id_variant`, `quantity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rates`
---
-
-CREATE TABLE `rates` (
-  `id_rate` int NOT NULL COMMENT '	Mã đánh giá',
-  `id_product` int NOT NULL COMMENT '	Mã sản phẩm	',
-  `id_user` int NOT NULL COMMENT '	Mã user',
-  `point` float NOT NULL COMMENT 'Điểm đánh giá	',
-  `updated_at` datetime NOT NULL COMMENT 'Ngày cập nhật'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -226,7 +243,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `email`, `password`, `role`, `day_registered`) VALUES
-(1, 'admin@gmail.com', '$2y$10$9xE3hWy9qgUnnJwY8gCM3.dZdS899Rpwtdv4F2pIvhSQBk1PkuCY.', 2, NULL);
+(1, 'admin@gmail.com', '$2y$10$9xE3hWy9qgUnnJwY8gCM3.dZdS899Rpwtdv4F2pIvhSQBk1PkuCY.', 2, NULL),
+(2, 'dotuanthiendz112@gmail.com', '$2y$10$RDzrLLjYPHrcUtyfWXFX5u7yyHAraWLDK9wcGC.eSjvCM45bKVftq', 0, NULL),
+(3, 't@t.t', '$2y$10$ijLV2UXQNsaGvTg36XLjquTXaWCU6QUA3biLGWFkEuZ4MtklYPWXK', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -307,14 +326,6 @@ ALTER TABLE `product_variant`
   ADD KEY `id_variant` (`id_variant`);
 
 --
--- Indexes for table `rates`
---
-ALTER TABLE `rates`
-  ADD PRIMARY KEY (`id_rate`),
-  ADD KEY `id_product` (`id_product`),
-  ADD KEY `id_user` (`id_user`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -346,13 +357,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id_comment` int NOT NULL AUTO_INCREMENT COMMENT 'Mã bình luận';
+  MODIFY `id_comment` int NOT NULL AUTO_INCREMENT COMMENT 'Mã bình luận', AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=2;
+  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `detail_bills`
@@ -367,16 +378,10 @@ ALTER TABLE `products`
   MODIFY `id_product` int NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm	', AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `rates`
---
-ALTER TABLE `rates`
-  MODIFY `id_rate` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đánh giá';
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=2;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `variant`
@@ -427,13 +432,6 @@ ALTER TABLE `products`
 ALTER TABLE `product_variant`
   ADD CONSTRAINT `product_variant_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `product_variant_ibfk_2` FOREIGN KEY (`id_variant`) REFERENCES `variant` (`id_variant`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
--- Constraints for table `rates`
---
-ALTER TABLE `rates`
-  ADD CONSTRAINT `rates_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `rates_ibfk_3` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
