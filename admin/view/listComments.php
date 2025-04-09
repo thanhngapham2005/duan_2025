@@ -98,6 +98,7 @@ require_once 'layout/css.php';
                                         <th>ID</th>
                                         <th>Sản phẩm</th>
                                         <th>Người dùng</th>
+                                        <th>Rating</th>
                                         <th>Nội dung</th>
                                         <th>Ngày đăng</th>
                                         <th>Trạng thái</th>
@@ -111,6 +112,7 @@ require_once 'layout/css.php';
                                         <td><?= $comment['id_comment'] ?></td>
                                         <td><?= $comment['product_name'] ?></td>
                                         <td><?= $comment['user_email'] ?></td>
+                                        <td><?= $comment['rating'] ?></td>
                                         <td><?= $comment['content'] ?></td>
                                         <td><?= $comment['day_post'] ?></td>
                                         <td>

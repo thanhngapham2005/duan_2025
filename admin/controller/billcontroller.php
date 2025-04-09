@@ -1,8 +1,10 @@
 <?php
 class billController{
     public $billModel;
+    public $discountModel;
     public function __construct(){
         $this->billModel = new billModel();
+        $this->discountModel = new discountModel();
     }
     function listBill(){
         $status = isset($_GET['status']) && $_GET['status'] !== '' ? $_GET['status'] : null;

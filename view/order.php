@@ -42,7 +42,7 @@ require_once 'layout/head.php';
     <!-- Start Article -->
     <section class="py-5">
       <div class="container my-5">
-        <h2 class="mb-4">Don hnag cua toi</h2>
+        <h2 class="mb-4">Don hang cua toi</h2>
 
         <ul class="nav nav-tabs mb-4" id="orderTabs" role="tablist">
             <li class="nav-item" role="presentation">
@@ -88,10 +88,9 @@ require_once 'layout/head.php';
         </ul>
 
         <div class="nav-item" role="orderTabsContent">
-            <div class="tab-pane fade show active" id="all-orders" role="tabpanel" aria-labelledby="all-orders-tab">
-                <?php  renderOrders($orders); ?>
-
-            </div>
+        <div class="tab-pane fade show active" id="all-orders" role="tabpanel" aria-labelledby="all-orders-tab">
+            <?php   renderOrders($order); ?>
+        </div>
             <?php foreach ($orderStatus as $status => $ordersStaus): ?>
                 <div class="tab-pane fade" id="<?= $tabIds[$status]; ?>" role="tabpanel"
                 aria-labelledby="<?= $tabIds[$status]; ?>-tab">
@@ -100,6 +99,7 @@ require_once 'layout/head.php';
             <?php endforeach; ?>
 
         </div>
+      </div>
 
       </div>
     </section>
