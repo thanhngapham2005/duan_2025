@@ -47,25 +47,26 @@ require_once 'layout/head.php';
                                 $subtotal = $item['price'] * $item['quantity'];
                                 $total += $subtotal;
                         ?>
-                                <div class="d-flex align-items-center mb-4">
-                                    <div class="flex-shrink-0">
-                                        <img src="admin/images/<?= $item['img'] ?>" width="150" class="img-fluid" alt="<?= $item['name'] ?>">
-                                    </div>
-                                    <div class="flex-grow-1 ms-3">
-                                        <a href="index.php?act=deleteToCart&id=<?= $item['id'] ?>" class="float-end text-black">
-                                            <i class="fas fa-times"></i>
-                                        </a>
-                                        <h5 class="text-primary"><?= htmlspecialchars($item['name']) ?></h5>
-                                        <h6 style="color: #9e9e9e">Thương hiệu: <?= htmlspecialchars($item['brand']) ?></h6>
-                                        <h6 style="color: #9e9e9e;">Màu: <?= htmlspecialchars($item['color']) ?></h6>
-                                        <div class="d-flex align-items-center">
-                                            <p class="fw-bold mb-0 me-5 pe-3">
-                                                <?= number_format($subtotal) ?>đ
-                                            </p>
-                                            <span>Số lượng: <strong><?= (int)$item['quantity'] ?></strong></span>
-                                        </div>
-                                    </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="flex-shrink-0">
+                                <img src="admin/images/<?= $item['img'] ?>" width="150" class="img-fluid"
+                                    alt="<?= $item['name'] ?>">
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <a href="index.php?act=deleteToCart&id=<?= $item['id'] ?>" class="float-end text-black">
+                                    <i class="fas fa-times"></i>
+                                </a>
+                                <h5 class="text-primary"><?= htmlspecialchars($item['name']) ?></h5>
+                                <h6 style="color: #9e9e9e">Thương hiệu: <?= htmlspecialchars($item['brand']) ?></h6>
+                                <h6 style="color: #9e9e9e;">Màu: <?= htmlspecialchars($item['color']) ?></h6>
+                                <div class="d-flex align-items-center">
+                                    <p class="fw-bold mb-0 me-5 pe-3">
+                                        <?= number_format($subtotal) ?>đ
+                                    </p>
+                                    <span>Số lượng: <strong><?= (int)$item['quantity'] ?></strong></span>
                                 </div>
+                            </div>
+                        </div>
                         <?php
                             }
                         } else {
@@ -95,32 +96,36 @@ require_once 'layout/head.php';
 
                         <label for="receiver_name" class="form-label">Tên người nhận</label>
                         <div class="form-outline mb-4">
-                            <input type="text" name="receiver_name" id="receiver_name" class="form-control form-control-lg"
+                            <input type="text" name="receiver_name" id="receiver_name"
+                                class="form-control form-control-lg"
                                 value="<?= htmlspecialchars($customer_info['full_name']) ?>" required>
                         </div>
 
                         <label for="receiver_phone" class="form-label">Số điện thoại người nhận</label>
                         <div class="form-outline mb-4">
-                            <input type="text" name="receiver_phone" id="receiver_phone" class="form-control form-control-lg"
+                            <input type="text" name="receiver_phone" id="receiver_phone"
+                                class="form-control form-control-lg"
                                 value="<?= htmlspecialchars($customer_info['phone']) ?>" required>
                         </div>
 
                         <label for="receiver_address" class="form-label">Địa chỉ giao hàng</label>
                         <div class="form-outline mb-4">
-                            <input type="text" name="receiver_address" id="receiver_address" class="form-control form-control-lg"
+                            <input type="text" name="receiver_address" id="receiver_address"
+                                class="form-control form-control-lg"
                                 value="<?= htmlspecialchars($customer_info['address']) ?>" required>
                         </div>
 
                         <div class="form-check mt-3">
-                                        <input type="radio" id="tienmat" class="form-check-input" name="pttt" value="1" checked>
-                                        <label for="tienmat" class="form-check-label">Thanh toán tiền mặt</label><br>
+                            <input type="radio" id="tienmat" class="form-check-input" name="pttt" value="1" checked>
+                            <label for="tienmat" class="form-check-label">Thanh toán tiền mặt</label><br>
 
-                                        <input type="radio" id="chuyenkhoan" class="form-check-input" name="pttt" value="0">
-                                        <label for="chuyenkhoan" class="form-check-label">Thanh toán bằng chuyển khoản</label><br>
-                                    </div>
+                            <input type="radio" id="chuyenkhoan" class="form-check-input" name="pttt" value="0">
+                            <label for="chuyenkhoan" class="form-check-label">Thanh toán bằng chuyển khoản</label><br>
+                        </div>
 
 
-                        <input type="submit" class="btn btn-primary btn-block btn-lg" name="order_cart" value="Đặt hàng">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg" name="order_cart"
+                            value="Đặt hàng">
 
                         <h5 class="fw-bold mt-4">
                             <a href="?act=shop"><i class="fas fa-angle-left me-2"></i>Quay lại mua sắm</a>
@@ -138,23 +143,23 @@ require_once 'layout/head.php';
     <!-- Start Script -->
     <?php include 'layout/scripts.php'; ?>
     <!-- End Script -->
-  ?>
-<?php if (isset($_SESSION['payment_status'])): ?>
-    <div class="modal fade show animate__animated <?= ($_SESSION['payment_status'] === 'success') ? 'animate__fadeIn' : 'animate__shakeX'; ?>" 
-         id="paymentSuccessPopup" tabindex="-1" role="dialog"
-         aria-labelledby="paymentSuccessPopupLabel" style="display: block;" inert>
+    <?php if (isset($_SESSION['payment_status'])): ?>
+    <div class="modal fade show animate__animated <?= ($_SESSION['payment_status'] === 'success') ? 'animate__fadeIn' : 'animate__shakeX'; ?>"
+        id="paymentSuccessPopup" tabindex="-1" role="dialog" aria-labelledby="paymentSuccessPopupLabel"
+        style="display: block;" inert>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <img id="img" src="assets/img/<?= ($_SESSION['payment_status'] === 'success') ? 'success.gif' : 'comp_3.gif'; ?>" 
-                         alt="<?= ($_SESSION['payment_status'] === 'success') ? 'Thanh toán thành công' : 'Có lỗi xảy ra'; ?>" 
-                         style="width: 100%; height: auto;">
+                    <img id="img"
+                        src="assets/img/<?= ($_SESSION['payment_status'] === 'success') ? 'success.gif' : 'comp_3.gif'; ?>"
+                        alt="<?= ($_SESSION['payment_status'] === 'success') ? 'Thanh toán thành công' : 'Có lỗi xảy ra'; ?>"
+                        style="width: 100%; height: auto;">
                     <p><?= $_SESSION['payment_message']; ?></p>
                 </div>
             </div>
         </div>
     </div>
-<?php endif; ?>
+    <?php endif; ?>
 </body>
 
 </html>
