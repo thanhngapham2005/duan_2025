@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <style>
+  
+  #product-detail {
+    width: 400px;
+    height: 502px;
+    object-fit: contain;
+}
 /* CSS Custom */
 .rating i {
     cursor: pointer;
@@ -147,12 +151,15 @@ document.addEventListener("DOMContentLoaded", function () {
                                             id="remaining-quantity"><?= $product_variant[0]['quantity'] ?></strong></p>
                                 </li>
                                 <li class="list-inline-item pb-3">
-                                <li class="list-inline-item text-right">
-                                    Số lượng
-                                </li>
-                                <li class="list-inline-item"><span class="btn btn-success quantity-btn-minus">-</span></li>
+
+                                    <li class="list-inline-item text-right">
+                                        Số lượng
+                                    </li>
+                                    <li class="list-inline-item"><span class="btn btn-success quantity-btn-minus">-</span></li>
                                     <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
                                     <li class="list-inline-item"><span class="btn btn-success quantity-btn-plus">+</span></li>
+                                </li>
+
                             </ul>
 
                             <form action="index.php?act=addToCart" enctype="multipart/form-data" method="POST">

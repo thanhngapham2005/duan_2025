@@ -77,21 +77,29 @@ require_once 'layout/header.php';
                 if (!empty($product)) {
                     foreach ($product as $key => $value) {
                 ?>
-                <div class="col-md-4">
-                    <div class="card mb-4 product-wap rounded-0">
-                        <div class="card rounded-0">
-                      
-                            <img class="card-img rounded-0 img-fluid w-100" style="height: 200px; object-fit: cover;"
-                                src="admin/images/<?= $value['img_product'] ?>">
-                            <div
-                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white mt-2"
-                                            href="?act=shop_single&id=<?= $value['id_product'] ?>"><i
-                                                class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="index.php?act=cart"><i
-                                                class="fas fa-cart-plus"></i></a></li>
-                                </ul>
+
+                        <div class="col-md-4">
+                            <div class="card mb-4 product-wap rounded-0">
+                                <div class="card rounded-0">
+                                    <img class="card-img" src="admin/images/<?= $value['img_product'] ?>">
+                                    <div
+                                        class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                        <ul class="list-unstyled">
+                                            <li><a class="btn btn-success text-white mt-2"
+                                                    href="?act=shop_single&id=<?= $value['id_product'] ?>"><i
+                                                        class="far fa-eye"></i></a></li>
+                                            <li><a class="btn btn-success text-white mt-2" href="?act=addToCart&id=<?= $value['id_product'] ?>"><i
+                                                        class="fas fa-cart-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <a href="?act=shop_single&id=<?= $value['id_product'] ?>" class="h3 text-decoration-none"><?= $value['name'] ?></a>
+                                    <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                        
+                                    </ul>
+                                    <p class="text-center mb-0"><?= number_format($value['price']) ?>đ</p>
+                                </div>
 
                             </div>
                         </div>

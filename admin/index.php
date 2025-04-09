@@ -7,6 +7,7 @@ require_once __DIR__ . '/controller/trangchu.php';
 require_once __DIR__ . '/controller/productcontroller.php';
 require_once __DIR__ . '/controller/categoriesController.php';
 require_once __DIR__ . '/controller/variantcontroller.php';
+require_once __DIR__ . '/controller/discountController.php';
 require_once __DIR__ . '/model/variantmodel.php';
 require_once __DIR__ . '/model/userModel.php';
 require_once __DIR__ . '/model/categoriesModel.php';
@@ -15,6 +16,7 @@ require_once __DIR__ . '/model/commentModel.php';
 require_once __DIR__ . '/controller/commentController.php';
 require_once __DIR__ . '/controller/billcontroller.php';
 require_once __DIR__ . '/model/billmodel.php';
+require_once __DIR__ . '/model/discountModel.php';
 // abcgit add
 if (!isset($_SESSION['user']) || $_SESSION['role'] != 2) {
     header("Location: view/login.php"); // Đổi thành trang đăng nhập của bạn
@@ -54,6 +56,10 @@ match ($act) {
     'toggleCensorship' => (new CommentController())->toggleCensorship($_GET['id'], $_GET['status']),
     'listBill' => (new billController())->listBill(),
     'updateBill' => (new billController())->updateBill($_GET['id']),
+    'listDiscount' => (new discountController())->listDiscount(),
+    'addDiscount' => (new discountController())->addDiscount(),
+    'editDiscount' => (new discountController())->editDiscount($_GET['id']),
+    'deleteDiscount' => (new discountController())->deleteDiscount($_GET['id']),
 
     default => throw new Exception("No matching action found for '$act'"),
 };

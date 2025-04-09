@@ -65,6 +65,22 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                         aria-expanded="false">
+                        <i class="fa-solid fa-ticket"></i> <!-- Giảm giá -->
+                        <span class="hide-menu">Giảm giá </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item"><a href="?act=listDiscount" class="sidebar-link"><i
+                                    class="fa fa-tag"></i><span class="hide-menu"> Danh sách mã giảm giá </span></a>
+                        </li>
+                        <li class="sidebar-item"><a href="?act=addDiscount" class="sidebar-link"><i
+                                    class="fa fa-plus"></i><span class="hide-menu"> Thêm mã giảm giá </span></a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                        aria-expanded="false">
                         <i class="fa fa-chart-bar"></i> <!-- Thống kê -->
                         <span class="hide-menu">Thống kê </span>
                     </a>
