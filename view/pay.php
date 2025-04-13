@@ -160,6 +160,23 @@ require_once 'layout/head.php';
         </div>
     </div>
     <?php endif; ?>
+
+    <script>
+    var paymentSuccessPopup = new bootstrap.Modal(document.getElementById('paymentSuccessPopup'));
+
+    // Hiển thị modal
+    paymentSuccessPopup.show();
+
+    // Đóng popup tự động sau 3 giây và redirect
+    setTimeout(function() {
+        paymentSuccessPopup.hide(); // Đóng modal sau 3 giây
+        window.location.href = 'index.php?act=shop';
+    }, 2000);
+    <?php
+        unset($_SESSION['payment_status']);
+        unset($_SESSION['payment_message']);
+        ?>
+    </script>
 </body>
 
 </html>
