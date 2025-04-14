@@ -1,3 +1,4 @@
+
 <?php
 // Xác định trang hiện tại dựa trên tham số 'act' trong URL
 $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
@@ -17,10 +18,12 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
         </button>
 
         <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
+
             id="templatemo_main_nav">
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
+
                         <a class="nav-link <?= ($current_page == 'home' || $current_page == '') ? 'active text-primary fw-bold' : '' ?>"
                             href="./">Home</a>
                     </li>
@@ -35,6 +38,7 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
                     <li class="nav-item">
                         <a class="nav-link <?= ($current_page == 'contact') ? 'active text-primary fw-bold' : '' ?>"
                             href="?act=contact">Contact</a>
+
                     </li>
                 </ul>
             </div>
@@ -46,16 +50,24 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
                             <i class="fa fa-fw fa-search"></i>
                         </div>
                     </div>
+
                 </div>
                 <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
                     data-bs-target="#templatemo_search">
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a>
-                <a class="nav-icon position-relative text-decoration-none" href="?act=cart">
-                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                    <span
-                        class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                </a>
+                <?php
+    // Giả sử bạn lưu giỏ hàng trong session
+    $cartCount = isset($_SESSION['mycart']) ? count($_SESSION['mycart']) : 0;
+
+?>
+<a class="nav-icon position-relative text-decoration-none" href="?act=cart">
+    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
+        <?= $cartCount ?>
+    </span>
+</a>
+
                 <?php if (isset($_SESSION['user'])) : ?>
                 <div class="dropdown">
                     <a href="#" class="drop-toggle text-decoration-none" role="button" data-bs-toggle="dropdown">
@@ -80,6 +92,7 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
                 <?php endif; ?>
             </div>
         </div>
+
 
     </div>
 </nav>

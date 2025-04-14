@@ -24,7 +24,51 @@
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item"><a href="index.php?act=listCategories" class="sidebar-link"><i
+<<<<<<< HEAD
+                                    class="mdi mdi-note-outline"></i><span class="hide-menu"> Danh sách danh mục
+                                </span></a></li>
+                        <li class="sidebar-item"><a href="index.php?act=addCategories" class="sidebar-link"><i
+                                    class="mdi mdi-note-plus"></i><span class="hide-menu"> Thêm danh mục
+                                </span></a></li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                            class="hide-menu">Biến thể </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="?act=listvariant" class="sidebar-link"><i
+                                    class="mdi mdi-emoticon"></i><span class="hide-menu"> Danh sách biến thể
+                                </span></a></li>
+                        <li class="sidebar-item"><a href="?act=addvariant" class="sidebar-link"><i
+                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Thêm biến thể mới
+                                </span></a></li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span
+                            class="hide-menu">Sản phẩm </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="?act=listProduct" class="sidebar-link"><i
+                                    class="mdi mdi-view-dashboard"></i><span class="hide-menu"> Danh sách sản phẩm
+                                </span></a></li>
+                        <li class="sidebar-item"><a href="?act=insertProduct" class="sidebar-link"><i
+                                    class="mdi mdi-multiplication-box"></i><span class="hide-menu"> Thêm sản phẩm
+                                </span></a></li>
+
+
+                    </ul>
+                </li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span
+                            class="hide-menu">Thống kê </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="index.php?act=listthongkedt" class="sidebar-link"><i
+                                    class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Doanh thu</span></a>
+=======
                                     class="fa fa-list-ul"></i><span class="hide-menu"> Danh sách danh mục </span></a>
+>>>>>>> 3db58f0f826801eea62ac0eabbd48d72762824bb
                         </li>
                         <li class="sidebar-item"><a href="index.php?act=addCategories" class="sidebar-link"><i
                                     class="fa fa-plus"></i><span class="hide-menu"> Thêm danh mục </span></a></li>

@@ -90,6 +90,7 @@ require_once 'layout/css.php';
             <!-- ============================================================== -->
             <!-- Right sidebar -->
             <!-- ============================================================== -->
+
             <!-- .right-sidebar -->
             <!-- ============================================================== -->
             <!-- End Right sidebar -->
@@ -102,6 +103,7 @@ require_once 'layout/css.php';
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -113,6 +115,7 @@ require_once 'layout/css.php';
                                     </tr>
                                 </thead>
                                 <tbody>
+
 
                                     <?php
                                     foreach ($categoriess as $categories) {
@@ -161,6 +164,7 @@ require_once 'layout/css.php';
                     }
                 }
                 </script>
+
             </div>
 
         </div>

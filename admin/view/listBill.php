@@ -53,7 +53,11 @@ require_once 'layout/css.php';
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-       
+
+         <?php
+         require_once 'layout/sidebar.php'
+         ?>
+
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -92,6 +96,7 @@ require_once 'layout/css.php';
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Danh sach don hang</h1>
                 </div>
+
 
                 <div class="card shadow mb-4">
                     <div class="table-responsive">
@@ -154,6 +159,7 @@ require_once 'layout/css.php';
                 </div>
 
                
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -171,10 +177,12 @@ require_once 'layout/css.php';
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
+
            <?php
            require_once 'layout/footer.php';
            require_once 'layout/scripts.php';
            ?>
+
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

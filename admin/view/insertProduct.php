@@ -640,8 +640,10 @@ require_once 'layout/css.php';
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
     <!-- this page js -->
+
     <script src="libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
     <script src="libs/magnific-popup/meg.init.js"></script>
+
     <script>
         $(document).ready(function() {
             $("#addVariant").click(function() {

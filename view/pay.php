@@ -123,7 +123,7 @@ require_once 'layout/head.php';
                 <!-- Thông tin thanh toán -->
                 <div class="col-lg-6 px-5 py-4">
                     <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Thông tin thanh toán</h3>
-                    <form action="index.php?act=payment" method="POST" class="mb-5">
+                    <form onsubmit="return confirm('Xac nhan dat hang')" action="index.php?act=payment" method="POST" class="mb-5">
                         <?php
                         // Đảm bảo $_SESSION['user']['customer_info'] tồn tại
                         $customer_info = $_SESSION['user']['customer_info'] ?? [
@@ -132,7 +132,7 @@ require_once 'layout/head.php';
                             'address' => ''
                         ];
                         ?>
-
+            
                         <label for="receiver_name" class="form-label">Tên người nhận</label>
                         <div class="form-outline mb-4">
                             <input type="text" name="receiver_name" id="receiver_name"
@@ -154,18 +154,26 @@ require_once 'layout/head.php';
                                 value="<?= htmlspecialchars($customer_info['address']) ?>" required>
                         </div>
 
-                        <!-- Thêm input ẩn để lưu mã giảm giá -->
-                        <input type="hidden" name="discount_code" id="hidden_discount_code" value="">
 
-                        <div class="form-check mt-3">
-                            <input type="radio" id="tienmat" class="form-check-input" name="pttt" value="1" checked>
-                            <label for="tienmat" class="form-check-label">Thanh toán tiền mặt</label><br>
+                        
+                        <!-- <div class="mb-3">
+                            <label for="paymentMethod" class="form-label">Hình thức thanh toán</label>
+                            <select name="shipping_method" id="paymentMethod" class="form-select mt-2">
+                                <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+                                <option value="vnPay">VnPay</option>
+                                <option value="payUrl">MoMo</option>
+                                <option value="onepay">OnePay</option>
+                            </select>
+                            </div> -->
+                            <div class="mt-4 d-flex flex-wrap gap-2 ">
+                            <button type="submit" name="cod" class="btn btn-warning">Thanh toán COD</button>
+                            <a href="index.php?act=online_checkout" name="payUrl" class="btn btn-danger">Thanh toán MoMo</a>
+                            <button type="submit" name="vnpay" class="btn btn-success">Thanh toán VnPay</button>
+                            <button type="submit" class="btn btn-primary">Thanh toán tiền mặt</button>
+                            </div>
 
-                            <input type="radio" id="chuyenkhoan" class="form-check-input" name="pttt" value="0">
-                            <label for="chuyenkhoan" class="form-check-label">Thanh toán bằng chuyển khoản</label><br>
-                        </div>
-
-
+                            <br>
+                            <br>
                         <input type="submit" class="btn btn-primary btn-block btn-lg" name="order_cart"
                             value="Đặt hàng">
 
@@ -177,10 +185,11 @@ require_once 'layout/head.php';
             </div>
         </div>
     </section>
-
+  
     <!-- Start Footer -->
     <?php include 'layout/footer.php'; ?>
     <!-- End Footer -->
+
 
     <!-- Modal thông báo kết quả thanh toán -->
     <div class="modal fade" id="paymentSuccessPopup" tabindex="-1" aria-labelledby="paymentSuccessPopupLabel" aria-hidden="true">
@@ -200,6 +209,7 @@ require_once 'layout/head.php';
                     <?php if (isset($_SESSION['payment_message'])): ?>
                         <p><?= $_SESSION['payment_message'] ?></p>
                     <?php endif; ?>
+
                 </div>
             </div>
         </div>
@@ -346,6 +356,7 @@ require_once 'layout/head.php';
         <?php endif; ?>
     });
     </script>
+
 </body>
 
 </html>

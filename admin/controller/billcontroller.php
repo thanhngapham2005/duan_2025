@@ -3,7 +3,9 @@ class billController{
     public $billModel;
     public $discountModel;
     
+
     public function __construct(){
+
         $this->billModel = new billModel();
         // Nếu bạn có model discountModel, hãy bỏ comment dòng dưới
         // $this->discountModel = new discountModel();
@@ -14,6 +16,8 @@ class billController{
         $bills = $this->billModel->bill($status);
         
         require_once '../commoms/function.php';
+
+
         require_once "view/listBill.php";
     }
     
@@ -28,6 +32,8 @@ class billController{
             3 => 'Dang van chuyen',
             4 => 'Dang hoan tra hang',
             5 => 'Giao hang thanh cong',
+
+
         ];
         
         // Lấy thông tin đơn hàng bao gồm mã giảm giá
@@ -41,6 +47,7 @@ class billController{
             if ($newStatus == 5 && $status !=5){
                 $this->billModel->reduceQuantity($id);
             }
+
             if($this->billModel->updateBill($newStatus, $id)){
                 header("Location: ?act=listBill");
             }else{
@@ -48,4 +55,8 @@ class billController{
             }
         }
     }
+
 }
+
+
+

@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../model/shopModel.php'; // Đảm bảo đường dẫn chính xác  
 
 class ShopController
@@ -9,6 +10,7 @@ class ShopController
     {
         $this->model = new shopModel();
     }
+
 
     public function showShop(){
         $category = $this->model->allCategory(); 
@@ -24,3 +26,4 @@ class ShopController
     
 
 }
+

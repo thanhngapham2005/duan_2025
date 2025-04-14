@@ -1,3 +1,4 @@
+
 <?php
 
 require_once 'layout/css.php';
@@ -5,6 +6,7 @@ require_once 'layout/css.php';
 
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -18,12 +20,14 @@ require_once 'layout/css.php';
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
+
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
     <!-- <link href="libs/jquery-steps/jquery.steps.css" rel="stylesheet">
     <link href="libs/jquery-steps/steps.css" rel="stylesheet"> -->
     <link href="dist/css/style.min.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -62,21 +66,27 @@ require_once 'layout/css.php';
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
+
                             <img src="images/logo-icon.png" alt="homepage" class="light-logo" />
+
                            
                         </b>
                         <!--End Logo icon -->
                          <!-- Logo text -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
+
                              <img src="images/logo-text.png" alt="homepage" class="light-logo" />
+
                             
                         </span>
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
+
                             <!-- <img src="images/logo-text.png" alt="homepage" class="light-logo" /> -->
+
                             
                         <!-- </b> -->
                         <!--End Logo icon -->
@@ -205,7 +215,9 @@ require_once 'layout/css.php';
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
+
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
@@ -231,9 +243,11 @@ require_once 'layout/css.php';
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
+
         <aside class="left-sidebar" data-sidebarbg="skin5">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
+
                 <!-- Sidebar navigation-->
                 <!-- <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
@@ -281,6 +295,7 @@ require_once 'layout/css.php';
                         </li>
                     </ul>
                 </nav> -->
+
                 <?php
                 require_once 'layout/sidebar.php';
                 ?>
@@ -288,6 +303,7 @@ require_once 'layout/css.php';
             </div>
             <!-- End Sidebar scroll-->
         </aside>
+
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -298,21 +314,27 @@ require_once 'layout/css.php';
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
+
             <!-- <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <h4 class="page-title">Form Wizard</h4>
+
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
+
                                     <li class="breadcrumb-item active" aria-current="page">Library</li>
+
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
+
             </div> -->
+
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
@@ -323,6 +345,7 @@ require_once 'layout/css.php';
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+
                 <!-- <div class="card">
                     <div class="card-body wizard-content">
                         <h4 class="card-title">Basic Form Example</h4>
@@ -489,6 +512,7 @@ require_once 'layout/css.php';
                     </script>
 
                 </div>
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -511,6 +535,8 @@ require_once 'layout/css.php';
             </footer> -->
             <?php
             require_once 'layout/footer.php';
+
+
             ?>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -526,6 +552,7 @@ require_once 'layout/css.php';
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="libs/popper.js/dist/umd/popper.min.js"></script>
@@ -533,6 +560,7 @@ require_once 'layout/css.php';
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="extra-libs/sparkline/sparkline.js"></script>
+
     <!--Wave Effects -->
     <script src="dist/js/waves.js"></script>
     <!--Menu sidebar -->
@@ -540,6 +568,7 @@ require_once 'layout/css.php';
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
     <!-- this page js -->
+
     <script src="libs/jquery-steps/build/jquery.steps.min.js"></script>
     <script src="libs/jquery-validation/dist/jquery.validate.min.js"></script>
     <script>
@@ -569,6 +598,7 @@ require_once 'layout/css.php';
             alert("Submitted!");
         }
     });
+
 
 
     </script>

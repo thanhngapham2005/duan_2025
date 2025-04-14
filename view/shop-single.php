@@ -8,8 +8,6 @@
     height: 502px;
     object-fit: contain;
 }
-
-
 </style>
 <?php
 require_once 'layout/head.php';

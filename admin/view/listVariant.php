@@ -53,6 +53,8 @@ require_once 'layout/css.php';
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
 
+
+
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -79,6 +81,7 @@ require_once 'layout/css.php';
                 </div>
             </div>
 
+
             <div class="container-fluid">
                 <h1 class="h3 mb-2 text-gray-800">DANH SÁCH BIẾN THỂ</h1>
                 <!-- DataTales Example -->
@@ -86,6 +89,7 @@ require_once 'layout/css.php';
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -95,6 +99,7 @@ require_once 'layout/css.php';
                                     </tr>
                                 </thead>
                                 <tbody>
+
 
                                     <?php
                                     foreach ($variants as $variant) {
@@ -112,18 +117,40 @@ require_once 'layout/css.php';
                                     }
                                     ?>
 
+
                                 </tbody>
                                 </table>
                                     <div class="input_button">
                                         <input type="button" onclick="selects()" class="btn btn-info" value="Chọn tất cả">
                                         <input type="button" onclick="deSelect()" class="btn btn-info" value="Bỏ chọn tất cả">
+
                                         <a href="index.php?act=addvariant"><input type="button" class="btn btn-success" value="Nhập thêm"></a>
+
 
 
                             </div>
                         </div>
+                        <script type="text/javascript">
+                            function selects(){
+                                var ele=document.getElementsByName('chk');
+                                for(var i=0; i<ele.length; i++){
+                                    if(ele[i].type=='checkbox'){
+                                        ele[i].checked=true;
+                                    }
+                                }
+                                function deSelect(){
+                                    var ele=document.getElementsByName('chk');
+                                    for(var i=0; i<ele.length; i++){
+                                        if(ele[i].type=='checkbox')
+                                        ele[i].checked=false;
+                                    }
+                                }
+                            }
+
+                        </script>
                     </div>
                 </div>
+
                 <script type="text/javascript">
                 function selects() {
                     var ele = document.getElementsByName('chk');
@@ -143,6 +170,7 @@ require_once 'layout/css.php';
                 }
                 </script>
             </div>
+
         </div>
         <!-- ============================================================== -->
         <!-- End PAge Content -->

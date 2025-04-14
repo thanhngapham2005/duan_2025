@@ -19,6 +19,7 @@ class shopModel
         $result = $this->conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
     function cat_pro($id) {
         $sql = "SELECT * FROM products WHERE id_category = :id_category";
         $stmt = $this->conn->prepare($sql);
@@ -28,3 +29,4 @@ class shopModel
     }
     
 }
+
