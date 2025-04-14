@@ -3,12 +3,12 @@
 echo "<script>console.log('Shop view loaded');</script>";
 ?>
 <style>
-    .card-img {
-        aspect-ratio: 4 / 3;
-        object-fit: contain;
-        max-height: 250px;
-        width: 100%;
-    }
+.card-img {
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    max-height: 250px;
+    width: 100%;
+}
 </style>
 <?php
 require_once 'layout/head.php';
@@ -25,7 +25,7 @@ require_once 'layout/header.php';
 
 
         <div class="col-lg-3">
-            
+
             <ul class="list-unstyled templatemo-accordion">
                 <!-- <li class="pb-3">
                     <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
@@ -45,10 +45,11 @@ require_once 'layout/header.php';
                     <ul id="collapseThree" class="collapse list-unstyled pl-3">
                         <?php foreach ($category as $key => $value) {
                         ?>
-                        
 
-                            <li><a class="text-decoration-none"
-                                    href="?act=shop&id_category=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a></li>
+
+                        <li><a class="text-decoration-none"
+                                href="?act=shop&id_category=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a>
+                        </li>
                         <?php
                         }
                         ?>
@@ -81,7 +82,7 @@ require_once 'layout/header.php';
                 <div class="col-md-4">
                     <div class="card mb-4 product-wap rounded-0">
                         <div class="card rounded-0">
-                      
+
                             <img class="card-img rounded-0 img-fluid w-100" style="height: 200px; object-fit: cover;"
                                 src="admin/images/<?= $value['img_product'] ?>">
                             <div
@@ -93,7 +94,6 @@ require_once 'layout/header.php';
                                     <li><a class="btn btn-success text-white mt-2" href="index.php?act=cart"><i
                                                 class="fas fa-cart-plus"></i></a></li>
                                 </ul>
-
                             </div>
                         </div>
                         <div class="card-body">

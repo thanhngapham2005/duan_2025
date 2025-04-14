@@ -115,6 +115,7 @@ require_once 'layout/css.php';
                                             foreach ($users as $user):
                                         ?>
 
+
                                                 <tr>
                                                     <td><?= $user['id_user'] ?? '' ?></td>
                                                     <td><?= $user['email'] ?? '' ?></td>
@@ -129,6 +130,7 @@ require_once 'layout/css.php';
                                                             tiết</a>
                                                     </td>
                                                 </tr>
+
 
                                         <?php
                                             endforeach;

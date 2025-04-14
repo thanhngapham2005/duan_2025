@@ -31,7 +31,7 @@ class billController{
         require_once "../commoms/function.php";
         require_once "view/updateBill.php";
         if (isset($_POST['btn_update'])) {
-            $newStatus = $_POST['status'];//Lay trang thai moi tu form
+            $newStatus = $_POST['status'];
             if ($newStatus == 5 && $status !=5){
                 $this->billModel->reduceQuantity($id);
             }

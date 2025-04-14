@@ -53,11 +53,7 @@ require_once 'layout/css.php';
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-
-         <?php
-         require_once 'layout/sidebar.php'
-         ?>
-
+       
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -71,12 +67,12 @@ require_once 'layout/css.php';
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Don hang</h4>
+                        <h4 class="page-title">Ma giam gia</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Don hang</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Ma giam gia</li>
                                 </ol>
                             </nav>
                         </div>
@@ -94,72 +90,70 @@ require_once 'layout/css.php';
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Danh sach don hang</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Danh sách mã giảm giá</h1>
                 </div>
-
 
                 <div class="card shadow mb-4">
                     <div class="table-responsive">
                         <div class="row">
                             <div class="col-sm-12 col-md-6">
                                 <form method="GET" class="mb-4">
-                                    <input type="hidden" name="act" value="listBill">
+                                    <input type="hidden" name="act" value="listDiscount">
                                     <div class="form-group d-flex align-items-center">
-                                        <label for="status" class="me-2">Loc theo trang thai:</label>
-                                            <select name="status" id="status" class="form-select w-auto me-3">
-                                                <option value="">Tat ca</option>
-                                                <option value="0" <?= isset($_GET['status']) && $_GET['status'] == 0 ? 'selected' : '' ?>>Cho xac nhan</option>
-                                                <option value="1" <?= isset($_GET['status']) && $_GET['status'] == 1 ? 'selected' : '' ?>>Da xac nhan</option>
-                                                <option value="2" <?= isset($_GET['status']) && $_GET['status'] == 2 ? 'selected' : '' ?>>Cho lay hang</option>
-                                                <option value="3" <?= isset($_GET['status']) && $_GET['status'] == 3 ? 'selected' : '' ?>>Dang van chuyen</option>
-                                                <option value="4" <?= isset($_GET['status']) && $_GET['status'] == 4 ? 'selected' : '' ?>>Dang hoan tra hang</option>
-                                                <option value="5" <?= isset($_GET['status']) && $_GET['status'] == 5 ? 'selected' : '' ?>>Giao hang thanh cong</option>
-                                                <option value="6" <?= isset($_GET['status']) && $_GET['status'] == 6 ? 'selected' : '' ?>>Da huy</option>
-                                            </select>
-                                            <button type="submit" class="btn btn-primary">Loc</button>
+                                        <label for="status" class="me-2">Lọc theo trạng thái:</label>
+                                        <select name="status" id="status" class="form-select w-auto me-3">
+                                            <option value="">Tất cả</option>
+                                            <option value="0" <?= isset($_GET['status']) && $_GET['status'] == 0 ? 'selected' : '' ?>>Tạm ngừng</option>
+                                            <option value="1" <?= isset($_GET['status']) && $_GET['status'] == 1 ? 'selected' : '' ?>>Đang hoạt động</option>
+                                        </select>
+                                        <button type="submit" class="btn btn-primary">Lọc</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                            <table class="table table-bordered" width="100%" cellspacing="0">
-                                <thead>
+
+                        <a href="?act=addDiscount" class="btn btn-success mb-3">Thêm mã giảm giá</a>
+
+                        <table class="table table-bordered" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Mã</th>
+                                    <th>Giảm (%)</th>
+                                    <th>Giảm tối đa</th>
+                                    <th>Đơn tối thiểu</th>
+                                    <th>Ngày bắt đầu</th>
+                                    <th>Ngày kết thúc</th>
+                                    <th>Lượt dùng</th>
+                                    <th>Đã dùng</th>
+                                    <th>Trạng thái</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($discounts as $discount) : ?>
                                     <tr>
-                                        <th>Mã don hang</th>
-                                        <th>Ten nguoi nhan</th>
-                                        <th>So dien thoai nguoi nhan</th>
-                                        <th>Dia chi nguoi nhan</th>
-                                        <th>Ngay mua</th>
-                                        <th>Trang thai don hang</th>
-                                        <th>Thao tac</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    foreach ($bills as $bill) {
-                                    ?>
-                                    <tr>
-                                        <td><?= $bill['id_bill'] ?></td>
-                                        <td><?= $bill['receiver_name'] ?></td>
-                                        <td><?= $bill['receiver_phone'] ?></td>
-                                        <td><?= $bill['receiver_address'] ?></td>
-                                        <td><?= $bill['purchase_date'] ?></td>
-                                        <td><?= getOderStatus ($bill['status']) ?></td>
+                                        <td><?= $discount['code'] ?></td>
+                                        <td><?= $discount['discount_percentage'] ?>%</td>
+                                        <td><?= number_format($discount['max_discount']) ?>đ</td>
+                                        <td><?= number_format($discount['min_order_value']) ?>đ</td>
+                                        <td><?= $discount['start_date'] ?></td>
+                                        <td><?= $discount['end_date'] ?></td>
+                                        <td><?= $discount['usage_limit'] ?></td>
+                                        <td><?= $discount['used_count'] ?></td>
+                                        <td><?= $discount['status'] == 1 ? 'Đang hoạt động' : 'Tạm ngừng' ?></td>
                                         <td>
-                                        <a class="btn btn-primary" href="?act=updateBill&id=<?= $bill['id_bill'] ?>"
-                                        role="button">Xem chi tiết</a>
+                                            <a class="btn btn-primary btn-sm" href="?act=editDiscount&id=<?= $discount['id'] ?>">Sửa</a>
+                                            <a class="btn btn-danger btn-sm" href="?act=deleteDiscount&id=<?= $discount['id'] ?>" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>
                                         </td>
                                     </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
                     </div>
-
                 </div>
 
-               
 
+               
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -177,12 +171,10 @@ require_once 'layout/css.php';
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-
            <?php
            require_once 'layout/footer.php';
            require_once 'layout/scripts.php';
            ?>
-
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
