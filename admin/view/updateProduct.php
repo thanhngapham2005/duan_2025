@@ -20,11 +20,13 @@ require_once 'layout/css.php';
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
+
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
     <!-- <link href="libs/jquery-steps/jquery.steps.css" rel="stylesheet">
     <link href="libs/jquery-steps/steps.css" rel="stylesheet"> -->
+
     <link href="dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,21 +66,27 @@ require_once 'layout/css.php';
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
+
                             <img src="images/logo-icon.png" alt="homepage" class="light-logo" />
+
                            
                         </b>
                         <!--End Logo icon -->
                          <!-- Logo text -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
+
                              <img src="images/logo-text.png" alt="homepage" class="light-logo" />
+
                             
                         </span>
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
+
                             <!-- <img src="images/logo-text.png" alt="homepage" class="light-logo" /> -->
+
                             
                         <!-- </b> -->
                         <!--End Logo icon -->
@@ -207,7 +215,9 @@ require_once 'layout/css.php';
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
+
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
@@ -397,7 +407,9 @@ require_once 'layout/css.php';
                                     <label class="form-label">Chọn ảnh (Bỏ trống nếu không thay đổi)</label>
                                     <input type="file" class="form-control" name="img">
                                     <?php if (!empty($oneProduct['img'])) { ?>
+
                                         <img src="../images/<?= $oneProduct['img'] ?>" alt="Ảnh sản phẩm" width="100">
+
                                     <?php } ?>
                                 </div>
                                 <div class="mb-3">
@@ -462,6 +474,7 @@ require_once 'layout/css.php';
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="libs/popper.js/dist/umd/popper.min.js"></script>
@@ -469,6 +482,7 @@ require_once 'layout/css.php';
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="extra-libs/sparkline/sparkline.js"></script>
+
     <!--Wave Effects -->
     <script src="dist/js/waves.js"></script>
     <!--Menu sidebar -->
@@ -476,8 +490,10 @@ require_once 'layout/css.php';
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
     <!-- this page js -->
+
     <script src="libs/jquery-steps/build/jquery.steps.min.js"></script>
     <script src="libs/jquery-validation/dist/jquery.validate.min.js"></script>
+
     <script>
         // Basic Example with form
     var form = $("#example-form");

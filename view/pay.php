@@ -84,7 +84,7 @@ require_once 'layout/head.php';
                 <!-- Thông tin thanh toán -->
                 <div class="col-lg-6 px-5 py-4">
                     <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Thông tin thanh toán</h3>
-                    <form action="index.php?act=payment" method="POST" class="mb-5">
+                    <form onsubmit="return confirm('Xac nhan dat hang')" action="index.php?act=payment" method="POST" class="mb-5">
                         <?php
                         // Đảm bảo $_SESSION['user']['customer_info'] tồn tại
                         $customer_info = $_SESSION['user']['customer_info'] ?? [
@@ -93,7 +93,7 @@ require_once 'layout/head.php';
                             'address' => ''
                         ];
                         ?>
-
+            
                         <label for="receiver_name" class="form-label">Tên người nhận</label>
                         <div class="form-outline mb-4">
                             <input type="text" name="receiver_name" id="receiver_name"
@@ -115,13 +115,26 @@ require_once 'layout/head.php';
                                 value="<?= htmlspecialchars($customer_info['address']) ?>" required>
                         </div>
 
-                        <div class="form-check mt-3">
-                            <input type="radio" id="tienmat" class="form-check-input" name="pttt" value="1" checked>
-                            <label for="tienmat" class="form-check-label">Thanh toán tiền mặt</label><br>
+                        
+                        <!-- <div class="mb-3">
+  <label for="paymentMethod" class="form-label">Hình thức thanh toán</label>
+  <select name="shipping_method" id="paymentMethod" class="form-select mt-2">
+    <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+    <option value="vnPay">VnPay</option>
+    <option value="payUrl">MoMo</option>
+    <option value="onepay">OnePay</option>
+  </select>
+</div> -->
+<div class="mt-4 d-flex flex-wrap gap-2 ">
+  <button type="submit" name="cod" class="btn btn-warning">Thanh toán COD</button>
+  <a href="index.php?act=online_checkout" name="payUrl" class="btn btn-danger">Thanh toán MoMo</a>
+  <button type="submit" name="vnpay" class="btn btn-success">Thanh toán VnPay</button>
+  <button type="submit" class="btn btn-primary">Thanh toán tiền mặt</button>
+</div>
 
-                            <input type="radio" id="chuyenkhoan" class="form-check-input" name="pttt" value="0">
-                            <label for="chuyenkhoan" class="form-check-label">Thanh toán bằng chuyển khoản</label><br>
-                        </div>
+<br>
+<br>
+
 
 
                         <input type="submit" class="btn btn-primary btn-block btn-lg" name="order_cart"
@@ -135,7 +148,7 @@ require_once 'layout/head.php';
             </div>
         </div>
     </section>
-
+  
     <!-- Start Footer -->
     <?php include 'layout/footer.php'; ?>
     <!-- End Footer -->
@@ -143,40 +156,47 @@ require_once 'layout/head.php';
     <!-- Start Script -->
     <?php include 'layout/scripts.php'; ?>
     <!-- End Script -->
-    <?php if (isset($_SESSION['payment_status'])): ?>
-    <div class="modal fade show animate__animated <?= ($_SESSION['payment_status'] === 'success') ? 'animate__fadeIn' : 'animate__shakeX'; ?>"
-        id="paymentSuccessPopup" tabindex="-1" role="dialog" aria-labelledby="paymentSuccessPopupLabel"
-        style="display: block;" inert>
+
+  
+<?php if (isset($_SESSION['payment_status'])): ?>
+    <div class="modal fade show animate__animated <?= ($_SESSION['payment_status'] === 'success') ? 'animate__fadeIn' : 'animate__shakeX'; ?>" 
+         id="paymentSuccessPopup" tabindex="-1" role="dialog"
+         aria-labelledby="paymentSuccessPopupLabel" style="display: block;" inert>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <img id="img"
-                        src="assets/img/<?= ($_SESSION['payment_status'] === 'success') ? 'success.gif' : 'comp_3.gif'; ?>"
-                        alt="<?= ($_SESSION['payment_status'] === 'success') ? 'Thanh toán thành công' : 'Có lỗi xảy ra'; ?>"
-                        style="width: 100%; height: auto;">
+                    <img id="img" src="images/<?= ($_SESSION['payment_status'] === 'success') ? 'success.gif' : 'comp_3.gif'; ?>" 
+                         alt="<?= ($_SESSION['payment_status'] === 'success') ? 'Thanh toán thành công' : 'Có lỗi xảy ra'; ?>" 
+                         style="width: 100%; height: auto;">
+
                     <p><?= $_SESSION['payment_message']; ?></p>
                 </div>
             </div>
         </div>
     </div>
-    <?php endif; ?>
 
-    <script>
+<?php endif; ?>
+<script>
+
     var paymentSuccessPopup = new bootstrap.Modal(document.getElementById('paymentSuccessPopup'));
 
     // Hiển thị modal
     paymentSuccessPopup.show();
 
     // Đóng popup tự động sau 3 giây và redirect
-    setTimeout(function() {
+
+    setTimeout(function () {
+
         paymentSuccessPopup.hide(); // Đóng modal sau 3 giây
         window.location.href = 'index.php?act=shop';
     }, 2000);
     <?php
-        unset($_SESSION['payment_status']);
-        unset($_SESSION['payment_message']);
-        ?>
-    </script>
+
+    unset($_SESSION['payment_status']);
+    unset($_SESSION['payment_message']);
+    ?>
+</script>
+
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 <?php
+
 class cartController {
     public function addToCart(){
         $productId = $_POST['productId'] ?? 0;
@@ -74,3 +75,4 @@ class cartController {
         }
     }
 ?>
+

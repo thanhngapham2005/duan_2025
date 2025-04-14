@@ -2,6 +2,7 @@
 class orderController
 {
     public $orderModel;
+
     function __construct()
     {
         $this->orderModel = new orderModel();
@@ -59,5 +60,6 @@ class orderController
             header('Location: ?act=oder');
         }
     }
+
 
 }

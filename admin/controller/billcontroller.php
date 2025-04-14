@@ -1,13 +1,17 @@
 <?php
 class billController{
     public $billModel;
+
     public function __construct(){
+
         $this->billModel = new billModel();
     }
     function listBill(){
         $status = isset($_GET['status']) && $_GET['status'] !== '' ? $_GET['status'] : null;
         $bills = $this->billModel->bill($status);
         require_once '../commoms/function.php';
+
+
         require_once "view/listBill.php";
     }
     function updateBill($id){
@@ -21,6 +25,8 @@ class billController{
             3 => 'Dang van chuyen',
             4 => 'Dang hoan tra hang',
             5 => 'Giao hang thanh cong',
+
+
         ];
         require_once "../commoms/function.php";
         require_once "view/updateBill.php";
@@ -29,6 +35,7 @@ class billController{
             if ($newStatus == 5 && $status !=5){
                 $this->billModel->reduceQuantity($id);
             }
+
             if($this->billModel->updateBill($newStatus, $id)){
                 header("Location: ?act=listBill");
             }else{
@@ -37,3 +44,4 @@ class billController{
          }
         }
     }
+

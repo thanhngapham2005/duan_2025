@@ -6,6 +6,7 @@ if (isset($_SESSION['Message'])) {
     echo "<script>alert('$successMessage');</script>";
 }
 
+
 // Require các file cần thiết
 require_once 'commoms/function.php';
 require_once 'controller/cartController.php';
@@ -20,6 +21,7 @@ require_once 'controller/shopController.php';
 require_once 'controller/shop-singleController.php';
 require_once 'controller/orderController.php';
 require_once 'controller/payController.php';
+
 
 // require_once 'controller/orderController.php';
 require_once 'model/cartModel.php';
@@ -39,11 +41,14 @@ match ($act) {
     '/' => (new HomeController())->home(),
     'about' => (new AboutController())->about(),
     'contact' => (new ContactController())->contact(),
+
     'login' => (new LoginController())->login(),
     'register' => (new RegisterController())->register(),
     'logout' => (new LogoutController())->logout(),
     'profile' => (new ProfileController())->profile(),
     'updateProfile' => (new ProfileController())->updateProfile(),
+
+
     'addToCart' => (new cartController())->addToCart(),
     'deleteToCart' => (new cartController())->deleteToCart(),
     'shop' => (new ShopController())->showShop(),
@@ -56,6 +61,7 @@ match ($act) {
     'order' => (new orderController())->order($_SESSION['user']['customer_info']['id_customer']),
     // 'order' => (new OrderController())->order(),
     'addComment' => (new detailController())->addComment(),
+  
     default => (new HomeController())->home(),
 };
 
@@ -64,3 +70,4 @@ if ($act === 'shop' || $act === 'shop_cat') {
     require_once 'model/shopModel.php';
     require_once 'view/shop.php';
 }
+

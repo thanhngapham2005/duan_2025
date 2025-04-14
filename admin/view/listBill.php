@@ -44,15 +44,19 @@ require_once 'layout/css.php';
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <?php
-        require_once 'layout/sidebar.php';
-        ?>
+       <?php
+       require_once 'layout/sidebar.php';
+       ?>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
+
+         <?php
+         require_once 'layout/sidebar.php'
+         ?>
 
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -93,6 +97,7 @@ require_once 'layout/css.php';
                     <h1 class="h3 mb-0 text-gray-800">Danh sach don hang</h1>
                 </div>
 
+
                 <div class="card shadow mb-4">
                     <div class="table-responsive">
                         <div class="row">
@@ -101,72 +106,59 @@ require_once 'layout/css.php';
                                     <input type="hidden" name="act" value="listBill">
                                     <div class="form-group d-flex align-items-center">
                                         <label for="status" class="me-2">Loc theo trang thai:</label>
-                                        <select name="status" id="status" class="form-select w-auto me-3">
-                                            <option value="">Tat ca</option>
-                                            <option value="0"
-                                                <?= isset($_GET['status']) && $_GET['status'] == 0 ? 'selected' : '' ?>>
-                                                Cho xac nhan</option>
-                                            <option value="1"
-                                                <?= isset($_GET['status']) && $_GET['status'] == 1 ? 'selected' : '' ?>>
-                                                Da xac nhan</option>
-                                            <option value="2"
-                                                <?= isset($_GET['status']) && $_GET['status'] == 2 ? 'selected' : '' ?>>
-                                                Cho lay hang</option>
-                                            <option value="3"
-                                                <?= isset($_GET['status']) && $_GET['status'] == 3 ? 'selected' : '' ?>>
-                                                Dang van chuyen</option>
-                                            <option value="4"
-                                                <?= isset($_GET['status']) && $_GET['status'] == 4 ? 'selected' : '' ?>>
-                                                Dang hoan tra hang</option>
-                                            <option value="5"
-                                                <?= isset($_GET['status']) && $_GET['status'] == 5 ? 'selected' : '' ?>>
-                                                Giao hang thanh cong</option>
-                                            <option value="6"
-                                                <?= isset($_GET['status']) && $_GET['status'] == 6 ? 'selected' : '' ?>>
-                                                Da huy</option>
-                                        </select>
-                                        <button type="submit" class="btn btn-primary">Loc</button>
+                                            <select name="status" id="status" class="form-select w-auto me-3">
+                                                <option value="">Tat ca</option>
+                                                <option value="0" <?= isset($_GET['status']) && $_GET['status'] == 0 ? 'selected' : '' ?>>Cho xac nhan</option>
+                                                <option value="1" <?= isset($_GET['status']) && $_GET['status'] == 1 ? 'selected' : '' ?>>Da xac nhan</option>
+                                                <option value="2" <?= isset($_GET['status']) && $_GET['status'] == 2 ? 'selected' : '' ?>>Cho lay hang</option>
+                                                <option value="3" <?= isset($_GET['status']) && $_GET['status'] == 3 ? 'selected' : '' ?>>Dang van chuyen</option>
+                                                <option value="4" <?= isset($_GET['status']) && $_GET['status'] == 4 ? 'selected' : '' ?>>Dang hoan tra hang</option>
+                                                <option value="5" <?= isset($_GET['status']) && $_GET['status'] == 5 ? 'selected' : '' ?>>Giao hang thanh cong</option>
+                                                <option value="6" <?= isset($_GET['status']) && $_GET['status'] == 6 ? 'selected' : '' ?>>Da huy</option>
+                                            </select>
+                                            <button type="submit" class="btn btn-primary">Loc</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <table class="table table-bordered" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Mã don hang</th>
-                                    <th>Ten nguoi nhan</th>
-                                    <th>So dien thoai nguoi nhan</th>
-                                    <th>Dia chi nguoi nhan</th>
-                                    <th>Ngay mua</th>
-                                    <th>Trang thai don hang</th>
-                                    <th>Thao tac</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                foreach ($bills as $bill) {
-                                ?>
+                            <table class="table table-bordered" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Mã don hang</th>
+                                        <th>Ten nguoi nhan</th>
+                                        <th>So dien thoai nguoi nhan</th>
+                                        <th>Dia chi nguoi nhan</th>
+                                        <th>Ngay mua</th>
+                                        <th>Trang thai don hang</th>
+                                        <th>Thao tac</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($bills as $bill) {
+                                    ?>
                                     <tr>
                                         <td><?= $bill['id_bill'] ?></td>
                                         <td><?= $bill['receiver_name'] ?></td>
                                         <td><?= $bill['receiver_phone'] ?></td>
                                         <td><?= $bill['receiver_address'] ?></td>
                                         <td><?= $bill['purchase_date'] ?></td>
-                                        <td><?= getOderStatus($bill['status']) ?></td>
+                                        <td><?= getOderStatus ($bill['status']) ?></td>
                                         <td>
-                                            <a class="btn btn-primary" href="?act=updateBill&id=<?= $bill['id_bill'] ?>"
-                                                role="button">Xem chi tiết</a>
+                                        <a class="btn btn-primary" href="?act=updateBill&id=<?= $bill['id_bill'] ?>"
+                                        role="button">Xem chi tiết</a>
                                         </td>
                                     </tr>
-                                <?php
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+                                    <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
                     </div>
 
                 </div>
 
+               
 
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
@@ -185,10 +177,12 @@ require_once 'layout/css.php';
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <?php
-            require_once 'layout/footer.php';
-            require_once 'layout/scripts.php';
-            ?>
+
+           <?php
+           require_once 'layout/footer.php';
+           require_once 'layout/scripts.php';
+           ?>
+
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -219,7 +213,7 @@ require_once 'layout/css.php';
     <!-- this page js -->
     <script src="libs/toastr/build/toastr.min.js"></script>
     <script>
-        $(function() {
+        $(function(){
             // Success Type
             $('#ts-success').on('click', function() {
                 toastr.success('Have fun storming the castle!', 'Miracle Max Says');

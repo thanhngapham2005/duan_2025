@@ -27,7 +27,9 @@
                 <div class="card-body">
                     <!-- Kiểm tra lỗi và hiển thị thông báo -->
                     <?php if (!empty($error)) : ?>
+
                     <div class="alert alert-danger"><?php echo $error; ?></div>
+
                     <?php endif; ?>
 
                     <form action="index.php?act=login" method="POST">

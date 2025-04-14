@@ -9,22 +9,16 @@
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">
+                        <img class="img-fluid" src="./assets/img/banner1.png" alt="">
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left align-self-center">
                             <h1 class="h1 text-success"><b>Inno</b> eCommerce</h1>
-                            <h3 class="h2">Tiny and Perfect eCommerce</h3>
+                            <h3 class="h2">Công nghệ trong tầm tay</h3>
+                            <h3 class="h2">Hãy sở hữu ngay chiếc điện thoại yêu thích của bạn với giá ưu đãi đặc biệt! </h3>
                             <p>
-                                Inno Shop is an eCommerce
-                                This template is 100% free provided by <a rel="sponsored" class="text-success"
-                                    href="https://templatemo.com" target="_blank">TemplateMo</a> website.
-                                Image credits go to <a rel="sponsored" class="text-success"
-                                    href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
-                                <a rel="sponsored" class="text-success" href="https://unsplash.com/"
-                                    target="_blank">Unsplash</a> and
-                                <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons
-                                    8</a>.
+                            Khám phá những mẫu điện thoại thông minh mới nhất với thiết kế đẳng cấp và tính năng vượt trội. 
+                            Mang lại trải nghiệm hoàn hảo cho công việc và giải trí.
                             </p>
                         </div>
                     </div>
@@ -35,17 +29,16 @@
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">
+                        <img class="img-fluid" src="./assets/img/banner4.jpg" alt="" >
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left">
-                            <h1 class="h1">Proident occaecat</h1>
-                            <h3 class="h2">Aliquip ex ea commodo consequat</h3>
+                            <h1 class="h1">Âm thanh đỉnh cao</h1>
+                            <h3 class="h2">Mua ngay hôm nay để tận hưởng ưu đãi đặc biệt và chính sách bảo hành hấp dẫn! </h3>
                             <p>
-                                You are permitted to use this Inno CSS template for your commercial websites.
-                                You are <strong>not permitted</strong> to re-distribute the template ZIP file in any
-                                kind of template collection websites.
-                            </p>
+                                Khám phá bộ sưu tập tai nghe hiện đại với âm thanh sống động và thiết kế thoải mái. 
+                                Đem lại trải nghiệm tuyệt vời cho âm nhạc, trò chuyện và làm việc.
+                                </p>
                         </div>
                     </div>
                 </div>
@@ -55,17 +48,16 @@
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">
+                        <img class="img-fluid" src="./assets/img/banner5.jpg" alt="">
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left">
-                            <h1 class="h1">Repr in voluptate</h1>
-                            <h3 class="h2">Ullamco laboris nisi ut </h3>
-                            <p>
-                                We bring you 100% free CSS templates for your websites.
-                                If you wish to support TemplateMo, please make a small contribution via PayPal or
-                                tell your friends about our website. Thank you.
-                            </p>
+                        <h1 class="h1">Hiệu Năng Vượt Trội</h1>
+                        <h3 class="h2">Đặt mua ngay hôm nay để nhận ưu đãi hấp dẫn và dịch vụ hỗ trợ tận tâm! </h3>
+                        <p>
+                                Khám phá những dòng laptop mới nhất với thiết kế sang trọng, cấu hình mạnh mẽ, 
+                                và công nghệ tiên tiến. Hoàn hảo cho công việc, học tập và giải trí.
+                                </p>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+
 <?php
 echo "<script>console.log('Shop view loaded');</script>";
 ?>
@@ -116,6 +117,7 @@ require_once 'layout/header.php';
                 <?php } ?>
             </div>
             <!-- <div div="row">
+
                     <ul class="pagination pagination-lg justify-content-end">
                         <li class="page-item disabled">
                             <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
@@ -127,6 +129,7 @@ require_once 'layout/header.php';
                             <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
                         </li>
                     </ul>
+
                 </div> -->
         </div>
 
@@ -139,3 +142,4 @@ require_once 'layout/header.php';
 require_once 'layout/scripts.php';
 require_once 'layout/footer.php'
 ?>
+

@@ -52,7 +52,7 @@ require_once 'layout/head.php';
                 <p><strong>Dien thoai:</strong> <?= $orderDetail[0]['receiver_phone'] ?></p>
                 <p><strong>Dia chi:</strong> <?= $orderDetail[0]['receiver_address'] ?></p>
                 <p><strong>Ngay mua:</strong> <?= $orderDetail[0]['purchase_date'] ?></p>
-                <p><strong>Tramg thai:</strong> <?= getOderStatus($orderDetail[0]['status']) ?></p>
+                <p><strong>Trang thai:</strong> <?= getOderStatus($orderDetail[0]['status']) ?></p>
 
                 <?php if (in_array($orderDetail[0]['status'],[0, 1])): ?>
                     <form action="?act=cancelOrder" method="post">
