@@ -8,45 +8,6 @@
     height: 502px;
     object-fit: contain;
 }
-/* CSS Custom */
-.rating i {
-    cursor: pointer;
-    font-size: 24px;
-    color: #ddd;
-}
-
-.rating i.active,
-.review-star {
-    color: #ffc107;
-}
-
-.form-control,
-.textarea-comment {
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-}
-
-.btn-submit {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-}
-
-.btn-submit:hover {
-    background: #0056b3;
-}
-
-.review-card {
-    border-left: 3px solid #007bff;
-}
-
-.review-avatar {
-    width: 50px;
-    height: 50px;
-    background: #f0f0f0;
-    border-radius: 50%;
-}
 </style>
 <?php
 require_once 'layout/head.php';
@@ -146,9 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <li class="list-inline-item">
                                     <h6>Số lượng còn lại:</h6>
                                 </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong
-                                            id="remaining-quantity"><?= $product_variant[0]['quantity'] ?></strong></p>
+                                <li class="list-inline-item"><p class="text-muted"><strong id="remaining-quantity"><?= $product_variant[0]['quantity'] ?></strong></p>
                                 </li>
                                 <li class="list-inline-item pb-3">
 
@@ -159,7 +118,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
                                     <li class="list-inline-item"><span class="btn btn-success quantity-btn-plus">+</span></li>
                                 </li>
-
                             </ul>
 
                             <form action="index.php?act=addToCart" enctype="multipart/form-data" method="POST">
@@ -414,7 +372,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <h5 class="card-title"><?= $product['name'] ?></h5>
                             <p class="card-text text-success"><?= number_format($product['price']) ?>đ</p>
                             <a href="index.php?act=shop_single&id=<?= $product['id_product'] ?>"
-                                class="btn-btn-primary">Xem chi tiết</a>
+                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
