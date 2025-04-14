@@ -5,19 +5,38 @@ class payModel {
         $this->conn = connDBAss();
     }
 
-    function saveOrder($id_customer, $receiver_name, $receiver_phone, $receiver_address, $cartItems) {
+    function saveOrder($id_customer, $receiver_name, $receiver_phone, $receiver_address, $cartItems, $discount_code = null) {
         try {
             // Bắt đầu transaction để đảm bảo toàn bộ thao tác thành công
             $this->conn->beginTransaction();
+            
+            // Lấy thông tin mã giảm giá nếu có
+            $discount_code_id = null;
+            if($discount_code) {
+                $sql_discount = "SELECT id FROM discount_codes WHERE code = :code";
+                $stmt_discount = $this->conn->prepare($sql_discount);
+                $stmt_discount->bindParam(':code', $discount_code, PDO::PARAM_STR);
+                $stmt_discount->execute();
+                $discount_code_id = $stmt_discount->fetchColumn();
+            }
 
             // Thêm đơn hàng vào bảng `bills`
-            $sql_bill = "INSERT INTO bills (id_customer, receiver_name, receiver_phone, receiver_address, status, purchase_date) 
+            if($discount_code_id) {
+                $sql_bill = "INSERT INTO bills (id_customer, receiver_name, receiver_phone, receiver_address, status, purchase_date, discount_code_id) 
+                          VALUES (:id_customer, :receiver_name, :receiver_phone, :receiver_address, 0, CURRENT_TIMESTAMP, :discount_code_id)";
+                $stmt_bill = $this->conn->prepare($sql_bill);
+                $stmt_bill->bindParam(':discount_code_id', $discount_code_id, PDO::PARAM_INT);
+            } else {
+                $sql_bill = "INSERT INTO bills (id_customer, receiver_name, receiver_phone, receiver_address, status, purchase_date) 
                           VALUES (:id_customer, :receiver_name, :receiver_phone, :receiver_address, 0, CURRENT_TIMESTAMP)";
-            $stmt_bill = $this->conn->prepare($sql_bill);
+                $stmt_bill = $this->conn->prepare($sql_bill);
+            }
+            
             $stmt_bill->bindParam(':id_customer', $id_customer, PDO::PARAM_INT);
             $stmt_bill->bindParam(':receiver_name', $receiver_name, PDO::PARAM_STR);
             $stmt_bill->bindParam(':receiver_phone', $receiver_phone, PDO::PARAM_STR);
             $stmt_bill->bindParam(':receiver_address', $receiver_address, PDO::PARAM_STR);
+            
             if (!$stmt_bill->execute()) {
                 print_r($stmt_bill->errorInfo());
                 exit;
@@ -96,5 +115,22 @@ class payModel {
             $_SESSION['payment_message'] = $e->getMessage();
             return false;
         }
+    }
+    
+    // Thêm phương thức lấy thông tin mã giảm giá
+    function getDiscountInfo($code) {
+        $sql = "SELECT * FROM discount_codes WHERE code = :code";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':code', $code, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    // Thêm phương thức lấy danh sách mã giảm giá có sẵn
+    function getAvailableDiscountCodes($id_customer = null) {
+        $sql = "SELECT * FROM discount_codes";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

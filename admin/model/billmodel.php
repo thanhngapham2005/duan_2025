@@ -20,6 +20,18 @@ class billModel{
         $sql = "SELECT * FROM detail_bills JOIN products ON detail_bills.id_product=products.id_product JOIN variant ON detail_bills.id_variant=variant.id_variant WHERE id_bill=$id";
         return $this->conn->query($sql)->fetchAll();
     }
+    
+    // Thêm phương thức để lấy thông tin mã giảm giá của hóa đơn
+    function getBillDiscountInfo($id_bill) {
+        $sql = "SELECT b.*, d.code, d.discount_percentage, d.max_discount 
+                FROM bills b 
+                LEFT JOIN discount_codes d ON b.discount_code_id = d.id 
+                WHERE b.id_bill = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$id_bill]);
+        return $stmt->fetch();
+    }
+    
     function billStatus($id) {
         $sql = "SELECT status FROM bills WHERE id_bill = $id";
         return $this->conn->query($sql)->fetch();

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <style>
-    #product-detail {
+  
+  #product-detail {
     width: 400px;
     height: 502px;
     object-fit: contain;
 }
+
 
 </style>
 <?php
@@ -109,12 +112,14 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <li class="list-inline-item"><p class="text-muted"><strong id="remaining-quantity"><?= $product_variant[0]['quantity'] ?></strong></p>
                                 </li>
                                 <li class="list-inline-item pb-3">
-                                <li class="list-inline-item text-right">
-                                    Số lượng
-                                </li>
-                                <li class="list-inline-item"><span class="btn btn-success quantity-btn-minus">-</span></li>
+
+                                    <li class="list-inline-item text-right">
+                                        Số lượng
+                                    </li>
+                                    <li class="list-inline-item"><span class="btn btn-success quantity-btn-minus">-</span></li>
                                     <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
                                     <li class="list-inline-item"><span class="btn btn-success quantity-btn-plus">+</span></li>
+                                </li>
                             </ul>
 
                             <form action="index.php?act=addToCart" enctype="multipart/form-data" method="POST">
@@ -369,7 +374,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <h5 class="card-title"><?= $product['name'] ?></h5>
                             <p class="card-text text-success"><?= number_format($product['price']) ?>đ</p>
                             <a href="index.php?act=shop_single&id=<?= $product['id_product'] ?>"
-                                class="btn-btn-primary">Xem chi tiết</a>
+                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>

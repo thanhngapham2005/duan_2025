@@ -375,15 +375,28 @@ require_once 'layout/css.php';
                         <h6 class="m-0 font-weight-bold text-primary">Thong tin san pham trong don hang</h6>
                        </div>
                        <div class="card-body">
+                        <!-- Thêm thông tin mã giảm giá -->
+                        <?php if (isset($billInfo['code']) && !empty($billInfo['code'])): ?>
+                        <div class="alert alert-info mb-4">
+                            <h6 class="font-weight-bold">Thông tin mã giảm giá:</h6>
+                            <p>Mã: <strong><?= $billInfo['code'] ?></strong></p>
+                            <p>Giảm giá: <strong><?= $billInfo['discount_percentage'] ?>%</strong></p>
+                            <?php if(isset($billInfo['max_discount']) && $billInfo['max_discount'] > 0): ?>
+                            <p>Giảm tối đa: <strong><?= number_format($billInfo['max_discount']) ?>đ</strong></p>
+                            <?php endif; ?>
+                        </div>
+                        <?php endif; ?>
+                        
                         <div class="table-responsive">
                             <table class="table table-bordered" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Anh</th>
-                                        <th>Ten san pham</th>
-                                        <th>Mau sac</th>
-                                        <th>So luong</th>
-                                        <th>Tong tien</th>
+                                        <th>Ảnh</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Màu sắc</th>
+                                        <th>Giá tiền</th>
+                                        <th>Số lượng</th>
+                                        <th>Thành tiền</th>
                                     </tr>
                                 </thead>
                                     <tbody>
@@ -394,7 +407,7 @@ require_once 'layout/css.php';
                                             $total += $itemTotal;
                                         ?>
                                         <tr>
-                                        <td><img src="../admin/images/<?= $item['img_product'] ?>" alt="" width="100px"></td>
+                                            <td><img src="../admin/images/<?= $item['img_product'] ?>" alt="" width="100px"></td>
                                             <td><?= $item['name_product'] ?></td>
                                             <td><?= $item['name_color'] ?></td>
                                             <td><?= number_format($item['price']) ?>đ</td>
@@ -405,10 +418,27 @@ require_once 'layout/css.php';
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th colspan="5" class="text-left">Tong tien:</th>
+                                            <th colspan="5" class="text-left">Tổng tiền:</th>
                                             <th><?= number_format($total) ?>đ</th>
                                         </tr>
-                                    </tfoot>
+                                    <?php if (isset($billInfo['code']) && !empty($billInfo['code'])): ?>
+                                    <tr>
+                                        <th colspan="5" class="text-left">Giảm giá:</th>
+                                        <th>
+                                            <?php 
+                                            $discount_percentage = $billInfo['discount_percentage'] ?? 0;
+                                            $max_discount = $billInfo['max_discount'] ?? PHP_INT_MAX;
+                                            $discount_amount = min(($total * $discount_percentage / 100), $max_discount);
+                                            echo number_format($discount_amount) . 'đ'; 
+                                            ?>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="5" class="text-left">Thành tiền sau giảm giá:</th>
+                                        <th><?= number_format($total - $discount_amount) ?>đ</th>
+                                    </tr>
+                                    <?php endif; ?>
+                                </tfoot>
                             </table>                        
                         </div>
 
