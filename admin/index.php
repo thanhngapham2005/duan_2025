@@ -10,10 +10,13 @@ require_once __DIR__ . '/controller/variantcontroller.php';
 require_once __DIR__ . '/model/variantmodel.php';
 require_once __DIR__ . '/model/userModel.php';
 require_once __DIR__ . '/model/categoriesModel.php';
-require_once __DIR__ . '/controller/categoriesController.php';
+
+require_once __DIR__ . '/model/productmodel.php';
+require_once __DIR__ . '/model/commentModel.php';
+require_once __DIR__ . '/controller/commentController.php';
 require_once __DIR__ . '/controller/billcontroller.php';
 require_once __DIR__ . '/model/billmodel.php';
-require_once __DIR__ . '/model/productmodel.php';
+
 // abcgit add
 if (!isset($_SESSION['user']) || $_SESSION['role'] != 2) {
     header("Location: view/login.php"); // Đổi thành trang đăng nhập của bạn
@@ -45,14 +48,15 @@ match ($act) {
     'deleteUser' => (new UserController())->deleteUser($id_user),
     'addCategories' => (new categoriesController())->insert(),
     'listCategories' => (new categoriesController())->listcategories(),
-    'deleteCategories' =>(new categoriesController())->delete($id_category),
-    'updateCategories' =>(new categoriesController())->update($id_category),
-    'listBill' =>(new billController())->listBill(),
-    'updateBill' =>(new billController())->updateBill($_GET['id']),
+
     'deleteCategories' => (new categoriesController())->delete($id_category),
     'updateCategories' => (new categoriesController())->update($id_category),
     'logout' => (new UserController())->logout(),
-
+    'listComments' => (new CommentController())->listComments(),
+    'deleteComment' => (new CommentController())->deleteComment($_GET['id']),
+    'toggleCensorship' => (new CommentController())->toggleCensorship($_GET['id'], $_GET['status']),
+    'listBill' => (new billController())->listBill(),
+    'updateBill' => (new billController())->updateBill($_GET['id']),
 
     default => throw new Exception("No matching action found for '$act'"),
 };

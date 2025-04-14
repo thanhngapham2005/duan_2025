@@ -9,11 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
-    <link href="assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
-    <link href="assets/extra-libs/calendar/calendar.css" rel="stylesheet" />
+    <link href="libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
+    <link href="extra-libs/calendar/calendar.css" rel="stylesheet" />
+
     <link href="dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,21 +55,27 @@
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+
+                            <img src="images/logo-icon.png" alt="homepage" class="light-logo" />
+
                            
                         </b>
                         <!--End Logo icon -->
                          <!-- Logo text -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
-                             <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
+
+                             <img src="images/logo-text.png" alt="homepage" class="light-logo" />
+
                             
                         </span>
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+
+                            <!-- <img src="images/logo-text.png" alt="homepage" class="light-logo" /> -->
+
                             
                         <!-- </b> -->
                         <!--End Logo icon -->
@@ -196,7 +204,9 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
@@ -361,7 +371,9 @@
                             <div class="comment-widgets scrollable"> -->
                                 <!-- Comment Row -->
                                 <!-- <div class="d-flex flex-row comment-row m-t-0">
-                                    <div class="p-2"><img src="assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle"></div>
+
+                                    <div class="p-2"><img src="images/users/1.jpg" alt="user" width="50" class="rounded-circle"></div>
+
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium">James Anderson</h6>
                                         <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
@@ -375,7 +387,9 @@
                                 </div> -->
                                 <!-- Comment Row -->
                                 <!-- <div class="d-flex flex-row comment-row">
-                                    <div class="p-2"><img src="assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle"></div>
+
+                                    <div class="p-2"><img src="images/users/4.jpg" alt="user" width="50" class="rounded-circle"></div>
+
                                     <div class="comment-text active w-100">
                                         <h6 class="font-medium">Michael Jorden</h6>
                                         <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
@@ -389,7 +403,9 @@
                                 </div> -->
                                 <!-- Comment Row -->
                                 <!-- <div class="d-flex flex-row comment-row">
-                                    <div class="p-2"><img src="assets/images/users/5.jpg" alt="user" width="50" class="rounded-circle"></div>
+
+                                    <div class="p-2"><img src="images/users/5.jpg" alt="user" width="50" class="rounded-circle"></div>
+
                                     <div class="comment-text w-100">
                                         <h6 class="font-medium">Johnathan Doeting</h6>
                                         <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
@@ -417,10 +433,12 @@
                                                 </label>
                                             </div>
                                             <ul class="list-style-none assignedto">
-                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/1.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Steave"></li>
-                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/2.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Jessica"></li>
-                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
-                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
+
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="images/users/1.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Steave"></li>
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="images/users/2.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Jessica"></li>
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
+
                                             </ul>
                                         </li>
                                         <li class="list-group-item todo-item" data-role="task">
@@ -440,8 +458,10 @@
                                                 </label>
                                             </div>
                                             <ul class="list-style-none assignedto">
-                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
-                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
+
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
+
                                             </ul>
                                         </li>
                                         <li class="list-group-item todo-item" data-role="task">
@@ -461,8 +481,10 @@
                                                 </label>
                                             </div>
                                             <ul class="list-style-none assignedto">
-                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
-                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
+
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
+
                                             </ul>
                                         </li>
                                     </ul>
@@ -722,7 +744,9 @@
                                     <tbody>
                                         <?php foreach ($variants as $variant) { ?>
                                             <tr>
-                                                <td><img src="assets/images/<?= $variant['img_product'] ?>" alt="" width="80px" height="100px">
+
+                                                <td><img src="images/<?= $variant['img_product'] ?>" alt="" width="80px" height="100px">
+
                                                 </td>
                                                 <td><?= $variant['name_color'] ?></td>
                                                 <td><?= $variant['quantity'] ?></td>
@@ -766,15 +790,17 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+
+    <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="dist/js/jquery.ui.touch-punch-improved.js"></script>
     <script src="dist/js/jquery-ui.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="extra-libs/sparkline/sparkline.js"></script>
+
     <!--Wave Effects -->
     <script src="dist/js/waves.js"></script>
     <!--Menu sidebar -->
@@ -782,8 +808,10 @@
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
     <!-- this page js -->
-    <script src="assets/libs/moment/min/moment.min.js"></script>
-    <script src="assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+
+    <script src="libs/moment/min/moment.min.js"></script>
+    <script src="libs/fullcalendar/dist/fullcalendar.min.js"></script>
+
     <script src="dist/js/pages/calendar/cal-init.js"></script>
 
 </body>

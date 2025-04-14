@@ -13,7 +13,7 @@ require_once 'layout/css.php';
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
@@ -114,20 +114,22 @@ require_once 'layout/css.php';
                                         if (!empty($users)) {
                                             foreach ($users as $user):
                                         ?>
-                                        <tr>
-                                            <td><?= $user['id_user'] ?? '' ?></td>
-                                            <td><?= $user['email'] ?? '' ?></td>
-                                            <td>
-                                                <a class="btn btn-danger"
-                                                    href="index.php?act=deleteUser&id_user=<?= $user['id_user'] ?? '' ?>"
-                                                    onclick="return confirm('Bạn muốn xóa tài khoản này chứ?')">Xóa</a>
-                                                <a class="btn btn-secondary"
-                                                    href="index.php?act=editUser&id_user=<?= $user['id_user'] ?? '' ?>">Sửa</a>
-                                                <a class="btn btn-success"
-                                                    href="index.php?act=showUser&id_user=<?= $user['id_user'] ?? '' ?>">Chi
-                                                    tiết</a>
-                                            </td>
-                                        </tr>
+
+                                                <tr>
+                                                    <td><?= $user['id_user'] ?? '' ?></td>
+                                                    <td><?= $user['email'] ?? '' ?></td>
+                                                    <td>
+                                                        <a class="btn btn-danger"
+                                                            href="index.php?act=deleteUser&id_user=<?= $user['id_user'] ?? '' ?>"
+                                                            onclick="return confirm('Bạn muốn xóa tài khoản này chứ?')">Xóa</a>
+                                                        <a class="btn btn-secondary"
+                                                            href="index.php?act=editUser&id_user=<?= $user['id_user'] ?? '' ?>">Sửa</a>
+                                                        <a class="btn btn-success"
+                                                            href="index.php?act=showUser&id_user=<?= $user['id_user'] ?? '' ?>">Chi
+                                                            tiết</a>
+                                                    </td>
+                                                </tr>
+
                                         <?php
                                             endforeach;
                                         } else {
