@@ -97,7 +97,7 @@ require_once 'layout/header.php';
                             </div>
                         </div>
                         <div class="card-body">
-                            <a href="?act=shop_single" class="h3 text-decoration-none"><?= $value['name'] ?></a>
+                            <a href="?act=shop_single&id=<?= $value['id_product'] ?>" class="h3 text-decoration-none"><?= $value['name'] ?></a>
                             <ul class="list-unstyled d-flex justify-content-center mb-1">
                                 <li>
                                     <i class="text-warning fa fa-star"></i>

@@ -27,6 +27,7 @@
 
                                     class="fa fa-list-ul"></i><span class="hide-menu"> Danh sách danh mục </span></a>
 
+
                         </li>
                         <li class="sidebar-item"><a href="index.php?act=addCategories" class="sidebar-link"><i
                                     class="fa fa-plus"></i><span class="hide-menu"> Thêm danh mục </span></a></li>

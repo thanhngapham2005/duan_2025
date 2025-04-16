@@ -57,6 +57,7 @@ match ($act) {
     'cart' => (new cartController())->cart(),
     'pay' => (new payController())->pay(),
     'payment' => (new payController())->payment(),
+    'checkDiscountCode' => (new payController())->checkDiscountCode(), // Thêm route mới cho kiểm tra mã giảm giá
     'orderDetail' => (new orderController())->orderDetail($_GET['id']),
     'cancelOrder' => (new orderController())->cancelOrder(),
     'order' => (new orderController())->order($_SESSION['user']['customer_info']['id_customer']),
