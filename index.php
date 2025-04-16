@@ -47,6 +47,7 @@ match ($act) {
     'logout' => (new LogoutController())->logout(),
     'profile' => (new ProfileController())->profile(),
     'updateProfile' => (new ProfileController())->updateProfile(),
+    
 
 
     'addToCart' => (new cartController())->addToCart(),

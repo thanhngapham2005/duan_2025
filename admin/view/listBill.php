@@ -54,9 +54,7 @@ require_once 'layout/css.php';
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
 
-         <?php
-         require_once 'layout/sidebar.php'
-         ?>
+
 
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -71,12 +69,12 @@ require_once 'layout/css.php';
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Don hang</h4>
+                        <h4 class="page-title">Đơn hàng </h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Don hang</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Đơn hàng </li>
                                 </ol>
                             </nav>
                         </div>
@@ -94,7 +92,7 @@ require_once 'layout/css.php';
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Danh sach don hang</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Danh sách đơn hàng </h1>
                 </div>
 
 
@@ -104,33 +102,40 @@ require_once 'layout/css.php';
                             <div class="col-sm-12 col-md-6">
                                 <form method="GET" class="mb-4">
                                     <input type="hidden" name="act" value="listBill">
-                                    <div class="form-group d-flex align-items-center">
-                                        <label for="status" class="me-2">Loc theo trang thai:</label>
-                                            <select name="status" id="status" class="form-select w-auto me-3">
-                                                <option value="">Tat ca</option>
-                                                <option value="0" <?= isset($_GET['status']) && $_GET['status'] == 0 ? 'selected' : '' ?>>Cho xac nhan</option>
-                                                <option value="1" <?= isset($_GET['status']) && $_GET['status'] == 1 ? 'selected' : '' ?>>Da xac nhan</option>
-                                                <option value="2" <?= isset($_GET['status']) && $_GET['status'] == 2 ? 'selected' : '' ?>>Cho lay hang</option>
-                                                <option value="3" <?= isset($_GET['status']) && $_GET['status'] == 3 ? 'selected' : '' ?>>Dang van chuyen</option>
-                                                <option value="4" <?= isset($_GET['status']) && $_GET['status'] == 4 ? 'selected' : '' ?>>Dang hoan tra hang</option>
-                                                <option value="5" <?= isset($_GET['status']) && $_GET['status'] == 5 ? 'selected' : '' ?>>Giao hang thanh cong</option>
-                                                <option value="6" <?= isset($_GET['status']) && $_GET['status'] == 6 ? 'selected' : '' ?>>Da huy</option>
-                                            </select>
-                                            <button type="submit" class="btn btn-primary">Loc</button>
-                                    </div>
+                                    <div class="form-group row align-items-center mb-3">
+    <div class="col-auto">
+        <label for="status" class="col-form-label fw-semibold">Lọc theo trạng thái:</label>
+    </div>
+    <div class="col-auto">
+        <select name="status" id="status" class="form-select">
+            <option value="">Tất cả</option>
+            <option value="0" <?= (isset($_GET['status']) && $_GET['status'] == 0) ? 'selected' : '' ?>>Chờ xác nhận</option>
+            <option value="1" <?= (isset($_GET['status']) && $_GET['status'] == 1) ? 'selected' : '' ?>>Đã xác nhận</option>
+            <option value="2" <?= (isset($_GET['status']) && $_GET['status'] == 2) ? 'selected' : '' ?>>Chờ lấy hàng</option>
+            <option value="3" <?= (isset($_GET['status']) && $_GET['status'] == 3) ? 'selected' : '' ?>>Đang vận chuyển</option>
+            <option value="4" <?= (isset($_GET['status']) && $_GET['status'] == 4) ? 'selected' : '' ?>>Đang hoàn trả hàng</option>
+            <option value="5" <?= (isset($_GET['status']) && $_GET['status'] == 5) ? 'selected' : '' ?>>Giao hàng thành công</option>
+            <option value="6" <?= (isset($_GET['status']) && $_GET['status'] == 6) ? 'selected' : '' ?>>Đã hủy</option>
+        </select>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary px-4 ">Lọc</button>
+    </div>
+</div>
+
                                 </form>
                             </div>
                         </div>
                             <table class="table table-bordered" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Mã don hang</th>
-                                        <th>Ten nguoi nhan</th>
-                                        <th>So dien thoai nguoi nhan</th>
-                                        <th>Dia chi nguoi nhan</th>
-                                        <th>Ngay mua</th>
-                                        <th>Trang thai don hang</th>
-                                        <th>Thao tac</th>
+                                        <th>Mã đơn hàng</th>
+                                        <th>Tên người nhận </th>
+                                        <th>Số điện thoại người nhận </th>
+                                        <th>Địa chỉ người nhận </th>
+                                        <th>Ngày mua </th>
+                                        <th>Trạng thái đơn hàng </th>
+                                        <th>Thao tác </th>
                                     </tr>
                                 </thead>
                                 <tbody>
