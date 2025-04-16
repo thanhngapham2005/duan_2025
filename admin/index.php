@@ -11,11 +11,17 @@ require_once __DIR__ . '/controller/discountController.php';
 require_once __DIR__ . '/model/variantmodel.php';
 require_once __DIR__ . '/model/userModel.php';
 require_once __DIR__ . '/model/categoriesModel.php';
+require_once __DIR__ . '/model/thongkeModel.php';
+require_once __DIR__ . '/model/thongkedtModel.php';
+
 
 require_once __DIR__ . '/model/productmodel.php';
 require_once __DIR__ . '/model/commentModel.php';
 require_once __DIR__ . '/controller/commentController.php';
 require_once __DIR__ . '/controller/billcontroller.php';
+require_once __DIR__ . '/controller/thongkecontroller.php';
+require_once __DIR__ . '/controller/thongkedtcontroller.php';
+
 require_once __DIR__ . '/model/billmodel.php';
 
 require_once __DIR__ . '/model/discountModel.php';
@@ -51,7 +57,7 @@ match ($act) {
     'deleteUser' => (new UserController())->deleteUser($id_user),
     'addCategories' => (new categoriesController())->insert(),
     'listCategories' => (new categoriesController())->listcategories(),
-
+    'listthongkesl' => (new thongkeslController())->listThongkesl(),
     'deleteCategories' => (new categoriesController())->delete($id_category),
     'updateCategories' => (new categoriesController())->update($id_category),
     'logout' => (new UserController())->logout(),
@@ -65,6 +71,9 @@ match ($act) {
     'editDiscount' => (new discountController())->editDiscount($_GET['id']),
     'deleteDiscount' => (new discountController())->deleteDiscount($_GET['id']),
 
+    'listthongkedt' =>(new thongkedtcontroller())->listThongkedt(),
+    'bieudosl' => (new thongkeslController())->bieudosl(),
+    'bieudodt' => (new thongkedtcontroller())->bieudodt(),
     default => throw new Exception("No matching action found for '$act'"),
 };
 

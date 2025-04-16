@@ -1,5 +1,9 @@
+<?php
+require_once 'layout/header.php';
+require_once 'layout/css.php';
+?>
 <!DOCTYPE html>
-<html dir="ltr">
+<html dir="ltr" lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -12,6 +16,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <title>Matrix Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
+    <link href="libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
+    <link href="extra-libs/calendar/calendar.css" rel="stylesheet" />
     <link href="dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,136 +28,154 @@
 </head>
 
 <body>
-    <div class="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
-        <div class="preloader">
-            <div class="lds-ripple">
-                <div class="lds-pos"></div>
-                <div class="lds-pos"></div>
-            </div>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
         </div>
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-            <div class="auth-box bg-dark border-top border-secondary">
-                <div id="loginform">
-                    <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="images/logo.png" alt="logo" /></span>
-                    </div>
-                    <!-- Form -->
-                    <form class="form-horizontal m-t-20" id="loginform" action="index.html">
-                        <div class="row p-b-30">
-                            <div class="col-12">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-success text-white" id="basic-addon1"><i
-                                                class="ti-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Username"
-                                        aria-label="Username" aria-describedby="basic-addon1" required="">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-warning text-white" id="basic-addon2"><i
-                                                class="ti-pencil"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Password"
-                                        aria-label="Password" aria-describedby="basic-addon1" required="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row border-top border-secondary">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <div class="p-t-20">
-                                        <button class="btn btn-info" id="to-recover" type="button"><i
-                                                class="fa fa-lock m-r-5"></i> Lost password?</button>
-                                        <button class="btn btn-success float-right" type="submit">Login</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div id="recoverform">
-                    <div class="text-center">
-                        <span class="text-white">Enter your e-mail address below and we will send you instructions how
-                            to recover a password.</span>
-                    </div>
-                    <div class="row m-t-20">
-                        <!-- Form -->
-                        <form class="col-12" action="index.html">
-                            <!-- email -->
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-danger text-white" id="basic-addon1"><i
-                                            class="ti-email"></i></span>
-                                </div>
-                                <input type="text" class="form-control form-control-lg" placeholder="Email Address"
-                                    aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
-                            <!-- pwd -->
-                            <div class="row m-t-20 p-t-20 border-top border-secondary">
-                                <div class="col-12">
-                                    <a class="btn btn-success" href="#" id="to-login" name="action">Back To Login</a>
-                                    <button class="btn btn-info float-right" type="button"
-                                        name="action">Recover</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper scss in scafholding.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper scss in scafholding.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
-    <!-- All Required js -->
+    <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <script src="libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugin js -->
-    <!-- ============================================================== -->
-    <script>
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".preloader").fadeOut();
-    // ============================================================== 
-    // Login and Recover Password 
-    // ============================================================== 
-    $('#to-recover').on("click", function() {
-        $("#loginform").slideUp();
-        $("#recoverform").fadeIn();
-    });
-    $('#to-login').click(function() {
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
 
-        $("#recoverform").hide();
-        $("#loginform").fadeIn();
-    });
-    </script>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
 
-</body>
+        <?php
+        require_once 'layout/sidebar.php';
+        ?>
 
-</html>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Thống kê doanh thu </h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Thống kê doanh thu  </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+            <h1 class="h3 mb-2 text-gray-800">Thống kê doanh thu </h1>
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Tên </th>
+                                    <th>Tổng doanh thu</th>
+                                    <th>Doanh thu theo ngày </th>
+                                    <th>Doanh thu theo tuần </th>
+                                    <th>Doanh thu theo tháng </th>
+                                    <th>Doanh thu theo năm </th>
+
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach($thongkedt as $key => $value){
+                                    $daily_revenue = $value['total_revenue'] / 365; // doanh thu ngay
+                                    $weekly_revenue = $daily_revenue * 7; // doanh thu tuan
+                                    $monthly_revenue = $daily_revenue * 30; // doanh thu thang
+                                    $yearly_revenue = $value['total_revenue']; // doanh thu nawm
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $key + 1; ?></td>
+                                            <td><?php echo $value['name_cat']; ?></td>
+                                            <td><?php echo number_format($value['total_revenue'], 0, ',', '.'); ?> VND</td>
+                                            <td><?php echo number_format($daily_revenue, 0, ',', '.'); ?> VND</td>
+                                            <td><?php echo number_format($weekly_revenue, 0, ',', '.'); ?> VND</td>
+                                            <td><?php echo number_format($monthly_revenue, 0, ',', '.'); ?> VND</td>
+                                            <td><?php echo number_format($yearly_revenue, 0, ',', '.'); ?> VND</td>
+                                        </tr>
+                                    <?php
+
+                                }
+                                ?>
+                            </tbody>
+
+                        </table>
+                                    <div class="input_button">
+                                        <a href="index.php?act=bieudodt"><input type="button" class="btn btn-success" value="Xem biểu đồ "></a>
+
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+                    
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Container fluid  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <!-- <footer class="footer text-center">
+                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer> -->
+                <?php
+                require_once 'layout/footer.php';
+                require_once 'layout/scripts.php';
+                ?>
+                <!-- ============================================================== -->
+                <!-- End footer -->
+                <!-- ============================================================== -->
+                
+            </div>
+            <!-- ============================================================== -->
+
+            <!-- End Page wrapper  -->
+
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Wrapper -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+
+

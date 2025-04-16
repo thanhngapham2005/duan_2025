@@ -142,9 +142,12 @@ require_once 'layout/head.php';
 
                         <label for="receiver_phone" class="form-label">Số điện thoại người nhận</label>
                         <div class="form-outline mb-4">
-                            <input type="text" name="receiver_phone" id="receiver_phone"
-                                class="form-control form-control-lg"
-                                value="<?= htmlspecialchars($customer_info['phone']) ?>" required>
+
+                            
+
+                            <input type="text" name="receiver_phone" id="receiver_phone" class="form-control form-control-lg"
+                                value="<?= htmlspecialchars($customer_info['phone']) ?>" required pattern="(03|05|07|08|09)[0-9]{8}" title="Số điện thoại Việt Nam hợp lệ gồm 10 số và bắt đầu bằng 03, 05, 07, 08, 09" >
+
                         </div>
 
                         <label for="receiver_address" class="form-label">Địa chỉ giao hàng</label>
@@ -156,21 +159,20 @@ require_once 'layout/head.php';
 
 
                         
-                        <!-- <div class="mb-3">
-                            <label for="paymentMethod" class="form-label">Hình thức thanh toán</label>
-                            <select name="shipping_method" id="paymentMethod" class="form-select mt-2">
-                                <option value="cod">Thanh toán khi nhận hàng (COD)</option>
-                                <option value="vnPay">VnPay</option>
-                                <option value="payUrl">MoMo</option>
-                                <option value="onepay">OnePay</option>
-                            </select>
-                            </div> -->
-                            <div class="mt-4 d-flex flex-wrap gap-2 ">
-                            <button type="submit" name="cod" class="btn btn-warning">Thanh toán COD</button>
-                            <a href="index.php?act=online_checkout" name="payUrl" class="btn btn-danger">Thanh toán MoMo</a>
-                            <button type="submit" name="vnpay" class="btn btn-success">Thanh toán VnPay</button>
-                            <button type="submit" class="btn btn-primary">Thanh toán tiền mặt</button>
-                            </div>
+
+
+<div class="mt-4 d-flex flex-wrap gap-2 ">
+  <button type="submit" name="cod" class="btn btn-warning">Thanh toán COD</button>
+  <a href="index.php?act=online_checkout" name="payUrl" class="btn btn-danger">Thanh toán MoMo</a>
+  <button type="submit" name="vnpay" class="btn btn-success">Thanh toán VnPay</button>
+  <button type="submit" class="btn btn-primary">Thanh toán tiền mặt</button>
+</div>
+
+<br>
+<br>
+
+
+
 
                             <br>
                             <br>
