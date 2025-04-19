@@ -127,7 +127,7 @@ require_once 'layout/css.php';
                                                 <td><input type="checkbox" name="ck" id=""></td>
                                                 <td>' . $id_category . '</td> <!-- hien thi id-->
                                                 <td>' . $name_cat . '</td>  <!-- hien thi ten loai-->
-                                                <td><a href="' . $suabt . '"><input class="btn btn-primary" type="button" value="Sửa"></a> <a href="' . $xoabt . '"><input class="btn btn-danger" type="button" value="Xóa"></a></td>
+                                                <td><a href="' . $suabt . '"><input class="btn btn-primary" type="button" value="Sửa"></a> 
                                             </tr>
                                             ';
                                     }
@@ -137,8 +137,6 @@ require_once 'layout/css.php';
                             </table>
                             <div class="input_button">
                                 <input type="button" onclick="selects()" class="btn btn-info" value="Chọn tất cả">
-                                <input type="button" onclick="deSelect()" class="btn btn-info" value="Bỏ chọn tất cả">
-                                <input type="button" value="Xoo cac muc da chon" class="btn btn-danger">
                                 <a href="index.php?act=addCategories"><input type="button" class="btn btn-success"
                                         value="Nhap them"></a>
 

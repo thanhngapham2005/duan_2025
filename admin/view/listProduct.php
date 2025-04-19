@@ -105,26 +105,29 @@ require_once 'layout/css.php';
                         <div class="table-responsive">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6">
-                                    <form method="GET" class="mb-4">
-                                        <input type="hidden" name="act" value="listProduct">
-                                        <div class="form-group d-flex align-items-center">
-                                            <label for="category" class="me-2">Lọc theo danh mục:</label>
-                                            <select id="category" name="category" class="form-select w-auto me-3">
-                                                <option value="">Tất cả</option>
-                                                <?php
-                                                foreach ($category as $cat) {
-                                                ?>
-                                                    <option value="<?= $cat['id_category'] ?>"
-                                                        <?= isset($_GET['category']) && $_GET['category'] == $cat['id_category'] ? 'selected' : '' ?>>
-                                                        <?= $cat['name_cat'] ?>
-                                                    </option>
-                                                <?php
-                                                }
-                                                ?>
-                                            </select>
-                                            <button type="submit" class="btn btn-primary">Lọc</button>
-                                        </div>
-                                    </form>
+                                <form method="GET" action="index.php" class="mb-3">
+    <input type="hidden" name="act" value="listthongkesl">
+    <div class="row g-2 align-items-center">
+        <div class="col-auto">
+            <label for="category" class="col-form-label">Lọc theo danh mục:</label>
+        </div>
+        <div class="col-auto">
+            <select id="category" name="category" class="form-select">
+                <option value="">Tất cả</option>
+                <?php foreach ($category as $cat) : ?>
+                    <option value="<?= $cat['id_category'] ?>"
+                        <?= isset($_GET['category']) && $_GET['category'] == $cat['id_category'] ? 'selected' : '' ?>>
+                        <?= $cat['name_cat'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Lọc</button>
+        </div>
+    </div>
+</form>
+
                                 </div>
                             </div>
                             <div class="card-body">

@@ -17,13 +17,13 @@ function connDBAss()
 $conn = connDBAss();
 function getOderStatus($status){
     $statuses = [
-        0 => "Cho xac nhan",
-        1 => "Da xac nhan",
-        2 => "Cho lay hang",
-        3 => "Dang van chuyen",
-        4 => "Dang hoan tra hang",
-        5 => "Giao hang thanh cong",
-        6 => "Da huy",
+        0 => "Chờ xác nhận ",
+        1 => "Đã xác nhận",
+        2 => "Chờ lấy hàng",
+        3 => "Đang vận chuyển ",
+        4 => "Đang hoàn trả hàng ",
+        5 => "Giao hàng thành công ",
+        6 => "Đã hủy ",
     ];
     return $statuses[$status] ?? "Khong ton tai";
 }
@@ -47,12 +47,12 @@ function renderOrders($orders) {
         echo '<table class="table table-striped">
         <thead>
         <tr>
-          <th>Ma don hang</th>
-          <th>So luong san pham</th>
-          <th>Tong gia tri</th>
-          <th>Trang thai</th>
-          <th>Ngay mua</th>
-          <th>Thao tac</th>
+          <th>Mã đơn hàng </th>
+          <th>Số lượng sản phẩm </th>
+          <th>Tổng giá trị </th>
+          <th>Trạng thái </th>
+          <th>Ngày mua </th>
+          <th>Thao tác </th>
         </tr>
         </thead>
         </tbody>';

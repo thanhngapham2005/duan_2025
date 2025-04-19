@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 19, 2025 at 05:24 AM
+-- Generation Time: Apr 19, 2025 at 05:37 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.27
 
@@ -211,7 +211,7 @@ INSERT INTO `products` (`id_product`, `id_category`, `firms`, `name`, `price`, `
 (7, 8, 'Tai nghe Bluetooth chụp tai Sony WH-1000XM5', 'Tai nghe Bluetooth 1000XM5', 360000, 101, 'Công nghệ Auto NC Optimizer tự động khử tiếng ồn dựa theo môi trường', 'tải xuống (13).jpg', 0, 82, '2025-03-29 23:50:55', '2025-04-15 22:32:02'),
 (8, 8, 'Choetech Vietnam', 'Tai nghe Bluetooth BH-T16', 659000, 67, 'Tai nghe Bluetooth BH-T16 là sự lựa chọn hoàn hỏa giúp bạn giải tỏa áp lực, căng thẳng sau giờ làm việc hay cho bạn đắm chìm vào những bản nhạc mà mình yêu thích.', 'images.jpg', 0, 9, '2025-03-29 23:58:42', '2025-03-29 23:58:42'),
 (9, 9, 'Laptop Lenovo', 'Laptop Lenovo 5 14Q8X9 ', 22990000, 135, 'Laptop có màu xám thanh lịch, kiểu dáng mỏng nhẹ, dễ dàng mang theo khi di chuyển.', 'tải xuống (8).jpg', 0, 19, '2025-03-30 00:01:02', '2025-03-30 00:08:45'),
-(10, 9, 'ASUS', 'Laptop ASUS 15 X1504ZA', 13990000, 70, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'images (1).jpg', 0, 0, '2025-03-30 00:05:49', '2025-04-15 22:31:34'),
+(10, 9, 'ASUS', 'Laptop ASUS 15 X1504ZA', 13990000, 70, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'images (1).jpg', 0, 110, '2025-03-30 00:05:49', '2025-04-15 22:31:34'),
 (11, 9, 'Acer ', 'Laptop Acer Gaming', 13990000, 70, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'tải xuống (9).jpg', 0, 26, '2025-03-30 00:08:33', '2025-03-30 00:08:33'),
 (12, 9, 'FPT Shop', 'Laptop MSI Katana', 25990000, 60, 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất\r\nBảo hành pin và bộ sạc 12 tháng\r\nBộ nguồn, máy, balo, sách hdsd\r\nBảo hành 24 tháng tại trung tâm bảo hành Chính hãng. 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng từ nhà sản xuất\r\nGiá sản phẩm đã bao gồm VAT', 'tải xuống (11).jpg', 0, 51, '2025-03-30 00:13:23', '2025-03-30 02:04:08'),
 (13, 8, 'AVA+', 'Tai nghe Bluetooth FreeGo Y913', 230000, 56, 'Tai nghe Bluetooth TWS AVA+ FreeGo Y913 không chỉ đem lại sự tiện lợi tối đa mà còn mang đến trải nghiệm âm nhạc chân thực và sắc nét. Với thiết kế nhỏ gọn, hiện đại cùng công nghệ tiên tiến, Y913 hứa hẹn là người bạn đồng hành hoàn hảo cho mọi hoạt động của bạn.', 'tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg', 0, 13, '2025-04-16 01:51:22', '2025-04-16 01:52:39');

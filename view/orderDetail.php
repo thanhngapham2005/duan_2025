@@ -41,38 +41,38 @@ require_once 'layout/head.php';
 
     <!-- Start Article -->
     <div class="container my-5">
-        <h2 class="mb-4">Chi tiet don hang</h2>
+        <h2 class="mb-4">Chi tiết đơn hàng </h2>
         <div class="card">
             <div class="card-header">
-                <strong>Ma don hang</strong> <?= $orderDetail[0]['id_bill'] ?>
+                <strong>Mã đơn hàng </strong> <?= $orderDetail[0]['id_bill'] ?>
 
             </div>
             <div class="card-body">
-                <p><strong>Nguoi nhan:</strong> <?= $orderDetail[0]['receiver_name'] ?></p>
-                <p><strong>Dien thoai:</strong> <?= $orderDetail[0]['receiver_phone'] ?></p>
-                <p><strong>Dia chi:</strong> <?= $orderDetail[0]['receiver_address'] ?></p>
-                <p><strong>Ngay mua:</strong> <?= $orderDetail[0]['purchase_date'] ?></p>
-                <p><strong>Trang thai:</strong> <?= getOderStatus($orderDetail[0]['status']) ?></p>
+                <p><strong>Nguời nhận :</strong> <?= $orderDetail[0]['receiver_name'] ?></p>
+                <p><strong>Điện thoại :</strong> <?= $orderDetail[0]['receiver_phone'] ?></p>
+                <p><strong>Địa chỉ :</strong> <?= $orderDetail[0]['receiver_address'] ?></p>
+                <p><strong>Ngày mua :</strong> <?= $orderDetail[0]['purchase_date'] ?></p>
+                <p><strong>Trạng thái :</strong> <?= getOderStatus($orderDetail[0]['status']) ?></p>
 
                 <?php if (in_array($orderDetail[0]['status'],[0, 1])): ?>
                     <form action="?act=cancelOrder" method="post">
                         <input type="hidden" name="id_bill" value="<?= $orderDetail[0]['id_bill'] ?>">
-                        <button type="submit" class="btn btn-danger" name="cancel" onclick="return confirm('Ban co chan muon huy don hang')">Huy don hang</button>
+                        <button type="submit" class="btn btn-danger" name="cancel" onclick="return confirm('Bạn có chắc muốn hủy đơn hàng ? ')">Hủy đơn hàng </button>
                     
                     </form>
                     <?php endif; ?>
             </div>
         </div>
-<h3 class="mt-4">Danh sach san pham</h3>
+<h3 class="mt-4">Danh sách sản phẩm </h3>
 <table class="table">
 <thead>
     <tr>
-        <th>Anh</th>
+        <th>Ảnh </th>
         <th>Tên sản phẩm</th>
-        <th>Mau</th>
-        <th>Gia</th>
-        <th>So luong</th>
-        <th>Thanh tien</th>
+        <th>Màu </th>
+        <th>Giá </th>
+        <th>Số lượng</th>
+        <th>Thành tiền </th>
     </tr>
 </thead>
 <tbody>
@@ -82,6 +82,8 @@ require_once 'layout/head.php';
             <td><?= $detail['name_product'] ?></td>
             <td><?= $detail['name_color'] ?></td>
             <td><?= number_format($detail['price']) ?>d</td>
+            <td><?= $detail['quantity'] ?></td>
+            <td><?= number_format($detail['price'] * $detail['quantity']) ?>d</td>
         </tr>
         <?php endforeach; ?>
 </tbody>

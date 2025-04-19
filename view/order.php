@@ -42,48 +42,41 @@ require_once 'layout/head.php';
     <!-- Start Article -->
     <section class="py-5">
       <div class="container my-5">
-        <h2 class="mb-4">Don hang cua toi</h2>
+        <h2 class="mb-4">Đơn hàng của tôi </h2>
 
         <ul class="nav nav-tabs mb-4" id="orderTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="all-orders-tab" data-bs-toggle="tab" data-bs-target="#all-orders"
-               type="button" role="tab" aria-controls="all-orders" aria-selected="true">Tat ca don</button>
+               type="button" role="tab" aria-controls="all-orders" aria-selected="true">Tất cả đơn </button>
             </li>
             
             <li class="nav-item" role="presentation">
                 <button class="nav-link " id="pending-payment-tab" data-bs-toggle="tab" data-bs-target="#pending-payment"
-               type="button" role="tab" aria-controls="pending-payment" aria-selected="false">Cho xac nhan</button>
+               type="button" role="tab" aria-controls="pending-payment" aria-selected="false">Chờ lấy hàng </button>
             </li>
 
             <li class="nav-item" role="presentation">
                 <button class="nav-link " id="processing-tab" data-bs-toggle="tab" data-bs-target="#processing"
-               type="button" role="tab" aria-controls="processing" aria-selected="false">Da xac nhan</button>
+               type="button" role="tab" aria-controls="processing" aria-selected="false">Đã lấy hàng </button>
             </li>
 
-            <li class="nav-item" role="presentation">
-                <button class="nav-link " id="awaiting-pickup-tab" data-bs-toggle="tab" data-bs-target="#awaiting-pickup"
-               type="button" role="tab" aria-controls="awaiting-pickup" aria-selected="false">Cho lay hang</button>
-            </li>
-
+          
             
             <li class="nav-item" role="presentation">
                 <button class="nav-link " id="shipping-tab" data-bs-toggle="tab" data-bs-target="#shipping"
-               type="button" role="tab" aria-controls="shipping" aria-selected="false">Dang van chuyen</button>
+               type="button" role="tab" aria-controls="shipping" aria-selected="false">Đang vận chuyển </button>
             </li>
 
-            <li class="nav-item" role="presentation">
-                <button class="nav-link " id="return-request-tab" data-bs-toggle="tab" data-bs-target="#return-request"
-               type="button" role="tab" aria-controls="return-request" aria-selected="false">Yeu cau tra hang</button>
-            </li>
+            
 
             <li class="nav-item" role="presentation">
                 <button class="nav-link " id="successful-delivery-tab" data-bs-toggle="tab" data-bs-target="#successful-delivery"
-               type="button" role="tab" aria-controls="successful-delivery" aria-selected="false">Giao hang thanh cong</button>
+               type="button" role="tab" aria-controls="successful-delivery" aria-selected="false">Giao hàng thành công </button>
             </li>
 
             <li class="nav-item" role="presentation">
                 <button class="nav-link " id="cancelled-tab" data-bs-toggle="tab" data-bs-target="#cancelled"
-               type="button" role="tab" aria-controls="cancelled" aria-selected="false">Da huy</button>
+               type="button" role="tab" aria-controls="cancelled" aria-selected="false">Đã hủy </button>
             </li>
         </ul>
 
