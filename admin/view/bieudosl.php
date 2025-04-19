@@ -51,7 +51,9 @@
             <!-- Biểu đồ Google Chart -->
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
-                google.charts.load('current', { packages: ['corechart', 'bar'] });
+                google.charts.load('current', {
+                    packages: ['corechart', 'bar']
+                });
                 google.charts.setOnLoadCallback(drawChart);
 
                 function drawChart() {
@@ -67,16 +69,24 @@
 
                     var options = {
                         title: 'Số lượng sản phẩm theo danh mục',
-                        chartArea: { width: '40%' },
+                        chartArea: {
+                            width: '40%'
+                        },
                         height: 500,
                         hAxis: {
                             title: 'Số lượng sản phẩm',
                             minValue: 0,
-                            textStyle: { color: '#3e3e3e', fontSize: 14 }
+                            textStyle: {
+                                color: '#3e3e3e',
+                                fontSize: 14
+                            }
                         },
                         vAxis: {
                             title: 'Danh mục',
-                            textStyle: { color: '#3e3e3e', fontSize: 14 },
+                            textStyle: {
+                                color: '#3e3e3e',
+                                fontSize: 14
+                            },
                             slantedText: true,
                             slantedTextAngle: 0
                         },
@@ -88,8 +98,13 @@
                             duration: 1000,
                             easing: 'out'
                         },
-                        bar: { groupWidth: '75%' },
-                        legend: { position: 'top', alignment: 'end' }
+                        bar: {
+                            groupWidth: '75%'
+                        },
+                        legend: {
+                            position: 'top',
+                            alignment: 'end'
+                        }
                     };
 
                     var chart = new google.visualization.ColumnChart(document.getElementById('piechart'));

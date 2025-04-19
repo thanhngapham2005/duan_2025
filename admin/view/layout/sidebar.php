@@ -24,7 +24,6 @@
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item"><a href="index.php?act=listCategories" class="sidebar-link"><i
-
                                     class="fa fa-list-ul"></i><span class="hide-menu"> Danh sách danh mục </span></a>
 
 

@@ -1,9 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
 require_once 'layout/head.php';
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<?php
+$status = $_GET['resultCode'] ?? null;
+$orderId = $_GET['orderId'] ?? null;
+$amount = $_GET['amount'] ?? null;
+
+if (isset($status) && $status == 0) { // Kiểm tra thanh toán thành công
+    unset($_SESSION['mycart']); // Xóa giỏ hàng
+    echo "<script>
+        alert('Thanh toán thành công');
+        window.location.href = 'index.php?act=order';
+    </script>";
+}
+?>
+
+
+
 
 <body>
     <!-- Start Top Nav -->
@@ -75,7 +90,7 @@ require_once 'layout/head.php';
                         ?>
                     </div>
                     <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1">
-                    
+
                     <!-- Thêm phần mã giảm giá -->
                     <div class="mb-3">
                         <div class="input-group">
@@ -84,16 +99,15 @@ require_once 'layout/head.php';
                         </div>
                         <div id="discount_message" class="mt-2"></div>
                     </div>
-                    
+
                     <!-- Hiển thị danh sách mã giảm giá có sẵn -->
                     <?php if (!empty($discountCodes)): ?>
                     <div class="mb-3">
                         <h6 class="fw-bold">Mã giảm giá có sẵn:</h6>
                         <div class="d-flex flex-wrap">
                             <?php foreach ($discountCodes as $code): ?>
-                            <div class="discount-code-item me-2 mb-2 p-2 border rounded" 
-                                 style="cursor: pointer;" 
-                                 data-code="<?= htmlspecialchars($code['code']) ?>">
+                            <div class="discount-code-item me-2 mb-2 p-2 border rounded" style="cursor: pointer;"
+                                data-code="<?= htmlspecialchars($code['code']) ?>">
                                 <span class="badge bg-primary"><?= htmlspecialchars($code['code']) ?></span>
                                 <small>Giảm <?= $code['discount_percentage'] ?>%</small>
                             </div>
@@ -101,12 +115,12 @@ require_once 'layout/head.php';
                         </div>
                     </div>
                     <?php endif; ?>
-                    
+
                     <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
                         <h5 class="fw-bold mb-0">Tổng tiền:</h5>
                         <h5 class="fw-bold mb-0" id="total_amount"><?= number_format($total) ?>đ</h5>
                     </div>
-                    
+
                     <!-- Hiển thị giảm giá và thành tiền sau giảm giá -->
                     <div id="discount_info" style="display: none;">
                         <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #ffebee;">
@@ -123,19 +137,16 @@ require_once 'layout/head.php';
                 <!-- Thông tin thanh toán -->
                 <div class="col-lg-6 px-5 py-4">
                     <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Thông tin thanh toán</h3>
-                    <form onsubmit="return confirm('Xac nhan dat hang')" action="index.php?act=payment" method="POST" class="mb-5">
+                    <form onsubmit="return confirm('Xác nhận đặt hàng')" action="index.php?act=payment" method="POST"
+                        class="mb-5">
                         <?php
-                        // Đảm bảo $_SESSION['user']['customer_info'] tồn tại
                         $customer_info = $_SESSION['user']['customer_info'] ?? [
                             'full_name' => '',
                             'phone' => '',
                             'address' => ''
                         ];
                         ?>
-                        
-                        <!-- Thiếu input ẩn để lưu mã giảm giá -->
-                        <input type="hidden" id="hidden_discount_code" name="discount_code" value="">
-            
+
                         <label for="receiver_name" class="form-label">Tên người nhận</label>
                         <div class="form-outline mb-4">
                             <input type="text" name="receiver_name" id="receiver_name"
@@ -145,12 +156,11 @@ require_once 'layout/head.php';
 
                         <label for="receiver_phone" class="form-label">Số điện thoại người nhận</label>
                         <div class="form-outline mb-4">
-
-                            
-
-                            <input type="text" name="receiver_phone" id="receiver_phone" class="form-control form-control-lg"
-                                value="<?= htmlspecialchars($customer_info['phone']) ?>" required pattern="(03|05|07|08|09)[0-9]{8}" title="Số điện thoại Việt Nam hợp lệ gồm 10 số và bắt đầu bằng 03, 05, 07, 08, 09" >
-
+                            <input type="text" name="receiver_phone" id="receiver_phone"
+                                class="form-control form-control-lg"
+                                value="<?= htmlspecialchars($customer_info['phone']) ?>" required
+                                pattern="(03|05|07|08|09)[0-9]{8}"
+                                title="Số điện thoại Việt Nam hợp lệ gồm 10 số và bắt đầu bằng 03, 05, 07, 08, 09">
                         </div>
 
                         <label for="receiver_address" class="form-label">Địa chỉ giao hàng</label>
@@ -160,206 +170,75 @@ require_once 'layout/head.php';
                                 value="<?= htmlspecialchars($customer_info['address']) ?>" required>
                         </div>
 
-
-                        
-
-
-<div class="mt-4 d-flex flex-wrap gap-2 ">
-  <button type="submit" name="cod" class="btn btn-warning">Thanh toán COD</button>
-  <a href="index.php?act=online_checkout" name="payUrl" class="btn btn-danger">Thanh toán MoMo</a>
-  <button type="submit" name="vnpay" class="btn btn-success">Thanh toán VnPay</button>
-  <button type="submit" class="btn btn-primary">Thanh toán tiền mặt</button>
-</div>
-
-<br>
-<br>
-
-
-
-
-                            <br>
-                            <br>
                         <input type="submit" class="btn btn-primary btn-block btn-lg" name="order_cart"
-                            value="Đặt hàng">
-
-                        <h5 class="fw-bold mt-4">
-                            <a href="?act=shop"><i class="fas fa-angle-left me-2"></i>Quay lại mua sắm</a>
-                        </h5>
+                            value="Thanh toán tiền mặt">
                     </form>
+
+                    <form action="view/confirm_momo.php" method="POST">
+                        <input type="submit" name="momo" class="btn btn-danger" value="Thanh toán MoMo">
+                        <input type="hidden" name="total_amount" value="<?= $total ?>">
+                        <input type="hidden" name="receiver_name"
+                            value="<?= htmlspecialchars($customer_info['full_name']) ?>">
+                        <input type="hidden" name="receiver_phone"
+                            value="<?= htmlspecialchars($customer_info['phone']) ?>">
+                        <input type="hidden" name="receiver_address"
+                            value="<?= htmlspecialchars($customer_info['address']) ?>">
+                    </form>
+
+                    <h5 class="fw-bold mt-4">
+                        <a href="?act=shop"><i class="fas fa-angle-left me-2"></i>Quay lại mua sắm</a>
+                    </h5>
                 </div>
             </div>
         </div>
     </section>
-  
+
     <!-- Start Footer -->
     <?php include 'layout/footer.php'; ?>
     <!-- End Footer -->
 
+    <!-- Start Script -->
+    <?php include 'layout/scripts.php'; ?>
+    <!-- End Script -->
 
-    <!-- Modal thông báo kết quả thanh toán -->
-    <div class="modal fade" id="paymentSuccessPopup" tabindex="-1" aria-labelledby="paymentSuccessPopupLabel" aria-hidden="true">
-        <div class="modal-dialog">
+
+    <?php if (isset($_SESSION['payment_status'])): ?>
+    <div class="modal fade show animate__animated <?= ($_SESSION['payment_status'] === 'success') ? 'animate__fadeIn' : 'animate__shakeX'; ?>"
+        id="paymentSuccessPopup" tabindex="-1" role="dialog" aria-labelledby="paymentSuccessPopupLabel"
+        style="display: block;" inert>
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="paymentSuccessPopupLabel">
-                        <?php if (isset($_SESSION['payment_status']) && $_SESSION['payment_status'] === 'success'): ?>
-                            <i class="fas fa-check-circle text-success"></i> Thành công
-                        <?php else: ?>
-                            <i class="fas fa-exclamation-circle text-danger"></i> Thông báo
-                        <?php endif; ?>
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <?php if (isset($_SESSION['payment_message'])): ?>
-                        <p><?= $_SESSION['payment_message'] ?></p>
-                    <?php endif; ?>
+                <div class="modal-body text-center">
+                    <img id="img"
+                        src="images/<?= ($_SESSION['payment_status'] === 'success') ? 'success.gif' : 'comp_3.gif'; ?>"
+                        alt="<?= ($_SESSION['payment_status'] === 'success') ? 'Thanh toán thành công' : 'Có lỗi xảy ra'; ?>"
+                        style="width: 100%; height: auto;">
 
+                    <p><?= $_SESSION['payment_message']; ?></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Start Script -->
-    <?php include 'layout/scripts.php'; ?>
-    <!-- End Script -->
-    
+    <?php endif; ?>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const applyDiscountBtn = document.getElementById('apply_discount');
-        const discountCodeInput = document.getElementById('discount_code');
-        const discountMessage = document.getElementById('discount_message');
-        const hiddenDiscountCode = document.getElementById('hidden_discount_code');
-        const totalAmount = document.getElementById('total_amount');
-        const discountInfo = document.getElementById('discount_info');
-        const discountAmount = document.getElementById('discount_amount');
-        const finalAmount = document.getElementById('final_amount');
-        
-        // Lấy tổng tiền từ hiển thị
-        let total = <?= $total ?>;
-        let discountApplied = false; // Biến để kiểm tra đã áp dụng mã giảm giá chưa
-        
-        console.log('Script loaded, total:', total);
-        console.log('Apply button:', applyDiscountBtn);
-        
-        // Xử lý khi click vào nút áp dụng mã giảm giá
-        applyDiscountBtn.addEventListener('click', function(e) {
-            e.preventDefault(); // Ngăn chặn hành vi mặc định
-            console.log('Apply button clicked');
-            
-            // Chỉ kiểm tra nếu đã áp dụng mã giảm giá thành công
-            if (discountApplied) {
-                discountMessage.innerHTML = '<span class="text-warning">Bạn đã áp dụng mã giảm giá cho đơn hàng này. Vui lòng tạo đơn hàng mới để sử dụng mã khác.</span>';
-                return;
-            }
-            
-            applyDiscountCode();
-        });
-        
-        // Xử lý khi click vào mã giảm giá có sẵn
-        const discountCodeItems = document.querySelectorAll('.discount-code-item');
-        console.log('Discount code items:', discountCodeItems.length);
-        
-        discountCodeItems.forEach(item => {
-            item.addEventListener('click', function() {
-                // Chỉ kiểm tra nếu đã áp dụng mã giảm giá thành công
-                if (discountApplied) {
-                    discountMessage.innerHTML = '<span class="text-warning">Bạn đã áp dụng mã giảm giá cho đơn hàng này. Vui lòng tạo đơn hàng mới để sử dụng mã khác.</span>';
-                    return;
-                }
-                
-                const code = this.getAttribute('data-code');
-                console.log('Discount code clicked:', code);
-                discountCodeInput.value = code;
-                applyDiscountCode();
-            });
-        });
-        
-        // Hàm áp dụng mã giảm giá
-        function applyDiscountCode() {
-            const code = discountCodeInput.value.trim();
-            console.log('Applying discount code:', code);
-            
-            if (!code) {
-                discountMessage.innerHTML = '<span class="text-danger">Vui lòng nhập mã giảm giá</span>';
-                return;
-            }
-            
-            // Gửi request kiểm tra mã giảm giá
-            console.log('Sending request to check discount code');
-            
-            fetch('index.php?act=checkDiscountCode', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'discount_code=' + encodeURIComponent(code) + '&total=' + total
-            })
-            .then(response => {
-                console.log('Response received:', response);
-                return response.json();
-            })
-            .then(data => {
-                console.log('Data received:', data);
-                
-                if (data.status === 'success') {
-                    // Đánh dấu đã áp dụng mã giảm giá thành công
-                    discountApplied = true;
-                    
-                    // Hiển thị thông tin giảm giá
-                    discountMessage.innerHTML = '<span class="text-success">Áp dụng mã giảm giá thành công!</span>';
-                    hiddenDiscountCode.value = code;
-                    
-                    // Hiển thị thông tin giảm giá
-                    discountInfo.style.display = 'block';
-                    discountAmount.textContent = new Intl.NumberFormat('vi-VN').format(data.discount_amount) + 'đ';
-                    finalAmount.textContent = new Intl.NumberFormat('vi-VN').format(data.final_total) + 'đ';
-                    
-                    // Vô hiệu hóa input và nút áp dụng
-                    discountCodeInput.disabled = true;
-                    applyDiscountBtn.disabled = true;
-                    
-                    // Thêm lớp CSS để hiển thị trạng thái đã áp dụng
-                    discountCodeItems.forEach(item => {
-                        if (item.getAttribute('data-code') === code) {
-                            item.classList.add('active-discount');
-                            item.style.backgroundColor = '#e8f5e9';
-                            item.style.borderColor = '#4caf50';
-                        } else {
-                            item.style.opacity = '0.5';
-                            item.style.cursor = 'not-allowed';
-                        }
-                    });
-                } else {
-                    discountMessage.innerHTML = '<span class="text-danger">' + data.message + '</span>';
-                    hiddenDiscountCode.value = '';
-                    discountInfo.style.display = 'none';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                discountMessage.innerHTML = '<span class="text-danger">Đã xảy ra lỗi khi kiểm tra mã giảm giá</span>';
-            });
-        }
-        
-        <?php if (isset($_SESSION['payment_status'])): ?>
-        // Script xử lý popup thông báo
-        var paymentSuccessPopup = new bootstrap.Modal(document.getElementById('paymentSuccessPopup'));
-    
-        // Hiển thị modal
-        paymentSuccessPopup.show();
-    
-        // Đóng popup tự động sau 3 giây và redirect
-        setTimeout(function() {
-            paymentSuccessPopup.hide(); // Đóng modal sau 3 giây
-            window.location.href = 'index.php?act=shop';
-        }, 2000);
-        <?php
-            unset($_SESSION['payment_status']);
-            unset($_SESSION['payment_message']);
+    var paymentSuccessPopup = new bootstrap.Modal(document.getElementById('paymentSuccessPopup'));
+
+    // Hiển thị modal
+    paymentSuccessPopup.show();
+
+    // Đóng popup tự động sau 3 giây và redirect
+
+    setTimeout(function() {
+
+        paymentSuccessPopup.hide(); // Đóng modal sau 3 giây
+        window.location.href = 'index.php?act=shop';
+    }, 2000);
+    <?php
+
+        unset($_SESSION['payment_status']);
+        unset($_SESSION['payment_message']);
         ?>
-        <?php endif; ?>
-    });
     </script>
 
 </body>

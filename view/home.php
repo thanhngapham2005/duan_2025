@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-    .card-img {
+.card-img {
     aspect-ratio: 4 / 3;
     object-fit: contain;
     max-height: 250px;
     width: 100%;
 }
-
 </style>
 <?php include 'layout/head.php'; ?>
 
@@ -18,7 +17,7 @@
 
 
     <!-- Header -->
-    <?php include 'layout/header.php'; ?>
+    <?php require_once 'layout/header.php'; ?>
     <!-- Close Header -->
 
     <!-- Modal -->
@@ -72,31 +71,32 @@
                 </div>
             </div>
             <div class="row">
-                <?php foreach( $topPro as $key => $value){
-                    ?>
-                        <div class="col-12 col-md-4 mb-4">
-                            <div class="card h-100">
-                                <a href="?act=shop_single&id=<?= $value['id_product'] ?>">
-                                    <img src="admin/images/<?= $value['img_product'] ?>" class="card-img" alt="...">
-                                </a>
-                                <div class="card-body">
-                                    <ul class="list-unstyled d-flex justify-content-between">
-                                        <li>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-warning fa fa-star"></i>
-                                            <i class="text-muted fa fa-star"></i>
-                                            <i class="text-muted fa fa-star"></i>
-                                        </li>
-                                        <li class="text-muted text-right"><?= number_format($value['price']) ?>đ</li>
-                                    </ul>
-                                    <a href="?act=shop_single&id=<?= $value['id_product'] ?>" class="h2 text-decoration-none text-dark"><?= $value['name'] ?></a>
-                                    <p class="card-text"><?= $value['description'] ?></p>
-                                    <p class="text-muted">Lượt xem (<?= $value['view'] ?>)</p>
-                                </div>
-                            </div>
+                <?php foreach ($topPro as $key => $value) {
+                ?>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="?act=shop_single&id=<?= $value['id_product'] ?>">
+                            <img src="admin/images/<?= $value['img_product'] ?>" class="card-img" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right"><?= number_format($value['price']) ?>đ</li>
+                            </ul>
+                            <a href="?act=shop_single&id=<?= $value['id_product'] ?>"
+                                class="h2 text-decoration-none text-dark"><?= $value['name'] ?></a>
+                            <p class="card-text"><?= $value['description'] ?></p>
+                            <p class="text-muted">Lượt xem (<?= $value['view'] ?>)</p>
                         </div>
-                    <?php
+                    </div>
+                </div>
+                <?php
                 }
                 ?>
             </div>

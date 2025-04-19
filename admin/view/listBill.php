@@ -44,9 +44,9 @@ require_once 'layout/css.php';
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-       <?php
-       require_once 'layout/sidebar.php';
-       ?>
+        <?php
+        require_once 'layout/sidebar.php';
+        ?>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -102,99 +102,172 @@ require_once 'layout/css.php';
                             <div class="col-sm-12 col-md-6">
                                 <form method="GET" class="mb-4">
                                     <input type="hidden" name="act" value="listBill">
+
                                     <div class="form-group row align-items-center mb-3">
-    <div class="col-auto">
-        <label for="status" class="col-form-label fw-semibold">Lọc theo trạng thái:</label>
-    </div>
-    <div class="col-auto">
-        <select name="status" id="status" class="form-select">
-            <option value="">Tất cả</option>
-            <option value="0" <?= (isset($_GET['status']) && $_GET['status'] == 0) ? 'selected' : '' ?>>Chờ xác nhận</option>
-            <option value="1" <?= (isset($_GET['status']) && $_GET['status'] == 1) ? 'selected' : '' ?>>Đã xác nhận</option>
-            <option value="2" <?= (isset($_GET['status']) && $_GET['status'] == 2) ? 'selected' : '' ?>>Chờ lấy hàng</option>
-            <option value="3" <?= (isset($_GET['status']) && $_GET['status'] == 3) ? 'selected' : '' ?>>Đang vận chuyển</option>
-            <option value="4" <?= (isset($_GET['status']) && $_GET['status'] == 4) ? 'selected' : '' ?>>Đang hoàn trả hàng</option>
-            <option value="5" <?= (isset($_GET['status']) && $_GET['status'] == 5) ? 'selected' : '' ?>>Giao hàng thành công</option>
-            <option value="6" <?= (isset($_GET['status']) && $_GET['status'] == 6) ? 'selected' : '' ?>>Đã hủy</option>
-        </select>
-    </div>
-    <div class="col-auto">
-        <button type="submit" class="btn btn-primary px-4 ">Lọc</button>
-    </div>
-</div>
+                                        <div class="col-auto">
+                                            <label for="status" class="col-form-label fw-semibold">Lọc theo trạng
+                                                thái:</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <select name="status" id="status" class="form-select">
+                                                <option value="">Tất cả</option>
+                                                <option value="0"
+                                                    <?= (isset($_GET['status']) && $_GET['status'] == 0) ? 'selected' : '' ?>>
+                                                    Chờ xác nhận</option>
+                                                <option value="1"
+                                                    <?= (isset($_GET['status']) && $_GET['status'] == 1) ? 'selected' : '' ?>>
+                                                    Đã xác nhận</option>
+                                                <option value="2"
+                                                    <?= (isset($_GET['status']) && $_GET['status'] == 2) ? 'selected' : '' ?>>
+                                                    Chờ lấy hàng</option>
+                                                <option value="3"
+                                                    <?= (isset($_GET['status']) && $_GET['status'] == 3) ? 'selected' : '' ?>>
+                                                    Đang vận chuyển</option>
+                                                <option value="4"
+                                                    <?= (isset($_GET['status']) && $_GET['status'] == 4) ? 'selected' : '' ?>>
+                                                    Đang hoàn trả hàng</option>
+                                                <option value="5"
+                                                    <?= (isset($_GET['status']) && $_GET['status'] == 5) ? 'selected' : '' ?>>
+                                                    Giao hàng thành công</option>
+                                                <option value="6"
+                                                    <?= (isset($_GET['status']) && $_GET['status'] == 6) ? 'selected' : '' ?>>
+                                                    Đã hủy</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="submit" class="btn btn-primary px-4 ">Lọc</button>
+                                        </div>
+                                    </div>
 
                                 </form>
                             </div>
                         </div>
-                            <table class="table table-bordered" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Mã đơn hàng</th>
-                                        <th>Tên người nhận </th>
-                                        <th>Số điện thoại người nhận </th>
-                                        <th>Địa chỉ người nhận </th>
-                                        <th>Ngày mua </th>
-                                        <th>Trạng thái đơn hàng </th>
-                                        <th>Thao tác </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
+                        <table class="table table-bordered" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Mã đơn hàng</th>
+                                    <th>Tên người nhận </th>
+                                    <th>Số điện thoại người nhận </th>
+                                    <th>Địa chỉ người nhận </th>
+                                    <th>Ngày mua </th>
+                                    <th>Trạng thái đơn hàng </th>
+                                    <th>Thao tác </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                     foreach ($bills as $bill) {
                                     ?>
-                                    <tr>
-                                        <td><?= $bill['id_bill'] ?></td>
-                                        <td><?= $bill['receiver_name'] ?></td>
-                                        <td><?= $bill['receiver_phone'] ?></td>
-                                        <td><?= $bill['receiver_address'] ?></td>
-                                        <td><?= $bill['purchase_date'] ?></td>
-                                        <td><?= getOderStatus ($bill['status']) ?></td>
-                                        <td>
-                                        <a class="btn btn-primary" href="?act=updateBill&id=<?= $bill['id_bill'] ?>"
-                                        role="button">Xem chi tiết</a>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
+                                <tr>
+                                    <td><?= $bill['id_bill'] ?></td>
+                                    <td><?= $bill['receiver_name'] ?></td>
+                                    <td><?= $bill['receiver_phone'] ?></td>
+                                    <td><?= $bill['receiver_address'] ?></td>
+                                    <td><?= $bill['purchase_date'] ?></td>
+                                    <td><?= getOderStatus ($bill['status']) ?></td>
+                                    <td>
+
+                                        <div class="form-group d-flex align-items-center">
+                                            <label for="status" class="me-2">Loc theo trang thai:</label>
+                                            <select name="status" id="status" class="form-select w-auto me-3">
+                                                <option value="">Tat ca</option>
+                                                <option value="0"
+                                                    <?= isset($_GET['status']) && $_GET['status'] == 0 ? 'selected' : '' ?>>
+                                                    Cho xac nhan</option>
+                                                <option value="1"
+                                                    <?= isset($_GET['status']) && $_GET['status'] == 1 ? 'selected' : '' ?>>
+                                                    Da xac nhan</option>
+                                                <option value="2"
+                                                    <?= isset($_GET['status']) && $_GET['status'] == 2 ? 'selected' : '' ?>>
+                                                    Cho lay hang</option>
+                                                <option value="3"
+                                                    <?= isset($_GET['status']) && $_GET['status'] == 3 ? 'selected' : '' ?>>
+                                                    Dang van chuyen</option>
+                                                <option value="4"
+                                                    <?= isset($_GET['status']) && $_GET['status'] == 4 ? 'selected' : '' ?>>
+                                                    Dang hoan tra hang</option>
+                                                <option value="5"
+                                                    <?= isset($_GET['status']) && $_GET['status'] == 5 ? 'selected' : '' ?>>
+                                                    Giao hang thanh cong</option>
+                                                <option value="6"
+                                                    <?= isset($_GET['status']) && $_GET['status'] == 6 ? 'selected' : '' ?>>
+                                                    Da huy</option>
+                                            </select>
+                                            <button type="submit" class="btn btn-primary">Loc</button>
+                                        </div>
+                                        </form>
                     </div>
-
                 </div>
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Mã don hang</th>
+                            <th>Ten nguoi nhan</th>
+                            <th>So dien thoai nguoi nhan</th>
+                            <th>Dia chi nguoi nhan</th>
+                            <th>Ngay mua</th>
+                            <th>Trang thai don hang</th>
+                            <th>Thao tac</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                                foreach ($bills as $bill) {
+                                ?>
+                        <tr>
+                            <td><?= $bill['id_bill'] ?></td>
+                            <td><?= $bill['receiver_name'] ?></td>
+                            <td><?= $bill['receiver_phone'] ?></td>
+                            <td><?= $bill['receiver_address'] ?></td>
+                            <td><?= $bill['purchase_date'] ?></td>
+                            <td><?= getOderStatus($bill['status']) ?></td>
+                            <td>
 
-               
-
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
+                                <a class="btn btn-primary" href="?act=updateBill&id=<?= $bill['id_bill'] ?>"
+                                    role="button">Xem chi tiết</a>
+                            </td>
+                        </tr>
+                        <?php
+                                }
+                                ?>
+                    </tbody>
+                </table>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
 
-           <?php
-           require_once 'layout/footer.php';
-           require_once 'layout/scripts.php';
-           ?>
-
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
+
+
+
         <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
+        <!-- End PAge Content -->
         <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+
+    <?php
+            require_once 'layout/footer.php';
+            require_once 'layout/scripts.php';
+            ?>
+
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
@@ -218,27 +291,27 @@ require_once 'layout/css.php';
     <!-- this page js -->
     <script src="libs/toastr/build/toastr.min.js"></script>
     <script>
-        $(function(){
-            // Success Type
-            $('#ts-success').on('click', function() {
-                toastr.success('Have fun storming the castle!', 'Miracle Max Says');
-            });
-
-            // Success Type
-            $('#ts-info').on('click', function() {
-                toastr.info('We do have the Kapua suite available.', 'Turtle Bay Resort');
-            });
-
-            // Success Type
-            $('#ts-warning').on('click', function() {
-                toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!');
-            });
-
-            // Success Type
-            $('#ts-error').on('click', function() {
-                toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
-            });
+    $(function() {
+        // Success Type
+        $('#ts-success').on('click', function() {
+            toastr.success('Have fun storming the castle!', 'Miracle Max Says');
         });
+
+        // Success Type
+        $('#ts-info').on('click', function() {
+            toastr.info('We do have the Kapua suite available.', 'Turtle Bay Resort');
+        });
+
+        // Success Type
+        $('#ts-warning').on('click', function() {
+            toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!');
+        });
+
+        // Success Type
+        $('#ts-error').on('click', function() {
+            toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
+        });
+    });
     </script>
 </body>
 
