@@ -5,6 +5,7 @@ if (isset($_SESSION['Message'])) {
     unset($_SESSION['Message']);
     echo "<script>alert('$successMessage');</script>";
 }
+// abc đẩy git
 
 
 // Require các file cần thiết
@@ -35,7 +36,7 @@ require_once 'model/payModel.php';
 require_once 'model/orderModel.php';
 $act = $_GET['act'] ?? '/';
 
-if(!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
+if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 
 match ($act) {
     '/' => (new HomeController())->home(),
@@ -47,7 +48,7 @@ match ($act) {
     'logout' => (new LogoutController())->logout(),
     'profile' => (new ProfileController())->profile(),
     'updateProfile' => (new ProfileController())->updateProfile(),
-    
+
 
 
     'addToCart' => (new cartController())->addToCart(),
@@ -63,7 +64,7 @@ match ($act) {
     'order' => (new orderController())->order($_SESSION['user']['customer_info']['id_customer']),
     // 'order' => (new OrderController())->order(),
     'addComment' => (new detailController())->addComment(),
-  
+
     default => (new HomeController())->home(),
 };
 
@@ -72,4 +73,3 @@ if ($act === 'shop' || $act === 'shop_cat') {
     require_once 'model/shopModel.php';
     require_once 'view/shop.php';
 }
-
