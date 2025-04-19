@@ -399,10 +399,7 @@ require_once 'layout/css.php';
                                     <label class="form-label">Giá</label>
                                     <input type="number" class="form-control" name="price" value="<?= $oneProduct['price'] ?? 0 ?>" required>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Giảm giá</label>
-                                    <input type="number" class="form-control" name="discount" value="<?= $oneProduct['discount'] ?? 0 ?>" required>
-                                </div>
+                                <!-- Discount field removed -->
                                 <div class="mb-3">
                                     <label class="form-label">Chọn ảnh (Bỏ trống nếu không thay đổi)</label>
                                     <input type="file" class="form-control" name="img">

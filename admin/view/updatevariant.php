@@ -381,52 +381,28 @@ require_once 'layout/css.php';
                     </div>
                 </div> -->
                 <!-- code chức năng -->
-                    <h1 class="h3 mb-2 text-gray-800">CẬP NHẬT BIẾN THỂ</h1>
-                    <div class="card shadow mb-4">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <form action="" method="POST" onsubmit="return validate()">
-                                    <div class="input">
-                                        Mã biến thể<br>
-                                        <input type="text" name="maloai" disabled id="maloai" value="<?= htmlspecialchars($id_variant) ?>">
+                    <!-- Form cập nhật biến thể -->
+                    <div class="container-fluid mt-4">
+                        <h1 class="h3 mb-2 text-gray-800">CẬP NHẬT BIẾN THỂ</h1>
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <form action="index.php?act=updatevariant&id_variant=<?= $id_variant ?>" method="post">
+                                    <div class="mb-3">
+                                        <label class="form-label">Tên màu</label>
+                                        <input type="text" class="form-control" name="tenloai" value="<?= $name_color ?>" required>
                                     </div>
-                                    <div class="input">
-                                        Tên biến thể<br>
-                                        <input type="text" name="tenloai" id="tenloai" value="<?= htmlspecialchars($name_color ?? '', ENT_QUOTES, 'UTF-8') ?>">
-                                        <br>
-                                        <p style="color: red;" id="loitl"></p>
+                                    <div class="mb-3">
+                                        <label class="form-label">Dung lượng</label>
+                                        <input type="text" class="form-control" name="dungluong" value="<?= $name_capacity ?>" required>
                                     </div>
-                                    <div style="margin-top: 20px;" class="input">
-                                        <input class="btn btn-primary" type="submit" name="themmoi" value="CẬP NHẬT">
-                                        <a href="index.php?act=listvariant">
-                                            <input type="button" class="btn btn-success" value="DANH SÁCH">
-                                        </a>
+                                    <div class="mb-3">
+                                        <button class="btn btn-primary" type="submit" name="capnhat">Cập nhật</button>
+                                        <a href="index.php?act=listvariant" class="btn btn-success">Danh sách biến thể</a>
                                     </div>
-                                    <?php
-                                    if (!empty($thongbao)) {
-                                        echo "<p style='color: green;'>$thongbao</p>";
-                                    }
-                                    ?>
                                 </form>
                             </div>
                         </div>
                     </div>
-
-                    <script>
-                        function validate() {
-                            var tenloai = document.getElementById("tenloai").value.trim();
-                            var loiTl = document.getElementById("loitl");
-
-                            if (tenloai === "") {
-                                loiTl.innerHTML = "Tên loại không được để trống";
-                                return false;
-                            } else {
-                                loiTl.innerHTML = ""; // Xóa thông báo lỗi khi hợp lệ
-                                return true;
-                            }
-                        }
-                    </script>
-
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->

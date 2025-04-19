@@ -733,32 +733,38 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead class="thead-dark">
+                                    <!-- Add this to your table header -->
+                                    <thead>
                                         <tr>
-                                            <th>Ảnh</th>
-                                            <th>Biến thể màu</th>
+                                            <th>ID</th>
+                                            <th>Màu sắc</th>
+                                            <th>Dung lượng</th>
                                             <th>Số lượng</th>
                                             <th>Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($variants as $variant) { ?>
+                                        <?php foreach ($variants as $variant) : ?>
                                             <tr>
-
-                                                <td><img src="images/<?= $variant['img_product'] ?>" alt="" width="80px" height="100px">
-
-                                                </td>
+                                                <td><?= $variant['id_variant'] ?></td>
                                                 <td><?= $variant['name_color'] ?></td>
+                                                <td><?= $variant['name_capacity'] ?></td>
                                                 <td><?= $variant['quantity'] ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary btn-sm" href="?act=updateProduct_variant&id_pro=<?= $variant['id_variant'] ?>" role="button">Sửa</a>
-                                                    <a class="btn btn-danger btn-sm" onclick="return confirm('Bạn có muốn xóa không?')" href="?act=deleteProduct_variant&id_pro=<?= $variant['id_variant'] ?>" role="button">Xóa</a>
+                                                    <a href="index.php?act=updateproduct_variant&id_pro=<?= $variant['id_product'] ?>&id_var=<?= $variant['id_variant'] ?>" class="btn btn-primary">Sửa</a>
+                                                    <a href="index.php?act=deleteproduct_variant&id_pro=<?= $variant['id_product'] ?>&id_var=<?= $variant['id_variant'] ?>" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
                                                 </td>
                                             </tr>
-                                        <?php } ?>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="mb-3">
+                                <a href="index.php?act=listProduct" class="btn btn-secondary">
+                                    <i class="mdi mdi-arrow-left"></i> Quay lại
+                                </a>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

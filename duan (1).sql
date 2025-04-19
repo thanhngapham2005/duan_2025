@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 14, 2025 at 12:33 AM
+-- Generation Time: Apr 19, 2025 at 05:24 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.27
 
@@ -45,7 +45,8 @@ CREATE TABLE `bills` (
 INSERT INTO `bills` (`id_bill`, `id_customer`, `receiver_name`, `receiver_phone`, `receiver_address`, `status`, `purchase_date`, `discount_code_id`) VALUES
 (1, 2, 'klasdflksd', '0254504577', 'ssdf', 3, '2025-03-31 07:37:41', 1),
 (2, 2, 'klasdflksd', '0258963', 'kjhgfd', 1, '2025-04-09 21:02:53', 2),
-(3, 4, 'Lê Duy Nhất', '0258963', 'kjhgfd', 5, '2025-04-09 23:41:52', 1);
+(3, 4, 'Lê Duy Nhất', '0258963', 'kjhgfd', 5, '2025-04-09 23:41:52', 1),
+(4, 2, 'klasdflksd', '0254504577', 'ssdf', 6, '2025-04-14 08:08:52', 1);
 
 -- --------------------------------------------------------
 
@@ -114,7 +115,8 @@ INSERT INTO `customers` (`id_customer`, `id_user`, `full_name`, `phone`, `addres
 (1, 1, 'xđxdxf', '', '', NULL),
 (2, 2, 'klasdflksd', '', '', NULL),
 (3, 3, 'xđxdxf', '', '', NULL),
-(4, 4, 'Lê Duy Nhất', '', '', NULL);
+(4, 4, 'Lê Duy Nhất', '', '', NULL),
+(5, 5, 'jk', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -141,7 +143,8 @@ INSERT INTO `detail_bills` (`id_detailbill`, `id_bill`, `id_product`, `id_varian
 (2, 2, 12, 4, 'Laptop MSI Katana', 25990000, 5),
 (3, 2, 11, 4, 'Laptop Acer Gaming', 13990000, 2),
 (4, 2, 10, 4, 'Laptop ASUS 15 X1504ZA', 13990000, 2),
-(5, 3, 2, 4, 'Samsung Galaxy S23', 13690000, 1);
+(5, 3, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
+(6, 4, 1, 4, 'Tai nghe Bluetooth A3949', 360000, 3);
 
 -- --------------------------------------------------------
 
@@ -186,7 +189,6 @@ CREATE TABLE `products` (
   `name` varchar(255) NOT NULL COMMENT 'Tên của sản phẩm	',
   `price` int NOT NULL COMMENT 'Giá của sản phẩm	',
   `amount` int NOT NULL COMMENT 'Số lượng	',
-  `discount` int NOT NULL COMMENT 'Giảm giá của sản phẩm. Mặc định là 0% và giảm tối đa 20%	',
   `description` text COMMENT 'Mô tả của sản phẩm	',
   `img_product` varchar(255) DEFAULT NULL COMMENT 'Hình ảnh của sản phẩm	',
   `censorship` tinyint NOT NULL DEFAULT '0' COMMENT '0 là hiện, 1 là đã ẩn	',
@@ -199,19 +201,20 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id_product`, `id_category`, `firms`, `name`, `price`, `amount`, `discount`, `description`, `img_product`, `censorship`, `view`, `created_at`, `updated_at`) VALUES
-(1, 8, 'Soundcore ', 'Tai nghe Bluetooth A3949', 360000, 39, 20, 'Tai nghe không dây Anker Soundcore R50I-A3949 - Chất âm tốt, thiết kế sang trọng', 'tải xuống.jpg', 0, 0, '2025-03-28 09:08:56', '2025-03-30 02:12:40'),
-(2, 7, 'Samsung', 'Samsung Galaxy S23', 13690000, 40, 0, 'Galaxy AI tiện ích - Khoanh vùng search đa năng, là trợ lý chỉnh ảnh, chat thông minh, phiên dịch trực tiếp', 'tải xuống (1).jpg', 0, 0, '2025-03-29 23:17:34', '2025-03-29 23:17:34'),
-(3, 7, 'Apple', 'iPhone 16 Pro Max ', 3409000, 56, 0, 'Màn hình Super Retina XDR 6,9 inch lớn hơn có viền mỏng hơn, đem đến cảm giác tuyệt vời khi cầm trên tay.', 'tải xuống (3).jpg', 0, 0, '2025-03-29 23:31:01', '2025-03-29 23:31:52'),
-(4, 7, 'Apple', 'iPhone 13 128GB', 1339000, 58, 0, 'Hiệu năng vượt trội - Chip Apple A15 Bionic mạnh mẽ, hỗ trợ mạng 5G tốc độ cao', 'tải xuống (4).jpg', 0, 0, '2025-03-29 23:38:52', '2025-03-29 23:38:52'),
-(5, 7, 'Apple', 'iPhone 14 Pro Max 256GB', 15390000, 117, 0, 'iPhone 14 có màn hình 6.1 inch, chip A15 Bionic, camera 12MP cải tiến, hỗ trợ SOS vệ tinh và phát hiện va chạm. Pin tốt hơn, thiết kế như iPhone 13.', 'tải xuống (12).jpg', 0, 0, '2025-03-29 23:43:19', '2025-03-30 00:17:47'),
-(6, 8, 'Apple', 'Tai nghe Bluetooth AirPods 4', 3450000, 104, 0, 'Chip H2 nổi bật, mạnh mẽ được tích hợp trong Airpod 4 giúp trải nghiệm âm thanh của bạn mượt mà hơn.', 'tải xuống (6).jpg', 0, 0, '2025-03-29 23:47:54', '2025-03-29 23:47:54'),
-(7, 8, 'Tai nghe Bluetooth chụp tai Sony WH-1000XM5', 'Tai nghe Bluetooth 1000XM5', 360000, 101, 0, '360000', 'tải xuống (13).jpg', 0, 0, '2025-03-29 23:50:55', '2025-03-30 02:12:19'),
-(8, 8, 'Choetech Vietnam', 'Tai nghe Bluetooth BH-T16', 659000, 67, 0, 'Tai nghe Bluetooth BH-T16 là sự lựa chọn hoàn hỏa giúp bạn giải tỏa áp lực, căng thẳng sau giờ làm việc hay cho bạn đắm chìm vào những bản nhạc mà mình yêu thích.', 'images.jpg', 0, 0, '2025-03-29 23:58:42', '2025-03-29 23:58:42'),
-(9, 9, 'Laptop Lenovo', 'Laptop Lenovo 5 14Q8X9 ', 22990000, 135, 0, 'Laptop có màu xám thanh lịch, kiểu dáng mỏng nhẹ, dễ dàng mang theo khi di chuyển.', 'tải xuống (8).jpg', 0, 0, '2025-03-30 00:01:02', '2025-03-30 00:08:45'),
-(10, 9, 'ASUS', 'Laptop ASUS 15 X1504ZA', 13990000, 70, 0, '13990000', 'images (1).jpg', 0, 0, '2025-03-30 00:05:49', '2025-03-30 00:08:39'),
-(11, 9, 'Acer ', 'Laptop Acer Gaming', 13990000, 70, 0, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'tải xuống (9).jpg', 0, 0, '2025-03-30 00:08:33', '2025-03-30 00:08:33'),
-(12, 9, 'FPT Shop', 'Laptop MSI Katana', 25990000, 60, 0, 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất\r\nBảo hành pin và bộ sạc 12 tháng\r\nBộ nguồn, máy, balo, sách hdsd\r\nBảo hành 24 tháng tại trung tâm bảo hành Chính hãng. 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng từ nhà sản xuất\r\nGiá sản phẩm đã bao gồm VAT', 'tải xuống (11).jpg', 0, 0, '2025-03-30 00:13:23', '2025-03-30 02:04:08');
+INSERT INTO `products` (`id_product`, `id_category`, `firms`, `name`, `price`, `amount`, `description`, `img_product`, `censorship`, `view`, `created_at`, `updated_at`) VALUES
+(1, 8, 'Soundcore ', 'Tai nghe Bluetooth A3949', 360000, 39, 'Tai nghe không dây Anker Soundcore R50I-A3949 - Chất âm tốt, thiết kế sang trọng', 'tải xuống.jpg', 0, 65, '2025-03-28 09:08:56', '2025-03-30 02:12:40'),
+(2, 7, 'Samsung', 'Samsung Galaxy S23', 13690000, 40, 'Galaxy AI tiện ích - Khoanh vùng search đa năng, là trợ lý chỉnh ảnh, chat thông minh, phiên dịch trực tiếp', 'tải xuống (1).jpg', 0, 105, '2025-03-29 23:17:34', '2025-03-29 23:17:34'),
+(3, 7, 'Apple', 'iPhone 16 Pro Max ', 3409000, 56, 'Màn hình Super Retina XDR 6,9 inch lớn hơn có viền mỏng hơn, đem đến cảm giác tuyệt vời khi cầm trên tay.', 'tải xuống (3).jpg', 0, 34, '2025-03-29 23:31:01', '2025-03-29 23:31:52'),
+(4, 7, 'Apple', 'iPhone 13 128GB', 1339000, 58, 'Hiệu năng vượt trội - Chip Apple A15 Bionic mạnh mẽ, hỗ trợ mạng 5G tốc độ cao', 'tải xuống (4).jpg', 0, 92, '2025-03-29 23:38:52', '2025-03-29 23:38:52'),
+(5, 7, 'Apple', 'iPhone 14 Pro Max 256GB', 15390000, 117, 'iPhone 14 có màn hình 6.1 inch, chip A15 Bionic, camera 12MP cải tiến, hỗ trợ SOS vệ tinh và phát hiện va chạm. Pin tốt hơn, thiết kế như iPhone 13.', 'tải xuống (12).jpg', 0, 45, '2025-03-29 23:43:19', '2025-03-30 00:17:47'),
+(6, 8, 'Apple', 'Tai nghe Bluetooth AirPods 4', 3450000, 104, 'Chip H2 nổi bật, mạnh mẽ được tích hợp trong Airpod 4 giúp trải nghiệm âm thanh của bạn mượt mà hơn.', 'tải xuống (6).jpg', 0, 76, '2025-03-29 23:47:54', '2025-03-29 23:47:54'),
+(7, 8, 'Tai nghe Bluetooth chụp tai Sony WH-1000XM5', 'Tai nghe Bluetooth 1000XM5', 360000, 101, 'Công nghệ Auto NC Optimizer tự động khử tiếng ồn dựa theo môi trường', 'tải xuống (13).jpg', 0, 82, '2025-03-29 23:50:55', '2025-04-15 22:32:02'),
+(8, 8, 'Choetech Vietnam', 'Tai nghe Bluetooth BH-T16', 659000, 67, 'Tai nghe Bluetooth BH-T16 là sự lựa chọn hoàn hỏa giúp bạn giải tỏa áp lực, căng thẳng sau giờ làm việc hay cho bạn đắm chìm vào những bản nhạc mà mình yêu thích.', 'images.jpg', 0, 9, '2025-03-29 23:58:42', '2025-03-29 23:58:42'),
+(9, 9, 'Laptop Lenovo', 'Laptop Lenovo 5 14Q8X9 ', 22990000, 135, 'Laptop có màu xám thanh lịch, kiểu dáng mỏng nhẹ, dễ dàng mang theo khi di chuyển.', 'tải xuống (8).jpg', 0, 19, '2025-03-30 00:01:02', '2025-03-30 00:08:45'),
+(10, 9, 'ASUS', 'Laptop ASUS 15 X1504ZA', 13990000, 70, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'images (1).jpg', 0, 0, '2025-03-30 00:05:49', '2025-04-15 22:31:34'),
+(11, 9, 'Acer ', 'Laptop Acer Gaming', 13990000, 70, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'tải xuống (9).jpg', 0, 26, '2025-03-30 00:08:33', '2025-03-30 00:08:33'),
+(12, 9, 'FPT Shop', 'Laptop MSI Katana', 25990000, 60, 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất\r\nBảo hành pin và bộ sạc 12 tháng\r\nBộ nguồn, máy, balo, sách hdsd\r\nBảo hành 24 tháng tại trung tâm bảo hành Chính hãng. 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng từ nhà sản xuất\r\nGiá sản phẩm đã bao gồm VAT', 'tải xuống (11).jpg', 0, 51, '2025-03-30 00:13:23', '2025-03-30 02:04:08'),
+(13, 8, 'AVA+', 'Tai nghe Bluetooth FreeGo Y913', 230000, 56, 'Tai nghe Bluetooth TWS AVA+ FreeGo Y913 không chỉ đem lại sự tiện lợi tối đa mà còn mang đến trải nghiệm âm nhạc chân thực và sắc nét. Với thiết kế nhỏ gọn, hiện đại cùng công nghệ tiên tiến, Y913 hứa hẹn là người bạn đồng hành hoàn hảo cho mọi hoạt động của bạn.', 'tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg', 0, 13, '2025-04-16 01:51:22', '2025-04-16 01:52:39');
 
 -- --------------------------------------------------------
 
@@ -232,7 +235,7 @@ CREATE TABLE `product_variant` (
 INSERT INTO `product_variant` (`id_product`, `id_variant`, `quantity`) VALUES
 (1, 4, 39),
 (2, 4, 20),
-(2, 5, 20),
+(2, 11, 20),
 (3, 4, 26),
 (3, 5, 30),
 (4, 4, 28),
@@ -251,8 +254,9 @@ INSERT INTO `product_variant` (`id_product`, `id_variant`, `quantity`) VALUES
 (10, 4, 30),
 (10, 5, 40),
 (11, 4, 30),
-(11, 5, 40),
-(12, 4, 60);
+(11, 6, 40),
+(12, 4, 60),
+(13, 5, 56);
 
 -- --------------------------------------------------------
 
@@ -297,7 +301,8 @@ INSERT INTO `users` (`id_user`, `email`, `password`, `role`, `day_registered`) V
 (1, 'admin@gmail.com', '$2y$10$9xE3hWy9qgUnnJwY8gCM3.dZdS899Rpwtdv4F2pIvhSQBk1PkuCY.', 2, NULL),
 (2, 'kienntph49023@gmail.com', '$2y$10$NSDIBCc80ttU9KhhxcMHTOUybz5vrfJ7arMv3sIF7luXKRqJMdYZ.', 0, NULL),
 (3, 'dotuanthiendz112@gmail.com', '$2y$10$z98EbmbkYskvw5Vb0571O.UoHM5wrpZ3HSkPpAr6/KXw/e0lQMusq', 0, NULL),
-(4, 'kiennguyentrung07092005@gmail.com', '$2y$10$k4aQSky/Nve7jt/CSLhGu.W5R8UZSjUm.9mbR4yG1oIZ0kPbM7K0a', 0, NULL);
+(4, 'kiennguyentrung07092005@gmail.com', '$2y$10$k4aQSky/Nve7jt/CSLhGu.W5R8UZSjUm.9mbR4yG1oIZ0kPbM7K0a', 0, NULL),
+(5, 'jk@gmail.com', '$2y$10$JXG0WgExCIoDdcSyg8wEMe8wXG/P3hTeHZ8otH1EgfKHIiZnhfezG', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -309,19 +314,21 @@ CREATE TABLE `variant` (
   `id_variant` int NOT NULL COMMENT 'Mã biến thể',
   `name_color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Tên biến thể màu',
   `created_at` datetime DEFAULT NULL COMMENT 'Ngày tạo',
-  `updated_at` datetime DEFAULT NULL COMMENT 'Ngày cập nhật'
+  `updated_at` datetime DEFAULT NULL COMMENT 'Ngày cập nhật',
+  `name_capacity` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Dung lượng máy'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `variant`
 --
 
-INSERT INTO `variant` (`id_variant`, `name_color`, `created_at`, `updated_at`) VALUES
-(4, 'Đen', NULL, NULL),
-(5, 'Trắng', NULL, NULL),
-(6, 'Vàng', NULL, NULL),
-(7, 'Tím', NULL, NULL),
-(8, '128GB', NULL, NULL);
+INSERT INTO `variant` (`id_variant`, `name_color`, `created_at`, `updated_at`, `name_capacity`) VALUES
+(4, 'Đen', NULL, NULL, '128GB'),
+(5, 'Trắng', NULL, NULL, '4h'),
+(6, 'Vàng', NULL, NULL, '256GB'),
+(7, 'Tím', NULL, NULL, '128GB'),
+(9, 'Hồng Phấn', NULL, NULL, '64'),
+(11, 'Trắng', NULL, NULL, '64');
 
 --
 -- Indexes for dumped tables
@@ -413,13 +420,13 @@ ALTER TABLE `variant`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=4;
+  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id_category` int NOT NULL AUTO_INCREMENT COMMENT '	Mã loại hàng', AUTO_INCREMENT=10;
+  MODIFY `id_category` int NOT NULL AUTO_INCREMENT COMMENT '	Mã loại hàng', AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -431,13 +438,13 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=5;
+  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `detail_bills`
 --
 ALTER TABLE `detail_bills`
-  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=6;
+  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `discount_codes`
@@ -449,7 +456,7 @@ ALTER TABLE `discount_codes`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm	', AUTO_INCREMENT=13;
+  MODIFY `id_product` int NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm	', AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `rates`
@@ -461,13 +468,13 @@ ALTER TABLE `rates`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=5;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `variant`
 --
 ALTER TABLE `variant`
-  MODIFY `id_variant` int NOT NULL AUTO_INCREMENT COMMENT 'Mã biến thể', AUTO_INCREMENT=9;
+  MODIFY `id_variant` int NOT NULL AUTO_INCREMENT COMMENT 'Mã biến thể', AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

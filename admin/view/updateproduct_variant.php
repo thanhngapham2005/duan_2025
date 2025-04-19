@@ -377,27 +377,40 @@ require_once 'layout/css.php';
                             <div class="table-responsive">
                                 <form action="" method="POST" onsubmit="return validate()">
                                     <div class="input">
-                                        Mã loại<br>
-                                        <input type="text" name="maloai" disabled id="maloai" value="<?= htmlspecialchars($id_category) ?>">
+                                        Mã sản phẩm<br>
+                                        <input type="text" name="id_product" disabled value="<?= htmlspecialchars($oneProduct_variant['id_product']) ?>">
                                     </div>
                                     <div class="input">
-                                        Tên loại<br>
-                                        <input type="text" name="tenloai" id="tenloai" value="<?= htmlspecialchars($name_cat) ?>">
+                                        Màu sắc<br>
+                                        <select name="new_id_variant" id="new_id_variant">
+                                            <?php foreach ($variant as $item) : ?>
+                                                <option value="<?= $item['id_variant'] ?>" <?= ($item['id_variant'] == $oneProduct_variant['id_variant']) ? 'selected' : '' ?>>
+                                                    <?= $item['name_color'] ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
                                         <br>
-                                        <p style="color: red;" id="loitl"></p>
+                                        <p style="color: red;" id="loivariant"></p>
+                                        <br>
+                                    </div>
+                                    <div class="input">
+                                        Số lượng<br>
+                                        <input type="number" name="quantity" id="quantity" value="<?= htmlspecialchars($oneProduct_variant['quantity']) ?>">
+                                        <br>
+                                        <p style="color: red;" id="loiquantity"></p>
+                                        <br>
+                                    </div>
+                                    <div class="input">
+                                        Dung lượng (nếu có)<br>
+                                        <input type="text" name="capacity" id="capacity" value="<?= htmlspecialchars($oneProduct_variant['capacity'] ?? '') ?>">
                                         <br>
                                     </div>
                                     <div style="margin-top: 20px;" class="input">
-                                        <input class="btn btn-primary" type="submit" name="themmoi" value="CẬP NHẬT">
-                                        <a href="index.php?act=listCategories">
+                                        <input class="btn btn-primary" type="submit" name="btn_update" value="CẬP NHẬT">
+                                        <a href="index.php?act=listProduct_variant&id=<?= $oneProduct_variant['id_product'] ?>">
                                             <input type="button" class="btn btn-success" value="DANH SÁCH">
                                         </a>
                                     </div>
-                                    <?php
-                                    if (!empty($thongbao)) {
-                                        echo "<p style='color: green;'>$thongbao</p>";
-                                    }
-                                    ?>
                                 </form>
                             </div>
                         </div>
@@ -405,14 +418,14 @@ require_once 'layout/css.php';
 
                     <script>
                         function validate() {
-                            var tenloai = document.getElementById("tenloai").value.trim();
-                            var loiTl = document.getElementById("loitl");
-
-                            if (tenloai === "") {
-                                loiTl.innerHTML = "Tên loại không được để trống";
+                            var quantity = document.getElementById("quantity").value.trim();
+                            var loiQuantity = document.getElementById("loiquantity");
+                            
+                            if (quantity === "" || isNaN(quantity) || parseInt(quantity) < 0) {
+                                loiQuantity.innerHTML = "Số lượng phải là số dương";
                                 return false;
                             } else {
-                                loiTl.innerHTML = ""; // Xóa thông báo lỗi khi hợp lệ
+                                loiQuantity.innerHTML = "";
                                 return true;
                             }
                         }

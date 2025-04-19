@@ -37,42 +37,26 @@ require_once 'layout/header.php';
                         <li><a class="text-decoration-none" href="#">Luxury</a></li>
                     </ul>
                 </li> -->
-                <li class="pb-3">
-                    <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                        <h1 class="h2 pb-4">Danh mục</h1>
-                        <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
-                    </a>
-                    <ul id="collapseThree" class="collapse list-unstyled pl-3">
-                        <?php foreach ($category as $key => $value) {
-                        ?>
-
-
-                        <li><a class="text-decoration-none"
-                                href="?act=shop&id_category=<?= $value['id_category'] ?>"><?= $value['name_cat'] ?></a>
-                        </li>
-                        <?php
-                        }
-                        ?>
-                    </ul>
-                </li>
+                
             </ul>
         </div>
 
         <div class="col-lg-9">
             <div class="row">
                 <div class="col-md-6">
-                    <h2>Tất cả sản phẩm</h2>
+                    <h2><?= isset($category_name) ? $category_name : 'Tất cả sản phẩm' ?></h2>
                 </div>
                 <div class="col-md-6 pb-4">
                     <div class="d-flex">
-                        <select class="form-control">
-                            <option>Featured</option>
-                            <option>A to Z</option>
-                            <option>Item</option>
+                        <select class="form-control" id="sortSelect">
+                            <option value="featured">Nổi bật</option>
+                            <option value="asc">Giá: Thấp đến cao</option>
+                            <option value="desc">Giá: Cao đến thấp</option>
+                            <option value="az">Tên: A đến Z</option>
+                            <option value="za">Tên: Z đến A</option>
                         </select>
                     </div>
                 </div>
-
             </div>
             <div class="row">
                 <?php
@@ -91,8 +75,7 @@ require_once 'layout/header.php';
                                     <li><a class="btn btn-success text-white mt-2"
                                             href="?act=shop_single&id=<?= $value['id_product'] ?>"><i
                                                 class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="index.php?act=cart"><i
-                                                class="fas fa-cart-plus"></i></a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -142,4 +125,25 @@ require_once 'layout/header.php';
 require_once 'layout/scripts.php';
 require_once 'layout/footer.php'
 ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Xử lý sắp xếp sản phẩm
+    const sortSelect = document.getElementById('sortSelect');
+    if(sortSelect) {
+        sortSelect.addEventListener('change', function() {
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set('sort', this.value);
+            window.location.href = currentUrl.toString();
+        });
+        
+        // Đặt giá trị select dựa trên tham số URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sortParam = urlParams.get('sort');
+        if(sortParam) {
+            sortSelect.value = sortParam;
+        }
+    }
+});
+</script>
 

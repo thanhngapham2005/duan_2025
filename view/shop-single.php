@@ -131,36 +131,53 @@ document.addEventListener("DOMContentLoaded", function () {
                                                 <label class="color-label">
                                                     <input type="radio" name="color" value="<?= $value['name_color'] ?>"
                                                         <?= $key === 0 ? 'checked' : '' ?>
-                                                        data-quantity="<?= $value['quantity'] ?>">
-                                                    <!-- Dữ liệu số lượng cho mỗi biến thể -->
-                                                    <span><?= $value['name_color'] ?></span>
+                                                        data-quantity="<?= $value['quantity'] ?>"
+                                                        data-capacity="<?= $value['capacity'] ?? '' ?>">
+                                                    <span><?= $value['name_color'] ?> 
+                                                        <?php if(!empty($value['capacity'])): ?>
+                                                          
+                                                        <?php endif; ?>
+                                                    </span>
                                                 </label>
                                             </li>
                                             <?php endforeach; ?>
                                         </ul>
                                     </div>
                                 </div>
-
+                                <div class="row mb-3">
+                                    <div class="col-auto">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <h6>Dung lượng:</h6>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <p class="text-muted"><strong id="variant-capacity"><?= !empty($product_variant[0]['capacity']) ? $product_variant[0]['capacity'] : 'Không có' ?></strong></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                         </div>
-                        <div class="row pb-3">
-                            <div class="col d-grid">
-                                <button type="submit" class="btn btn-success btn-lg" name="submit"
-                                    value="buy">Buy</button>
-                            </div>
-                            <!-- <form action="index.php?act=addToCart" method="POST"> -->
-                            <input type="hidden" name="productId" value="<?= $productOne['id_product'] ?>">
-                            <input type="hidden" name="name" value="<?= $productOne['name'] ?>">
-                            <input type="hidden" name="price" value="<?= $productOne['price'] ?>">
-                            <input type="hidden" name="brand" value="<?= $productOne['firms'] ?>">
-                            <input type="hidden" name="product-quantity" id="product-quantity" value="1">
-                            <input type="hidden" name="img" value="<?= $productOne['img_product'] ?>">
-                            <div class="col d-grid">
-                                <button href="index.php?act=cart" type="submit" class="btn btn-success btn-lg"
-                                    name="addtocart">Add To Cart</button>
-                            </div>
+
+                                </div>
+                                <div class="row pb-3">
+                                    <div class="col d-grid">
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
+                                            value="buy">Buy</button>
+                                    </div>
+                                    <!-- <form action="index.php?act=addToCart" method="POST"> -->
+                                    <input type="hidden" name="productId" value="<?= $productOne['id_product'] ?>">
+                                    <input type="hidden" name="name" value="<?= $productOne['name'] ?>">
+                                    <input type="hidden" name="price" value="<?= $productOne['price'] ?>">
+                                    <input type="hidden" name="brand" value="<?= $productOne['firms'] ?>">
+                                    <input type="hidden" name="product-quantity" id="product-quantity" value="1">
+                                    <input type="hidden" name="img" value="<?= $productOne['img_product'] ?>">
+                                    <div class="col d-grid">
+                                        <button href="index.php?act=cart" type="submit" class="btn btn-success btn-lg"
+                                            name="addtocart">Add To Cart</button>
+                                    </div>
 
 
-                        </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -389,6 +406,32 @@ document.addEventListener("DOMContentLoaded", function () {
     <?php include 'layout/scripts.php'; ?>
     <!-- End Slider Script -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Lấy tất cả các radio button màu sắc
+        const colorRadios = document.querySelectorAll('input[name="color"]');
+        const capacityElement = document.getElementById('variant-capacity');
+        const remainingQuantityElement = document.getElementById('remaining-quantity');
+        
+        // Thêm sự kiện change cho mỗi radio button
+        colorRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Cập nhật dung lượng
+                const capacity = this.getAttribute('data-capacity');
+                capacityElement.textContent = capacity ? capacity : 'Không có';
+                
+                // Cập nhật số lượng còn lại
+                const quantity = this.getAttribute('data-quantity');
+                remainingQuantityElement.textContent = quantity;
+                
+                // Reset số lượng đặt hàng về 1
+                document.getElementById('var-value').textContent = '1';
+                document.getElementById('product-quantity').value = '1';
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>

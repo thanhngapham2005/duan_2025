@@ -8,8 +8,16 @@ class detailModel
     }
     function product_variant($id)
     {
-        $sql = "SELECT * FROM product_variant JOIN variant ON product_variant.id_variant=variant.id_variant WHERE id_product=$id";
-        return $this->conn->query($sql)->fetchAll();
+        // Sửa truy vấn để lấy thông tin dung lượng và màu sắc từ bảng variant
+        $sql = "SELECT pv.*, v.*, v.name_color, v.name_capacity as capacity 
+                FROM product_variant pv 
+                JOIN variant v ON pv.id_variant = v.id_variant 
+                WHERE pv.id_product = :id_product";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id_product', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     function findProductById($id)
     {
