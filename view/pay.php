@@ -132,6 +132,9 @@ require_once 'layout/head.php';
                             'address' => ''
                         ];
                         ?>
+                        
+                        <!-- Thiếu input ẩn để lưu mã giảm giá -->
+                        <input type="hidden" id="hidden_discount_code" name="discount_code" value="">
             
                         <label for="receiver_name" class="form-label">Tên người nhận</label>
                         <div class="form-outline mb-4">
@@ -244,7 +247,7 @@ require_once 'layout/head.php';
             e.preventDefault(); // Ngăn chặn hành vi mặc định
             console.log('Apply button clicked');
             
-            // Kiểm tra xem đã áp dụng mã giảm giá chưa
+            // Chỉ kiểm tra nếu đã áp dụng mã giảm giá thành công
             if (discountApplied) {
                 discountMessage.innerHTML = '<span class="text-warning">Bạn đã áp dụng mã giảm giá cho đơn hàng này. Vui lòng tạo đơn hàng mới để sử dụng mã khác.</span>';
                 return;
@@ -259,7 +262,7 @@ require_once 'layout/head.php';
         
         discountCodeItems.forEach(item => {
             item.addEventListener('click', function() {
-                // Kiểm tra xem đã áp dụng mã giảm giá chưa
+                // Chỉ kiểm tra nếu đã áp dụng mã giảm giá thành công
                 if (discountApplied) {
                     discountMessage.innerHTML = '<span class="text-warning">Bạn đã áp dụng mã giảm giá cho đơn hàng này. Vui lòng tạo đơn hàng mới để sử dụng mã khác.</span>';
                     return;
@@ -300,7 +303,7 @@ require_once 'layout/head.php';
                 console.log('Data received:', data);
                 
                 if (data.status === 'success') {
-                    // Đánh dấu đã áp dụng mã giảm giá
+                    // Đánh dấu đã áp dụng mã giảm giá thành công
                     discountApplied = true;
                     
                     // Hiển thị thông tin giảm giá

@@ -25,19 +25,49 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
                     <li class="nav-item">
 
                         <a class="nav-link <?= ($current_page == 'home' || $current_page == '') ? 'active text-primary fw-bold' : '' ?>"
-                            href="./">Home</a>
+                            href="./">Trang chủ</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle <?= ($current_page == 'shop') ? 'active text-primary fw-bold' : '' ?>" 
+                           href="?act=shop" 
+                           role="button" 
+                           data-bs-toggle="dropdown" 
+                           aria-expanded="false">
+                            Sản phẩm
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="?act=shop">Tất cả sản phẩm</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <?php 
+                            // Kiểm tra biến $categories có tồn tại không
+                            if(isset($categories) && is_array($categories)) {
+                                foreach($categories as $cat) {
+                                    echo '<li><a class="dropdown-item" href="?act=shop&id_category='.$cat['id_category'].'">'.$cat['name_cat'].'</a></li>';
+                                }
+                            } else {
+                                // Nếu không có biến $categories, thử lấy từ model
+                                try {
+                                    require_once 'd:/laragon/www/duan/duan_2025/model/shopModel.php';
+                                    $model = new shopModel();
+                                    $cats = $model->allCategory();
+                                    foreach($cats as $cat) {
+                                        echo '<li><a class="dropdown-item" href="?act=shop&id_category='.$cat['id_category'].'">'.$cat['name_cat'].'</a></li>';
+                                    }
+                                } catch (Exception $e) {
+                                    echo '<li><a class="dropdown-item" href="?act=shop">Không thể tải danh mục</a></li>';
+                                }
+                            }
+                            ?>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link <?= ($current_page == 'about') ? 'active text-primary fw-bold' : '' ?>"
-                            href="?act=about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?= ($current_page == 'shop') ? 'active text-primary fw-bold' : '' ?>"
-                            href="?act=shop">Shop</a>
+                            href="?act=about">Giới thiệu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?= ($current_page == 'contact') ? 'active text-primary fw-bold' : '' ?>"
-                            href="?act=contact">Contact</a>
+                            href="?act=contact">Liên hệ</a>
 
                     </li>
                 </ul>
@@ -57,16 +87,16 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a>
                 <?php
-    // Giả sử bạn lưu giỏ hàng trong session
-    $cartCount = isset($_SESSION['mycart']) ? count($_SESSION['mycart']) : 0;
+                    // Giả sử bạn lưu giỏ hàng trong session
+                    $cartCount = isset($_SESSION['mycart']) ? count($_SESSION['mycart']) : 0;
 
-?>
-<a class="nav-icon position-relative text-decoration-none" href="?act=cart">
-    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
-        <?= $cartCount ?>
-    </span>
-</a>
+                ?>
+                <a class="nav-icon position-relative text-decoration-none" href="?act=cart">
+                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
+                        <?= $cartCount ?>
+                    </span>
+                </a>
 
                 <?php if (isset($_SESSION['user'])) : ?>
                 <div class="dropdown">
@@ -96,3 +126,5 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
 
     </div>
 </nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
