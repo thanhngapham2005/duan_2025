@@ -137,8 +137,7 @@ if (isset($status) && $status == 0) { // Kiểm tra thanh toán thành công
                 <!-- Thông tin thanh toán -->
                 <div class="col-lg-6 px-5 py-4">
                     <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Thông tin thanh toán</h3>
-                    <form onsubmit="return confirm('Xác nhận đặt hàng')" action="index.php?act=payment" method="POST"
-                        class="mb-5">
+                    <form id="payment-form" class="mb-5">
                         <?php
                         $customer_info = $_SESSION['user']['customer_info'] ?? [
                             'full_name' => '',
@@ -170,25 +169,84 @@ if (isset($status) && $status == 0) { // Kiểm tra thanh toán thành công
                                 value="<?= htmlspecialchars($customer_info['address']) ?>" required>
                         </div>
 
-                        <input type="submit" class="btn btn-primary btn-block btn-lg" name="order_cart"
-                            value="Thanh toán tiền mặt">
-                    </form>
-
-                    <form action="view/confirm_momo.php" method="POST">
-                        <input type="submit" name="momo" class="btn btn-danger" value="Thanh toán MoMo">
-                        <input type="hidden" name="total_amount" value="<?= $total ?>">
-                        <input type="hidden" name="receiver_name"
-                            value="<?= htmlspecialchars($customer_info['full_name']) ?>">
-                        <input type="hidden" name="receiver_phone"
-                            value="<?= htmlspecialchars($customer_info['phone']) ?>">
-                        <input type="hidden" name="receiver_address"
-                            value="<?= htmlspecialchars($customer_info['address']) ?>">
+                        <div class="d-flex gap-2">
+                            <button type="button" onclick="submitCashPayment()" class="btn btn-primary btn-lg flex-grow-1">
+                                Thanh toán tiền mặt
+                            </button>
+                            <button type="button" onclick="submitMomoPayment()" class="btn btn-danger btn-lg flex-grow-1">
+                                Thanh toán MOMO
+                            </button>
+                        </div>
                     </form>
 
                     <h5 class="fw-bold mt-4">
                         <a href="?act=shop"><i class="fas fa-angle-left me-2"></i>Quay lại mua sắm</a>
                     </h5>
                 </div>
+
+                <!-- Thêm script xử lý -->
+                <script>
+                function submitCashPayment() {
+                    const form = document.getElementById('payment-form');
+                    if (form.checkValidity()) {
+                        if (confirm('Xác nhận đặt hàng')) {
+                            const formData = new FormData(form);
+                            formData.append('order_cart', 'true');
+                            
+                            // Tạo form mới và submit
+                            const submitForm = document.createElement('form');
+                            submitForm.method = 'POST';
+                            submitForm.action = 'index.php?act=payment';
+                            
+                            for (const [key, value] of formData.entries()) {
+                                const input = document.createElement('input');
+                                input.type = 'hidden';
+                                input.name = key;
+                                input.value = value;
+                                submitForm.appendChild(input);
+                            }
+                            
+                            document.body.appendChild(submitForm);
+                            submitForm.submit();
+                        }
+                    } else {
+                        form.reportValidity();
+                    }
+                }
+
+                function submitMomoPayment() {
+                    const form = document.getElementById('payment-form');
+                    if (form.checkValidity()) {
+                        // Tạo form mới cho MOMO
+                        const momoForm = document.createElement('form');
+                        momoForm.method = 'POST';
+                        momoForm.action = 'view/confirm_momo.php';
+                        
+                        // Thêm các trường dữ liệu
+                        const formData = new FormData(form);
+                        const fields = {
+                            'momo': 'true',
+                            'total_amount': '<?= $total ?>',
+                            'receiver_name': formData.get('receiver_name'),
+                            'receiver_phone': formData.get('receiver_phone'),
+                            'receiver_address': formData.get('receiver_address')
+                        };
+                        
+                        for (const [key, value] of Object.entries(fields)) {
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = key;
+                            input.value = value;
+                            momoForm.appendChild(input);
+                        }
+                        
+                        document.body.appendChild(momoForm);
+                        momoForm.submit();
+                    } else {
+                        form.reportValidity();
+                    }
+                }
+                </script>
             </div>
         </div>
     </section>

@@ -765,3 +765,511 @@
 )
 
 [2025-04-19 22:05:02] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAwMzAy&s=12a90fde8974aa32179f9529bba30488cc24fad7ce005470d36a0ce04a1fb282
+[2025-04-19 22:28:59] Starting MOMO payment process
+[2025-04-19 22:28:59] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 360000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 
+    [receiver_address] => 
+)
+
+[2025-04-19 22:28:59] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => tthien@a.d
+            [password] => $2y$10$CUssazh0pvraWiLEyBhAEuDfek39.XbRuCs0.KW3VPu7FW4hncRyy
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Tai nghe Bluetooth A3949
+                    [price] => 360000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống.jpg
+                    [brand] => Soundcore 
+                )
+
+        )
+
+)
+
+[2025-04-19 22:28:59] MOMO payment initiated
+[2025-04-19 22:28:59] Total amount: 360000
+[2025-04-19 22:28:59] Order saved successfully, proceeding with MOMO payment
+[2025-04-19 22:28:59] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745101739
+    [amount] => 360000
+    [orderId] => 1745101739
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 71c2e59b9e3198927cab60fd6d345ba8f0ccf7c529b6ea5e504e22350d3dc699
+)
+
+[2025-04-19 22:28:59] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745101739
+    [requestId] => 1745101739
+    [amount] => 360000
+    [responseTime] => 1745101738980
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAxNzM5&s=5b7db1fb4fca7e91c8658a7871f65b025b6443e27edb82aed1e504d8261bfbb9
+    [signature] => 5c24e226ea64a6b81cd7d9870090d0eaa26450ae20f27c54685dfd6ec809a593
+)
+
+[2025-04-19 22:28:59] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAxNzM5&s=5b7db1fb4fca7e91c8658a7871f65b025b6443e27edb82aed1e504d8261bfbb9
+[2025-04-19 22:30:20] Starting MOMO payment process
+[2025-04-19 22:30:20] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 360000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 
+    [receiver_address] => 
+)
+
+[2025-04-19 22:30:20] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => tthien@a.d
+            [password] => $2y$10$CUssazh0pvraWiLEyBhAEuDfek39.XbRuCs0.KW3VPu7FW4hncRyy
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Tai nghe Bluetooth A3949
+                    [price] => 360000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống.jpg
+                    [brand] => Soundcore 
+                )
+
+        )
+
+)
+
+[2025-04-19 22:30:20] MOMO payment initiated
+[2025-04-19 22:30:20] Total amount: 360000
+[2025-04-19 22:30:20] Order saved successfully, proceeding with MOMO payment
+[2025-04-19 22:30:20] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745101820
+    [amount] => 360000
+    [orderId] => 1745101820
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 8480c4a53ed1a4ee8d899bb9cf057ebd23b4a71374f0b4c08865a05c7dfe22a3
+)
+
+[2025-04-19 22:30:20] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745101820
+    [requestId] => 1745101820
+    [amount] => 360000
+    [responseTime] => 1745101820443
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAxODIw&s=e016872a7cdb0234267a3fd1eec2a9bc48496280762b99a9085e24eb22b5c19c
+    [signature] => 9d381ba4fddeabe3bad9e9f469e5b9c8e6721d2a95117712d1b693be386cd3e9
+)
+
+[2025-04-19 22:30:20] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAxODIw&s=e016872a7cdb0234267a3fd1eec2a9bc48496280762b99a9085e24eb22b5c19c
+[2025-04-19 22:32:05] Starting MOMO payment process
+[2025-04-19 22:32:05] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 3810000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 
+    [receiver_address] => 
+)
+
+[2025-04-19 22:32:05] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => tthien@a.d
+            [password] => $2y$10$CUssazh0pvraWiLEyBhAEuDfek39.XbRuCs0.KW3VPu7FW4hncRyy
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Tai nghe Bluetooth A3949
+                    [price] => 360000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống.jpg
+                    [brand] => Soundcore 
+                )
+
+            [1] => Array
+                (
+                    [id] => 6
+                    [name] => Tai nghe Bluetooth AirPods 4
+                    [price] => 3450000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (6).jpg
+                    [brand] => Apple
+                )
+
+        )
+
+)
+
+[2025-04-19 22:32:05] MOMO payment initiated
+[2025-04-19 22:32:05] Total amount: 3810000
+[2025-04-19 22:32:06] Order saved successfully, proceeding with MOMO payment
+[2025-04-19 22:32:06] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745101926
+    [amount] => 3810000
+    [orderId] => 1745101926
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 79aa9e3ea462824c193a7c5df74b61817769fa5ef531332d4c6c3e89467174b6
+)
+
+[2025-04-19 22:32:06] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745101926
+    [requestId] => 1745101926
+    [amount] => 3810000
+    [responseTime] => 1745101925728
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAxOTI2&s=271b6be02b6b693ac445c76be28c006fd4421dfccefa97b9a8b3cdc51ebb16e5
+    [signature] => 42df4aa2cd85f7b09602b31a7d65d2e70ab819fa69df4888c8819b5aa343bbb1
+)
+
+[2025-04-19 22:32:06] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAxOTI2&s=271b6be02b6b693ac445c76be28c006fd4421dfccefa97b9a8b3cdc51ebb16e5
+[2025-04-19 22:39:27] Starting MOMO payment process
+[2025-04-19 22:39:27] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 13690000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => avvvv
+)
+
+[2025-04-19 22:39:27] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => tthien@a.d
+            [password] => $2y$10$CUssazh0pvraWiLEyBhAEuDfek39.XbRuCs0.KW3VPu7FW4hncRyy
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 2
+                    [name] => Samsung Galaxy S23
+                    [price] => 13690000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tải xuống (1).jpg
+                    [brand] => Samsung
+                )
+
+        )
+
+)
+
+[2025-04-19 22:39:27] MOMO payment initiated
+[2025-04-19 22:39:27] Total amount: 13690000
+[2025-04-19 22:39:27] Order saved successfully, proceeding with MOMO payment
+[2025-04-19 22:39:27] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745102367
+    [amount] => 13690000
+    [orderId] => 1745102367
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 0bf8422763b646adf27d9556b7e38ffadae99b3f76aa84ec2f361998b814a1dd
+)
+
+[2025-04-19 22:39:27] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745102367
+    [requestId] => 1745102367
+    [amount] => 13690000
+    [responseTime] => 1745102367312
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAyMzY3&s=b4555c3bad5c02dddfde26107748f47f4b145f5f5ccabd47b897fa29ad41a3a5
+    [signature] => 851ed3e1e542e6b3ebf1868dd7fe62bf3bb4ce937d2f20d1b7ed026ca9de1961
+)
+
+[2025-04-19 22:39:27] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAyMzY3&s=b4555c3bad5c02dddfde26107748f47f4b145f5f5ccabd47b897fa29ad41a3a5
+[2025-04-19 22:45:00] Starting MOMO payment process
+[2025-04-19 22:45:00] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 13690000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714024
+    [receiver_address] => a
+)
+
+[2025-04-19 22:45:00] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => tthien@a.d
+            [password] => $2y$10$CUssazh0pvraWiLEyBhAEuDfek39.XbRuCs0.KW3VPu7FW4hncRyy
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 2
+                    [name] => Samsung Galaxy S23
+                    [price] => 13690000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (1).jpg
+                    [brand] => Samsung
+                )
+
+        )
+
+)
+
+[2025-04-19 22:45:00] MOMO payment initiated
+[2025-04-19 22:45:00] Total amount: 13690000
+[2025-04-19 22:45:00] Order saved successfully, proceeding with MOMO payment
+[2025-04-19 22:45:00] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745102700
+    [amount] => 13690000
+    [orderId] => 1745102700
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 51b0fd266796588d5366b9fc33961725a0e4213f93f4cb9ac24dcf166ce973ed
+)
+
+[2025-04-19 22:45:00] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745102700
+    [requestId] => 1745102700
+    [amount] => 13690000
+    [responseTime] => 1745102700047
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAyNzAw&s=718ff2f469477c2ea581bca9b03911bca309c0026ef5573016e6327ec80e1956
+    [signature] => d370a106ae70b61d26c652b014304aadbf1427008341846487182c314b204a9e
+)
+
+[2025-04-19 22:45:00] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAyNzAw&s=718ff2f469477c2ea581bca9b03911bca309c0026ef5573016e6327ec80e1956
+[2025-04-19 22:56:52] Starting MOMO payment process
+[2025-04-19 22:56:52] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 3409000
+    [receiver_name] => tt
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-19 22:56:52] SESSION data: Array
+(
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 3
+                    [name] => iPhone 16 Pro Max 
+                    [price] => 3409000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (3).jpg
+                    [brand] => Apple
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$r1gWbiPQGldqqXj7Yxtklu.6e3x.cqWsfDX04Itv.Dk5TL8r66JHK
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => tt
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+)
+
+[2025-04-19 22:56:52] MOMO payment initiated
+[2025-04-19 22:56:52] Total amount: 3409000
+[2025-04-19 22:56:52] Order saved successfully, proceeding with MOMO payment
+[2025-04-19 22:56:52] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745103412
+    [amount] => 3409000
+    [orderId] => 1745103412
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/tthien-duan1/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => b4f8f4ff5ec8b681f08354bde786ea5b7522e2bf189aeb331ec398b6e9db4e5b
+)
+
+[2025-04-19 22:56:52] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745103412
+    [requestId] => 1745103412
+    [amount] => 3409000
+    [responseTime] => 1745103412140
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAzNDEy&s=73339261769a10e84d585fa3623195f2f0f0dcd5978ab9909e5c584767e5a190
+    [signature] => 15062143a68f25d1df617f041eb992fe14edbcdd46ac774652828ac6e289bb75
+)
+
+[2025-04-19 22:56:52] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAzNDEy&s=73339261769a10e84d585fa3623195f2f0f0dcd5978ab9909e5c584767e5a190

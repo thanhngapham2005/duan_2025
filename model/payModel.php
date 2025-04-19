@@ -263,9 +263,9 @@ class payModel
     
             // Lấy thông tin giảm giá nếu có
             $sql_check_discount = "SELECT dc.discount_percentage 
-                                 FROM bills b 
-                                 LEFT JOIN discount_codes dc ON b.discount_code_id = dc.id 
-                                 WHERE b.id = :ma_don_hang";
+                             FROM bills b 
+                             LEFT JOIN discount_codes dc ON b.discount_code_id = dc.id 
+                             WHERE b.id = :ma_don_hang";
             $stmt_check = $this->conn->prepare($sql_check_discount);
             $stmt_check->execute([':ma_don_hang' => $maDonHang]);
             $discount_percentage = $stmt_check->fetchColumn();
@@ -279,23 +279,29 @@ class payModel
             $sql_bills = "UPDATE bills SET 
                         status = 1,
                         payment_status = 1,
-                        total_amount = :so_tien
+                        total_amount = :so_tien,
+                        receiver_name = :receiver_name,
+                        receiver_phone = :receiver_phone,
+                        receiver_address = :receiver_address
                         WHERE id = :ma_don_hang";
             
             $stmt_bills = $this->conn->prepare($sql_bills);
             if (!$stmt_bills->execute([
                 ':ma_don_hang' => $maDonHang,
-                ':so_tien' => $soTien
+                ':so_tien' => $soTien,
+                ':receiver_name' => $thongTinThanhToan['receiver_name'],
+                ':receiver_phone' => $thongTinThanhToan['receiver_phone'],
+                ':receiver_address' => $thongTinThanhToan['receiver_address']
             ])) {
                 throw new PDOException("Lỗi cập nhật bills");
             }
-
+    
             // Cập nhật detail_bills
             $sql_detail = "UPDATE detail_bills SET 
                         transaction_id = :ma_giao_dich,
                         payment_time = NOW()
                         WHERE id_bill = :ma_don_hang";
-
+    
             $stmt_detail = $this->conn->prepare($sql_detail);
             if (!$stmt_detail->execute([
                 ':ma_don_hang' => $maDonHang,
@@ -303,7 +309,7 @@ class payModel
             ])) {
                 throw new PDOException("Lỗi cập nhật detail_bills");
             }
-
+    
             $this->conn->commit();
             return true;
         } catch (PDOException $e) {
