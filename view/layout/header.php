@@ -1,4 +1,3 @@
-
 <?php
 // Xác định trang hiện tại dựa trên tham số 'act' trong URL
 $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
@@ -18,7 +17,6 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
         </button>
 
         <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
-
             id="templatemo_main_nav">
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
@@ -28,30 +26,29 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
                             href="./">Trang chủ</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle <?= ($current_page == 'shop') ? 'active text-primary fw-bold' : '' ?>" 
-                           href="?act=shop" 
-                           role="button" 
-                           data-bs-toggle="dropdown" 
-                           aria-expanded="false">
+                        <a class="nav-link dropdown-toggle <?= ($current_page == 'shop') ? 'active text-primary fw-bold' : '' ?>"
+                            href="?act=shop" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Sản phẩm
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="?act=shop">Tất cả sản phẩm</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <?php 
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <?php
                             // Kiểm tra biến $categories có tồn tại không
-                            if(isset($categories) && is_array($categories)) {
-                                foreach($categories as $cat) {
-                                    echo '<li><a class="dropdown-item" href="?act=shop&id_category='.$cat['id_category'].'">'.$cat['name_cat'].'</a></li>';
+                            if (isset($categories) && is_array($categories)) {
+                                foreach ($categories as $cat) {
+                                    echo '<li><a class="dropdown-item" href="?act=shop&id_category=' . $cat['id_category'] . '">' . $cat['name_cat'] . '</a></li>';
                                 }
                             } else {
                                 // Nếu không có biến $categories, thử lấy từ model
                                 try {
-                                    require_once 'd:/laragon/www/duan/duan_2025/model/shopModel.php';
+                                    require_once 'model/shopModel.php';
                                     $model = new shopModel();
                                     $cats = $model->allCategory();
-                                    foreach($cats as $cat) {
-                                        echo '<li><a class="dropdown-item" href="?act=shop&id_category='.$cat['id_category'].'">'.$cat['name_cat'].'</a></li>';
+                                    foreach ($cats as $cat) {
+                                        echo '<li><a class="dropdown-item" href="?act=shop&id_category=' . $cat['id_category'] . '">' . $cat['name_cat'] . '</a></li>';
                                     }
                                 } catch (Exception $e) {
                                     echo '<li><a class="dropdown-item" href="?act=shop">Không thể tải danh mục</a></li>';
@@ -87,13 +84,14 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
                     <i class="fa fa-fw fa-search text-dark mr-2"></i>
                 </a>
                 <?php
-                    // Giả sử bạn lưu giỏ hàng trong session
-                    $cartCount = isset($_SESSION['mycart']) ? count($_SESSION['mycart']) : 0;
+                // Giả sử bạn lưu giỏ hàng trong session
+                $cartCount = isset($_SESSION['mycart']) ? count($_SESSION['mycart']) : 0;
 
                 ?>
                 <a class="nav-icon position-relative text-decoration-none" href="?act=cart">
                     <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
+                    <span
+                        class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
                         <?= $cartCount ?>
                     </span>
                 </a>
@@ -127,4 +125,3 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
     </div>
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
