@@ -22,32 +22,32 @@
 
     <!-- Modal -->
     <div class="modal fade" id="templatemo_search" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content border-0 shadow">
-            <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold">Tìm kiếm sản phẩm</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
-            </div>
-            <div class="modal-body py-4">
-                <form action="index.php" method="get">
-                    <div class="input-group">
-                        <input type="hidden" name="act" value="search">
-                        <input list="productList" type="text" class="form-control form-control-lg"
-                            id="inputModalSearch" name="q" placeholder="Nhập tên sản phẩm..." required>
-                        <button type="submit" class="btn btn-success btn-lg">
-                            <i class="fa fa-search me-1"></i> Tìm kiếm
-                        </button>
-                    </div>
-                    <datalist id="productList">
-                        <?php foreach ($product as $value): ?>
-                            <option value="<?= htmlspecialchars($value ) ?>">
-                        <?php endforeach; ?>
-                    </datalist>
-                </form>
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Tìm kiếm sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                </div>
+                <div class="modal-body py-4">
+                    <form action="index.php" method="get">
+                        <div class="input-group">
+                            <input type="hidden" name="act" value="search">
+                            <input list="productList" type="text" class="form-control form-control-lg"
+                                id="inputModalSearch" name="q" placeholder="Nhập tên sản phẩm..." required>
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fa fa-search me-1"></i> Tìm kiếm
+                            </button>
+                        </div>
+                        <datalist id="productList">
+                            <?php foreach ($product as $value): ?>
+                            <option value="<?= htmlspecialchars($value) ?>">
+                                <?php endforeach; ?>
+                        </datalist>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
