@@ -21,6 +21,7 @@ if (isset($status) && $status == 0) { // Kiểm tra thanh toán thành công
 
 
 <body>
+    
     <!-- Start Top Nav -->
     <?php require_once 'layout/topnav.php'; ?>
     <!-- Close Top Nav -->
@@ -106,8 +107,9 @@ if (isset($status) && $status == 0) { // Kiểm tra thanh toán thành công
                         <h6 class="fw-bold">Mã giảm giá có sẵn:</h6>
                         <div class="d-flex flex-wrap">
                             <?php foreach ($discountCodes as $code): ?>
-                            <div class="discount-code-item me-2 mb-2 p-2 border rounded" style="cursor: pointer;"
-                                data-code="<?= htmlspecialchars($code['code']) ?>">
+                            <div class="discount-code-item me-2 mb-2 p-2 border rounded" 
+                                 style="cursor: pointer;" 
+                                 data-code="<?= htmlspecialchars($code['code']) ?>">
                                 <span class="badge bg-primary"><?= htmlspecialchars($code['code']) ?></span>
                                 <small>Giảm <?= $code['discount_percentage'] ?>%</small>
                             </div>
@@ -120,7 +122,7 @@ if (isset($status) && $status == 0) { // Kiểm tra thanh toán thành công
                         <h5 class="fw-bold mb-0">Tổng tiền:</h5>
                         <h5 class="fw-bold mb-0" id="total_amount"><?= number_format($total) ?>đ</h5>
                     </div>
-
+                    
                     <!-- Hiển thị giảm giá và thành tiền sau giảm giá -->
                     <div id="discount_info" style="display: none;">
                         <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #ffebee;">
@@ -146,6 +148,9 @@ if (isset($status) && $status == 0) { // Kiểm tra thanh toán thành công
                         ];
                         ?>
 
+                        <!-- Thiếu input ẩn để lưu mã giảm giá -->
+                        <input type="hidden" id="hidden_discount_code" name="discount_code" value="">
+                        
                         <label for="receiver_name" class="form-label">Tên người nhận</label>
                         <div class="form-outline mb-4">
                             <input type="text" name="receiver_name" id="receiver_name"
@@ -280,25 +285,143 @@ if (isset($status) && $status == 0) { // Kiểm tra thanh toán thành công
 
     <?php endif; ?>
     <script>
-    var paymentSuccessPopup = new bootstrap.Modal(document.getElementById('paymentSuccessPopup'));
-
-    // Hiển thị modal
-    paymentSuccessPopup.show();
-
-    // Đóng popup tự động sau 3 giây và redirect
-
-    setTimeout(function() {
-
-        paymentSuccessPopup.hide(); // Đóng modal sau 3 giây
-        window.location.href = 'index.php?act=shop';
-    }, 2000);
-    <?php
-
-        unset($_SESSION['payment_status']);
-        unset($_SESSION['payment_message']);
-        ?>
+        document.addEventListener('DOMContentLoaded', function() {
+            const applyDiscountBtn = document.getElementById('apply_discount');
+            const discountCodeInput = document.getElementById('discount_code');
+            const discountMessage = document.getElementById('discount_message');
+            const hiddenDiscountCode = document.getElementById('hidden_discount_code');
+            const totalAmount = document.getElementById('total_amount');
+            const discountInfo = document.getElementById('discount_info');
+            const discountAmount = document.getElementById('discount_amount');
+            const finalAmount = document.getElementById('final_amount');
+            
+            // Lấy tổng tiền từ hiển thị
+            let total = <?= $total ?>;
+            let discountApplied = false; // Biến để kiểm tra đã áp dụng mã giảm giá chưa
+            
+            console.log('Script loaded, total:', total);
+            console.log('Apply button:', applyDiscountBtn);
+            
+            // Xử lý khi click vào nút áp dụng mã giảm giá
+            applyDiscountBtn.addEventListener('click', function(e) {
+                e.preventDefault(); // Ngăn chặn hành vi mặc định
+                console.log('Apply button clicked');
+                
+                // Chỉ kiểm tra nếu đã áp dụng mã giảm giá thành công
+                if (discountApplied) {
+                    discountMessage.innerHTML = '<span class="text-warning">Bạn đã áp dụng mã giảm giá cho đơn hàng này. Vui lòng tạo đơn hàng mới để sử dụng mã khác.</span>';
+                    return;
+                }
+                
+                applyDiscountCode();
+            });
+            
+            // Xử lý khi click vào mã giảm giá có sẵn
+            const discountCodeItems = document.querySelectorAll('.discount-code-item');
+            console.log('Discount code items:', discountCodeItems.length);
+            
+            discountCodeItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Chỉ kiểm tra nếu đã áp dụng mã giảm giá thành công
+                    if (discountApplied) {
+                        discountMessage.innerHTML = '<span class="text-warning">Bạn đã áp dụng mã giảm giá cho đơn hàng này. Vui lòng tạo đơn hàng mới để sử dụng mã khác.</span>';
+                        return;
+                    }
+                    
+                    const code = this.getAttribute('data-code');
+                    console.log('Discount code clicked:', code);
+                    discountCodeInput.value = code;
+                    applyDiscountCode();
+                });
+            });
+            
+            // Hàm áp dụng mã giảm giá
+            function applyDiscountCode() {
+                const code = discountCodeInput.value.trim();
+                console.log('Applying discount code:', code);
+                
+                if (!code) {
+                    discountMessage.innerHTML = '<span class="text-danger">Vui lòng nhập mã giảm giá</span>';
+                    return;
+                }
+                
+                // Gửi request kiểm tra mã giảm giá
+                console.log('Sending request to check discount code');
+                
+                fetch('index.php?act=checkDiscountCode', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'discount_code=' + encodeURIComponent(code) + '&total=' + total
+                })
+                .then(response => {
+                    console.log('Response received:', response);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data received:', data);
+                    
+                    if (data.status === 'success') {
+                        // Đánh dấu đã áp dụng mã giảm giá thành công
+                        discountApplied = true;
+                        
+                        // Hiển thị thông tin giảm giá
+                        discountMessage.innerHTML = '<span class="text-success">Áp dụng mã giảm giá thành công!</span>';
+                        hiddenDiscountCode.value = code;
+                        
+                        // Hiển thị thông tin giảm giá
+                        discountInfo.style.display = 'block';
+                        discountAmount.textContent = new Intl.NumberFormat('vi-VN').format(data.discount_amount) + 'đ';
+                        finalAmount.textContent = new Intl.NumberFormat('vi-VN').format(data.final_total) + 'đ';
+                        
+                        // Vô hiệu hóa input và nút áp dụng
+                        discountCodeInput.disabled = true;
+                        applyDiscountBtn.disabled = true;
+                        
+                        // Thêm lớp CSS để hiển thị trạng thái đã áp dụng
+                        discountCodeItems.forEach(item => {
+                            if (item.getAttribute('data-code') === code) {
+                                item.classList.add('active-discount');
+                                item.style.backgroundColor = '#e8f5e9';
+                                item.style.borderColor = '#4caf50';
+                            } else {
+                                item.style.opacity = '0.5';
+                                item.style.cursor = 'not-allowed';
+                            }
+                        });
+                    } else {
+                        discountMessage.innerHTML = '<span class="text-danger">' + data.message + '</span>';
+                        hiddenDiscountCode.value = '';
+                        discountInfo.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    discountMessage.innerHTML = '<span class="text-danger">Đã xảy ra lỗi khi kiểm tra mã giảm giá</span>';
+                });
+            }
+            
+            <?php if (isset($_SESSION['payment_status'])): ?>
+            // Script xử lý popup thông báo
+            var paymentSuccessPopup = new bootstrap.Modal(document.getElementById('paymentSuccessPopup'));
+        
+            // Hiển thị modal
+            paymentSuccessPopup.show();
+        
+            // Đóng popup tự động sau 3 giây và redirect
+            setTimeout(function() {
+                paymentSuccessPopup.hide(); // Đóng modal sau 3 giây
+                window.location.href = 'index.php?act=shop';
+            }, 2000);
+            <?php
+                unset($_SESSION['payment_status']);
+                unset($_SESSION['payment_message']);
+            ?>
+            <?php endif; ?>
+        });
     </script>
-
+    
 </body>
 
 </html>

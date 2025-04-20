@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 19, 2025 at 05:37 AM
+-- Generation Time: Apr 19, 2025 at 08:09 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.27
 
@@ -46,7 +46,8 @@ INSERT INTO `bills` (`id_bill`, `id_customer`, `receiver_name`, `receiver_phone`
 (1, 2, 'klasdflksd', '0254504577', 'ssdf', 3, '2025-03-31 07:37:41', 1),
 (2, 2, 'klasdflksd', '0258963', 'kjhgfd', 1, '2025-04-09 21:02:53', 2),
 (3, 4, 'Lê Duy Nhất', '0258963', 'kjhgfd', 5, '2025-04-09 23:41:52', 1),
-(4, 2, 'klasdflksd', '0254504577', 'ssdf', 6, '2025-04-14 08:08:52', 1);
+(4, 2, 'klasdflksd', '0254504577', 'ssdf', 6, '2025-04-14 08:08:52', 1),
+(5, 6, 'thanh nga', '0367324106', 'Hà đông', 0, '2025-04-19 17:07:45', 3);
 
 -- --------------------------------------------------------
 
@@ -116,7 +117,8 @@ INSERT INTO `customers` (`id_customer`, `id_user`, `full_name`, `phone`, `addres
 (2, 2, 'klasdflksd', '', '', NULL),
 (3, 3, 'xđxdxf', '', '', NULL),
 (4, 4, 'Lê Duy Nhất', '', '', NULL),
-(5, 5, 'jk', '', '', NULL);
+(5, 5, 'jk', '', '', NULL),
+(6, 6, 'thanh nga', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -144,7 +146,8 @@ INSERT INTO `detail_bills` (`id_detailbill`, `id_bill`, `id_product`, `id_varian
 (3, 2, 11, 4, 'Laptop Acer Gaming', 13990000, 2),
 (4, 2, 10, 4, 'Laptop ASUS 15 X1504ZA', 13990000, 2),
 (5, 3, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
-(6, 4, 1, 4, 'Tai nghe Bluetooth A3949', 360000, 3);
+(6, 4, 1, 4, 'Tai nghe Bluetooth A3949', 360000, 3),
+(7, 5, 12, 4, 'Laptop MSI Katana', 25990000, 4);
 
 -- --------------------------------------------------------
 
@@ -302,7 +305,8 @@ INSERT INTO `users` (`id_user`, `email`, `password`, `role`, `day_registered`) V
 (2, 'kienntph49023@gmail.com', '$2y$10$NSDIBCc80ttU9KhhxcMHTOUybz5vrfJ7arMv3sIF7luXKRqJMdYZ.', 0, NULL),
 (3, 'dotuanthiendz112@gmail.com', '$2y$10$z98EbmbkYskvw5Vb0571O.UoHM5wrpZ3HSkPpAr6/KXw/e0lQMusq', 0, NULL),
 (4, 'kiennguyentrung07092005@gmail.com', '$2y$10$k4aQSky/Nve7jt/CSLhGu.W5R8UZSjUm.9mbR4yG1oIZ0kPbM7K0a', 0, NULL),
-(5, 'jk@gmail.com', '$2y$10$JXG0WgExCIoDdcSyg8wEMe8wXG/P3hTeHZ8otH1EgfKHIiZnhfezG', 0, NULL);
+(5, 'jk@gmail.com', '$2y$10$JXG0WgExCIoDdcSyg8wEMe8wXG/P3hTeHZ8otH1EgfKHIiZnhfezG', 0, NULL),
+(6, 'tn@gmail.com', '$2y$10$PwHElr19iJJfBBlbafQAuuiNfpiAqXIfLnDMtWszTzB.9NbpiUCja', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -420,7 +424,7 @@ ALTER TABLE `variant`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=5;
+  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -438,13 +442,13 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=6;
+  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `detail_bills`
 --
 ALTER TABLE `detail_bills`
-  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=7;
+  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `discount_codes`
@@ -468,7 +472,7 @@ ALTER TABLE `rates`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=6;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `variant`

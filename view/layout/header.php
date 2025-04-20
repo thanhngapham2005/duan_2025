@@ -44,7 +44,7 @@ $current_page = isset($_GET['act']) ? $_GET['act'] : 'home';
                             } else {
                                 // Nếu không có biến $categories, thử lấy từ model
                                 try {
-                                    require_once 'd:/laragon/www/tthien-duan1/duan_2025/model/shopModel.php';
+                                    require_once 'model/shopModel.php';
                                     $model = new shopModel();
                                     $cats = $model->allCategory();
                                     foreach ($cats as $cat) {

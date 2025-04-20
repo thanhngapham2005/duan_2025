@@ -1,5 +1,14 @@
 <?php
 session_start();
+if (isset($_SESSION['Message'])) {
+    $successMessage = $_SESSION['Message'];
+    unset($_SESSION['Message']);
+    echo "<script>alert('$successMessage');</script>";
+}
+// abc đẩy git
+
+
+// Require các file cần thiết
 require_once 'commoms/function.php';
 
 // Require controllers
@@ -25,6 +34,7 @@ require_once 'model/shop-singleModel.php';
 require_once 'model/shopModel.php';
 require_once 'model/payModel.php';
 
+
 // Session message handling
 if (isset($_SESSION['Message'])) {
     $successMessage = $_SESSION['Message'];
@@ -47,6 +57,7 @@ match ($act) {
     'logout' => (new LogoutController())->logout(),
     'profile' => (new ProfileController())->profile(),
     'updateProfile' => (new ProfileController())->updateProfile(),
+
     'addToCart' => (new cartController())->addToCart(),
     'deleteToCart' => (new cartController())->deleteToCart(),
     'shop' => (new ShopController())->showShop(),
@@ -60,6 +71,7 @@ match ($act) {
     'cancelOrder' => (new orderController())->cancelOrder(),
     'order' => (new orderController())->order($_SESSION['user']['customer_info']['id_customer']),
     'addComment' => (new detailController())->addComment(),
+
     default => (new HomeController())->home(),
 };
 
