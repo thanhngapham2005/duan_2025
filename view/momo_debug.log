@@ -5629,3 +5629,18 @@
 
 [2025-04-21 11:43:38] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"1745235817","requestId":"1745235817","amount":207000,"responseTime":1745235819384,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjM1ODE3&s=d7db52df456415f61e96724e9c39afa5f2dd2ecb894bfcd998e27e8f42f8ef47","signature":"b72a61133146d1da6c48d24facc09205f4bb9a955d84b2396c3c1acc65f2d69e"}
 [2025-04-21 11:43:38] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjM1ODE3&s=d7db52df456415f61e96724e9c39afa5f2dd2ecb894bfcd998e27e8f42f8ef47
+[2025-04-21 14:58:15] Starting MOMO payment process
+[2025-04-21 14:58:15] MOMO payment initiated
+[2025-04-21 14:58:15] POST data received: Array
+(
+    [momo] => true
+    [total_amount] => 13190000
+    [discount_code] => KL
+    [discount_amount] => 500000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-21 14:58:15] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"1745247495","requestId":"1745247495","amount":13190000,"responseTime":1745247496044,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjQ3NDk1&s=b8d85d6d95df467f0632a061b209ee8a34a61b6423f76e92e7a4aca275100049","signature":"a0eeed827c194d41fe948b0d957aabf76d83db53dcf67a625fad8d91f8bf27d9"}
+[2025-04-21 14:58:15] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjQ3NDk1&s=b8d85d6d95df467f0632a061b209ee8a34a61b6423f76e92e7a4aca275100049
