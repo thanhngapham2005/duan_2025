@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 19, 2025 at 08:09 PM
+-- Generation Time: Apr 21, 2025 at 12:01 PM
 -- Server version: 8.0.30
--- PHP Version: 8.2.27
+-- PHP Version: 8.3.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,19 +35,24 @@ CREATE TABLE `bills` (
   `receiver_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Địa chỉ người nhận',
   `status` tinyint NOT NULL COMMENT '	0 => "Chờ xác nhận", 1 => "Đã xác nhận", 2 => "Chờ lấy hàng", 3 => "Đang vận chuyển", 4 => "Đang hoàn trả hàng", 5 => "Giao hàng thành công", 6 => "Đã hủy",',
   `purchase_date` datetime DEFAULT NULL COMMENT 'Ngày mua',
-  `discount_code_id` int DEFAULT NULL COMMENT 'Mã giảm giá'
+  `discount_code_id` int DEFAULT NULL COMMENT 'Mã giảm giá',
+  `discount_amount` int NOT NULL COMMENT 'Số tiền đã được giảm giá\r\n'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `bills`
 --
 
-INSERT INTO `bills` (`id_bill`, `id_customer`, `receiver_name`, `receiver_phone`, `receiver_address`, `status`, `purchase_date`, `discount_code_id`) VALUES
-(1, 2, 'klasdflksd', '0254504577', 'ssdf', 3, '2025-03-31 07:37:41', 1),
-(2, 2, 'klasdflksd', '0258963', 'kjhgfd', 1, '2025-04-09 21:02:53', 2),
-(3, 4, 'Lê Duy Nhất', '0258963', 'kjhgfd', 5, '2025-04-09 23:41:52', 1),
-(4, 2, 'klasdflksd', '0254504577', 'ssdf', 6, '2025-04-14 08:08:52', 1),
-(5, 6, 'thanh nga', '0367324106', 'Hà đông', 0, '2025-04-19 17:07:45', 3);
+INSERT INTO `bills` (`id_bill`, `id_customer`, `receiver_name`, `receiver_phone`, `receiver_address`, `status`, `purchase_date`, `discount_code_id`, `discount_amount`) VALUES
+(1, 2, 'klasdflksd', '0254504577', 'ssdf', 3, '2025-03-31 07:37:41', 1, 13590000),
+(2, 2, 'klasdflksd', '0258963', 'kjhgfd', 1, '2025-04-09 21:02:53', 2, 185909500),
+(3, 4, 'Lê Duy Nhất', '0258963', 'kjhgfd', 5, '2025-04-09 23:41:52', 1, 13590000),
+(4, 2, 'klasdflksd', '0254504577', 'ssdf', 6, '2025-04-14 08:08:52', 1, 980000),
+(5, 6, 'thanh nga', '0367324106', 'Hà đông', 0, '2025-04-19 17:07:45', 3, 103460000),
+(6, 5, 'jk', '0367324106', 'kjhgfd', 0, '2025-04-21 00:09:32', 3, 39180000),
+(7, 6, 'thanh nga', '0367324106', 'Hà đông', 0, '2025-04-21 02:47:18', 3, 39180000),
+(8, 6, 'thanh nga', '0367324106', 'jkl;', 0, '2025-04-21 02:58:56', 3, 13190000),
+(9, 7, 'đỗ tuấn thiện', '0329714023', 'nghệ an', 0, '2025-04-21 18:43:37', 1, 23000);
 
 -- --------------------------------------------------------
 
@@ -81,6 +86,7 @@ CREATE TABLE `comments` (
   `id_comment` int NOT NULL COMMENT 'Mã bình luận',
   `id_product` int NOT NULL COMMENT '	Mã sản phẩm	',
   `id_user` int NOT NULL COMMENT 'Mã user',
+  `rating` int NOT NULL,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '	Nội dung bình luận	',
   `censorship` tinyint NOT NULL COMMENT '0 là hiện, 1 là đã ẩn	',
   `day_post` datetime DEFAULT NULL COMMENT 'Ngày tạo'
@@ -90,8 +96,8 @@ CREATE TABLE `comments` (
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`id_comment`, `id_product`, `id_user`, `content`, `censorship`, `day_post`) VALUES
-(1, 6, 2, 'ok', 1, NULL);
+INSERT INTO `comments` (`id_comment`, `id_product`, `id_user`, `rating`, `content`, `censorship`, `day_post`) VALUES
+(1, 6, 2, 0, 'ok', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -118,7 +124,8 @@ INSERT INTO `customers` (`id_customer`, `id_user`, `full_name`, `phone`, `addres
 (3, 3, 'xđxdxf', '', '', NULL),
 (4, 4, 'Lê Duy Nhất', '', '', NULL),
 (5, 5, 'jk', '', '', NULL),
-(6, 6, 'thanh nga', '', '', NULL);
+(6, 6, 'thanh nga', '', '', NULL),
+(7, 7, 'đỗ tuấn thiện', '0329714023', 'nghệ an', NULL);
 
 -- --------------------------------------------------------
 
@@ -147,7 +154,13 @@ INSERT INTO `detail_bills` (`id_detailbill`, `id_bill`, `id_product`, `id_varian
 (4, 2, 10, 4, 'Laptop ASUS 15 X1504ZA', 13990000, 2),
 (5, 3, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
 (6, 4, 1, 4, 'Tai nghe Bluetooth A3949', 360000, 3),
-(7, 5, 12, 4, 'Laptop MSI Katana', 25990000, 4);
+(7, 5, 12, 4, 'Laptop MSI Katana', 25990000, 4),
+(8, 6, 12, 4, 'Laptop MSI Katana', 25990000, 1),
+(9, 6, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
+(10, 7, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
+(11, 7, 12, 4, 'Laptop MSI Katana', 25990000, 1),
+(12, 8, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
+(13, 9, 13, 5, 'Tai nghe Bluetooth FreeGo Y913', 230000, 1);
 
 -- --------------------------------------------------------
 
@@ -175,9 +188,9 @@ CREATE TABLE `discount_codes` (
 --
 
 INSERT INTO `discount_codes` (`id`, `code`, `discount_percentage`, `max_discount`, `min_order_value`, `start_date`, `end_date`, `usage_limit`, `used_count`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'TESTCODE', '10.00', '100000.00', '500000.00', '2025-04-01 00:00:00', '2025-04-19 00:00:00', 100, 0, 'active', '2025-04-04 01:05:16', '2025-04-09 00:10:07'),
-(2, 'T5JK', '50.00', '500.00', '350.00', '2025-04-05 00:00:00', '2025-04-19 00:00:00', 10, 0, 'active', '2025-04-08 23:59:55', '2025-04-08 23:59:55'),
-(3, 'KL', '50.00', '500000.00', '13690000.00', '2025-04-05 00:00:00', '2025-04-25 00:00:00', 50, 0, 'active', '2025-04-09 17:08:06', '2025-04-09 17:08:06');
+(1, 'TESTCODE', 10.00, 100000.00, 500000.00, '2025-04-01 00:00:00', '2025-04-19 00:00:00', 100, 0, 'active', '2025-04-04 01:05:16', '2025-04-09 00:10:07'),
+(2, 'T5JK', 50.00, 500.00, 350.00, '2025-04-05 00:00:00', '2025-04-19 00:00:00', 10, 0, 'active', '2025-04-08 23:59:55', '2025-04-08 23:59:55'),
+(3, 'KL', 50.00, 500000.00, 13690000.00, '2025-04-05 00:00:00', '2025-04-25 00:00:00', 50, 0, 'active', '2025-04-09 17:08:06', '2025-04-09 17:08:06');
 
 -- --------------------------------------------------------
 
@@ -264,27 +277,6 @@ INSERT INTO `product_variant` (`id_product`, `id_variant`, `quantity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rates`
---
-
-CREATE TABLE `rates` (
-  `id_rate` int NOT NULL COMMENT '	Mã đánh giá',
-  `id_product` int NOT NULL COMMENT '	Mã sản phẩm	',
-  `id_user` int NOT NULL COMMENT '	Mã user',
-  `point` float NOT NULL COMMENT 'Điểm đánh giá	',
-  `updated_at` datetime NOT NULL COMMENT 'Ngày cập nhật'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `rates`
---
-
-INSERT INTO `rates` (`id_rate`, `id_product`, `id_user`, `point`, `updated_at`) VALUES
-(1, 6, 2, 3, '2025-03-31 00:41:03');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -306,7 +298,8 @@ INSERT INTO `users` (`id_user`, `email`, `password`, `role`, `day_registered`) V
 (3, 'dotuanthiendz112@gmail.com', '$2y$10$z98EbmbkYskvw5Vb0571O.UoHM5wrpZ3HSkPpAr6/KXw/e0lQMusq', 0, NULL),
 (4, 'kiennguyentrung07092005@gmail.com', '$2y$10$k4aQSky/Nve7jt/CSLhGu.W5R8UZSjUm.9mbR4yG1oIZ0kPbM7K0a', 0, NULL),
 (5, 'jk@gmail.com', '$2y$10$JXG0WgExCIoDdcSyg8wEMe8wXG/P3hTeHZ8otH1EgfKHIiZnhfezG', 0, NULL),
-(6, 'tn@gmail.com', '$2y$10$PwHElr19iJJfBBlbafQAuuiNfpiAqXIfLnDMtWszTzB.9NbpiUCja', 0, NULL);
+(6, 'tn@gmail.com', '$2y$10$PwHElr19iJJfBBlbafQAuuiNfpiAqXIfLnDMtWszTzB.9NbpiUCja', 0, NULL),
+(7, 't@t.t', '$2y$10$MsT55BCz2rjfS/sVzxi.5uRL1PRnAZJqy2PbRbr7BHSVHwg7Kin3G', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -397,14 +390,6 @@ ALTER TABLE `product_variant`
   ADD KEY `id_variant` (`id_variant`);
 
 --
--- Indexes for table `rates`
---
-ALTER TABLE `rates`
-  ADD PRIMARY KEY (`id_rate`),
-  ADD KEY `id_product` (`id_product`),
-  ADD KEY `id_user` (`id_user`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -424,7 +409,7 @@ ALTER TABLE `variant`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=6;
+  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -442,13 +427,13 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=7;
+  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `detail_bills`
 --
 ALTER TABLE `detail_bills`
-  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=8;
+  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `discount_codes`
@@ -463,16 +448,10 @@ ALTER TABLE `products`
   MODIFY `id_product` int NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm	', AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `rates`
---
-ALTER TABLE `rates`
-  MODIFY `id_rate` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đánh giá', AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=7;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `variant`
@@ -524,13 +503,6 @@ ALTER TABLE `products`
 ALTER TABLE `product_variant`
   ADD CONSTRAINT `product_variant_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `product_variant_ibfk_2` FOREIGN KEY (`id_variant`) REFERENCES `variant` (`id_variant`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
--- Constraints for table `rates`
---
-ALTER TABLE `rates`
-  ADD CONSTRAINT `rates_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `rates_ibfk_3` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
