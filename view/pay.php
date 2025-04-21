@@ -229,16 +229,27 @@ if (isset($status) && $status == 0) { // Kiểm tra thanh toán thành công
                 function submitMomoPayment() {
                     const form = document.getElementById('payment-form');
                     if (form.checkValidity()) {
-                        // Tạo form mới cho MOMO
                         const momoForm = document.createElement('form');
                         momoForm.method = 'POST';
                         momoForm.action = 'view/confirm_momo.php';
                         
-                        // Thêm các trường dữ liệu
+                        // Lấy giá trị final_amount nếu có giảm giá, nếu không lấy total
+                        const finalAmountElement = document.getElementById('final_amount');
+                        const totalToPayStr = finalAmountElement && finalAmountElement.textContent.trim() !== '' 
+                            ? finalAmountElement.textContent.replace(/[^\d]/g, '')
+                            : document.getElementById('total_amount').textContent.replace(/[^\d]/g, '');
+                        
+                        const discountCode = document.getElementById('hidden_discount_code').value;
+                        const discountAmount = document.getElementById('discount_amount')
+                            ? parseInt(document.getElementById('discount_amount').textContent.replace(/[^\d]/g, '')) || 0
+                            : 0;
+
                         const formData = new FormData(form);
                         const fields = {
                             'momo': 'true',
-                            'total_amount': '<?= $total ?>',
+                            'total_amount': totalToPayStr,
+                            'discount_code': discountCode,
+                            'discount_amount': discountAmount,
                             'receiver_name': formData.get('receiver_name'),
                             'receiver_phone': formData.get('receiver_phone'),
                             'receiver_address': formData.get('receiver_address')

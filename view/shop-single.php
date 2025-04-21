@@ -2,18 +2,56 @@
 <html lang="en">
 
 <style>
-  
-  #product-detail {
+#product-detail {
     width: 400px;
     height: 502px;
     object-fit: contain;
+}
+
+.rating i {
+    cursor: pointer;
+    font-size: 24px;
+    color: #ddd;
+}
+
+.rating i.active,
+.review-star {
+    color: #ffc107;
+}
+
+.form-control,
+.textarea-comment {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.btn-submit {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+}
+
+.btn-submit:hover {
+    background: #0056b3;
+}
+
+.review-card {
+    border-left: 3px solid #007bff;
+}
+
+.review-avatar {
+    width: 50px;
+    height: 50px;
+    background: #f0f0f0;
+    border-radius: 50%;
 }
 </style>
 <?php
 require_once 'layout/head.php';
 ?>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     let quantityInput = document.getElementById("product-quantity");
     let quantityDisplay = document.getElementById("var-value");
     let remainingQuantity = parseInt(document.getElementById("remaining-quantity").innerText);
@@ -21,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Đồng bộ hiển thị ban đầu
     quantityDisplay.innerText = quantityInput.value;
 
-    document.querySelector('.quantity-btn-plus').addEventListener("click", function () {
+    document.querySelector('.quantity-btn-plus').addEventListener("click", function() {
         let quantity = parseInt(quantityInput.value);
         if (quantity < remainingQuantity) {
             quantity++;
@@ -30,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    document.querySelector('.quantity-btn-minus').addEventListener("click", function () {
+    document.querySelector('.quantity-btn-minus').addEventListener("click", function() {
         let quantity = parseInt(quantityInput.value);
         if (quantity > 1) {
             quantity--;
@@ -40,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+
 <body>
     <!-- Start Top Nav -->
     <?php require_once 'layout/topnav.php'; ?>
@@ -107,16 +146,21 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <li class="list-inline-item">
                                     <h6>Số lượng còn lại:</h6>
                                 </li>
-                                <li class="list-inline-item"><p class="text-muted"><strong id="remaining-quantity"><?= $product_variant[0]['quantity'] ?></strong></p>
+                                <li class="list-inline-item">
+                                    <p class="text-muted"><strong
+                                            id="remaining-quantity"><?= $product_variant[0]['quantity'] ?></strong></p>
                                 </li>
                                 <li class="list-inline-item pb-3">
 
-                                    <li class="list-inline-item text-right">
-                                        Số lượng
-                                    </li>
-                                    <li class="list-inline-item"><span class="btn btn-success quantity-btn-minus">-</span></li>
-                                    <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-                                    <li class="list-inline-item"><span class="btn btn-success quantity-btn-plus">+</span></li>
+                                <li class="list-inline-item text-right">
+                                    Số lượng
+                                </li>
+                                <li class="list-inline-item"><span class="btn btn-success quantity-btn-minus">-</span>
+                                </li>
+                                <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span>
+                                </li>
+                                <li class="list-inline-item"><span class="btn btn-success quantity-btn-plus">+</span>
+                                </li>
                                 </li>
                             </ul>
 
@@ -133,9 +177,9 @@ document.addEventListener("DOMContentLoaded", function () {
                                                         <?= $key === 0 ? 'checked' : '' ?>
                                                         data-quantity="<?= $value['quantity'] ?>"
                                                         data-capacity="<?= $value['capacity'] ?? '' ?>">
-                                                    <span><?= $value['name_color'] ?> 
-                                                        <?php if(!empty($value['capacity'])): ?>
-                                                          
+                                                    <span><?= $value['name_color'] ?>
+                                                        <?php if (!empty($value['capacity'])): ?>
+
                                                         <?php endif; ?>
                                                     </span>
                                                 </label>
@@ -151,37 +195,38 @@ document.addEventListener("DOMContentLoaded", function () {
                                                 <h6>Dung lượng:</h6>
                                             </li>
                                             <li class="list-inline-item">
-                                                <p class="text-muted"><strong id="variant-capacity"><?= !empty($product_variant[0]['capacity']) ? $product_variant[0]['capacity'] : 'Không có' ?></strong></p>
+                                                <p class="text-muted"><strong
+                                                        id="variant-capacity"><?= !empty($product_variant[0]['capacity']) ? $product_variant[0]['capacity'] : 'Không có' ?></strong>
+                                                </p>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                         </div>
 
-                                </div>
-                                <div class="row pb-3">
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
-                                            value="buy">Buy</button>
-                                    </div>
-                                    <!-- <form action="index.php?act=addToCart" method="POST"> -->
-                                    <input type="hidden" name="productId" value="<?= $productOne['id_product'] ?>">
-                                    <input type="hidden" name="name" value="<?= $productOne['name'] ?>">
-                                    <input type="hidden" name="price" value="<?= $productOne['price'] ?>">
-                                    <input type="hidden" name="brand" value="<?= $productOne['firms'] ?>">
-                                    <input type="hidden" name="product-quantity" id="product-quantity" value="1">
-                                    <input type="hidden" name="img" value="<?= $productOne['img_product'] ?>">
-                                    <div class="col d-grid">
-                                        <button href="index.php?act=cart" type="submit" class="btn btn-success btn-lg"
-                                            name="addtocart">Add To Cart</button>
-                                    </div>
-
-
-                            </div>
-                        </form>
                     </div>
+                    <div class="row pb-3">
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Buy</button>
+                        </div>
+                        <!-- <form action="index.php?act=addToCart" method="POST"> -->
+                        <input type="hidden" name="productId" value="<?= $productOne['id_product'] ?>">
+                        <input type="hidden" name="name" value="<?= $productOne['name'] ?>">
+                        <input type="hidden" name="price" value="<?= $productOne['price'] ?>">
+                        <input type="hidden" name="brand" value="<?= $productOne['firms'] ?>">
+                        <input type="hidden" name="product-quantity" id="product-quantity" value="1">
+                        <input type="hidden" name="img" value="<?= $productOne['img_product'] ?>">
+                        <div class="col d-grid">
+                            <button href="index.php?act=cart" type="submit" class="btn btn-success btn-lg"
+                                name="addtocart">Add To Cart</button>
+                        </div>
+
+
+                    </div>
+                    </form>
                 </div>
             </div>
+        </div>
         </div>
         </div>
     </section>
@@ -259,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div class="mb-4">
                                 <input type="hidden" name="id_product" value="<?= $productOne['id_product'] ?>">
                                 <!-- Mã sản phẩm -->
-                                <label for="comment" class="form-label">Bình luận *</label>
+                                <label for="comment" class="form-label">Viết đánh giá *</label>
                                 <textarea class="form-control textarea-comment" id="comment" name="content" rows="4"
                                     required></textarea>
                             </div>
@@ -388,8 +433,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="card-body">
                             <h5 class="card-title"><?= $product['name'] ?></h5>
                             <p class="card-text text-success"><?= number_format($product['price']) ?>đ</p>
-                            <a href="index.php?act=shop_single&id=<?= $product['id_product'] ?>"
-                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                            <a href="index.php?act=shop_single&id=<?= $product['id_product'] ?>" <a href="#"
+                                class="btn btn-primary">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
@@ -406,25 +451,25 @@ document.addEventListener("DOMContentLoaded", function () {
     <?php include 'layout/scripts.php'; ?>
     <!-- End Slider Script -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
+
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Lấy tất cả các radio button màu sắc
         const colorRadios = document.querySelectorAll('input[name="color"]');
         const capacityElement = document.getElementById('variant-capacity');
         const remainingQuantityElement = document.getElementById('remaining-quantity');
-        
+
         // Thêm sự kiện change cho mỗi radio button
         colorRadios.forEach(radio => {
             radio.addEventListener('change', function() {
                 // Cập nhật dung lượng
                 const capacity = this.getAttribute('data-capacity');
                 capacityElement.textContent = capacity ? capacity : 'Không có';
-                
+
                 // Cập nhật số lượng còn lại
                 const quantity = this.getAttribute('data-quantity');
                 remainingQuantityElement.textContent = quantity;
-                
+
                 // Reset số lượng đặt hàng về 1
                 document.getElementById('var-value').textContent = '1';
                 document.getElementById('product-quantity').value = '1';

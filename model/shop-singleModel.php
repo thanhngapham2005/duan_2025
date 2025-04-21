@@ -13,7 +13,7 @@ class detailModel
                 FROM product_variant pv 
                 JOIN variant v ON pv.id_variant = v.id_variant 
                 WHERE pv.id_product = :id_product";
-        
+
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id_product', $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -35,6 +35,7 @@ class detailModel
         $stmt->execute(['id_category' => $id_category, 'id_product' => $id_product]);
         return $stmt->fetchAll();
     }
+
     function allComment($id)
     {
         $sql = "SELECT * FROM comments JOIN customers ON comments.id_user=customers.id_user WHERE id_product=$id";

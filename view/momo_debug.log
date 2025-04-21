@@ -1273,3 +1273,4404 @@
 )
 
 [2025-04-19 22:56:52] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTAzNDEy&s=73339261769a10e84d585fa3623195f2f0f0dcd5978ab9909e5c584767e5a190
+[2025-04-20 19:18:12] Starting MOMO payment process
+[2025-04-20 19:18:12] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 22990000
+    [receiver_name] => tt
+    [receiver_phone] => 0329714023
+    [receiver_address] => avvvv
+)
+
+[2025-04-20 19:18:12] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => tt
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+            [fullname] => Đỗ Tuấn Thiện
+        )
+
+    [success_message] => Cập nhật hồ sơ thành công!
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 9
+                    [name] => Laptop Lenovo 5 14Q8X9 
+                    [price] => 22990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (8).jpg
+                    [brand] => Laptop Lenovo
+                )
+
+        )
+
+)
+
+[2025-04-20 19:18:12] MOMO payment initiated
+[2025-04-20 19:18:12] Total amount: 22990000
+[2025-04-20 19:27:26] Starting MOMO payment process
+[2025-04-20 19:27:26] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 360000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:27:26] SESSION data: Array
+(
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 7
+                    [name] => Tai nghe Bluetooth 1000XM5
+                    [price] => 360000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tải xuống (13).jpg
+                    [brand] => Tai nghe Bluetooth chụp tai Sony WH-1000XM5
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+)
+
+[2025-04-20 19:27:26] MOMO payment initiated
+[2025-04-20 19:27:26] Total amount: 360000
+[2025-04-20 19:30:29] Starting MOMO payment process
+[2025-04-20 19:30:29] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 360000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:30:29] SESSION data: Array
+(
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 7
+                    [name] => Tai nghe Bluetooth 1000XM5
+                    [price] => 360000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tải xuống (13).jpg
+                    [brand] => Tai nghe Bluetooth chụp tai Sony WH-1000XM5
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+)
+
+[2025-04-20 19:30:29] MOMO payment initiated
+[2025-04-20 19:30:29] Total amount: 360000
+[2025-04-20 19:30:29] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:30:29] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745177429
+    [amount] => 360000
+    [orderId] => 1745177429
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => eee5245fcb8c4b4f972c0fb9f37b144f1d8c9f16422eca0ea365a56c5c567673
+)
+
+[2025-04-20 19:30:29] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745177429
+    [requestId] => 1745177429
+    [amount] => 360000
+    [responseTime] => 1745177430861
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3NDI5&s=11c95b0252b5247ea111cf3e32cccc4c0300f495c6a92370cf837d879974082e
+    [signature] => eb5c84e512f584895ab1d39a914662d6a57f5525676881d2589858852ee63629
+)
+
+[2025-04-20 19:30:29] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3NDI5&s=11c95b0252b5247ea111cf3e32cccc4c0300f495c6a92370cf837d879974082e
+[2025-04-20 19:30:52] Starting MOMO payment process
+[2025-04-20 19:30:52] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:30:52] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-20 19:30:52] MOMO payment initiated
+[2025-04-20 19:30:52] Total amount: 230000
+[2025-04-20 19:30:52] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:30:52] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745177452
+    [amount] => 230000
+    [orderId] => 1745177452
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => b09939e7506a86253e3a14e0fdc0f4c06f23fa5255e19a9b0398834925025a50
+)
+
+[2025-04-20 19:30:52] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745177452
+    [requestId] => 1745177452
+    [amount] => 230000
+    [responseTime] => 1745177453231
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3NDUy&s=1c409b08516c9c55b41a927fd43d9c6186da3ebe995623e6fbb58862f1a75bec
+    [signature] => 1d806327efefda320da054e664f7055b2e9e1c129d7f04c950793378daef8c9e
+)
+
+[2025-04-20 19:30:52] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3NDUy&s=1c409b08516c9c55b41a927fd43d9c6186da3ebe995623e6fbb58862f1a75bec
+[2025-04-20 19:32:37] Starting MOMO payment process
+[2025-04-20 19:32:37] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 13690000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:32:37] SESSION data: Array
+(
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 2
+                    [name] => Samsung Galaxy S23
+                    [price] => 13690000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (1).jpg
+                    [brand] => Samsung
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+)
+
+[2025-04-20 19:32:37] MOMO payment initiated
+[2025-04-20 19:32:37] Total amount: 13690000
+[2025-04-20 19:32:37] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:32:37] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745177557
+    [amount] => 13690000
+    [orderId] => 1745177557
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => e89aa8ea31a15736f427062b51bee17a33c80675668bc1e5bb537a3245fc337e
+)
+
+[2025-04-20 19:32:48] Error: Lỗi kết nối: Could not resolve host: test-payment.momo.vn
+[2025-04-20 19:32:48] Stack trace: #0 {main}
+[2025-04-20 19:33:56] Starting MOMO payment process
+[2025-04-20 19:33:56] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:33:56] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 19:33:56] MOMO payment initiated
+[2025-04-20 19:33:56] Total amount: 25990000
+[2025-04-20 19:33:56] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:33:56] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745177636
+    [amount] => 25990000
+    [orderId] => 1745177636
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 07f6f12102170e08bde0c41d9a610349e9b10b855dee074f87643684e624e653
+)
+
+[2025-04-20 19:33:56] Error: Lỗi kết nối: Could not resolve host: test-payment.momo.vn
+[2025-04-20 19:33:56] Stack trace: #0 {main}
+[2025-04-20 19:35:34] Starting MOMO payment process
+[2025-04-20 19:35:34] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:35:34] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 19:35:34] MOMO payment initiated
+[2025-04-20 19:35:34] Total amount: 25990000
+[2025-04-20 19:35:34] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:35:34] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745177734
+    [amount] => 25990000
+    [orderId] => 1745177734
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 9e46489f8f2b32fbb6d42a2bb3184b833aaf4e451482153f974a617d58fb5ca5
+)
+
+[2025-04-20 19:35:35] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745177734
+    [requestId] => 1745177734
+    [amount] => 25990000
+    [responseTime] => 1745177735950
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3NzM0&s=2b8d9dcd7fd6cdb81a37e0727ccdbf1fdbb9212fefcc3ba61b1c8b917b381119
+    [signature] => 6ee6e5da0a4ed7e5257e34f83557be9a244d828b027787c06296492f6f4553d0
+)
+
+[2025-04-20 19:35:35] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3NzM0&s=2b8d9dcd7fd6cdb81a37e0727ccdbf1fdbb9212fefcc3ba61b1c8b917b381119
+[2025-04-20 19:36:34] Starting MOMO payment process
+[2025-04-20 19:36:34] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 13990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:36:34] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 10
+                    [name] => Laptop ASUS 15 X1504ZA
+                    [price] => 13990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => images (1).jpg
+                    [brand] => ASUS
+                )
+
+        )
+
+)
+
+[2025-04-20 19:36:34] MOMO payment initiated
+[2025-04-20 19:36:34] Total amount: 13990000
+[2025-04-20 19:36:34] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:36:34] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745177794
+    [amount] => 13990000
+    [orderId] => 1745177794
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => a6fc135559d859ea19fad38be9610b86dfb1ed6afe32718ecf874f0b20818dc0
+)
+
+[2025-04-20 19:36:34] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745177794
+    [requestId] => 1745177794
+    [amount] => 13990000
+    [responseTime] => 1745177795700
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3Nzk0&s=e06498bb3a0ed4666eec04ada77b2079f1a4653187f1cd5b186096a25d1b1e51
+    [signature] => 4f36f6b09e33b94e32c4b946f04eb6785253c5a3696fdd10dd90562697c06cb5
+)
+
+[2025-04-20 19:36:34] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3Nzk0&s=e06498bb3a0ed4666eec04ada77b2079f1a4653187f1cd5b186096a25d1b1e51
+[2025-04-20 19:37:17] Starting MOMO payment process
+[2025-04-20 19:37:17] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:37:17] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-20 19:37:17] MOMO payment initiated
+[2025-04-20 19:37:17] Total amount: 230000
+[2025-04-20 19:37:17] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:37:17] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745177837
+    [amount] => 230000
+    [orderId] => 1745177837
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 9fbb9e78fbd7bd17c640600483156f7e5476dc18e74d1f3a0cfcb4cf8e2aa01b
+)
+
+[2025-04-20 19:37:38] Error: Lỗi kết nối: Failed to connect to test-payment.momo.vn port 443 after 21052 ms: Couldn't connect to server
+[2025-04-20 19:37:38] Stack trace: #0 {main}
+[2025-04-20 19:38:26] Starting MOMO payment process
+[2025-04-20 19:38:26] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:38:26] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 19:38:26] MOMO payment initiated
+[2025-04-20 19:38:26] Total amount: 25990000
+[2025-04-20 19:38:26] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:38:26] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745177906
+    [amount] => 25990000
+    [orderId] => 1745177906
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => f4b7dc9c8b3facb7d6089f941693729a582f1223b25ede0bea6ee08255f5bf24
+)
+
+[2025-04-20 19:38:27] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745177906
+    [requestId] => 1745177906
+    [amount] => 25990000
+    [responseTime] => 1745177907954
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3OTA2&s=c0ba914b7762007a9151bbc8f88080fd153c146150203662a8da629220c21f00
+    [signature] => c090964ebd3cb341193fb8cded051d76de7cb9f6e8250aa269bfabd0afd20efa
+)
+
+[2025-04-20 19:38:27] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3OTA2&s=c0ba914b7762007a9151bbc8f88080fd153c146150203662a8da629220c21f00
+[2025-04-20 19:39:30] Starting MOMO payment process
+[2025-04-20 19:39:30] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:39:30] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-20 19:39:30] MOMO payment initiated
+[2025-04-20 19:39:30] Total amount: 230000
+[2025-04-20 19:39:30] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:39:30] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745177970
+    [amount] => 230000
+    [orderId] => 1745177970
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 2e4dbc44192a4596ac7878a3070abb7d0030ea28ae0eef5176253a136ef0a6cb
+)
+
+[2025-04-20 19:39:30] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745177970
+    [requestId] => 1745177970
+    [amount] => 230000
+    [responseTime] => 1745177971846
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3OTcw&s=d3904e5828ee329d20d16892d37925b8de39f7b338562b1345530911a4e41bbe
+    [signature] => 7aa7e8214db3975796c7520c8a50c3c078d030287ec066b73915bb6a99e5e285
+)
+
+[2025-04-20 19:39:30] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc3OTcw&s=d3904e5828ee329d20d16892d37925b8de39f7b338562b1345530911a4e41bbe
+[2025-04-20 19:41:42] Starting MOMO payment process
+[2025-04-20 19:41:42] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 3450000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:41:42] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 6
+                    [name] => Tai nghe Bluetooth AirPods 4
+                    [price] => 3450000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (6).jpg
+                    [brand] => Apple
+                )
+
+        )
+
+)
+
+[2025-04-20 19:41:42] MOMO payment initiated
+[2025-04-20 19:41:42] Total amount: 3450000
+[2025-04-20 19:41:42] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:41:42] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745178102
+    [amount] => 3450000
+    [orderId] => 1745178102
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/New%20folder/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 7b29a518c1df1d57b05cab7b64a0fcf17d6f7ce1ae90f6499dda91d675dbfc6a
+)
+
+[2025-04-20 19:41:42] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745178102
+    [requestId] => 1745178102
+    [amount] => 3450000
+    [responseTime] => 1745178103874
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc4MTAy&s=b25ffcd2170fea1f604f4e97f7d0004f6e98322da17ff54aa406fd3834e5d376
+    [signature] => a52fbdc3fe3dbb600fd688f048776974d751e464b2a4ee24d42201f7785136e7
+)
+
+[2025-04-20 19:41:42] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc4MTAy&s=b25ffcd2170fea1f604f4e97f7d0004f6e98322da17ff54aa406fd3834e5d376
+[2025-04-20 19:47:00] Starting MOMO payment process
+[2025-04-20 19:47:00] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:47:00] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-20 19:47:00] MOMO payment initiated
+[2025-04-20 19:47:00] Total amount: 230000
+[2025-04-20 19:47:00] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:47:00] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745178420
+    [amount] => 230000
+    [orderId] => 1745178420
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 9f9fb5c37df50a27b038a9a23c591124d102b489a889a64a948624134ab01726
+)
+
+[2025-04-20 19:47:01] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745178420
+    [requestId] => 1745178420
+    [amount] => 230000
+    [responseTime] => 1745178422152
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc4NDIw&s=71245c7c7358276fca34141aefd0be7c99a44eecbd26f9d5b232082eb12d15fb
+    [signature] => 28dd073db7cdff43d2c8923f85a1c48aae806382c81620b1892b4487612ff07a
+)
+
+[2025-04-20 19:47:01] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc4NDIw&s=71245c7c7358276fca34141aefd0be7c99a44eecbd26f9d5b232082eb12d15fb
+[2025-04-20 19:49:45] Starting MOMO payment process
+[2025-04-20 19:49:45] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:49:45] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-20 19:49:45] MOMO payment initiated
+[2025-04-20 19:49:45] Total amount: 230000
+[2025-04-20 19:49:45] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:49:45] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745178585
+    [amount] => 230000
+    [orderId] => 1745178585
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => captureWallet
+    [signature] => 3174747a53018a6ad363ed6318dd8e5159d9b34ab55c22531d26929ae60190e1
+)
+
+[2025-04-20 19:49:49] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745178585
+    [responseTime] => 1745178590042
+    [message] => QR Code tạo không thành công. Vui lòng thử lại sau
+    [resultCode] => 98
+)
+
+[2025-04-20 19:49:49] Error response from MOMO: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745178585
+    [responseTime] => 1745178590042
+    [message] => QR Code tạo không thành công. Vui lòng thử lại sau
+    [resultCode] => 98
+)
+
+[2025-04-20 19:49:49] Result Code: 98
+[2025-04-20 19:49:49] Message: QR Code tạo không thành công. Vui lòng thử lại sau
+[2025-04-20 19:49:49] Error: Lỗi kết nối với MOMO: QR Code tạo không thành công. Vui lòng thử lại sau
+[2025-04-20 19:49:49] Stack trace: #0 {main}
+[2025-04-20 19:50:08] Starting MOMO payment process
+[2025-04-20 19:50:08] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:50:08] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 19:50:08] MOMO payment initiated
+[2025-04-20 19:50:08] Total amount: 25990000
+[2025-04-20 19:50:08] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:50:08] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745178608
+    [amount] => 25990000
+    [orderId] => 1745178608
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => captureWallet
+    [signature] => ebcf6e2b728a1ec41e0474d9b2bda3fc6ae6499644ebb08a9bade82b54478faf
+)
+
+[2025-04-20 19:50:11] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745178608
+    [responseTime] => 1745178612379
+    [message] => QR Code tạo không thành công. Vui lòng thử lại sau
+    [resultCode] => 98
+)
+
+[2025-04-20 19:50:11] Error response from MOMO: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745178608
+    [responseTime] => 1745178612379
+    [message] => QR Code tạo không thành công. Vui lòng thử lại sau
+    [resultCode] => 98
+)
+
+[2025-04-20 19:50:11] Result Code: 98
+[2025-04-20 19:50:11] Message: QR Code tạo không thành công. Vui lòng thử lại sau
+[2025-04-20 19:50:11] Error: Lỗi kết nối với MOMO: QR Code tạo không thành công. Vui lòng thử lại sau
+[2025-04-20 19:50:11] Stack trace: #0 {main}
+[2025-04-20 19:50:11] Starting MOMO payment process
+[2025-04-20 19:50:11] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:50:11] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [payment_status] => error
+    [payment_message] => Lỗi thanh toán: Lỗi kết nối với MOMO: QR Code tạo không thành công. Vui lòng thử lại sau
+)
+
+[2025-04-20 19:50:11] MOMO payment initiated
+[2025-04-20 19:50:11] Total amount: 25990000
+[2025-04-20 19:50:11] Error: Giỏ hàng trống!
+[2025-04-20 19:50:11] Stack trace: #0 {main}
+[2025-04-20 19:50:23] Starting MOMO payment process
+[2025-04-20 19:50:23] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:50:23] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 19:50:23] MOMO payment initiated
+[2025-04-20 19:50:23] Total amount: 25990000
+[2025-04-20 19:50:23] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:50:23] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745178623
+    [amount] => 25990000
+    [orderId] => 1745178623
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => captureWallet
+    [signature] => 117221f01bcf94fe5f464e8c71d8bbbe4ddbc135c2caad9d41b3ec304ace0205
+)
+
+[2025-04-20 19:50:26] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745178623
+    [responseTime] => 1745178627555
+    [message] => QR Code tạo không thành công. Vui lòng thử lại sau
+    [resultCode] => 98
+)
+
+[2025-04-20 19:50:26] Error response from MOMO: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745178623
+    [responseTime] => 1745178627555
+    [message] => QR Code tạo không thành công. Vui lòng thử lại sau
+    [resultCode] => 98
+)
+
+[2025-04-20 19:50:26] Result Code: 98
+[2025-04-20 19:50:26] Message: QR Code tạo không thành công. Vui lòng thử lại sau
+[2025-04-20 19:50:26] Error: Lỗi kết nối với MOMO: QR Code tạo không thành công. Vui lòng thử lại sau
+[2025-04-20 19:50:26] Stack trace: #0 {main}
+[2025-04-20 19:51:34] Starting MOMO payment process
+[2025-04-20 19:51:34] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:51:34] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-20 19:51:34] MOMO payment initiated
+[2025-04-20 19:51:34] Total amount: 230000
+[2025-04-20 19:51:34] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:51:34] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745178694
+    [amount] => 230000
+    [orderId] => 1745178694
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => bbf67513fd7afe32a43c6e6e592082b8ccc4e1764a286a54f79cf61d6d0cd4b7
+)
+
+[2025-04-20 19:51:34] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745178694
+    [requestId] => 1745178694
+    [amount] => 230000
+    [responseTime] => 1745178695686
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc4Njk0&s=1fec139f9d878489f25f10d97828b5f9c7e7cdd5bedc30911ee58f67055d17ee
+    [signature] => 7812110cda7b83d09973b60ed43b7748bb6f0953492706e076fa18bdf6a84666
+)
+
+[2025-04-20 19:51:34] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc4Njk0&s=1fec139f9d878489f25f10d97828b5f9c7e7cdd5bedc30911ee58f67055d17ee
+[2025-04-20 19:57:01] Starting MOMO payment process
+[2025-04-20 19:57:01] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 19:57:01] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 19:57:01] MOMO payment initiated
+[2025-04-20 19:57:01] Total amount: 25990000
+[2025-04-20 19:57:01] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 19:57:01] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745179021
+    [amount] => 25990000
+    [orderId] => 1745179021
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 9bb939dd405795813cd2c5f98ac66243d279ef560f6bb1d7a54755c929895b24
+)
+
+[2025-04-20 19:57:01] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745179021
+    [requestId] => 1745179021
+    [amount] => 25990000
+    [responseTime] => 1745179022807
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc5MDIx&s=a52d3cd74a308f1c72d56ed7855b459909bb107c3fd376f07651938bb991479b
+    [signature] => e766c2e345d5cd1a974d2ebfae1228f118e2f0e2b034cf21ec3aac97d2e7d51a
+)
+
+[2025-04-20 19:57:01] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc5MDIx&s=a52d3cd74a308f1c72d56ed7855b459909bb107c3fd376f07651938bb991479b
+[2025-04-20 20:10:16] Starting MOMO payment process
+[2025-04-20 20:10:16] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 20:10:16] SESSION data: Array
+(
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+)
+
+[2025-04-20 20:10:16] MOMO payment initiated
+[2025-04-20 20:10:16] Total amount: 230000
+[2025-04-20 20:10:16] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 20:10:16] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745179816
+    [amount] => 230000
+    [orderId] => 1745179816
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => c1112ac152d4dfe27c8dfe84a3bdb3db283f276a525a56e8d11f58e9b038bf95
+)
+
+[2025-04-20 20:10:16] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745179816
+    [requestId] => 1745179816
+    [amount] => 230000
+    [responseTime] => 1745179817495
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc5ODE2&s=935e6b3cd684835737c6f97b211d3b2f9e3448c2beee4461410156ba5c96b4a9
+    [signature] => 78b1d72665424ad93f49ea38190af27fb96ca502e65feb30edfe2a2eb588d1b5
+)
+
+[2025-04-20 20:10:16] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTc5ODE2&s=935e6b3cd684835737c6f97b211d3b2f9e3448c2beee4461410156ba5c96b4a9
+[2025-04-20 20:15:07] Starting MOMO payment process
+[2025-04-20 20:15:07] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 360000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 20:15:07] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Tai nghe Bluetooth A3949
+                    [price] => 360000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống.jpg
+                    [brand] => Soundcore 
+                )
+
+        )
+
+)
+
+[2025-04-20 20:15:07] MOMO payment initiated
+[2025-04-20 20:15:07] Total amount: 360000
+[2025-04-20 20:15:07] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 20:15:07] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745180107
+    [amount] => 360000
+    [orderId] => 1745180107
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/a/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 3b033fd11f40abc83f083a19eb0eceac1c02ce7a4ba011b8a1a6392d66741f04
+)
+
+[2025-04-20 20:15:08] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745180107
+    [requestId] => 1745180107
+    [amount] => 360000
+    [responseTime] => 1745180109147
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgwMTA3&s=3f3afa78807ff0f8b4791ae99e94c23086a0cd6e60df2a0e80d9090118a97069
+    [signature] => d9d715e7c838d21178beecbd2685967652720878299757a88508c75b54d44aa4
+)
+
+[2025-04-20 20:15:08] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgwMTA3&s=3f3afa78807ff0f8b4791ae99e94c23086a0cd6e60df2a0e80d9090118a97069
+[2025-04-20 20:17:09] Starting MOMO payment process
+[2025-04-20 20:17:09] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 0
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 20:17:09] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+        )
+
+)
+
+[2025-04-20 20:17:09] MOMO payment initiated
+[2025-04-20 20:17:09] Error: Không tìm thấy số tiền thanh toán
+[2025-04-20 20:17:09] Stack trace: #0 {main}
+[2025-04-20 20:20:21] Starting MOMO payment process
+[2025-04-20 20:20:21] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 20:20:21] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:20:21] MOMO payment initiated
+[2025-04-20 20:20:21] Total amount: 25990000
+[2025-04-20 20:20:21] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 20:20:21] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745180421
+    [amount] => 25990000
+    [orderId] => 1745180421
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 852f637b0e200c2c9c516e95c673469f5ad4268e932edaa3821a3cd8a5078c93
+)
+
+[2025-04-20 20:20:21] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745180421
+    [requestId] => 1745180421
+    [amount] => 25990000
+    [responseTime] => 1745180422176
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgwNDIx&s=2a1de60df27f9312650a1536739b239f7050308b30d90856e132749e58063b7a
+    [signature] => 0535994b0ea757f1aa0aef2b4eb0aa8e7492e6d8b7b9f90313a68827d10f75c2
+)
+
+[2025-04-20 20:20:21] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgwNDIx&s=2a1de60df27f9312650a1536739b239f7050308b30d90856e132749e58063b7a
+[2025-04-20 20:29:50] Starting MOMO payment process
+[2025-04-20 20:29:50] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 3450000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 20:29:50] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 6
+                    [name] => Tai nghe Bluetooth AirPods 4
+                    [price] => 3450000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (6).jpg
+                    [brand] => Apple
+                )
+
+        )
+
+)
+
+[2025-04-20 20:29:50] MOMO payment initiated
+[2025-04-20 20:29:50] Total amount: 3450000
+[2025-04-20 20:29:50] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 20:29:50] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745180990
+    [amount] => 3450000
+    [orderId] => 1745180990
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 354447b50450dd69ff09d369c7c1026abf82a8da1f82bc6e691019cf696f5c5d
+)
+
+[2025-04-20 20:29:50] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745180990
+    [requestId] => 1745180990
+    [amount] => 3450000
+    [responseTime] => 1745180991448
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgwOTkw&s=307761c9652d24cf66012068ce0add4541a8f4f1ef2b167490e73ad0456e7827
+    [signature] => 190299005edfe2349670f7d7edf2ea64415ea91bb9a98e169171256a5e9456ec
+)
+
+[2025-04-20 20:29:50] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgwOTkw&s=307761c9652d24cf66012068ce0add4541a8f4f1ef2b167490e73ad0456e7827
+[2025-04-20 20:35:54] Starting MOMO payment process
+[2025-04-20 20:35:54] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25989500
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => T5JK
+)
+
+[2025-04-20 20:35:54] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:35:54] MOMO payment initiated
+[2025-04-20 20:35:54] Total amount: 25989500
+[2025-04-20 20:39:08] Starting MOMO payment process
+[2025-04-20 20:39:08] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25989500
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => T5JK
+)
+
+[2025-04-20 20:39:08] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:39:08] MOMO payment initiated
+[2025-04-20 20:39:08] Total amount: 25989500
+[2025-04-20 20:39:10] Starting MOMO payment process
+[2025-04-20 20:39:10] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25989500
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => T5JK
+)
+
+[2025-04-20 20:39:10] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:39:10] MOMO payment initiated
+[2025-04-20 20:39:10] Total amount: 25989500
+[2025-04-20 20:39:21] Starting MOMO payment process
+[2025-04-20 20:39:21] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25989500
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => T5JK
+)
+
+[2025-04-20 20:39:21] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:39:21] MOMO payment initiated
+[2025-04-20 20:39:21] Total amount: 25989500
+[2025-04-20 20:42:32] Starting MOMO payment process
+[2025-04-20 20:42:32] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25989500
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => T5JK
+)
+
+[2025-04-20 20:42:32] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:42:32] MOMO payment initiated
+[2025-04-20 20:42:32] Total amount: 25989500
+[2025-04-20 20:42:32] Failed to save order
+[2025-04-20 20:42:32] Error: Failed to save order
+[2025-04-20 20:42:32] Stack trace: #0 {main}
+[2025-04-20 20:42:45] Starting MOMO payment process
+[2025-04-20 20:42:45] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25890000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => TESTCODE
+)
+
+[2025-04-20 20:42:45] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:42:46] MOMO payment initiated
+[2025-04-20 20:42:46] Total amount: 25890000
+[2025-04-20 20:42:46] Failed to save order
+[2025-04-20 20:42:46] Error: Failed to save order
+[2025-04-20 20:42:46] Stack trace: #0 {main}
+[2025-04-20 20:43:37] Starting MOMO payment process
+[2025-04-20 20:43:37] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25989500
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => T5JK
+)
+
+[2025-04-20 20:43:37] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:43:37] MOMO payment initiated
+[2025-04-20 20:43:37] Total amount: 25989500
+[2025-04-20 20:43:37] Error: Không thể lưu đơn hàng
+[2025-04-20 20:43:37] Stack trace: #0 D:\laragon\www\abc\duan_2025\view\confirm_momo.php(61): payController->saveMomoOrder(6, '\xC4\x90\xE1\xBB\x97 Tu\xE1\xBA\xA5n Th...', '0329714023', 'ngh\xE1\xBB\x87 an', Array, 'T5JK')
+#1 {main}
+[2025-04-20 20:44:50] Starting MOMO payment process
+[2025-04-20 20:44:50] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25490000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => KL
+)
+
+[2025-04-20 20:44:50] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:44:50] MOMO payment initiated
+[2025-04-20 20:44:50] Total amount: 25490000
+[2025-04-20 20:44:50] Failed to save order
+[2025-04-20 20:44:50] Error: Failed to save order
+[2025-04-20 20:44:50] Stack trace: #0 {main}
+[2025-04-20 20:46:14] Starting MOMO payment process
+[2025-04-20 20:46:14] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25490000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => KL
+)
+
+[2025-04-20 20:46:14] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:46:14] MOMO payment initiated
+[2025-04-20 20:46:14] Total amount: 25490000
+[2025-04-20 20:46:14] Failed to save order
+[2025-04-20 20:46:14] Error: Failed to save order
+[2025-04-20 20:46:14] Stack trace: #0 {main}
+[2025-04-20 20:46:37] Starting MOMO payment process
+[2025-04-20 20:46:37] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25989500
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => T5JK
+)
+
+[2025-04-20 20:46:37] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:46:37] MOMO payment initiated
+[2025-04-20 20:46:37] Total amount: 25989500
+[2025-04-20 20:46:37] Failed to save order
+[2025-04-20 20:46:37] Error: Failed to save order
+[2025-04-20 20:46:37] Stack trace: #0 {main}
+[2025-04-20 20:47:29] Starting MOMO payment process
+[2025-04-20 20:47:29] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25890000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => TESTCODE
+)
+
+[2025-04-20 20:47:29] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:47:29] MOMO payment initiated
+[2025-04-20 20:47:29] Total amount: 25890000
+[2025-04-20 20:47:29] Failed to save order
+[2025-04-20 20:47:29] Error: Failed to save order
+[2025-04-20 20:47:29] Stack trace: #0 {main}
+[2025-04-20 20:47:40] Starting MOMO payment process
+[2025-04-20 20:47:40] POST data: Array
+(
+    [momo] => Thanh toán MoMo
+    [total_amount] => 25990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+    [discount_code] => 
+)
+
+[2025-04-20 20:47:40] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:47:40] MOMO payment initiated
+[2025-04-20 20:47:40] Total amount: 25990000
+[2025-04-20 20:47:40] Failed to save order
+[2025-04-20 20:47:40] Error: Failed to save order
+[2025-04-20 20:47:40] Stack trace: #0 {main}
+[2025-04-20 20:48:47] Starting MOMO payment process
+[2025-04-20 20:48:47] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => Đỗ Tuấn Thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-20 20:48:47] SESSION data: Array
+(
+    [user] => Array
+        (
+            [id_user] => 6
+            [email] => t@t.t
+            [password] => $2y$10$cW./hJ9edDyhqbwSMnvt6.8tVIPLdrpzmqZlqr00inI2sSE1zZ9qS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 6
+                    [id_user] => 6
+                    [full_name] => Đỗ Tuấn Thiện
+                    [phone] => 0329714023
+                    [address] => nghệ an
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 20:48:47] MOMO payment initiated
+[2025-04-20 20:48:47] Total amount: 25990000
+[2025-04-20 20:48:47] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 20:48:47] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745182127
+    [amount] => 25990000
+    [orderId] => 1745182127
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 8b410b89d5f4477a5fb791d122b50d9ec2a4a5e87495ec620df62890e97817f9
+)
+
+[2025-04-20 20:48:47] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745182127
+    [requestId] => 1745182127
+    [amount] => 25990000
+    [responseTime] => 1745182128940
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgyMTI3&s=f292dcc3becdc7e38a20e10eee5ef4ef295833763f99a7fbb0b77cd5afc918f4
+    [signature] => 5abab96f1bac5e3d01ca41ed8444ecb8c90961230ab2a48268807e5a295ffc61
+)
+
+[2025-04-20 20:48:47] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgyMTI3&s=f292dcc3becdc7e38a20e10eee5ef4ef295833763f99a7fbb0b77cd5afc918f4
+[2025-04-20 20:54:17] Starting MOMO payment process
+[2025-04-20 20:54:17] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 13690000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => avvvv
+)
+
+[2025-04-20 20:54:17] SESSION data: Array
+(
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 2
+                    [name] => Samsung Galaxy S23
+                    [price] => 13690000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (1).jpg
+                    [brand] => Samsung
+                )
+
+        )
+
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => thiendtph49001@gmail.com
+            [password] => $2y$10$l8SfbQfUOwyjlT1ov0zb1OcLHfOyC2j5UcPOfNQsPe6sirujlVMoe
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+)
+
+[2025-04-20 20:54:17] MOMO payment initiated
+[2025-04-20 20:54:17] Total amount: 13690000
+[2025-04-20 20:54:17] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 20:54:17] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745182457
+    [amount] => 13690000
+    [orderId] => 1745182457
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 78818e8e1989f7c0fff4d1c87db1434a123e78acc7c2be66e0c3476c658e3454
+)
+
+[2025-04-20 20:54:17] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745182457
+    [requestId] => 1745182457
+    [amount] => 13690000
+    [responseTime] => 1745182458499
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgyNDU3&s=f549d55473e1429138a56b5958ded6c384653f9eccea1a756f6613bc50855c3a
+    [signature] => c09dca88e9f931c6fd4d1e15e36269de81135fb88e4c4cb434d392ea7acfe52e
+)
+
+[2025-04-20 20:54:17] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgyNDU3&s=f549d55473e1429138a56b5958ded6c384653f9eccea1a756f6613bc50855c3a
+[2025-04-20 20:58:17] Starting MOMO payment process
+[2025-04-20 20:58:17] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 3450000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => abc
+)
+
+[2025-04-20 20:58:17] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => thiendtph49001@gmail.com
+            [password] => $2y$10$l8SfbQfUOwyjlT1ov0zb1OcLHfOyC2j5UcPOfNQsPe6sirujlVMoe
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 6
+                    [name] => Tai nghe Bluetooth AirPods 4
+                    [price] => 3450000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (6).jpg
+                    [brand] => Apple
+                )
+
+        )
+
+)
+
+[2025-04-20 20:58:17] MOMO payment initiated
+[2025-04-20 20:58:17] Total amount: 3450000
+[2025-04-20 20:58:17] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 20:58:17] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745182697
+    [amount] => 3450000
+    [orderId] => 1745182697
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay
+    [lang] => vi
+    [extraData] => 
+    [requestType] => captureWallet
+    [signature] => abeb39d41f8f673dd5da225eaafea3e5c3ac5e623d7ab5799c0e6f9fc513ccfe
+)
+
+[2025-04-20 20:58:20] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745182697
+    [responseTime] => 1745182701268
+    [message] => QR Code tạo không thành công. Vui lòng thử lại sau
+    [resultCode] => 98
+)
+
+[2025-04-20 20:58:20] Error response from MOMO: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745182697
+    [responseTime] => 1745182701268
+    [message] => QR Code tạo không thành công. Vui lòng thử lại sau
+    [resultCode] => 98
+)
+
+[2025-04-20 20:58:20] Result Code: 98
+[2025-04-20 20:58:20] Message: QR Code tạo không thành công. Vui lòng thử lại sau
+[2025-04-20 20:58:20] Error: Lỗi kết nối với MOMO: QR Code tạo không thành công. Vui lòng thử lại sau
+[2025-04-20 20:58:20] Stack trace: #0 {main}
+[2025-04-20 21:05:47] Starting MOMO payment process
+[2025-04-20 21:05:47] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => avvvv
+)
+
+[2025-04-20 21:05:47] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => thiendtph49001@gmail.com
+            [password] => $2y$10$l8SfbQfUOwyjlT1ov0zb1OcLHfOyC2j5UcPOfNQsPe6sirujlVMoe
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 21:05:47] MOMO payment initiated
+[2025-04-20 21:05:47] Total amount: 25990000
+[2025-04-20 21:05:47] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 21:05:47] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745183147
+    [amount] => 25990000
+    [orderId] => 1745183147
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 69b65ab5352adaa752c920ef66e5ea103b23df296d5660a4d1491cf7f37f8e4b
+)
+
+[2025-04-20 21:05:47] Error: Lỗi kết nối: Could not resolve host: test-payment.momo.vn
+[2025-04-20 21:05:47] Stack trace: #0 {main}
+[2025-04-20 21:06:08] Starting MOMO payment process
+[2025-04-20 21:06:08] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => avvvv
+)
+
+[2025-04-20 21:06:08] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => thiendtph49001@gmail.com
+            [password] => $2y$10$l8SfbQfUOwyjlT1ov0zb1OcLHfOyC2j5UcPOfNQsPe6sirujlVMoe
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 21:06:08] MOMO payment initiated
+[2025-04-20 21:06:08] Total amount: 25990000
+[2025-04-20 21:06:08] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 21:06:08] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745183168
+    [amount] => 25990000
+    [orderId] => 1745183168
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 6e51682536fcd9464603cc87d807ba1cdb81af9ddbf31223dabdec1eeb95a811
+)
+
+[2025-04-20 21:06:08] Error: Lỗi kết nối: Could not resolve host: test-payment.momo.vn
+[2025-04-20 21:06:08] Stack trace: #0 {main}
+[2025-04-20 21:06:43] Starting MOMO payment process
+[2025-04-20 21:06:43] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => abc
+)
+
+[2025-04-20 21:06:43] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => thiendtph49001@gmail.com
+            [password] => $2y$10$l8SfbQfUOwyjlT1ov0zb1OcLHfOyC2j5UcPOfNQsPe6sirujlVMoe
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 21:06:43] MOMO payment initiated
+[2025-04-20 21:06:43] Total amount: 25990000
+[2025-04-20 21:06:43] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 21:06:43] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745183203
+    [amount] => 25990000
+    [orderId] => 1745183203
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 0efb52bbb9739d702d6257fe9c1a3b7e0be08fad6566fc4c42531697352d8b28
+)
+
+[2025-04-20 21:06:43] Error: Lỗi kết nối: Could not resolve host: test-payment.momo.vn
+[2025-04-20 21:06:43] Stack trace: #0 {main}
+[2025-04-20 21:08:57] Starting MOMO payment process
+[2025-04-20 21:08:57] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => t
+)
+
+[2025-04-20 21:08:57] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => thiendtph49001@gmail.com
+            [password] => $2y$10$l8SfbQfUOwyjlT1ov0zb1OcLHfOyC2j5UcPOfNQsPe6sirujlVMoe
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-20 21:08:57] MOMO payment initiated
+[2025-04-20 21:08:57] Total amount: 25990000
+[2025-04-20 21:08:57] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 21:10:07] Starting MOMO payment process
+[2025-04-20 21:10:07] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => t
+)
+
+[2025-04-20 21:10:07] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => thiendtph49001@gmail.com
+            [password] => $2y$10$l8SfbQfUOwyjlT1ov0zb1OcLHfOyC2j5UcPOfNQsPe6sirujlVMoe
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+)
+
+[2025-04-20 21:10:07] MOMO payment initiated
+[2025-04-20 21:10:07] Total amount: 25990000
+[2025-04-20 21:10:07] Error: Giỏ hàng trống!
+[2025-04-20 21:10:07] Stack trace: #0 {main}
+[2025-04-20 21:10:23] Starting MOMO payment process
+[2025-04-20 21:10:23] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => q
+)
+
+[2025-04-20 21:10:23] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => thiendtph49001@gmail.com
+            [password] => $2y$10$l8SfbQfUOwyjlT1ov0zb1OcLHfOyC2j5UcPOfNQsPe6sirujlVMoe
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-20 21:10:23] MOMO payment initiated
+[2025-04-20 21:10:23] Total amount: 230000
+[2025-04-20 21:10:23] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 21:10:23] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745183423
+    [amount] => 230000
+    [orderId] => 1745183423
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 88d9e2f6233add2a5d66c757b34418ff77fbfb28621c6d59ce671f9ca30bb88c
+)
+
+[2025-04-20 21:10:23] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745183423
+    [requestId] => 1745183423
+    [amount] => 230000
+    [responseTime] => 1745183424265
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgzNDIz&s=61c3e249910c3df67dfdc667a2caec222afd68efbc7cc88ac5296c9fe2726854
+    [signature] => 4961c09dbd2e6c9c3353484444c202527e401de9acccc614a9f0f64832653230
+)
+
+[2025-04-20 21:10:23] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgzNDIz&s=61c3e249910c3df67dfdc667a2caec222afd68efbc7cc88ac5296c9fe2726854
+[2025-04-20 21:12:44] Starting MOMO payment process
+[2025-04-20 21:12:44] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => avvvv
+)
+
+[2025-04-20 21:12:44] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => thiendtph49001@gmail.com
+            [password] => $2y$10$l8SfbQfUOwyjlT1ov0zb1OcLHfOyC2j5UcPOfNQsPe6sirujlVMoe
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-20 21:12:44] MOMO payment initiated
+[2025-04-20 21:12:44] Total amount: 230000
+[2025-04-20 21:12:44] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 21:12:44] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745183564
+    [amount] => 230000
+    [orderId] => 1745183564
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 39d34c0d96bec392c83dc9a674eb02718686856244d8b152cfca258d4785cbdb
+)
+
+[2025-04-20 21:12:44] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745183564
+    [requestId] => 1745183564
+    [amount] => 230000
+    [responseTime] => 1745183565644
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgzNTY0&s=89c804ba5844b526c19df308de2e7545fcdf17650a40b99ca7e22a86b36d59a7
+    [signature] => 9d9471f68a65ee7d0174578ee0a709bc9b8588085868dfe9bd79c985cf5bacc0
+)
+
+[2025-04-20 21:12:44] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgzNTY0&s=89c804ba5844b526c19df308de2e7545fcdf17650a40b99ca7e22a86b36d59a7
+[2025-04-20 21:15:47] Starting MOMO payment process
+[2025-04-20 21:15:47] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => avvvv
+)
+
+[2025-04-20 21:15:47] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 7
+            [email] => thiendtph49001@gmail.com
+            [password] => $2y$10$l8SfbQfUOwyjlT1ov0zb1OcLHfOyC2j5UcPOfNQsPe6sirujlVMoe
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 7
+                    [id_user] => 7
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-20 21:15:47] MOMO payment initiated
+[2025-04-20 21:15:47] Total amount: 230000
+[2025-04-20 21:15:47] Order saved successfully, proceeding with MOMO payment
+[2025-04-20 21:15:47] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745183747
+    [amount] => 230000
+    [orderId] => 1745183747
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 40bbb5b2ba8f88e72a927a3e9f0c7e59d8ccbc7d209fe58167a06fa1c530463d
+)
+
+[2025-04-20 21:15:47] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745183747
+    [requestId] => 1745183747
+    [amount] => 230000
+    [responseTime] => 1745183748469
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgzNzQ3&s=c1382b422d3d3ba85d3e692190db210617caf88938820d4a9f2b4037b4d1b286
+    [signature] => 92de4d318b1b11b59acac442b198b65a9855ee731c8ba8bf3d12172bbe588a3f
+)
+
+[2025-04-20 21:15:47] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MTgzNzQ3&s=c1382b422d3d3ba85d3e692190db210617caf88938820d4a9f2b4037b4d1b286
+[2025-04-21 08:23:11] Starting MOMO payment process
+[2025-04-21 08:23:11] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => abc
+)
+
+[2025-04-21 08:23:11] SESSION data: Array
+(
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+)
+
+[2025-04-21 08:23:11] MOMO payment initiated
+[2025-04-21 08:23:11] Total amount: 25990000
+[2025-04-21 08:23:11] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:23:11] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745223791
+    [amount] => 25990000
+    [orderId] => 1745223791
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=shop
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => ac22737d0bb396f703176389965c47f8f500804e48fa6d6852975c8038f23525
+)
+
+[2025-04-21 08:23:12] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745223791
+    [requestId] => 1745223791
+    [amount] => 25990000
+    [responseTime] => 1745223792696
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjIzNzkx&s=c2545914955961a68852289f94ee112e763b22b346d9fc0271c0b9c7b16e7b0c
+    [signature] => cfa5fdaf5d708366e1c34ed9996c6777f931603e972960439e0ce8f2139a62ee
+)
+
+[2025-04-21 08:23:12] Redirecting to MOMO payment URL: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjIzNzkx&s=c2545914955961a68852289f94ee112e763b22b346d9fc0271c0b9c7b16e7b0c
+[2025-04-21 08:35:01] Starting MOMO payment process
+[2025-04-21 08:35:01] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => abc
+)
+
+[2025-04-21 08:35:01] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-21 08:35:01] MOMO payment initiated
+[2025-04-21 08:35:01] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:35:01] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745224501
+    [amount] => 25990000
+    [orderId] => 1745224501
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_return
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_ipn
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 9946a669bf607942d917c27cc30a82c8eeb5f94762163a0ed9c15e86a2e1425c
+)
+
+[2025-04-21 08:35:01] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745224501
+    [requestId] => 1745224501
+    [amount] => 25990000
+    [responseTime] => 1745224502162
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI0NTAx&s=e1afd2a89692673560c148438d1d5d4aa1ed6e355c714eaf6f605011bd4041d6
+    [signature] => 2378e724e0770a0c0b34c564d178c8c40fe0239508ef7c5a6ac0178eaaf38a5c
+)
+
+[2025-04-21 08:39:51] Starting MOMO payment process
+[2025-04-21 08:39:51] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => q
+)
+
+[2025-04-21 08:39:51] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-21 08:39:51] MOMO payment initiated
+[2025-04-21 08:39:51] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:39:51] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745224791
+    [amount] => 230000
+    [orderId] => 1745224791
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_return
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_ipn
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 327b1a32995fabb2fe1b9185ff554dad9e8825a6cdc1de2f6b9deb84fc511c7b
+)
+
+[2025-04-21 08:39:51] MOMO Response: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [orderId] => 1745224791
+    [requestId] => 1745224791
+    [amount] => 230000
+    [responseTime] => 1745224792464
+    [message] => Thành công.
+    [resultCode] => 0
+    [payUrl] => https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI0Nzkx&s=773f4ea765eb6a02b848e6f1aa34f8b2239c4cd96dcfdafa39801df5203c4e53
+    [signature] => 1dde86bbf6d152e8d7807dd6a1a35aef1e09624825f15155f83df087416dcd18
+)
+
+[2025-04-21 08:42:24] Starting MOMO payment process
+[2025-04-21 08:42:24] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => ư
+)
+
+[2025-04-21 08:42:24] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-21 08:42:24] MOMO payment initiated
+[2025-04-21 08:42:24] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:42:24] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745224944
+    [amount] => 25990000
+    [orderId] => 1745224944
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_return
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_ipn
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => c5d81c93a66b0330c1524cdee9bc1c20221ebed6befcd63579b7332e4524a2b9
+)
+
+[2025-04-21 08:42:24] Error: Lỗi kết nối với MOMO: Chữ ký không hợp lệ. Vui lòng kiểm tra dữ liệu gốc trước khi mã hóa : accessKey=***&amount=25990000&extraData=&ipnUrl=http://localhost/abc/duan_2025/index.php?act=pay&action=momo_ipn&orderId=1745224944&orderInfo=Thanh toan don hang&partnerCode=MOMOBKUN20180529&redirectUrl=http://localhost/abc/duan_2025/index.php?act=pay&action=momo_return&requestId=1745224944&requestType=payWithATM.
+[2025-04-21 08:42:41] Starting MOMO payment process
+[2025-04-21 08:42:41] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => a
+)
+
+[2025-04-21 08:42:41] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-21 08:42:41] MOMO payment initiated
+[2025-04-21 08:42:41] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:42:41] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745224961
+    [amount] => 25990000
+    [orderId] => 1745224961
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_return
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_ipn
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => ffa08b2d5021182f5b14de446a37814d3571d85cddfafd9af10691989cbc814f
+)
+
+[2025-04-21 08:42:41] Error: Lỗi kết nối với MOMO: Chữ ký không hợp lệ. Vui lòng kiểm tra dữ liệu gốc trước khi mã hóa : accessKey=***&amount=25990000&extraData=&ipnUrl=http://localhost/abc/duan_2025/index.php?act=pay&action=momo_ipn&orderId=1745224961&orderInfo=Thanh toan don hang&partnerCode=MOMOBKUN20180529&redirectUrl=http://localhost/abc/duan_2025/index.php?act=pay&action=momo_return&requestId=1745224961&requestType=payWithATM.
+[2025-04-21 08:44:36] Starting MOMO payment process
+[2025-04-21 08:44:36] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => e
+)
+
+[2025-04-21 08:44:36] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-21 08:44:36] MOMO payment initiated
+[2025-04-21 08:44:36] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:44:36] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745225076
+    [amount] => 25990000
+    [orderId] => 1745225076
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_return
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_ipn
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 3e1af33c5980e6ffb2055b46ceb35b694ace20fe1c0193b45f6916763f1d7329
+)
+
+[2025-04-21 08:46:33] Starting MOMO payment process
+[2025-04-21 08:46:33] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => qqqq
+)
+
+[2025-04-21 08:46:33] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-21 08:46:33] MOMO payment initiated
+[2025-04-21 08:46:33] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:46:33] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [requestId] => 1745225193
+    [amount] => 230000
+    [orderId] => 1745225193
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_return
+    [ipnUrl] => http://localhost/abc/duan_2025/index.php?act=pay&action=momo_ipn
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => d98c55344396a8a4e5dec2f8a1ec27de067fe48e3590970b5e7f870157d7a8b3
+)
+
+[2025-04-21 08:52:28] Starting MOMO payment process
+[2025-04-21 08:52:28] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => a
+)
+
+[2025-04-21 08:52:28] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-21 08:52:28] MOMO payment initiated
+[2025-04-21 08:52:28] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:52:28] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745225548
+    [amount] => 25990000
+    [orderId] => 1745225548
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b
+    [ipnUrl] => https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 
+)
+
+[2025-04-21 08:52:28] Error: Lỗi kết nối với MOMO: Yêu cầu sai định dạng.
+[2025-04-21 08:52:40] Starting MOMO payment process
+[2025-04-21 08:52:40] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 13990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => a
+)
+
+[2025-04-21 08:52:40] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 11
+                    [name] => Laptop Acer Gaming
+                    [price] => 13990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (9).jpg
+                    [brand] => Acer 
+                )
+
+        )
+
+)
+
+[2025-04-21 08:52:40] MOMO payment initiated
+[2025-04-21 08:52:40] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:52:40] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745225560
+    [amount] => 13990000
+    [orderId] => 1745225560
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b
+    [ipnUrl] => https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 
+)
+
+[2025-04-21 08:52:40] Error: Lỗi kết nối với MOMO: Yêu cầu sai định dạng.
+[2025-04-21 08:54:35] Starting MOMO payment process
+[2025-04-21 08:54:35] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => y
+)
+
+[2025-04-21 08:54:35] SESSION data: Array
+(
+    [success_message] => Đăng ký thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-21 08:54:35] MOMO payment initiated
+[2025-04-21 08:54:35] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:54:35] MOMO Request data: Array
+(
+    [partnerCode] => MOMOBKUN20180529
+    [partnerName] => Test
+    [storeId] => MomoTestStore
+    [requestId] => 1745225675
+    [amount] => 25990000
+    [orderId] => 1745225675
+    [orderInfo] => Thanh toan don hang
+    [redirectUrl] => https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b
+    [ipnUrl] => https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b
+    [lang] => vi
+    [extraData] => 
+    [requestType] => payWithATM
+    [signature] => 373e630eec14d3ec7db1a3c9bff6ec9fddf6a8fa6cbc9bacc71babd99919ea17
+)
+
+[2025-04-21 08:57:02] Starting MOMO payment process
+[2025-04-21 08:57:02] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => a
+)
+
+[2025-04-21 08:57:02] SESSION data: Array
+(
+    [success_message] => Cập nhật hồ sơ thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+            [fullname] => đỗ tuấn thiện
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-21 08:57:02] MOMO payment initiated
+[2025-04-21 08:57:02] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:57:02] Response from MOMO: 1
+[2025-04-21 08:57:02] Error response: 1
+[2025-04-21 08:57:02] Error: Lỗi kết nối với MOMO: Unknown error
+[2025-04-21 08:57:36] Starting MOMO payment process
+[2025-04-21 08:57:36] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => a
+)
+
+[2025-04-21 08:57:36] SESSION data: Array
+(
+    [success_message] => Cập nhật hồ sơ thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+            [fullname] => đỗ tuấn thiện
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-21 08:57:36] MOMO payment initiated
+[2025-04-21 08:57:36] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 08:57:36] Response from MOMO: 1
+[2025-04-21 08:57:36] Error response: 1
+[2025-04-21 08:57:36] Error: Lỗi kết nối với MOMO: Unknown error
+[2025-04-21 09:00:02] Starting MOMO payment process
+[2025-04-21 09:00:02] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => 6
+)
+
+[2025-04-21 09:00:02] SESSION data: Array
+(
+    [success_message] => Cập nhật hồ sơ thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+            [fullname] => đỗ tuấn thiện
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-21 09:00:02] MOMO payment initiated
+[2025-04-21 09:00:02] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 09:00:03] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"1745226002","requestId":"1745226002","amount":230000,"responseTime":1745226003905,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MDAy&s=895e9d49188e20171dd81d2149f8892a8ac091262a7b5ff3dbc1f209d342e6ef","deeplink":"momo://app?action=payWithApp&isScanQR=false&serviceType=app&sid=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MDAy&v=3.0","qrCodeUrl":"00020101021226110007vn.momo38620010A00000072701320006970454011899MM25111O000001790208QRIBFTTA530370454062300005802VN62420515MMTzLTJasoeoiQR0819Thanh toan don hang6304CD7E","applink":"https://test-applinks.momo.vn/payment/v2?action=payWithApp&isScanQR=false&serviceType=app&sid=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MDAy&v=3.0&deeplinkCallback=http%3A%2F%2Flocalhost%2Fabc%2Fduan_2025%2Findex.php%3Fact%3Dpay&callBackUrl=http%3A%2F%2Flocalhost%2Fabc%2Fduan_2025%2Findex.php%3Fact%3Dpay","deeplinkMiniApp":"momo://app?action=payWithApp&isScanQR=false&serviceType=miniapp&sid=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MDAy&v=3.0","signature":"da678b2a2b10f7da50f90954744d710e80fda79fabd685482ee38eb842a2c180"}
+[2025-04-21 09:00:03] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MDAy&s=895e9d49188e20171dd81d2149f8892a8ac091262a7b5ff3dbc1f209d342e6ef
+[2025-04-21 09:02:20] Starting MOMO payment process
+[2025-04-21 09:02:20] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 230000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => abc
+)
+
+[2025-04-21 09:02:20] SESSION data: Array
+(
+    [success_message] => Cập nhật hồ sơ thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+            [fullname] => đỗ tuấn thiện
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [name] => Tai nghe Bluetooth FreeGo Y913
+                    [price] => 230000
+                    [color] => Trắng
+                    [quantity] => 1
+                    [img] => tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg
+                    [brand] => AVA+
+                )
+
+        )
+
+)
+
+[2025-04-21 09:02:20] MOMO payment initiated
+[2025-04-21 09:02:20] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 09:02:21] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"1745226140","requestId":"1745226140","amount":230000,"responseTime":1745226141731,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MTQw&s=2ad74ddb1322717470a9905cb39d3eaf0622d700b59983a3f2185e0fa7ccfbf1","signature":"55523d2963685070c32a7b9be98a8f333ddd7140be22be4c8a9ec4df7e409001"}
+[2025-04-21 09:02:21] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MTQw&s=2ad74ddb1322717470a9905cb39d3eaf0622d700b59983a3f2185e0fa7ccfbf1
+[2025-04-21 09:04:04] Starting MOMO payment process
+[2025-04-21 09:04:04] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => g
+)
+
+[2025-04-21 09:04:04] SESSION data: Array
+(
+    [success_message] => Cập nhật hồ sơ thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+            [fullname] => đỗ tuấn thiện
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-21 09:04:04] MOMO payment initiated
+[2025-04-21 09:04:04] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 09:04:04] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"17452262441296","requestId":"17452262446812","amount":25990000,"responseTime":1745226245289,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MjQ0MTI5Ng&s=e8db94aa398120ad942fd05f5bacfd1981648e402688c6452fc43c046d1e845f","deeplink":"momo://app?action=payWithApp&isScanQR=false&serviceType=app&sid=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MjQ0MTI5Ng&v=3.0","qrCodeUrl":"00020101021226110007vn.momo38620010A00000072701320006970454011899MM25111O000001820208QRIBFTTA53037045408259900005802VN62420515MMTP0eBLi6YUJQR0819Thanh toan don hang6304F53D","applink":"https://test-applinks.momo.vn/payment/v2?action=payWithApp&isScanQR=false&serviceType=app&sid=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MjQ0MTI5Ng&v=3.0&deeplinkCallback=http%3A%2F%2Flocalhost%2Fabc%2Fduan_2025%2Findex.php%3Fact%3Dpay%26action%3Dmomo_return&callBackUrl=http%3A%2F%2Flocalhost%2Fabc%2Fduan_2025%2Findex.php%3Fact%3Dpay%26action%3Dmomo_return","deeplinkMiniApp":"momo://app?action=payWithApp&isScanQR=false&serviceType=miniapp&sid=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MjQ0MTI5Ng&v=3.0","signature":"6b09f573cb89b5c712be89c776748421d71edc815e7860926c7942bce09fd8e9"}
+[2025-04-21 09:04:04] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjI2MjQ0MTI5Ng&s=e8db94aa398120ad942fd05f5bacfd1981648e402688c6452fc43c046d1e845f
+[2025-04-21 09:06:40] Starting MOMO payment process
+[2025-04-21 09:06:40] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 0
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => qqqq
+)
+
+[2025-04-21 09:06:40] SESSION data: Array
+(
+    [success_message] => Cập nhật hồ sơ thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+            [fullname] => đỗ tuấn thiện
+        )
+
+    [mycart] => Array
+        (
+        )
+
+)
+
+[2025-04-21 09:06:40] MOMO payment initiated
+[2025-04-21 09:06:40] Error: Không tìm thấy số tiền thanh toán
+[2025-04-21 09:06:58] Starting MOMO payment process
+[2025-04-21 09:06:58] POST data: Array
+(
+    [momo] => true
+    [total_amount] => 25990000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => q
+)
+
+[2025-04-21 09:06:58] SESSION data: Array
+(
+    [success_message] => Cập nhật hồ sơ thành công!
+    [user] => Array
+        (
+            [id_user] => 8
+            [email] => alo1234@gmail.com
+            [password] => $2y$10$ZYIiI6lwwEnFcsHVl5vh7uBmtPTfPiJv4h7eZE4cF.dEO/ODuXLWS
+            [role] => 0
+            [day_registered] => 
+            [customer_info] => Array
+                (
+                    [id_customer] => 8
+                    [id_user] => 8
+                    [full_name] => đỗ tuấn thiện
+                    [phone] => 
+                    [address] => 
+                    [note] => 
+                )
+
+            [fullname] => đỗ tuấn thiện
+        )
+
+    [mycart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 12
+                    [name] => Laptop MSI Katana
+                    [price] => 25990000
+                    [color] => Đen
+                    [quantity] => 1
+                    [img] => tải xuống (11).jpg
+                    [brand] => FPT Shop
+                )
+
+        )
+
+)
+
+[2025-04-21 09:06:58] MOMO payment initiated
+[2025-04-21 09:06:58] Order saved successfully, proceeding with MOMO payment
+[2025-04-21 09:06:58] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"MM1745226418_68060ab24fc28","requestId":"REQ1745226418_68060ab24fc2c","amount":25990000,"responseTime":1745226419090,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXxNTTE3NDUyMjY0MThfNjgwNjBhYjI0ZmMyOA&s=9e72dc052970ea95d0d31cc5d8902e84f61e2d741358b2bb21cfc1011b184320","signature":"d086cd537b4e8f2609f4a63fae0f543f72b7f677815f0652a292218c8f9050a9"}
+[2025-04-21 09:06:58] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXxNTTE3NDUyMjY0MThfNjgwNjBhYjI0ZmMyOA&s=9e72dc052970ea95d0d31cc5d8902e84f61e2d741358b2bb21cfc1011b184320
+[2025-04-21 11:15:29] Starting MOMO payment process
+[2025-04-21 11:15:29] MOMO payment initiated
+[2025-04-21 11:15:29] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"1745234129","requestId":"1745234129","amount":230000,"responseTime":1745234130372,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjM0MTI5&s=3d1bb1a0f7114cd8bd568babe0381f53e4e9d5e6b6a6ebd33ffb1c04ddb0c5da","signature":"f5f14b65db03aefe5e46c7402c4d313afa9e15e93ee306709a61fb7ea40bbfad"}
+[2025-04-21 11:15:29] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjM0MTI5&s=3d1bb1a0f7114cd8bd568babe0381f53e4e9d5e6b6a6ebd33ffb1c04ddb0c5da
+[2025-04-21 11:35:24] Starting MOMO payment process
+[2025-04-21 11:35:24] MOMO payment initiated
+[2025-04-21 11:35:24] Error: Không thể lưu đơn hàng
+[2025-04-21 11:36:50] Starting MOMO payment process
+[2025-04-21 11:36:50] MOMO payment initiated
+[2025-04-21 11:36:50] Error: Không thể lưu đơn hàng
+[2025-04-21 11:37:24] Starting MOMO payment process
+[2025-04-21 11:37:24] MOMO payment initiated
+[2025-04-21 11:37:24] Error: Không thể lưu đơn hàng
+[2025-04-21 11:37:33] Starting MOMO payment process
+[2025-04-21 11:37:33] MOMO payment initiated
+[2025-04-21 11:37:33] Error: Không thể lưu đơn hàng
+[2025-04-21 11:39:57] Starting MOMO payment process
+[2025-04-21 11:39:57] MOMO payment initiated
+[2025-04-21 11:39:57] Error: Không thể lưu đơn hàng
+[2025-04-21 11:40:33] Starting MOMO payment process
+[2025-04-21 11:40:33] MOMO payment initiated
+[2025-04-21 11:40:33] Error: Không thể lưu đơn hàng
+[2025-04-21 11:40:42] Starting MOMO payment process
+[2025-04-21 11:40:42] MOMO payment initiated
+[2025-04-21 11:40:42] Error: Không thể lưu đơn hàng
+[2025-04-21 11:42:01] Starting MOMO payment process
+[2025-04-21 11:42:01] MOMO payment initiated
+[2025-04-21 11:42:01] Error: Không thể lưu đơn hàng
+[2025-04-21 11:43:37] Starting MOMO payment process
+[2025-04-21 11:43:37] MOMO payment initiated
+[2025-04-21 11:43:37] POST data received: Array
+(
+    [momo] => true
+    [total_amount] => 207000
+    [discount_code] => TESTCODE
+    [discount_amount] => 23000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-21 11:43:38] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"1745235817","requestId":"1745235817","amount":207000,"responseTime":1745235819384,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjM1ODE3&s=d7db52df456415f61e96724e9c39afa5f2dd2ecb894bfcd998e27e8f42f8ef47","signature":"b72a61133146d1da6c48d24facc09205f4bb9a955d84b2396c3c1acc65f2d69e"}
+[2025-04-21 11:43:38] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjM1ODE3&s=d7db52df456415f61e96724e9c39afa5f2dd2ecb894bfcd998e27e8f42f8ef47
+[2025-04-21 14:58:15] Starting MOMO payment process
+[2025-04-21 14:58:15] MOMO payment initiated
+[2025-04-21 14:58:15] POST data received: Array
+(
+    [momo] => true
+    [total_amount] => 13190000
+    [discount_code] => KL
+    [discount_amount] => 500000
+    [receiver_name] => đỗ tuấn thiện
+    [receiver_phone] => 0329714023
+    [receiver_address] => nghệ an
+)
+
+[2025-04-21 14:58:15] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"1745247495","requestId":"1745247495","amount":13190000,"responseTime":1745247496044,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjQ3NDk1&s=b8d85d6d95df467f0632a061b209ee8a34a61b6423f76e92e7a4aca275100049","signature":"a0eeed827c194d41fe948b0d957aabf76d83db53dcf67a625fad8d91f8bf27d9"}
+[2025-04-21 14:58:15] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjQ3NDk1&s=b8d85d6d95df467f0632a061b209ee8a34a61b6423f76e92e7a4aca275100049
+[2025-04-21 17:55:14] Starting MOMO payment process
+[2025-04-21 17:55:14] MOMO payment initiated
+[2025-04-21 17:55:14] POST data received: Array
+(
+    [momo] => true
+    [total_amount] => 23149000
+    [discount_code] => KL
+    [discount_amount] => 500000
+    [receiver_name] => jk
+    [receiver_phone] => 0367324106
+    [receiver_address] => Hà đông
+)
+
+[2025-04-21 17:55:14] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"1745258114","requestId":"1745258114","amount":23149000,"responseTime":1745258114595,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjU4MTE0&s=b7597ea85977c7996b02af6ee6e9757e88a746b99b9fb9b19a828a65ee9c5d4e","signature":"891d53004f2cf0a0b5a8e0b21044e5d36ad42314c24465b9215aa5f425db81a6"}
+[2025-04-21 17:55:14] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjU4MTE0&s=b7597ea85977c7996b02af6ee6e9757e88a746b99b9fb9b19a828a65ee9c5d4e
+[2025-04-21 17:55:31] Starting MOMO payment process
+[2025-04-21 17:55:31] MOMO payment initiated
+[2025-04-21 17:55:31] POST data received: Array
+(
+    [momo] => true
+    [total_amount] => 23149000
+    [discount_code] => KL
+    [discount_amount] => 500000
+    [receiver_name] => jk
+    [receiver_phone] => 0367324106
+    [receiver_address] => Hà đông
+)
+
+[2025-04-21 17:55:31] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"1745258131","requestId":"1745258131","amount":23149000,"responseTime":1745258131306,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjU4MTMx&s=ffca4d58a6d11c1f6cd42ca2612f2021005edd05d0be013cf70b3aa49800c0c7","signature":"782eeff0d2d313729a79c6690dcf36703dc8dec44ef31bcc096cc8135dea23f5"}
+[2025-04-21 17:55:31] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MjU4MTMx&s=ffca4d58a6d11c1f6cd42ca2612f2021005edd05d0be013cf70b3aa49800c0c7

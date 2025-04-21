@@ -7,10 +7,9 @@ class payModel {
 
     function saveOrder($id_customer, $receiver_name, $receiver_phone, $receiver_address, $cartItems, $discount_code = null, $discount_amount = 0) {
         try {
-            // Bắt đầu transaction để đảm bảo toàn bộ thao tác thành công
             $this->conn->beginTransaction();
             
-            // Lấy thông tin mã giảm giá nếu có
+            // Lấy thông tin mã giảm giá
             $discount_code_id = null;
             if($discount_code) {
                 $sql_discount = "SELECT id FROM discount_codes WHERE code = :code";
@@ -26,6 +25,12 @@ class payModel {
             // Thêm đơn hàng vào bảng `bills`
             $sql_bill = "INSERT INTO bills (id_customer, receiver_name, receiver_phone, receiver_address, status, purchase_date, discount_code_id, discount_amount) 
                       VALUES (:id_customer, :receiver_name, :receiver_phone, :receiver_address, 0, CURRENT_TIMESTAMP, :discount_code_id, :discount_amount)";
+
+            // $sql_bill = "INSERT INTO bills (id_customer, receiver_name, receiver_phone, receiver_address, status, 
+            //             purchase_date, discount_code_id, discount_amount) 
+            //             VALUES (:id_customer, :receiver_name, :receiver_phone, :receiver_address, 0, 
+            //             CURRENT_TIMESTAMP, :discount_code_id, :discount_amount)";
+
             
             $stmt_bill = $this->conn->prepare($sql_bill);
             $stmt_bill->bindParam(':id_customer', $id_customer, PDO::PARAM_INT);
@@ -34,9 +39,7 @@ class payModel {
             $stmt_bill->bindParam(':receiver_address', $receiver_address, PDO::PARAM_STR);
             $stmt_bill->bindParam(':discount_code_id', $discount_code_id, PDO::PARAM_INT);
             $stmt_bill->bindParam(':discount_amount', $discount_amount, PDO::PARAM_INT);
-            
-            $stmt_bill->execute();
-            
+
             if (!$stmt_bill->execute()) {
                 print_r($stmt_bill->errorInfo());
                 exit;
@@ -132,5 +135,42 @@ class payModel {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Thêm phương thức lưu thông tin thanh toán MOMO
+    function luuThanhToanMomo($maDonHang, $soTien, $thongTinThanhToan) {
+        try {
+            $sql = "INSERT INTO momo_payments (order_id, amount, trans_id, payment_date) 
+                    VALUES (:order_id, :amount, :trans_id, CURRENT_TIMESTAMP)";
+            
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':order_id' => $maDonHang,
+                ':amount' => $soTien,
+                ':trans_id' => $thongTinThanhToan['transId']
+            ]);
+            
+            return true;
+        } catch (Exception $e) {
+            error_log("Lỗi lưu thanh toán MOMO: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    // Thêm phương thức cập nhật trạng thái đơn hàng
+    function capNhatTrangThaiDonHang($maDonHang, $trangThai) {
+        try {
+            $sql = "UPDATE bills SET status = :status WHERE id_bill = :id_bill";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':status' => $trangThai,
+                ':id_bill' => $maDonHang
+            ]);
+            
+            return true;
+        } catch (Exception $e) {
+            error_log("Lỗi cập nhật trạng thái đơn hàng: " . $e->getMessage());
+            return false;
+        }
     }
 }

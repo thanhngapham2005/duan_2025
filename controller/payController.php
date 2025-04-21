@@ -171,28 +171,26 @@ class payController
     }
 
     // Xử lý lưu đơn hàng MOMO ban đầu
-    function saveMomoOrder($id_customer, $receiver_name, $receiver_phone, $receiver_address, $cartItems)
-    {
+    function saveMomoOrder($id_customer, $receiver_name, $receiver_phone, $receiver_address, $cartItems, $discount_code = null, $discount_amount = 0) {
         try {
-            // Gọi model để lưu đơn hàng với trạng thái chờ thanh toán
-            $result = $this->payModel->saveMomoOrder(
+            $result = $this->payModel->saveOrder(
                 $id_customer,
                 $receiver_name,
                 $receiver_phone,
                 $receiver_address,
-                $cartItems
+                $cartItems,
+                $discount_code,
+                $discount_amount
             );
-
+            
             if (!$result) {
-                $_SESSION['payment_status'] = 'error';
-                $_SESSION['payment_message'] = 'Không thể tạo đơn hàng MOMO!';
+                error_log("Failed to save MOMO order");
                 return false;
             }
-
+            
             return true;
         } catch (Exception $e) {
-            $_SESSION['payment_status'] = 'error';
-            $_SESSION['payment_message'] = $e->getMessage();
+            error_log("Error in saveMomoOrder: " . $e->getMessage());
             return false;
         }
     }
