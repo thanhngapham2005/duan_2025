@@ -95,8 +95,19 @@ require_once 'layout/head.php';
         </tr>';
         echo '</tbody>';
         echo '</table>';
+        
+        // Hiển thị nút thanh toán và mua thêm
+        echo '<div class="d-flex gap-2 mt-3">';
+        if(isset($_SESSION['user'])) {
+            echo '<a href="?act=pay" class="btn btn-primary">Thanh toán</a>';
+        } else {
+            echo '<button type="button" class="btn btn-primary" onclick="redirectToLogin()">Thanh toán</button>';
+        }
+        echo '<a href="?act=shop" class="btn btn-primary">Mua thêm</a>';
+        echo '</div>';
     }
     ?>
+
     <br>
     <?php if (isset($_SESSION['user'])): ?>
     <a href="?act=pay" class="btn btn-primary">Thanh toán</a>
@@ -106,6 +117,7 @@ require_once 'layout/head.php';
 <?php endif; ?>
 
     <a href="?act=shop" class="btn btn-primary">Mua thêm</a>
+
 </div>
             <!--Start Carousel Wrapper-->
             <div id="carousel-related-product">

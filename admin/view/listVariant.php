@@ -68,7 +68,7 @@ require_once 'layout/css.php';
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Bien the</h4>
+                        <h4 class="page-title">Biến thể</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -95,6 +95,7 @@ require_once 'layout/css.php';
                                         <th></th>
                                         <th>MÃ LOẠI</th>
                                         <th>TÊN LOẠI</th>
+                                        <th>DUNG LƯỢNG</th>
                                         <th>THAO TÁC</th>
                                     </tr>
                                 </thead>
@@ -102,16 +103,25 @@ require_once 'layout/css.php';
 
 
                                     <?php
+                                    // Debug để xem dữ liệu
+                                    // echo '<pre>';
+                                    // print_r($variants);
+                                    // echo '</pre>';
+                                    
                                     foreach ($variants as $variant) {
                                         extract($variant);
                                         $suabt = "index.php?act=updatevariant&id_variant=" . $id_variant;
                                         $xoabt = "index.php?act=deletevariant&id_variant=" . $id_variant;
+                                        // Đảm bảo biến name_capacity tồn tại
+                                        $capacity = isset($name_capacity) ? $name_capacity : '';
+                                        
                                         echo '
                                             <tr>
                                                 <td><input type="checkbox" name="chk" id=""></td>
                                                 <td>' . $id_variant . '</td> <!-- hien thi id-->
                                                 <td>' . $name_color . '</td>  <!-- hien thi ten loai-->
-                                                <td><a href="' . $suabt . '"><input class="btn btn-primary" type="button" value="Sửa"></a> <a href="' . $xoabt . '"><input class="btn btn-danger" type="button" value="Xóa"></a></td>
+                                                <td>' . $capacity . '</td>  <!-- hien thi dung luong-->
+                                                <td><a href="' . $suabt . '"><input class="btn btn-primary" type="button" value="Sửa"></a> <a href="' . $xoabt . '"><input class="btn btn-danger" type="button" value="Xóa"></a></td>
                                             </tr>
                                             ';
                                     }

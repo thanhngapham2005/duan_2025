@@ -53,7 +53,9 @@
 
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
-                google.charts.load('current', { 'packages': ['corechart', 'bar'] });
+                google.charts.load('current', {
+                    'packages': ['corechart', 'bar']
+                });
                 google.charts.setOnLoadCallback(drawChart);
 
                 function drawChart() {
@@ -68,7 +70,9 @@
 
                     var optionsTotal = {
                         title: 'Biểu đồ doanh thu tổng theo danh mục',
-                        chartArea: { width: '50%' },
+                        chartArea: {
+                            width: '50%'
+                        },
                         hAxis: {
                             title: 'Doanh thu (VND)',
                             minValue: 0
@@ -98,7 +102,9 @@
                     var optionsDetail = {
                         title: 'Biểu đồ chi tiết doanh thu',
                         curveType: 'function',
-                        legend: { position: 'bottom' },
+                        legend: {
+                            position: 'bottom'
+                        },
                         colors: ['#FF5733', '#33C3FF', '#FFC300', '#4CAF50']
                     };
 

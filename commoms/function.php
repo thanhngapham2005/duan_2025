@@ -1,20 +1,14 @@
 <?php
-function connDBAss()
-{
-    $host = "mysql:host=localhost;dbname=duan;charset=utf8";
-    $user = "root";
-    $pass = "";
+function connDBAss() {
     try {
-        $conn = new PDO($host, $user, $pass);
+        $conn = new PDO("mysql:host=localhost;dbname=duan", "root", "");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         return $conn;
-    } catch (PDOException $th) {
-        echo "kết nối lỗi:" . $th->getMessage();
-        // return null;
+    } catch(PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+        return null;
     }
 }
-$conn = connDBAss();
 function getOderStatus($status){
     $statuses = [
         0 => "Chờ xác nhận ",

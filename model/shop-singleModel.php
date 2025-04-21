@@ -8,8 +8,16 @@ class detailModel
     }
     function product_variant($id)
     {
-        $sql = "SELECT * FROM product_variant JOIN variant ON product_variant.id_variant=variant.id_variant WHERE id_product=$id";
-        return $this->conn->query($sql)->fetchAll();
+        // Sửa truy vấn để lấy thông tin dung lượng và màu sắc từ bảng variant
+        $sql = "SELECT pv.*, v.*, v.name_color, v.name_capacity as capacity 
+                FROM product_variant pv 
+                JOIN variant v ON pv.id_variant = v.id_variant 
+                WHERE pv.id_product = :id_product";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id_product', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     function findProductById($id)
     {
@@ -43,35 +51,18 @@ class detailModel
     function addComment($id_product, $id_user, $content, $rating)
     {
         try {
-            // 1. Kiểm tra kết nối
-            if (!$this->conn) {
-                throw new Exception('Không thể kết nối database');
-            }
-
-            // 2. Chuẩn bị query theo ĐÚNG cấu trúc bảng
-            $sql = "INSERT INTO comments 
-                (id_product, id_user, content, rating, day_post, censorship) 
-                VALUES 
-                (:id_product, :id_user, :content, :rating, NOW(), 0)";
-
+            $sql = "INSERT INTO comments (id_product, id_user, content, rating, day_post, censorship) 
+                    VALUES (:id_product, :id_user, :content, :rating, NOW(), 0)";
+            
             $stmt = $this->conn->prepare($sql);
-
-            // 3. Bind parameters
             $stmt->bindParam(':id_product', $id_product, PDO::PARAM_INT);
             $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
             $stmt->bindParam(':content', $content, PDO::PARAM_STR);
             $stmt->bindParam(':rating', $rating, PDO::PARAM_INT);
-
-            // 4. Thực thi
-            if ($stmt->execute()) {
-                return true;
-            } else {
-                $error = $stmt->errorInfo();
-                error_log("SQL Error: " . $error[2]);
-                return false;
-            }
+            
+            return $stmt->execute();
         } catch (PDOException $e) {
-            error_log("PDOException: " . $e->getMessage());
+            error_log("Error adding comment: " . $e->getMessage());
             return false;
         }
     }

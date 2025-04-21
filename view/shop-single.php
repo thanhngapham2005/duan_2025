@@ -131,36 +131,53 @@ document.addEventListener("DOMContentLoaded", function () {
                                                 <label class="color-label">
                                                     <input type="radio" name="color" value="<?= $value['name_color'] ?>"
                                                         <?= $key === 0 ? 'checked' : '' ?>
-                                                        data-quantity="<?= $value['quantity'] ?>">
-                                                    <!-- Dữ liệu số lượng cho mỗi biến thể -->
-                                                    <span><?= $value['name_color'] ?></span>
+                                                        data-quantity="<?= $value['quantity'] ?>"
+                                                        data-capacity="<?= $value['capacity'] ?? '' ?>">
+                                                    <span><?= $value['name_color'] ?> 
+                                                        <?php if(!empty($value['capacity'])): ?>
+                                                          
+                                                        <?php endif; ?>
+                                                    </span>
                                                 </label>
                                             </li>
                                             <?php endforeach; ?>
                                         </ul>
                                     </div>
                                 </div>
-
+                                <div class="row mb-3">
+                                    <div class="col-auto">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <h6>Dung lượng:</h6>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <p class="text-muted"><strong id="variant-capacity"><?= !empty($product_variant[0]['capacity']) ? $product_variant[0]['capacity'] : 'Không có' ?></strong></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                         </div>
-                        <div class="row pb-3">
-                            <div class="col d-grid">
-                                <button type="submit" class="btn btn-success btn-lg" name="submit"
-                                    value="buy">Buy</button>
-                            </div>
-                            <!-- <form action="index.php?act=addToCart" method="POST"> -->
-                            <input type="hidden" name="productId" value="<?= $productOne['id_product'] ?>">
-                            <input type="hidden" name="name" value="<?= $productOne['name'] ?>">
-                            <input type="hidden" name="price" value="<?= $productOne['price'] ?>">
-                            <input type="hidden" name="brand" value="<?= $productOne['firms'] ?>">
-                            <input type="hidden" name="product-quantity" id="product-quantity" value="1">
-                            <input type="hidden" name="img" value="<?= $productOne['img_product'] ?>">
-                            <div class="col d-grid">
-                                <button href="index.php?act=cart" type="submit" class="btn btn-success btn-lg"
-                                    name="addtocart">Add To Cart</button>
-                            </div>
+
+                                </div>
+                                <div class="row pb-3">
+                                    <div class="col d-grid">
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
+                                            value="buy">Buy</button>
+                                    </div>
+                                    <!-- <form action="index.php?act=addToCart" method="POST"> -->
+                                    <input type="hidden" name="productId" value="<?= $productOne['id_product'] ?>">
+                                    <input type="hidden" name="name" value="<?= $productOne['name'] ?>">
+                                    <input type="hidden" name="price" value="<?= $productOne['price'] ?>">
+                                    <input type="hidden" name="brand" value="<?= $productOne['firms'] ?>">
+                                    <input type="hidden" name="product-quantity" id="product-quantity" value="1">
+                                    <input type="hidden" name="img" value="<?= $productOne['img_product'] ?>">
+                                    <div class="col d-grid">
+                                        <button href="index.php?act=cart" type="submit" class="btn btn-success btn-lg"
+                                            name="addtocart">Add To Cart</button>
+                                    </div>
 
 
-                        </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -219,9 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
 
                         <!-- Form THÊM bình luận -->
-                        <?php if (isset($_SESSION['user'])): ?>
-                        <form id="reviewForm" class="p-4 border rounded bg-light" method="POST"
-                            enctype="multipart/form-data">
+                        <form id="reviewForm" class="p-4 border rounded bg-light" method="POST" enctype="multipart/form-data">
                             <h4 class="mb-4">Thêm đánh giá của bạn</h4>
 
                             <!-- Rating sao -->
@@ -238,157 +253,165 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
 
                             <!-- Bình luận -->
-
                             <div class="mb-4">
                                 <input type="hidden" name="id_product" value="<?= $productOne['id_product'] ?>">
-                                <!-- Mã sản phẩm -->
                                 <label for="comment" class="form-label">Bình luận *</label>
-                                <textarea class="form-control textarea-comment" id="comment" name="content" rows="4"
-                                    required></textarea>
+                                <textarea class="form-control textarea-comment" id="comment" name="content" rows="4" required></textarea>
                             </div>
 
                             <!-- Nút gửi -->
                             <button type="submit" class="btn btn-submit" name="post_comment">Gửi đánh giá</button>
-
                         </form>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Nhúng JS từ CDN -->
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-            <!-- Script xử lý form -->
-            <script>
-            $(document).ready(function() {
-                // Xử lý rating sao
-                $('.rating i').on('click', function() {
-                    const rating = $(this).data('rating');
-                    $('#ratingValue').val(rating);
-                    $('.rating i').removeClass('active');
-                    $(this).prevAll().addBack().addClass('active');
-                });
-
-                // Xử lý submit form
-                $('#reviewForm').on('submit', function(e) {
-                    e.preventDefault();
-
-                    const content = $('#comment').val().trim();
-                    const rating = $('#ratingValue').val();
-                    const id_product = $('input[name="id_product"]').val();
-
-                    console.log('Content:', content);
-                    console.log('Rating:', rating);
-                    console.log('Product ID:', id_product);
-
-                    // Kiểm tra dữ liệu
-                    if (!content) {
-                        alert('Vui lòng nhập nội dung bình luận!');
-                        return;
-                    }
-
-                    if (rating === '0') {
-                        alert('Vui lòng chọn đánh giá sao!');
-                        return;
-                    }
-
-                    if (!id_product) {
-                        alert('Sản phẩm không hợp lệ!');
-                        return;
-                    }
-
-                    // Sử dụng axios thay vì fetch để nhất quán
-                    const formData = new FormData();
-                    formData.append('content', content);
-                    formData.append('rating', rating);
-                    formData.append('id_product', id_product);
-
-                    axios.post('?act=addComment', formData)
-                        .then(function(response) {
-                            console.log('Full response:', response);
-
-                            const res = response.data;
-
-                            if (res.success) {
-                                // Thêm bình luận mới vào danh sách
-                                const newReview = `
-                <div class="review-card card mb-3 p-3">
-                    <div class="d-flex">
-                        <div class="review-avatar d-flex align-items-center justify-content-center me-3">
-                            <i class="fas fa-user text-muted"></i>
-                        </div>
-                        <div class="flex-grow-1">
-                            <div class="d-flex justify-content-between">
-                                <h5>${res.data.userName}</h5>
-                                <div class="review-star">
-                                    ${'<i class="fas fa-star"></i>'.repeat(res.data.rating)}
-                                    ${'<i class="far fa-star"></i>'.repeat(5 - res.data.rating)}
-                                </div>
-                            </div>
-                            <p class="mb-2">${res.data.content}</p>
-                            <small class="text-muted">${res.data.date}</small>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-                                $('#reviewsList').prepend(newReview);
-                                $('#comment').val('');
+                        <script>
+                        $(document).ready(function() {
+                            // Xử lý rating sao
+                            $('.rating i').on('click', function() {
+                                const rating = $(this).data('rating');
+                                $('#ratingValue').val(rating);
                                 $('.rating i').removeClass('active');
-                                $('#ratingValue').val('0');
+                                $(this).prevAll().addBack().addClass('active');
+                            });
 
-                                alert(res.message ?? 'Đã gửi bình luận thành công!');
-                            } else {
-                                alert(res.message ?? 'Có lỗi xảy ra khi gửi bình luận');
-                            }
-                        })
-                        .catch(function(error) {
-                            console.error('Error:', error);
-                            alert('Có lỗi khi gửi bình luận!');
+                            // Xử lý submit form
+                            $('#reviewForm').on('submit', function(e) {
+                                e.preventDefault();
+
+                                const content = $('#comment').val().trim();
+                                const rating = $('#ratingValue').val();
+                                const id_product = $('input[name="id_product"]').val();
+
+                                // Kiểm tra dữ liệu
+                                if (!content) {
+                                    alert('Vui lòng nhập nội dung bình luận!');
+                                    return;
+                                }
+
+                                if (rating === '0') {
+                                    alert('Vui lòng chọn đánh giá sao!');
+                                    return;
+                                }
+
+                                // Gửi request
+                                const formData = new FormData();
+                                formData.append('content', content);
+                                formData.append('rating', rating);
+                                formData.append('id_product', id_product);
+
+                                axios.post('index.php?act=addComment', formData)
+                                    .then(function(response) {
+                                        const res = response.data;
+                                        if (res.success) {
+                                            // Tạo HTML cho bình luận mới
+                                            const stars = Array(5).fill('').map((_, index) => 
+                                                `<i class="fa${index < res.data.rating ? 's' : 'r'} fa-star"></i>`
+                                            ).join('');
+
+                                            const newReview = `
+                                                <div class="review-card card mb-3 p-3">
+                                                    <div class="d-flex">
+                                                        <div class="review-avatar d-flex align-items-center justify-content-center me-3">
+                                                            <i class="fas fa-user text-muted"></i>
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <div class="d-flex justify-content-between">
+                                                                <h5>${res.data.userName}</h5>
+                                                                <div class="review-star">
+                                                                    ${'<i class="fas fa-star"></i>'.repeat(res.data.rating)}
+                                                                    ${'<i class="far fa-star"></i>'.repeat(5 - res.data.rating)}
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-2">${res.data.content}</p>
+                                                            <small class="text-muted">${res.data.date}</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            `;
+
+                                            // Thêm bình luận mới vào đầu danh sách
+                                            $('#reviewsList').prepend(newReview);
+                                            
+                                            // Reset form
+                                            $('#comment').val('');
+                                            $('.rating i').removeClass('active');
+                                            $('#ratingValue').val('0');
+                                            
+                                            alert('Bình luận thành công!');
+                                        }
+                                    })
+                                    .catch(function(error) {
+                                        if (error.response) {
+                                            alert(error.response.data.message || 'Có lỗi xảy ra!');
+                                        } else {
+                                            alert('Không thể kết nối đến server!');
+                                        }
+                                    });
+                            });
                         });
-                });
-            });
-            </script>
+                        </script>
 
-            <!--Start Carousel Wrapper-->
-            <div id="carousel-related-product">
+                        <!--Start Carousel Wrapper-->
+                        <div id="carousel-related-product">
 
-            </div>
-        </div>
-    </section>
-    <!-- End Article -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="mb-4">Sản phẩm cùng loại</h2>
-            <div class="row">
-                <?php foreach ($relatedProducts as $product): ?>
-                <div class=" col-md-3">
-                    <div class="card">
-                        <img style="height: 200px; object-fit: cover;" src="admin/images/<?= $product['img_product'] ?>"
-                            class="card-img-top" alt="<?= $product['name'] ?>">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $product['name'] ?></h5>
-                            <p class="card-text text-success"><?= number_format($product['price']) ?>đ</p>
-                            <a href="index.php?act=shop_single&id=<?= $product['id_product'] ?>"
-                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
                         </div>
-                    </div>
-                </div>
-                <?php endforeach ?>
-            </div>
-        </div>
-    </section>
+                    </section>
+                    <!-- End Article -->
+                    <section class="py-5">
+                        <div class="container">
+                            <h2 class="mb-4">Sản phẩm cùng loại</h2>
+                            <div class="row">
+                                <?php foreach ($relatedProducts as $product): ?>
+                                <div class=" col-md-3">
+                                    <div class="card">
+                                        <img style="height: 200px; object-fit: cover;" src="admin/images/<?= $product['img_product'] ?>"
+                                            class="card-img-top" alt="<?= $product['name'] ?>">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?= $product['name'] ?></h5>
+                                            <p class="card-text text-success"><?= number_format($product['price']) ?>đ</p>
+                                            <a href="index.php?act=shop_single&id=<?= $product['id_product'] ?>"
+                                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endforeach ?>
+                            </div>
+                        </div>
+                    </section>
 
-    <!-- Start Footer -->
-    <?php include 'layout/footer.php'; ?>
-    <!-- End Footer -->
+                    <!-- Start Footer -->
+                    <?php include 'layout/footer.php'; ?>
+                    <!-- End Footer -->
 
-    <!-- Start Script -->
-    <?php include 'layout/scripts.php'; ?>
-    <!-- End Slider Script -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                    <!-- Start Script -->
+                    <?php include 'layout/scripts.php'; ?>
+                    <!-- End Slider Script -->
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                    
+                    <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Lấy tất cả các radio button màu sắc
+                        const colorRadios = document.querySelectorAll('input[name="color"]');
+                        const capacityElement = document.getElementById('variant-capacity');
+                        const remainingQuantityElement = document.getElementById('remaining-quantity');
+                        
+                        // Thêm sự kiện change cho mỗi radio button
+                        colorRadios.forEach(radio => {
+                            radio.addEventListener('change', function() {
+                                // Cập nhật dung lượng
+                                const capacity = this.getAttribute('data-capacity');
+                                capacityElement.textContent = capacity ? capacity : 'Không có';
+                                
+                                // Cập nhật số lượng còn lại
+                                const quantity = this.getAttribute('data-quantity');
+                                remainingQuantityElement.textContent = quantity;
+                                
+                                // Reset số lượng đặt hàng về 1
+                                document.getElementById('var-value').textContent = '1';
+                                document.getElementById('product-quantity').value = '1';
+                            });
+                        });
+                    });
+                    </script>
 </body>
 
 </html>

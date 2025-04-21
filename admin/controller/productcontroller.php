@@ -30,7 +30,6 @@ class productController
             $firms = $_POST['firms'];
             $name = $_POST['name'];
             $price = $_POST['price'];
-            $discount = $_POST['discount'];
             $description = $_POST['description'];
             $img = $_FILES['img']['name'];
             $img_tmp = $_FILES['img']['tmp_name'];
@@ -54,7 +53,7 @@ class productController
                     ];
                 }
             }
-            if ($this->productModel->insert($category, $firms, $name, $price, $amount, $discount, $description, $img, $variants)) {
+            if ($this->productModel->insert($category, $firms, $name, $price, $amount,  $description, $img, $variants)) {
                 header("Location:?act=listProduct");
                 exit();
             } else {
@@ -73,7 +72,6 @@ class productController
             $name = $_POST['name'];
             $price = $_POST['price'];
             $amount = $_POST['amount'];
-            $discount = $_POST['discount'];
             $description = $_POST['description'];
             if (empty($_FILES['img']['name'])) {
                 $img = $oneProduct['img_product'];
@@ -92,7 +90,7 @@ class productController
                 move_uploaded_file($img_tmp, $target_file);
             }
 
-            if ($this->productModel->update($id, $category, $firms, $name, $price, $amount, $discount, $description, $img)) {
+            if ($this->productModel->update($id, $category, $firms, $name, $price, $amount, $description, $img)) {
                 header("Location:?act=listProduct");
                 exit();
             } else {
@@ -133,8 +131,10 @@ class productController
         if (isset($_POST['btn_update'])) {
             $new_id_variant = $_POST['new_id_variant'];
             $quantity = $_POST['quantity'];
-            if ($this->productModel->updateProduct_variant($id_pro, $id_var, $new_id_variant, $quantity)) {
-                header("Location:?act=listProduct");
+            $capacity = isset($_POST['capacity']) ? $_POST['capacity'] : ''; // Add capacity field
+            if ($this->productModel->updateProduct_variant($id_pro, $id_var, $new_id_variant, $quantity, $capacity)) {
+                header("Location:?act=listProduct_variant&id=$id_pro");
+                exit(); // Thêm exit() sau khi chuyển hướng
             } else {
                 echo "Sua that bai";
             }

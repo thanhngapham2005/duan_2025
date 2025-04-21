@@ -140,7 +140,6 @@ require_once 'layout/css.php';
                                                 <th>Tên</th>
                                                 <th>Hãng</th>
                                                 <th>Giá</th>
-                                                <th>Giảm giá</th>
                                                 <th>Số lượng</th>
                                                 <th>Mô tả</th>
                                                 <th>Danh mục</th>
@@ -159,7 +158,6 @@ require_once 'layout/css.php';
                                                     <td><?= $value['name'] ?></td>
                                                     <td><?= $value['firms'] ?></td>
                                                     <td><?= number_format($value['price']) ?>đ</td>
-                                                    <td><?= $value['discount'] ?>%</td>
                                                     <td><?= $value['amount'] ?></td>
                                                     <td
                                                         style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
@@ -201,7 +199,14 @@ require_once 'layout/css.php';
                 <!-- ============================================================== -->
                 <!-- End footer -->
                 <!-- ============================================================== -->
-               
+                
+            </div>
+            <!-- ============================================================== -->
+
+            <!-- End Page wrapper  -->
+
+            <!-- ============================================================== -->
+        </div>
         <!-- ============================================================== -->
         <!-- End Wrapper -->
         <!-- ============================================================== -->

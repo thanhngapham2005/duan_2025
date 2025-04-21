@@ -1396,6 +1396,12 @@
                                 <div class="input">
                                     Tên biến thể <br>
                                     <input type="text" name="tenloai" id="tenloai">
+                                  
+                                    <p style="color: red;" id="loitl"></p>
+                                </div>
+                                <div class="input">
+                                    Dung lượng <br>
+                                    <input type="text" name="dungluong" id="dungluong">
                                     <br>
                                     <p style="color: red;" id="loitl"></p>
                                     <br>

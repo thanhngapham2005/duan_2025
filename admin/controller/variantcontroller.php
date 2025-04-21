@@ -12,10 +12,11 @@ class variantController{
         require_once "view/addvariant.php";
         if(isset($_POST['themmoi']) && $_POST['themmoi']){
             $tenloai = $_POST['tenloai'];
-            if($this->variantModel->check_variant_exists($tenloai)){
+            $dungluong = $_POST['dungluong'];
+            if($this->variantModel->check_variant_exists($tenloai, $dungluong)){
                 echo "<p style='color:red;'>Biến thể đã tồn tại!</p>";
             }else{
-                if($this->variantModel->insert_variant($tenloai)){
+                if($this->variantModel->insert_variant($tenloai, $dungluong)){
                     echo "<p style='color:green;'>Thêm biến thể thành công!</p>";
                 }
             }
@@ -24,12 +25,14 @@ class variantController{
     function update($id_variant){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $tenloai = $_POST['tenloai'];
-            $this->variantModel->update_variant($id_variant, $tenloai);
+            $dungluong = $_POST['dungluong'];
+            $this->variantModel->update_variant($id_variant, $tenloai, $dungluong);
             header("Location: index.php?act=listvariant");
             exit;
         }
         $variant = $this->variantModel->loadone_variant($id_variant);
         $name_color = $variant['name_color'] ?? '';
+        $name_capacity = $variant['name_capacity'] ?? '';
         
         require_once "view/updatevariant.php";
     }

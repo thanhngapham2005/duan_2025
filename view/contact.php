@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Thêm link CSS cho Leaflet vào phần head -->
 <?php include 'layout/head.php'; ?>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
 <body>
     <!-- Start Top Nav -->
@@ -13,16 +15,15 @@
     <?php include 'layout/header.php'; ?>
     <!-- Close Header -->
 
-    <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal Search -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="w-100 pt-1 mb-5 text-right">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="" method="get" class="modal-content modal-body border-0 p-0">
                 <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Tìm kiếm ...">
                     <button type="submit" class="input-group-text bg-success text-light">
                         <i class="fa fa-fw fa-search text-white"></i>
                     </button>
@@ -31,78 +32,99 @@
         </div>
     </div>
 
-
     <!-- Start Content Page -->
     <div class="container-fluid bg-light py-5">
         <div class="col-md-6 m-auto text-center">
-            <h1 class="h1">Contact Us</h1>
-            <p>
-                Proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet.
-            </p>
+            <h1 class="h1">Liên Hệ Với Chúng Tôi</h1>
+            <p>Hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn sớm nhất có thể</p>
         </div>
     </div>
-
-    <!-- Start Map -->
-    <div id="mapid" style="width: 100%; height: 300px;"></div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    <script>
-    var mymap = L.map('mapid').setView([-23.013104, -43.394365, 13], 13);
-
-    L.tileLayer(
-        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-            maxZoom: 18,
-            attribution: 'Zay Telmplte | Template Design by <a href="https://templatemo.com/">Templatemo</a> | Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1
-        }).addTo(mymap);
-
-    L.marker([-23.013104, -43.394365, 13]).addTo(mymap)
-        .bindPopup("<b>Zay</b> eCommerce Template<br />Location.").openPopup();
-
-    mymap.scrollWheelZoom.disable();
-    mymap.touchZoom.disable();
-    </script>
-    <!-- Ena Map -->
 
     <!-- Start Contact -->
     <div class="container py-5">
-        <div class="row py-5">
-            <form class="col-md-9 m-auto" method="post" role="form">
-                <div class="row">
-                    <div class="form-group col-md-6 mb-3">
-                        <label for="inputname">Name</label>
-                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Name">
-                    </div>
-                    <div class="form-group col-md-6 mb-3">
-                        <label for="inputemail">Email</label>
-                        <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="inputsubject">Subject</label>
-                    <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Subject">
-                </div>
-                <div class="mb-3">
-                    <label for="inputmessage">Message</label>
-                    <textarea class="form-control mt-1" id="message" name="message" placeholder="Message"
-                        rows="8"></textarea>
-                </div>
-                <div class="row">
-                    <div class="col text-end mt-2">
-                        <button type="submit" class="btn btn-success btn-lg px-3">Let’s Talk</button>
+        <div class="row">
+            <!-- Thông tin liên hệ -->
+            <div class="col-md-4 mb-5">
+                <h3 class="h3 mb-4">Thông Tin Liên Hệ</h3>
+                <div class="d-flex mb-3">
+                    <i class="fa fa-map-marker-alt mt-1 me-3" style="font-size: 1.2rem;"></i>
+                    <div>
+                        <h5 class="mb-1">Địa Chỉ</h5>
+                        <p class="mb-0">123 Đường ABC, Quận XYZ, TP. Hà Nội</p>
                     </div>
                 </div>
-            </form>
+                <div class="d-flex mb-3">
+                    <i class="fa fa-phone-alt mt-1 me-3" style="font-size: 1.2rem;"></i>
+                    <div>
+                        <h5 class="mb-1">Điện Thoại</h5>
+                        <p class="mb-0">+84 123 456 789</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <i class="fa fa-envelope mt-1 me-3" style="font-size: 1.2rem;"></i>
+                    <div>
+                        <h5 class="mb-1">Email</h5>
+                        <p class="mb-0">info@example.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form liên hệ -->
+            <div class="col-md-8">
+                <form class="row g-3" method="post" role="form">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Họ và tên</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="subject" class="form-label">Tiêu đề</label>
+                        <input type="text" class="form-control" id="subject" name="subject" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="message" class="form-label">Nội dung</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-success btn-lg px-4">Gửi tin nhắn</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <!-- End Contact -->
 
+    <!-- Sửa lại phần Map -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <div id="map" style="height: 400px; width: 100%; border-radius: 10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Tọa độ của Hà Nội
+        var map = L.map('map').setView([21.028511, 105.804817], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Thêm marker và popup
+        L.marker([21.028511, 105.804817]).addTo(map)
+            .bindPopup('<strong>Inno Shop</strong><br>72 Miếu Đầm, Mễ Trì, Nam Từ Liêm, Hà Nội')
+            .openPopup();
+
+        // Tắt zoom bằng scroll để tránh conflict với scroll trang
+        map.scrollWheelZoom.disable();
+    });
+    </script>
+    <!-- End Map -->
 
     <!-- Start Footer -->
     <?php include 'layout/footer.php'; ?>
@@ -112,5 +134,4 @@
     <?php include 'layout/scripts.php'; ?>
     <!-- End Script -->
 </body>
-
 </html>
