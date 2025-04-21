@@ -107,13 +107,17 @@ require_once 'layout/head.php';
         echo '</div>';
     }
     ?>
-    
-    <script>
-    function redirectToLogin() {
-        alert('Vui lòng đăng nhập để tiếp tục thanh toán!');
-        window.location.href = 'index.php?act=login';
-    }
-    </script>
+
+    <br>
+    <?php if (isset($_SESSION['user'])): ?>
+    <a href="?act=pay" class="btn btn-primary">Thanh toán</a>
+<?php else: ?>
+    <a href="index.php?act=login" class="btn btn-primary" onclick="alert('Bạn cần đăng nhập để thanh toán!');">Thanh toán</a>
+
+<?php endif; ?>
+
+    <a href="?act=shop" class="btn btn-primary">Mua thêm</a>
+
 </div>
             <!--Start Carousel Wrapper-->
             <div id="carousel-related-product">
