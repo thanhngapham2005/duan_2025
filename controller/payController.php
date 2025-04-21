@@ -43,6 +43,7 @@ class payController
                 }
     
                 // Áp dụng mã giảm giá nếu có
+                $discount_amount = 0; // Đảm bảo luôn có giá trị mặc định
                 if ($discount_code) {
                     $discountInfo = $this->payModel->getDiscountInfo($discount_code);
                     if ($discountInfo) {
@@ -61,7 +62,7 @@ class payController
                     $receiver_address, 
                     $cartItems,
                     $discount_code,
-                    $total
+                    $discount_amount  // Đảm bảo giá trị này luôn được truyền
                 );
     
                 if ($result) {

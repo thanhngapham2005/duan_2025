@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 19, 2025 at 08:09 PM
+-- Generation Time: Apr 21, 2025 at 05:46 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.27
 
@@ -35,19 +35,27 @@ CREATE TABLE `bills` (
   `receiver_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Địa chỉ người nhận',
   `status` tinyint NOT NULL COMMENT '	0 => "Chờ xác nhận", 1 => "Đã xác nhận", 2 => "Chờ lấy hàng", 3 => "Đang vận chuyển", 4 => "Đang hoàn trả hàng", 5 => "Giao hàng thành công", 6 => "Đã hủy",',
   `purchase_date` datetime DEFAULT NULL COMMENT 'Ngày mua',
-  `discount_code_id` int DEFAULT NULL COMMENT 'Mã giảm giá'
+  `discount_code_id` int DEFAULT NULL COMMENT 'Mã giảm giá',
+  `discount_amount` int NOT NULL COMMENT 'Số tiền đã được giảm giá\r\n'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `bills`
 --
 
-INSERT INTO `bills` (`id_bill`, `id_customer`, `receiver_name`, `receiver_phone`, `receiver_address`, `status`, `purchase_date`, `discount_code_id`) VALUES
-(1, 2, 'klasdflksd', '0254504577', 'ssdf', 3, '2025-03-31 07:37:41', 1),
-(2, 2, 'klasdflksd', '0258963', 'kjhgfd', 1, '2025-04-09 21:02:53', 2),
-(3, 4, 'Lê Duy Nhất', '0258963', 'kjhgfd', 5, '2025-04-09 23:41:52', 1),
-(4, 2, 'klasdflksd', '0254504577', 'ssdf', 6, '2025-04-14 08:08:52', 1),
-(5, 6, 'thanh nga', '0367324106', 'Hà đông', 0, '2025-04-19 17:07:45', 3);
+INSERT INTO `bills` (`id_bill`, `id_customer`, `receiver_name`, `receiver_phone`, `receiver_address`, `status`, `purchase_date`, `discount_code_id`, `discount_amount`) VALUES
+(1, 2, 'klasdflksd', '0254504577', 'ssdf', 3, '2025-03-31 07:37:41', 1, 13590000),
+(2, 2, 'klasdflksd', '0258963', 'kjhgfd', 1, '2025-04-09 21:02:53', 2, 185909500),
+(3, 4, 'Lê Duy Nhất', '0258963', 'kjhgfd', 5, '2025-04-09 23:41:52', 1, 13590000),
+(4, 2, 'klasdflksd', '0254504577', 'ssdf', 6, '2025-04-14 08:08:52', 1, 980000),
+(5, 6, 'thanh nga', '0367324106', 'Hà đông', 0, '2025-04-19 17:07:45', 3, 103460000),
+(6, 5, 'jk', '0367324106', 'kjhgfd', 0, '2025-04-21 00:09:32', 3, 500000),
+(7, 6, 'thanh nga', '0367324106', 'Hà đông', 0, '2025-04-21 02:47:18', 3, 39180000),
+(8, 6, 'thanh nga', '0367324106', 'jkl;', 0, '2025-04-21 02:58:56', 3, 13190000),
+(9, 5, 'jk', '0367324106', 'ssdf', 0, '2025-04-21 04:34:35', 3, 500000),
+(10, 5, 'jk', '0367324106', 'ssdf', 0, '2025-04-21 04:34:35', 3, 500000),
+(11, 5, 'jk', '0367324106', 'ssdf', 0, '2025-04-21 20:18:33', 3, 500000),
+(12, 5, 'jk', '0367324106', 'ssdf', 2, '2025-04-21 20:18:33', 3, 500000);
 
 -- --------------------------------------------------------
 
@@ -83,15 +91,16 @@ CREATE TABLE `comments` (
   `id_user` int NOT NULL COMMENT 'Mã user',
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '	Nội dung bình luận	',
   `censorship` tinyint NOT NULL COMMENT '0 là hiện, 1 là đã ẩn	',
-  `day_post` datetime DEFAULT NULL COMMENT 'Ngày tạo'
+  `day_post` datetime DEFAULT NULL COMMENT 'Ngày tạo',
+  `rating` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`id_comment`, `id_product`, `id_user`, `content`, `censorship`, `day_post`) VALUES
-(1, 6, 2, 'ok', 1, NULL);
+INSERT INTO `comments` (`id_comment`, `id_product`, `id_user`, `content`, `censorship`, `day_post`, `rating`) VALUES
+(1, 6, 2, 'ok', 1, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -147,7 +156,14 @@ INSERT INTO `detail_bills` (`id_detailbill`, `id_bill`, `id_product`, `id_varian
 (4, 2, 10, 4, 'Laptop ASUS 15 X1504ZA', 13990000, 2),
 (5, 3, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
 (6, 4, 1, 4, 'Tai nghe Bluetooth A3949', 360000, 3),
-(7, 5, 12, 4, 'Laptop MSI Katana', 25990000, 4);
+(7, 5, 12, 4, 'Laptop MSI Katana', 25990000, 4),
+(8, 6, 12, 4, 'Laptop MSI Katana', 25990000, 1),
+(9, 6, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
+(10, 7, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
+(11, 7, 12, 4, 'Laptop MSI Katana', 25990000, 1),
+(12, 8, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
+(13, 10, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
+(14, 12, 6, 4, 'Tai nghe Bluetooth AirPods 4', 3450000, 1);
 
 -- --------------------------------------------------------
 
@@ -217,7 +233,8 @@ INSERT INTO `products` (`id_product`, `id_category`, `firms`, `name`, `price`, `
 (10, 9, 'ASUS', 'Laptop ASUS 15 X1504ZA', 13990000, 70, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'images (1).jpg', 0, 110, '2025-03-30 00:05:49', '2025-04-15 22:31:34'),
 (11, 9, 'Acer ', 'Laptop Acer Gaming', 13990000, 70, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'tải xuống (9).jpg', 0, 26, '2025-03-30 00:08:33', '2025-03-30 00:08:33'),
 (12, 9, 'FPT Shop', 'Laptop MSI Katana', 25990000, 60, 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất\r\nBảo hành pin và bộ sạc 12 tháng\r\nBộ nguồn, máy, balo, sách hdsd\r\nBảo hành 24 tháng tại trung tâm bảo hành Chính hãng. 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng từ nhà sản xuất\r\nGiá sản phẩm đã bao gồm VAT', 'tải xuống (11).jpg', 0, 51, '2025-03-30 00:13:23', '2025-03-30 02:04:08'),
-(13, 8, 'AVA+', 'Tai nghe Bluetooth FreeGo Y913', 230000, 56, 'Tai nghe Bluetooth TWS AVA+ FreeGo Y913 không chỉ đem lại sự tiện lợi tối đa mà còn mang đến trải nghiệm âm nhạc chân thực và sắc nét. Với thiết kế nhỏ gọn, hiện đại cùng công nghệ tiên tiến, Y913 hứa hẹn là người bạn đồng hành hoàn hảo cho mọi hoạt động của bạn.', 'tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg', 0, 13, '2025-04-16 01:51:22', '2025-04-16 01:52:39');
+(13, 8, 'AVA+', 'Tai nghe Bluetooth FreeGo ', 230000, 56, 'Tai nghe Bluetooth TWS AVA+ FreeGo Y913 không chỉ đem lại sự tiện lợi tối đa mà còn mang đến trải nghiệm âm nhạc chân thực và sắc nét. Với thiết kế nhỏ gọn, hiện đại cùng công nghệ tiên tiến, Y913 hứa hẹn là người bạn đồng hành hoàn hảo cho mọi hoạt động của bạn.', 'tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg', 0, 13, '2025-04-16 01:51:22', '2025-04-21 22:49:08'),
+(14, 7, 'Nubia - ZTE', 'Nubia V70 Design', 2990000, 102, 'Nubia V70 Design là mẫu smartphone mới của ZTE nubia, hướng đến người dùng muốn trải nghiệm điện thoại giá rẻ với phong cách flagship. Máy nổi bật với màn hình lớn tần số quét cao, camera AI sắc nét, pin “trâu” và đặc biệt là mặt lưng vegan leather tùy chọn sang trọng. Dù thuộc phân khúc giá phổ thông, nubia V70 Design vẫn mang đến nhiều tính năng hấp dẫn cho cả nhu cầu giải trí, chơi game và sử dụng hàng ngày.', 'nubia_v70_design_xam_5_1edc0cc884.webp', 0, 52, '2025-04-21 22:39:17', '2025-04-21 22:39:17');
 
 -- --------------------------------------------------------
 
@@ -259,28 +276,9 @@ INSERT INTO `product_variant` (`id_product`, `id_variant`, `quantity`) VALUES
 (11, 4, 30),
 (11, 6, 40),
 (12, 4, 60),
-(13, 5, 56);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rates`
---
-
-CREATE TABLE `rates` (
-  `id_rate` int NOT NULL COMMENT '	Mã đánh giá',
-  `id_product` int NOT NULL COMMENT '	Mã sản phẩm	',
-  `id_user` int NOT NULL COMMENT '	Mã user',
-  `point` float NOT NULL COMMENT 'Điểm đánh giá	',
-  `updated_at` datetime NOT NULL COMMENT 'Ngày cập nhật'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `rates`
---
-
-INSERT INTO `rates` (`id_rate`, `id_product`, `id_user`, `point`, `updated_at`) VALUES
-(1, 6, 2, 3, '2025-03-31 00:41:03');
+(13, 5, 56),
+(14, 4, 56),
+(14, 6, 46);
 
 -- --------------------------------------------------------
 
@@ -331,8 +329,8 @@ INSERT INTO `variant` (`id_variant`, `name_color`, `created_at`, `updated_at`, `
 (5, 'Trắng', NULL, NULL, '4h'),
 (6, 'Vàng', NULL, NULL, '256GB'),
 (7, 'Tím', NULL, NULL, '128GB'),
-(9, 'Hồng Phấn', NULL, NULL, '64'),
-(11, 'Trắng', NULL, NULL, '64');
+(9, 'Hồng Phấn', NULL, NULL, '64GB'),
+(11, 'Trắng', NULL, NULL, '64GB');
 
 --
 -- Indexes for dumped tables
@@ -397,14 +395,6 @@ ALTER TABLE `product_variant`
   ADD KEY `id_variant` (`id_variant`);
 
 --
--- Indexes for table `rates`
---
-ALTER TABLE `rates`
-  ADD PRIMARY KEY (`id_rate`),
-  ADD KEY `id_product` (`id_product`),
-  ADD KEY `id_user` (`id_user`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -424,7 +414,7 @@ ALTER TABLE `variant`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=6;
+  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -448,7 +438,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `detail_bills`
 --
 ALTER TABLE `detail_bills`
-  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=8;
+  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `discount_codes`
@@ -460,13 +450,7 @@ ALTER TABLE `discount_codes`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm	', AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `rates`
---
-ALTER TABLE `rates`
-  MODIFY `id_rate` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đánh giá', AUTO_INCREMENT=2;
+  MODIFY `id_product` int NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm	', AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -524,13 +508,6 @@ ALTER TABLE `products`
 ALTER TABLE `product_variant`
   ADD CONSTRAINT `product_variant_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `product_variant_ibfk_2` FOREIGN KEY (`id_variant`) REFERENCES `variant` (`id_variant`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
--- Constraints for table `rates`
---
-ALTER TABLE `rates`
-  ADD CONSTRAINT `rates_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `rates_ibfk_3` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

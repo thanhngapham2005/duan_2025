@@ -563,13 +563,14 @@ require_once 'layout/css.php';
                                     <h5 class="mb-3 text-primary">Biến thể sản phẩm</h5>
                                     <div id="variantContainer">
                                         <div class="variant-item d-flex gap-3 mb-3 align-items-center">
-                                            <select class="form-select" style="width: auto;" name="variant_color[]">
+                                            <select class="form-select variant-color" style="width: auto;" name="variant_color[]">
+                                                <option value="">Chọn màu sắc</option>
                                                 <?php foreach ($variant as $key => $value) { ?>
-                                                    <option value="<?= $value['id_variant'] ?>"><?= $value['name_color'] ?></option>
+                                                    <option value="<?= $value['id_variant'] ?>" data-capacity="<?= isset($value['name_capacity']) ? $value['name_capacity'] : '' ?>"><?= $value['name_color'] ?></option>
                                                 <?php } ?>
                                             </select>
                                             <input type="number" class="form-control" style="width: 150px;" placeholder="Số lượng" name="variant_quantity[]" required>
-                                            <input type="text" class="form-control" style="width: 200px;" placeholder="Dung lượng (nếu có)" name="variant_capacity[]">
+                                            <input type="text" class="form-control variant-capacity" style="width: 200px;" placeholder="Dung lượng" name="name_capacity[]" readonly>
                                             <button type="button" class="btn btn-danger remove-variant">X</button>
                                         </div>
                                     </div>
@@ -639,75 +640,43 @@ require_once 'layout/css.php';
     <script src="libs/magnific-popup/meg.init.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $("#addVariant").click(function() {
-            let variantHtml = `
-                <div class="variant-item d-flex gap-3 mb-3 align-items-center">
-                    <select class="form-select" style="width: auto;" name="variant_color[]">
-                        <?php foreach ($variant as $key => $value) { ?>
-                            <option value="<?= $value['id_variant'] ?>"><?= $value['name_color'] ?></option>
-                        <?php } ?>
-                    </select>
-                    <input type="number" class="form-control" style="width: 150px;" placeholder="Số lượng" name="variant_quantity[]" required>
-                    <input type="text" class="form-control" style="width: 200px;" placeholder="Dung lượng (nếu có)" name="variant_capacity[]">
-                    <button type="button" class="btn btn-danger remove-variant">X</button>
-                </div>`;
-            $("#variantContainer").append(variantHtml);
-        });
-        
-        $(document).on("click", ".remove-variant", function() {
-            $(this).closest(".variant-item").remove();
+        $(document).ready(function() {
+            // Khi chọn màu thì cập nhật dung lượng
+            $(document).on("change", ".variant-color", function() {
+                var selectedOption = $(this).find("option:selected");
+                var capacity = selectedOption.attr("data-capacity") || "";
+                console.log("Màu được chọn:", selectedOption.text(), "Dung lượng:", capacity);
+                $(this).closest(".variant-item").find(".variant-capacity").val(capacity);
             });
+
+            // Thêm biến thể mới
+            $("#addVariant").click(function() {
+                let variantHtml = `
+                    <div class="variant-item d-flex gap-3 mb-3 align-items-center">
+                        <select class="form-select variant-color" style="width: auto;" name="variant_color[]">
+                            <option value="">Chọn màu sắc</option>
+                            <?php foreach ($variant as $key => $value) { ?>
+                                <option value="<?= $value['id_variant'] ?>" data-capacity="<?= isset($value['capacity']) ? $value['capacity'] : '' ?>"><?= $value['name_color'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <input type="number" class="form-control" style="width: 150px;" placeholder="Số lượng" name="variant_quantity[]" required>
+                        <input type="text" class="form-control variant-capacity" style="width: 200px;" placeholder="Dung lượng" name="variant_capacity[]" readonly>
+                        <button type="button" class="btn btn-danger remove-variant">X</button>
+                    </div>`;
+                $("#variantContainer").append(variantHtml);
+                $("#variantContainer .variant-item:last-child .variant-color").trigger("change");
+            });
+
+            // Xóa biến thể
+            $(document).on("click", ".remove-variant", function() {
+                $(this).closest(".variant-item").remove();
+            });
+
+            // Gọi change lần đầu để fill dung lượng nếu có sẵn
+            $(".variant-color").trigger("change");
         });
     </script>
 
-    <!-- Cập nhật JavaScript để xử lý thêm/xóa biến thể với trường dung lượng -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const variantContainer = document.getElementById('variant-container');
-            const addVariantBtn = document.getElementById('add-variant');
-            
-            // Thêm biến thể mới
-            addVariantBtn.addEventListener('click', function() {
-                const variantRow = document.createElement('div');
-                variantRow.className = 'variant-row mb-3 row';
-                variantRow.innerHTML = `
-                    <div class="col-md-5">
-                        <select name="variant_color[]" class="form-control">
-                            <option value="">Chọn màu sắc</option>
-                            <?php foreach ($variant as $item) : ?>
-                                <option value="<?= $item['id_variant'] ?>"><?= $item['name_color'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="number" name="variant_quantity[]" class="form-control" placeholder="Số lượng" min="1">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" name="variant_capacity[]" class="form-control" placeholder="Dung lượng (nếu có)">
-                    </div>
-                    <div class="col-md-1">
-                        <button type="button" class="btn btn-danger remove-variant">Xóa</button>
-                    </div>
-                `;
-                variantContainer.appendChild(variantRow);
-                
-                // Thêm sự kiện xóa cho nút mới
-                const removeBtn = variantRow.querySelector('.remove-variant');
-                removeBtn.addEventListener('click', function() {
-                    variantContainer.removeChild(variantRow);
-                });
-            });
-            
-            // Xử lý các nút xóa ban đầu
-            document.querySelectorAll('.remove-variant').forEach(button => {
-                button.addEventListener('click', function() {
-                    const row = this.closest('.variant-row');
-                    variantContainer.removeChild(row);
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

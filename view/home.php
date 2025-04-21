@@ -61,7 +61,53 @@
 
     <!-- End Categories of The Month -->
 
-
+    <!-- Start Newest Products -->
+    <section class="bg-white">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Sản phẩm mới nhất</h1>
+                </div>
+            </div>
+            <div class="row">
+                <?php 
+                if (!empty($newestProducts)) {
+                    foreach ($newestProducts as $product) { 
+                ?>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="?act=shop_single&id=<?= $product['id_product'] ?>">
+                            <img src="admin/images/<?= $product['img_product'] ?>" class="card-img" alt="<?= $product['name'] ?>">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right"><?= number_format($product['price']) ?>đ</li>
+                            </ul>
+                            <a href="?act=shop_single&id=<?= $product['id_product'] ?>"
+                                class="h2 text-decoration-none text-dark"><?= $product['name'] ?></a>
+                            <p class="card-text">
+                                <?= (strlen($product['description']) > 100) ? substr($product['description'], 0, 100).'...' : $product['description'] ?>
+                            </p>
+                            <p class="text-muted">Lượt xem (<?= $product['view'] ?>)</p>
+                        </div>
+                    </div>
+                </div>
+                <?php 
+                    }
+                } else {
+                    echo '<div class="col-12 text-center">Không có sản phẩm mới</div>';
+                }
+                ?>
+            </div>
+        </div>
+    </section>
     <!-- Start Featured Product -->
     <section class="bg-light">
         <div class="container py-5">
@@ -91,7 +137,9 @@
                             </ul>
                             <a href="?act=shop_single&id=<?= $value['id_product'] ?>"
                                 class="h2 text-decoration-none text-dark"><?= $value['name'] ?></a>
-                            <p class="card-text"><?= $value['description'] ?></p>
+                            <p class="card-text">
+                                <?= (strlen($value['description']) > 100) ? substr($value['description'], 0, 100).'...' : $value['description'] ?>
+                            </p>
                             <p class="text-muted">Lượt xem (<?= $value['view'] ?>)</p>
                         </div>
                     </div>
@@ -104,6 +152,7 @@
     </section>
     <!-- End Featured Product -->
 
+    <!-- End Newest Products -->
 
     <!-- Start Footer -->
     <?php include 'layout/footer.php'; ?>

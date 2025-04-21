@@ -81,18 +81,37 @@ require_once 'layout/head.php';
             <td><img src="admin/images/<?= $detail['img_product'] ?>" alt="Anh san pham" style="width: 50px; height: 50px; object-fit:cover;"></td>
             <td><?= $detail['name_product'] ?></td>
             <td><?= $detail['name_color'] ?></td>
-            <td><?= number_format($detail['price']) ?>d</td>
+            <td><?= number_format($detail['price']) ?>đ</td>
             <td><?= $detail['quantity'] ?></td>
-            <td><?= number_format($detail['price'] * $detail['quantity']) ?>d</td>
+            <td><?= number_format($detail['price'] * $detail['quantity']) ?>đ</td>
         </tr>
         <?php endforeach; ?>
 </tbody>
 </table>
 
 <div class="text-end mt-3">
-    <strong>Tong tien:</strong>
-    <?= number_format(array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $orderDetail))) ?> d
-
+    <?php 
+    $subtotal = array_sum(array_map(fn($item) => $item['price'] * $item['quantity'], $orderDetail));
+    $discount = isset($orderDetail[0]['discount_amount']) ? $orderDetail[0]['discount_amount'] : 0;
+    $total = $subtotal - $discount;
+    ?>
+    
+    <div class="mb-2">
+        <strong>Tổng tiền hàng:</strong>
+        <span class="text-dark"><?= number_format($subtotal) ?> đ</span>
+    </div>
+    
+    <?php if($discount > 0): ?>
+    <div class="mb-2 text-danger">
+        <strong>Giảm giá:</strong>
+        <span>-<?= number_format($discount) ?> đ</span>
+    </div>
+    <?php endif; ?>
+    
+    <div class="mb-2">
+        <strong>Thành tiền:</strong>
+        <span class="fs-5 fw-bold text-danger"><?= number_format($total) ?> đ</span>
+    </div>
 </div>
 
 </div>
