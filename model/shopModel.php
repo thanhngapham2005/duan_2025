@@ -23,14 +23,50 @@ class shopModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    function allProduct(){
-        $sql = "SELECT * FROM products ORDER BY id_product DESC";
+    function allProduct($sort = null){
+        $sql = "SELECT * FROM products WHERE censorship = 0";
+        
+        switch($sort) {
+            case 'asc':
+                $sql .= " ORDER BY price ASC";
+                break;
+            case 'desc':
+                $sql .= " ORDER BY price DESC";
+                break;
+            case 'az':
+                $sql .= " ORDER BY name ASC";
+                break;
+            case 'za':
+                $sql .= " ORDER BY name DESC";
+                break;
+            default:
+                $sql .= " ORDER BY id_product DESC";
+        }
+
         $result = $this->conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
-    function cat_pro($id) {
-        $sql = "SELECT * FROM products WHERE id_category = :id_category";
+    function cat_pro($id, $sort = null) {
+        $sql = "SELECT * FROM products WHERE id_category = :id_category AND censorship = 0";
+        
+        switch($sort) {
+            case 'asc':
+                $sql .= " ORDER BY price ASC";
+                break;
+            case 'desc':
+                $sql .= " ORDER BY price DESC";
+                break;
+            case 'az':
+                $sql .= " ORDER BY name ASC";
+                break;
+            case 'za':
+                $sql .= " ORDER BY name DESC";
+                break;
+            default:
+                $sql .= " ORDER BY id_product DESC";
+        }
+
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id_category', $id, PDO::PARAM_INT);
         $stmt->execute();

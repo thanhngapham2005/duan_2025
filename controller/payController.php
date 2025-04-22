@@ -6,73 +6,82 @@ class payController
     {
         $this->payModel = new payModel();
     }
+
     function pay()
     {
         if (isset($_SESSION['user']['customer_info']['id_customer'])) {
             $id_customer = $_SESSION['user']['customer_info']['id_customer'];
+            // Lấy danh sách mã giảm giá có sẵn
+            $discountCodes = $this->payModel->getAvailableDiscountCodes($id_customer);
+            require_once 'view/pay.php';
         } else {
             $_SESSION['payment_status'] = 'error';
             $_SESSION['payment_message'] = 'Không tìm thấy thông tin khách hàng!';
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            header('Location: index.php?act=login');
             exit;
         }
-
-        // Lấy danh sách mã giảm giá có sẵn
-        $discountCodes = $this->payModel->getAvailableDiscountCodes($id_customer);
-
-        require_once 'view/pay.php';
     }
 
     function payment()
     {
         if (isset($_POST['order_cart'])) {
             if (!empty($_SESSION['mycart'])) {
-                $receiver_name = $_POST['receiver_name'];
-                $receiver_phone = $_POST['receiver_phone'];
-                $receiver_address = $_POST['receiver_address'];
-                $id_customer = $_SESSION['user']['customer_info']['id_customer'];
-    
-                // Lấy mã giảm giá và tính toán giá cuối cùng
-                $discount_code = isset($_POST['discount_code']) ? $_POST['discount_code'] : null;
-                $cartItems = $_SESSION['mycart'];
-                
-                // Tính tổng tiền trước khi áp dụng giảm giá
-                $total = 0;
-                foreach ($cartItems as $item) {
-                    $total += $item['price'] * $item['quantity'];
-                }
-    
-                // Áp dụng mã giảm giá nếu có
-                if ($discount_code) {
-                    $discountInfo = $this->payModel->getDiscountInfo($discount_code);
-                    if ($discountInfo) {
-                        $discount_percentage = $discountInfo['discount_percentage'];
-                        $max_discount = isset($discountInfo['max_discount']) ? $discountInfo['max_discount'] : PHP_INT_MAX;
-                        $discount_amount = min(($total * $discount_percentage / 100), $max_discount);
-                        $total = $total - $discount_amount;
+                try {
+                    $receiver_name = $_POST['receiver_name'];
+                    $receiver_phone = $_POST['receiver_phone'];
+                    $receiver_address = $_POST['receiver_address'];
+                    
+                    // Validate dữ liệu
+                    if (empty($receiver_name) || empty($receiver_phone) || empty($receiver_address)) {
+                        throw new Exception('Vui lòng điền đầy đủ thông tin người nhận!');
                     }
-                }
-    
-                // Lưu đơn hàng với thông tin giảm giá
-                $result = $this->payModel->saveOrder(
-                    $id_customer, 
-                    $receiver_name, 
-                    $receiver_phone, 
-                    $receiver_address, 
-                    $cartItems,
-                    $discount_code,
-                    $total
-                );
-    
-                if ($result) {
-                    $_SESSION['payment_status'] = 'success';
-                    $_SESSION['payment_message'] = 'Thanh toán thành công!';
-                    unset($_SESSION['mycart']);
+
+                    $id_customer = $_SESSION['user']['customer_info']['id_customer'];
+                    $discount_code = isset($_POST['discount_code']) ? $_POST['discount_code'] : null;
+                    $cartItems = $_SESSION['mycart'];
+                    
+                    // Tính toán giảm giá và lưu đơn hàng
+                    $total = array_reduce($cartItems, function($sum, $item) {
+                        return $sum + ($item['price'] * $item['quantity']);
+                    }, 0);
+
+                    $discount_amount = 0;
+                    if ($discount_code) {
+                        $discountInfo = $this->payModel->getDiscountInfo($discount_code);
+                        if ($discountInfo) {
+                            $discount_percentage = $discountInfo['discount_percentage'];
+                            $max_discount = $discountInfo['max_discount'] ?? PHP_INT_MAX;
+                            $discount_amount = min(($total * $discount_percentage / 100), $max_discount);
+                        }
+                    }
+
+                    $result = $this->payModel->saveOrder(
+                        $id_customer, 
+                        $receiver_name, 
+                        $receiver_phone, 
+                        $receiver_address, 
+                        $cartItems,
+                        $discount_code,
+                        $discount_amount
+                    );
+
+                    if ($result) {
+                        $_SESSION['payment_status'] = 'success';
+                        $_SESSION['payment_message'] = 'Đặt hàng thành công!';
+                        unset($_SESSION['mycart']);
+                    } else {
+                        throw new Exception('Có lỗi xảy ra khi xử lý đơn hàng!');
+                    }
+
+                } catch (Exception $e) {
+                    $_SESSION['payment_status'] = 'error';
+                    $_SESSION['payment_message'] = $e->getMessage();
                 }
             } else {
                 $_SESSION['payment_status'] = 'error';
-                $_SESSION['payment_message'] = 'Giỏ hàng của bạn hiện đang trống!';
+                $_SESSION['payment_message'] = 'Giỏ hàng của bạn đang trống!';
             }
+            
             header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit;
         }

@@ -94,17 +94,17 @@ if (isset($_POST['momo'])) {
         );
 
         // Tính signature
-        $rawHash = "accessKey=" . $accessKey . 
-                  "&amount=" . $total_amount . 
-                  "&extraData=" . $extraData . 
-                  "&ipnUrl=" . $ipnUrl . 
-                  "&orderId=" . $orderId . 
-                  "&orderInfo=" . $orderInfo . 
-                  "&partnerCode=" . $partnerCode . 
-                  "&redirectUrl=" . $redirectUrl . 
-                  "&requestId=" . $requestId . 
-                  "&requestType=" . $requestType;
-        
+        $rawHash = "accessKey=" . $accessKey .
+            "&amount=" . $total_amount .
+            "&extraData=" . $extraData .
+            "&ipnUrl=" . $ipnUrl .
+            "&orderId=" . $orderId .
+            "&orderInfo=" . $orderInfo .
+            "&partnerCode=" . $partnerCode .
+            "&redirectUrl=" . $redirectUrl .
+            "&requestId=" . $requestId .
+            "&requestType=" . $requestType;
+
         $signature = hash_hmac("sha256", $rawHash, $secretKey);
         $data['signature'] = $signature;
 
@@ -122,14 +122,14 @@ if (isset($_POST['momo'])) {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         $result = curl_exec($ch);
-        
+
         if (curl_errno($ch)) {
             throw new Exception("Lỗi CURL: " . curl_error($ch));
         }
         curl_close($ch);
 
         writeLog("Response from MOMO: " . print_r($result, true));
-        
+
         $jsonResult = json_decode($result, true);
         if (isset($jsonResult['payUrl'])) {
             writeLog("Redirecting to payUrl: " . $jsonResult['payUrl']);

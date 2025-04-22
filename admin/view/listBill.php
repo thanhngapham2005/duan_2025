@@ -138,7 +138,6 @@ require_once 'layout/css.php';
                                             <button type="submit" class="btn btn-primary px-4 ">Lọc</button>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
@@ -156,118 +155,58 @@ require_once 'layout/css.php';
                             </thead>
                             <tbody>
                                 <?php
-                                    foreach ($bills as $bill) {
-                                    ?>
+                                foreach ($bills as $bill) {
+                                ?>
                                 <tr>
                                     <td><?= $bill['id_bill'] ?></td>
                                     <td><?= $bill['receiver_name'] ?></td>
                                     <td><?= $bill['receiver_phone'] ?></td>
                                     <td><?= $bill['receiver_address'] ?></td>
                                     <td><?= $bill['purchase_date'] ?></td>
-                                    <td><?= getOderStatus ($bill['status']) ?></td>
+                                    <td><?= getOderStatus($bill['status']) ?></td>
                                     <td>
-
-                                        <div class="form-group d-flex align-items-center">
-                                            <label for="status" class="me-2">Loc theo trang thai:</label>
-                                            <select name="status" id="status" class="form-select w-auto me-3">
-                                                <option value="">Tat ca</option>
-                                                <option value="0"
-                                                    <?= isset($_GET['status']) && $_GET['status'] == 0 ? 'selected' : '' ?>>
-                                                    Cho xac nhan</option>
-                                                <option value="1"
-                                                    <?= isset($_GET['status']) && $_GET['status'] == 1 ? 'selected' : '' ?>>
-                                                    Da xac nhan</option>
-                                                <option value="2"
-                                                    <?= isset($_GET['status']) && $_GET['status'] == 2 ? 'selected' : '' ?>>
-                                                    Cho lay hang</option>
-                                                <option value="3"
-                                                    <?= isset($_GET['status']) && $_GET['status'] == 3 ? 'selected' : '' ?>>
-                                                    Dang van chuyen</option>
-                                                <option value="4"
-                                                    <?= isset($_GET['status']) && $_GET['status'] == 4 ? 'selected' : '' ?>>
-                                                    Dang hoan tra hang</option>
-                                                <option value="5"
-                                                    <?= isset($_GET['status']) && $_GET['status'] == 5 ? 'selected' : '' ?>>
-                                                    Giao hang thanh cong</option>
-                                                <option value="6"
-                                                    <?= isset($_GET['status']) && $_GET['status'] == 6 ? 'selected' : '' ?>>
-                                                    Da huy</option>
-                                            </select>
-                                            <button type="submit" class="btn btn-primary">Loc</button>
-                                        </div>
-                                        </form>
-                    </div>
-                </div>
-                <table class="table table-bordered" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Mã don hang</th>
-                            <th>Ten nguoi nhan</th>
-                            <th>So dien thoai nguoi nhan</th>
-                            <th>Dia chi nguoi nhan</th>
-                            <th>Ngay mua</th>
-                            <th>Trang thai don hang</th>
-                            <th>Thao tac</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                                foreach ($bills as $bill) {
-                                ?>
-                        <tr>
-                            <td><?= $bill['id_bill'] ?></td>
-                            <td><?= $bill['receiver_name'] ?></td>
-                            <td><?= $bill['receiver_phone'] ?></td>
-                            <td><?= $bill['receiver_address'] ?></td>
-                            <td><?= $bill['purchase_date'] ?></td>
-                            <td><?= getOderStatus($bill['status']) ?></td>
-                            <td>
-
-                                <a class="btn btn-primary" href="?act=updateBill&id=<?= $bill['id_bill'] ?>"
-                                    role="button">Xem chi tiết</a>
-                            </td>
-                        </tr>
-                        <?php
+                                        <a class="btn btn-primary" href="?act=updateBill&id=<?= $bill['id_bill'] ?>"
+                                            role="button">Xem chi tiết</a>
+                                    </td>
+                                </tr>
+                                <?php
                                 }
                                 ?>
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
             </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
 
-        </div>
-
-
-
-        <!-- ============================================================== -->
-        <!-- End PAge Content -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right sidebar -->
-        <!-- ============================================================== -->
-        <!-- .right-sidebar -->
-        <!-- ============================================================== -->
-        <!-- End Right sidebar -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- footer -->
-    <!-- ============================================================== -->
-
-    <?php
+            <?php
             require_once 'layout/footer.php';
             require_once 'layout/scripts.php';
             ?>
 
-    <!-- ============================================================== -->
-    <!-- End footer -->
-    <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->

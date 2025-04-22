@@ -110,10 +110,10 @@ require_once 'layout/head.php';
 
                 <br>
                 <?php if (isset($_SESSION['user'])): ?>
-                <a href="?act=pay" class="btn btn-primary">Thanh toán</a>
+                    <a href="?act=pay" class="btn btn-primary">Thanh toán</a>
                 <?php else: ?>
-                <a href="index.php?act=login" class="btn btn-primary"
-                    onclick="alert('Bạn cần đăng nhập để thanh toán!');">Thanh toán</a>
+                    <a href="index.php?act=login" class="btn btn-primary"
+                        onclick="alert('Bạn cần đăng nhập để thanh toán!');">Thanh toán</a>
 
                 <?php endif; ?>
 

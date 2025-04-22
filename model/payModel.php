@@ -19,11 +19,18 @@ class payModel {
                 $discount_code_id = $stmt_discount->fetchColumn();
             }
 
+            // Đảm bảo discount_amount là số
+            $discount_amount = (int)$discount_amount;
+
             // Thêm đơn hàng vào bảng `bills`
-            $sql_bill = "INSERT INTO bills (id_customer, receiver_name, receiver_phone, receiver_address, status, 
-                        purchase_date, discount_code_id, discount_amount) 
-                        VALUES (:id_customer, :receiver_name, :receiver_phone, :receiver_address, 0, 
-                        CURRENT_TIMESTAMP, :discount_code_id, :discount_amount)";
+            $sql_bill = "INSERT INTO bills (id_customer, receiver_name, receiver_phone, receiver_address, status, purchase_date, discount_code_id, discount_amount) 
+                      VALUES (:id_customer, :receiver_name, :receiver_phone, :receiver_address, 0, CURRENT_TIMESTAMP, :discount_code_id, :discount_amount)";
+
+            // $sql_bill = "INSERT INTO bills (id_customer, receiver_name, receiver_phone, receiver_address, status, 
+            //             purchase_date, discount_code_id, discount_amount) 
+            //             VALUES (:id_customer, :receiver_name, :receiver_phone, :receiver_address, 0, 
+            //             CURRENT_TIMESTAMP, :discount_code_id, :discount_amount)";
+
             
             $stmt_bill = $this->conn->prepare($sql_bill);
             $stmt_bill->bindParam(':id_customer', $id_customer, PDO::PARAM_INT);
@@ -32,7 +39,7 @@ class payModel {
             $stmt_bill->bindParam(':receiver_address', $receiver_address, PDO::PARAM_STR);
             $stmt_bill->bindParam(':discount_code_id', $discount_code_id, PDO::PARAM_INT);
             $stmt_bill->bindParam(':discount_amount', $discount_amount, PDO::PARAM_INT);
-            
+
             if (!$stmt_bill->execute()) {
                 print_r($stmt_bill->errorInfo());
                 exit;
