@@ -26,12 +26,12 @@ class billController{
         $oneBill = $this->billModel->findBillById($id);
         $status = $this->billModel->billStatus($id)['status'];
         $statusDescription = [
-            0 => 'Cho xac nhan',
-            1 => 'Da xac nhan',
-            2 => 'Cho lay hang',
-            3 => 'Dang van chuyen',
-            4 => 'Dang hoan tra hang',
-            5 => 'Giao hang thanh cong',
+            0 => 'Chờ xác nhận',
+            1 => 'Đã xác nhận',
+            2 => 'Chờ lấy hàng',
+            3 => 'Đang vận chuyển',
+            4 => 'Đang hoàn trả hàng',
+            5 => 'Giao hàng thành công',
 
 
         ];

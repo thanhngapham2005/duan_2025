@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 21, 2025 at 12:01 PM
+-- Generation Time: Apr 21, 2025 at 05:46 PM
 -- Server version: 8.0.30
--- PHP Version: 8.3.18
+-- PHP Version: 8.2.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,10 +49,13 @@ INSERT INTO `bills` (`id_bill`, `id_customer`, `receiver_name`, `receiver_phone`
 (3, 4, 'Lê Duy Nhất', '0258963', 'kjhgfd', 5, '2025-04-09 23:41:52', 1, 13590000),
 (4, 2, 'klasdflksd', '0254504577', 'ssdf', 6, '2025-04-14 08:08:52', 1, 980000),
 (5, 6, 'thanh nga', '0367324106', 'Hà đông', 0, '2025-04-19 17:07:45', 3, 103460000),
-(6, 5, 'jk', '0367324106', 'kjhgfd', 0, '2025-04-21 00:09:32', 3, 39180000),
+(6, 5, 'jk', '0367324106', 'kjhgfd', 0, '2025-04-21 00:09:32', 3, 500000),
 (7, 6, 'thanh nga', '0367324106', 'Hà đông', 0, '2025-04-21 02:47:18', 3, 39180000),
 (8, 6, 'thanh nga', '0367324106', 'jkl;', 0, '2025-04-21 02:58:56', 3, 13190000),
-(9, 7, 'đỗ tuấn thiện', '0329714023', 'nghệ an', 0, '2025-04-21 18:43:37', 1, 23000);
+(9, 5, 'jk', '0367324106', 'ssdf', 0, '2025-04-21 04:34:35', 3, 500000),
+(10, 5, 'jk', '0367324106', 'ssdf', 0, '2025-04-21 04:34:35', 3, 500000),
+(11, 5, 'jk', '0367324106', 'ssdf', 0, '2025-04-21 20:18:33', 3, 500000),
+(12, 5, 'jk', '0367324106', 'ssdf', 2, '2025-04-21 20:18:33', 3, 500000);
 
 -- --------------------------------------------------------
 
@@ -86,18 +89,18 @@ CREATE TABLE `comments` (
   `id_comment` int NOT NULL COMMENT 'Mã bình luận',
   `id_product` int NOT NULL COMMENT '	Mã sản phẩm	',
   `id_user` int NOT NULL COMMENT 'Mã user',
-  `rating` int NOT NULL,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '	Nội dung bình luận	',
   `censorship` tinyint NOT NULL COMMENT '0 là hiện, 1 là đã ẩn	',
-  `day_post` datetime DEFAULT NULL COMMENT 'Ngày tạo'
+  `day_post` datetime DEFAULT NULL COMMENT 'Ngày tạo',
+  `rating` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`id_comment`, `id_product`, `id_user`, `rating`, `content`, `censorship`, `day_post`) VALUES
-(1, 6, 2, 0, 'ok', 1, NULL);
+INSERT INTO `comments` (`id_comment`, `id_product`, `id_user`, `content`, `censorship`, `day_post`, `rating`) VALUES
+(1, 6, 2, 'ok', 1, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -124,8 +127,7 @@ INSERT INTO `customers` (`id_customer`, `id_user`, `full_name`, `phone`, `addres
 (3, 3, 'xđxdxf', '', '', NULL),
 (4, 4, 'Lê Duy Nhất', '', '', NULL),
 (5, 5, 'jk', '', '', NULL),
-(6, 6, 'thanh nga', '', '', NULL),
-(7, 7, 'đỗ tuấn thiện', '0329714023', 'nghệ an', NULL);
+(6, 6, 'thanh nga', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -160,7 +162,8 @@ INSERT INTO `detail_bills` (`id_detailbill`, `id_bill`, `id_product`, `id_varian
 (10, 7, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
 (11, 7, 12, 4, 'Laptop MSI Katana', 25990000, 1),
 (12, 8, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
-(13, 9, 13, 5, 'Tai nghe Bluetooth FreeGo Y913', 230000, 1);
+(13, 10, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
+(14, 12, 6, 4, 'Tai nghe Bluetooth AirPods 4', 3450000, 1);
 
 -- --------------------------------------------------------
 
@@ -188,9 +191,9 @@ CREATE TABLE `discount_codes` (
 --
 
 INSERT INTO `discount_codes` (`id`, `code`, `discount_percentage`, `max_discount`, `min_order_value`, `start_date`, `end_date`, `usage_limit`, `used_count`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'TESTCODE', 10.00, 100000.00, 500000.00, '2025-04-01 00:00:00', '2025-04-19 00:00:00', 100, 0, 'active', '2025-04-04 01:05:16', '2025-04-09 00:10:07'),
-(2, 'T5JK', 50.00, 500.00, 350.00, '2025-04-05 00:00:00', '2025-04-19 00:00:00', 10, 0, 'active', '2025-04-08 23:59:55', '2025-04-08 23:59:55'),
-(3, 'KL', 50.00, 500000.00, 13690000.00, '2025-04-05 00:00:00', '2025-04-25 00:00:00', 50, 0, 'active', '2025-04-09 17:08:06', '2025-04-09 17:08:06');
+(1, 'TESTCODE', '10.00', '100000.00', '500000.00', '2025-04-01 00:00:00', '2025-04-19 00:00:00', 100, 0, 'active', '2025-04-04 01:05:16', '2025-04-09 00:10:07'),
+(2, 'T5JK', '50.00', '500.00', '350.00', '2025-04-05 00:00:00', '2025-04-19 00:00:00', 10, 0, 'active', '2025-04-08 23:59:55', '2025-04-08 23:59:55'),
+(3, 'KL', '50.00', '500000.00', '13690000.00', '2025-04-05 00:00:00', '2025-04-25 00:00:00', 50, 0, 'active', '2025-04-09 17:08:06', '2025-04-09 17:08:06');
 
 -- --------------------------------------------------------
 
@@ -230,7 +233,8 @@ INSERT INTO `products` (`id_product`, `id_category`, `firms`, `name`, `price`, `
 (10, 9, 'ASUS', 'Laptop ASUS 15 X1504ZA', 13990000, 70, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'images (1).jpg', 0, 110, '2025-03-30 00:05:49', '2025-04-15 22:31:34'),
 (11, 9, 'Acer ', 'Laptop Acer Gaming', 13990000, 70, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'tải xuống (9).jpg', 0, 26, '2025-03-30 00:08:33', '2025-03-30 00:08:33'),
 (12, 9, 'FPT Shop', 'Laptop MSI Katana', 25990000, 60, 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất\r\nBảo hành pin và bộ sạc 12 tháng\r\nBộ nguồn, máy, balo, sách hdsd\r\nBảo hành 24 tháng tại trung tâm bảo hành Chính hãng. 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng từ nhà sản xuất\r\nGiá sản phẩm đã bao gồm VAT', 'tải xuống (11).jpg', 0, 51, '2025-03-30 00:13:23', '2025-03-30 02:04:08'),
-(13, 8, 'AVA+', 'Tai nghe Bluetooth FreeGo Y913', 230000, 56, 'Tai nghe Bluetooth TWS AVA+ FreeGo Y913 không chỉ đem lại sự tiện lợi tối đa mà còn mang đến trải nghiệm âm nhạc chân thực và sắc nét. Với thiết kế nhỏ gọn, hiện đại cùng công nghệ tiên tiến, Y913 hứa hẹn là người bạn đồng hành hoàn hảo cho mọi hoạt động của bạn.', 'tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg', 0, 13, '2025-04-16 01:51:22', '2025-04-16 01:52:39');
+(13, 8, 'AVA+', 'Tai nghe Bluetooth FreeGo ', 230000, 56, 'Tai nghe Bluetooth TWS AVA+ FreeGo Y913 không chỉ đem lại sự tiện lợi tối đa mà còn mang đến trải nghiệm âm nhạc chân thực và sắc nét. Với thiết kế nhỏ gọn, hiện đại cùng công nghệ tiên tiến, Y913 hứa hẹn là người bạn đồng hành hoàn hảo cho mọi hoạt động của bạn.', 'tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg', 0, 13, '2025-04-16 01:51:22', '2025-04-21 22:49:08'),
+(14, 7, 'Nubia - ZTE', 'Nubia V70 Design', 2990000, 102, 'Nubia V70 Design là mẫu smartphone mới của ZTE nubia, hướng đến người dùng muốn trải nghiệm điện thoại giá rẻ với phong cách flagship. Máy nổi bật với màn hình lớn tần số quét cao, camera AI sắc nét, pin “trâu” và đặc biệt là mặt lưng vegan leather tùy chọn sang trọng. Dù thuộc phân khúc giá phổ thông, nubia V70 Design vẫn mang đến nhiều tính năng hấp dẫn cho cả nhu cầu giải trí, chơi game và sử dụng hàng ngày.', 'nubia_v70_design_xam_5_1edc0cc884.webp', 0, 52, '2025-04-21 22:39:17', '2025-04-21 22:39:17');
 
 -- --------------------------------------------------------
 
@@ -272,7 +276,9 @@ INSERT INTO `product_variant` (`id_product`, `id_variant`, `quantity`) VALUES
 (11, 4, 30),
 (11, 6, 40),
 (12, 4, 60),
-(13, 5, 56);
+(13, 5, 56),
+(14, 4, 56),
+(14, 6, 46);
 
 -- --------------------------------------------------------
 
@@ -298,8 +304,7 @@ INSERT INTO `users` (`id_user`, `email`, `password`, `role`, `day_registered`) V
 (3, 'dotuanthiendz112@gmail.com', '$2y$10$z98EbmbkYskvw5Vb0571O.UoHM5wrpZ3HSkPpAr6/KXw/e0lQMusq', 0, NULL),
 (4, 'kiennguyentrung07092005@gmail.com', '$2y$10$k4aQSky/Nve7jt/CSLhGu.W5R8UZSjUm.9mbR4yG1oIZ0kPbM7K0a', 0, NULL),
 (5, 'jk@gmail.com', '$2y$10$JXG0WgExCIoDdcSyg8wEMe8wXG/P3hTeHZ8otH1EgfKHIiZnhfezG', 0, NULL),
-(6, 'tn@gmail.com', '$2y$10$PwHElr19iJJfBBlbafQAuuiNfpiAqXIfLnDMtWszTzB.9NbpiUCja', 0, NULL),
-(7, 't@t.t', '$2y$10$MsT55BCz2rjfS/sVzxi.5uRL1PRnAZJqy2PbRbr7BHSVHwg7Kin3G', 0, NULL);
+(6, 'tn@gmail.com', '$2y$10$PwHElr19iJJfBBlbafQAuuiNfpiAqXIfLnDMtWszTzB.9NbpiUCja', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -324,8 +329,8 @@ INSERT INTO `variant` (`id_variant`, `name_color`, `created_at`, `updated_at`, `
 (5, 'Trắng', NULL, NULL, '4h'),
 (6, 'Vàng', NULL, NULL, '256GB'),
 (7, 'Tím', NULL, NULL, '128GB'),
-(9, 'Hồng Phấn', NULL, NULL, '64'),
-(11, 'Trắng', NULL, NULL, '64');
+(9, 'Hồng Phấn', NULL, NULL, '64GB'),
+(11, 'Trắng', NULL, NULL, '64GB');
 
 --
 -- Indexes for dumped tables
@@ -409,7 +414,7 @@ ALTER TABLE `variant`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=10;
+  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -427,13 +432,13 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=8;
+  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `detail_bills`
 --
 ALTER TABLE `detail_bills`
-  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=14;
+  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `discount_codes`
@@ -445,13 +450,13 @@ ALTER TABLE `discount_codes`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm	', AUTO_INCREMENT=14;
+  MODIFY `id_product` int NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm	', AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=8;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `variant`

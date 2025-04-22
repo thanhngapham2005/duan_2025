@@ -33,6 +33,7 @@ function renderOrders($orders) {
                     'total_price' => 0,
                     'status' => $order['status'],
                     'purchase_date' => $order['purchase_date'],
+                    'discount_amount' => $order['discount_amount'] ?? 0, // Thêm thông tin giảm giá
                 ];
             }
             $groupedOrders[$idBill]['quantity'] += $order['quantity'];
@@ -51,28 +52,23 @@ function renderOrders($orders) {
         </thead>
         </tbody>';
         foreach ($groupedOrders as $order) {
-            $totalPrice = number_format($order['total_price']);
+            // Tính tổng tiền sau khi trừ giảm giá
+            $finalPrice = $order['total_price'] - $order['discount_amount'];
+            $totalPrice = number_format($finalPrice);
            
             echo "<tr>
             <td>{$order['id_bill']}</td>
             <td>{$order['quantity']}</td>
-            <td>{$totalPrice} d</td>
+            <td>{$totalPrice} đ</td>
             <td>" . getOderStatus($order['status']) . "</td>
             <td>{$order['purchase_date']}</td>
             <td>
                 <a href='?act=orderDetail&id={$order['id_bill']}' class='btn btn-primary'>Xem chi tiết</a>
             </td>
           </tr>";
-    
         }
         echo '</tbody>
         </table>';
-
-
-
-
-
-          
     }else{
         echo '<div class="text-center mt-5">
           <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png" alt="Empty orders" class="img-fluid mb-3" style="max-width: 150px;">

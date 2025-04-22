@@ -21,7 +21,12 @@ class orderModel{
     }
    
     function getOrderDetails($id_bill){
-        $sql = "SELECT * FROM detail_bills JOIN bills ON detail_bills.id_bill = bills.id_bill JOIN variant ON detail_bills.id_variant = variant.id_variant JOIN products ON detail_bills.id_product = products.id_product WHERE detail_bills.id_bill = $id_bill";
+        $sql = "SELECT detail_bills.*, bills.*, variant.*, products.*, bills.discount_amount 
+                FROM detail_bills 
+                JOIN bills ON detail_bills.id_bill = bills.id_bill 
+                JOIN variant ON detail_bills.id_variant = variant.id_variant 
+                JOIN products ON detail_bills.id_product = products.id_product 
+                WHERE detail_bills.id_bill = $id_bill";
         $stmt = $this->conn->prepare($sql); 
         $stmt->execute();
         return $stmt->fetchAll();
