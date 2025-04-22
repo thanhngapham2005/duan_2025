@@ -38,22 +38,22 @@ require_once 'layout/head.php';
     <!-- Open Content -->
 
     <!-- đổ chi tiết sp ra đây -->
-    
+
     <!-- Close Content -->
 
     <!-- Start Article -->
     <section class="py-5">
         <div class="container">
-        <div class="container py-5">
+            <div class="container py-5">
 
-    <h2 class="h2 text-success mb-4">Giỏ hàng của bạn</h2>
-    
-    <?php
-    if (!isset($_SESSION['mycart']) || empty($_SESSION['mycart'])) {
-        echo '<p>Giỏ hàng của bạn đang trống.</p>';
-    } else {
-        echo '<table class="table">';
-        echo '<thead>
+                <h2 class="h2 text-success mb-4">Giỏ hàng của bạn</h2>
+
+                <?php
+                if (!isset($_SESSION['mycart']) || empty($_SESSION['mycart'])) {
+                    echo '<p>Giỏ hàng của bạn đang trống.</p>';
+                } else {
+                    echo '<table class="table">';
+                    echo '<thead>
 
         <tr>
           <th>STT</th>
@@ -67,58 +67,59 @@ require_once 'layout/head.php';
           <th>Hành động</th>
         </tr>
         </thead>';
-        echo '<tbody>';
+                    echo '<tbody>';
 
-        $total = 0;
-        $index = 0;
-        foreach($_SESSION['mycart'] as $key => $value) {
-            $index++;
-            $subtotal = $value['price'] * $value['quantity'];
-            $total += $subtotal;
-            echo '<tr>';
-            echo '<td>' . $index . '</td>';
-            echo '<td>' . htmlspecialchars($value['name']) . '</td>';
-            echo '<td><img src="admin/images/' . htmlspecialchars($value['img']) . '" width="50"></td>';
-            echo '<td>' . htmlspecialchars($value['brand']) . '</td>';
-            echo '<td>' . htmlspecialchars($value['color']) . '</td>';
-            echo '<td>' . number_format($value['price']) . 'đ</td>';
-            echo '<td>' . htmlspecialchars($value['quantity']) . '</td>';
-            echo '<td>' . number_format($subtotal) . 'đ</td>';
-            echo '<td><a href="index.php?act=deleteToCart&id=' . $value['id'] . '" class="btn btn-danger" onclick="return confirm(\'Bạn có chắc chắn muốn xóa không?\')">Xóa</a></td>';
+                    $total = 0;
+                    $index = 0;
+                    foreach ($_SESSION['mycart'] as $key => $value) {
+                        $index++;
+                        $subtotal = $value['price'] * $value['quantity'];
+                        $total += $subtotal;
+                        echo '<tr>';
+                        echo '<td>' . $index . '</td>';
+                        echo '<td>' . htmlspecialchars($value['name']) . '</td>';
+                        echo '<td><img src="admin/images/' . htmlspecialchars($value['img']) . '" width="50"></td>';
+                        echo '<td>' . htmlspecialchars($value['brand']) . '</td>';
+                        echo '<td>' . htmlspecialchars($value['color']) . '</td>';
+                        echo '<td>' . number_format($value['price']) . 'đ</td>';
+                        echo '<td>' . htmlspecialchars($value['quantity']) . '</td>';
+                        echo '<td>' . number_format($subtotal) . 'đ</td>';
+                        echo '<td><a href="index.php?act=deleteToCart&id=' . $value['id'] . '" class="btn btn-danger" onclick="return confirm(\'Bạn có chắc chắn muốn xóa không?\')">Xóa</a></td>';
 
-            echo '</tr>';
-        }
-        echo '<tr>
+                        echo '</tr>';
+                    }
+                    echo '<tr>
         <td colspan="7" class="text-right"><strong>Tổng tiền</strong></td>
         <td><strong>' . number_format($total) . 'đ</strong></td>
         <td></td>
         </tr>';
-        echo '</tbody>';
-        echo '</table>';
-        
-        // Hiển thị nút thanh toán và mua thêm
-        echo '<div class="d-flex gap-2 mt-3">';
-        if(isset($_SESSION['user'])) {
-            echo '<a href="?act=pay" class="btn btn-primary">Thanh toán</a>';
-        } else {
-            echo '<button type="button" class="btn btn-primary" onclick="redirectToLogin()">Thanh toán</button>';
-        }
-        echo '<a href="?act=shop" class="btn btn-primary">Mua thêm</a>';
-        echo '</div>';
-    }
-    ?>
+                    echo '</tbody>';
+                    echo '</table>';
 
-    <br>
-    <?php if (isset($_SESSION['user'])): ?>
-    <a href="?act=pay" class="btn btn-primary">Thanh toán</a>
-<?php else: ?>
-    <a href="index.php?act=login" class="btn btn-primary" onclick="alert('Bạn cần đăng nhập để thanh toán!');">Thanh toán</a>
+                    // Hiển thị nút thanh toán và mua thêm
+                    // echo '<div class="d-flex gap-2 mt-3">';
+                    // if(isset($_SESSION['user'])) {
+                    //     echo '<a href="?act=pay" class="btn btn-primary">Thanh toán</a>';
+                    // } else {
+                    //     echo '<button type="button" class="btn btn-primary" onclick="redirectToLogin()">Thanh toán</button>';
+                    // }
+                    // echo '<a href="?act=shop" class="btn btn-primary">Mua thêm</a>';
+                    // echo '</div>';
+                }
+                ?>
 
-<?php endif; ?>
+                <br>
+                <?php if (isset($_SESSION['user'])): ?>
+                <a href="?act=pay" class="btn btn-primary">Thanh toán</a>
+                <?php else: ?>
+                <a href="index.php?act=login" class="btn btn-primary"
+                    onclick="alert('Bạn cần đăng nhập để thanh toán!');">Thanh toán</a>
 
-    <a href="?act=shop" class="btn btn-primary">Mua thêm</a>
+                <?php endif; ?>
 
-</div>
+                <a href="?act=shop" class="btn btn-primary">Mua thêm</a>
+
+            </div>
             <!--Start Carousel Wrapper-->
             <div id="carousel-related-product">
 
@@ -127,8 +128,8 @@ require_once 'layout/head.php';
     </section>
     <!-- End Article -->
     <section class="py-5">
-       
-    </section>                                            
+
+    </section>
 
     <!-- Start Footer -->
     <?php include 'layout/footer.php'; ?>
