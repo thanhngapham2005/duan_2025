@@ -640,42 +640,45 @@ require_once 'layout/css.php';
     <script src="libs/magnific-popup/meg.init.js"></script>
 
     <script>
-        $(document).ready(function() {
-            // Khi chọn màu thì cập nhật dung lượng
-            $(document).on("change", ".variant-color", function() {
-                var selectedOption = $(this).find("option:selected");
-                var capacity = selectedOption.attr("data-capacity") || "";
-                console.log("Màu được chọn:", selectedOption.text(), "Dung lượng:", capacity);
-                $(this).closest(".variant-item").find(".variant-capacity").val(capacity);
-            });
-
-            // Thêm biến thể mới
-            $("#addVariant").click(function() {
-                let variantHtml = `
-                    <div class="variant-item d-flex gap-3 mb-3 align-items-center">
-                        <select class="form-select variant-color" style="width: auto;" name="variant_color[]">
-                            <option value="">Chọn màu sắc</option>
-                            <?php foreach ($variant as $key => $value) { ?>
-                                <option value="<?= $value['id_variant'] ?>" data-capacity="<?= isset($value['capacity']) ? $value['capacity'] : '' ?>"><?= $value['name_color'] ?></option>
-                            <?php } ?>
-                        </select>
-                        <input type="number" class="form-control" style="width: 150px;" placeholder="Số lượng" name="variant_quantity[]" required>
-                        <input type="text" class="form-control variant-capacity" style="width: 200px;" placeholder="Dung lượng" name="variant_capacity[]" readonly>
-                        <button type="button" class="btn btn-danger remove-variant">X</button>
-                    </div>`;
-                $("#variantContainer").append(variantHtml);
-                $("#variantContainer .variant-item:last-child .variant-color").trigger("change");
-            });
-
-            // Xóa biến thể
-            $(document).on("click", ".remove-variant", function() {
-                $(this).closest(".variant-item").remove();
-            });
-
-            // Gọi change lần đầu để fill dung lượng nếu có sẵn
-            $(".variant-color").trigger("change");
+    $(document).ready(function() {
+        // Xử lý sự kiện thay đổi màu sắc
+        $(document).on("change", ".variant-color", function() {
+            var selectedOption = $(this).find("option:selected");
+            var capacity = selectedOption.attr("data-capacity");
+            console.log("Màu được chọn:", selectedOption.text(), "Dung lượng:", capacity);
+            $(this).closest(".variant-item").find(".variant-capacity").val(capacity);
         });
-    </script>
+
+        // Thêm biến thể mới
+        $("#addVariant").click(function() {
+            let variantHtml = `
+                <div class="variant-item d-flex gap-3 mb-3 align-items-center">
+                    <select class="form-select variant-color" style="width: auto;" name="variant_color[]">
+                        <option value="">Chọn màu sắc</option>
+                        <?php foreach ($variant as $key => $value) { ?>
+                            <option value="<?= $value['id_variant'] ?>" data-capacity="<?= isset($value['name_capacity']) ? $value['name_capacity'] : '' ?>">
+                                <?= $value['name_color'] ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                    <input type="number" class="form-control" style="width: 150px;" placeholder="Số lượng" name="variant_quantity[]" required>
+                    <input type="text" class="form-control variant-capacity" style="width: 200px;" placeholder="Dung lượng" name="name_capacity[]" readonly>
+                    <button type="button" class="btn btn-danger remove-variant">X</button>
+                </div>
+            `;
+            $("#variantContainer").append(variantHtml);
+        });
+
+        // Xóa biến thể
+        $(document).on("click", ".remove-variant", function() {
+            $(this).closest(".variant-item").remove();
+        });
+
+        // Kích hoạt sự kiện change cho các select màu sắc ban đầu
+        $(".variant-color").trigger("change");
+    });
+</script>
+
 
 </body>
 

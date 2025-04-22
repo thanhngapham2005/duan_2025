@@ -143,7 +143,7 @@ require_once 'layout/css.php';
                                                 <th>Số lượng</th>
                                                 <th>Mô tả</th>
                                                 <th>Danh mục</th>
-                                                <th>Lượt xem</th>
+                                                <!-- <th>Lượt xem</th> -->
                                                 <th>Trạng thái</th>
                                                 <th>Thao tác</th>
                                             </tr>
@@ -163,7 +163,7 @@ require_once 'layout/css.php';
                                                         style="max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                                         <?= $value['description'] ?></td>
                                                     <td><?= $value['name_cat'] ?></td>
-                                                    <td><?= $value['view'] ?></td>
+                                                    
                                                     <td><?= ($value['censorship'] == 0) ? '<span class="badge badge-success">Đang hiện</span>' : '<span class="badge badge-danger">Đã ẩn</span>' ?>
                                                     </td>
                                                     <td>

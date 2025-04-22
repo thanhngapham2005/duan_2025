@@ -102,7 +102,7 @@ require_once 'layout/css.php';
                                         <th>Nội dung</th>
                                         <th>Ngày đăng</th>
                                         <th>Trạng thái</th>
-                                        <th>Thao tác</th>
+                                        <!-- <th>Thao tác</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -121,12 +121,7 @@ require_once 'layout/css.php';
                                                 <?= $comment['censorship'] == 0 ? 'Hiện' : 'Ẩn' ?>
                                             </a>
                                         </td>
-                                        <td>
-                                            <a onclick="return confirm('Bạn có chắc muốn xóa bình luận này?')"
-                                                href="?act=deleteComment&id=<?= $comment['id_comment'] ?>"
-                                                class="btn btn-danger btn-sm">Xóa
-                                            </a>
-                                        </td>
+                                        
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>

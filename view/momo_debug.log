@@ -5789,3 +5789,18 @@
 )
 
 [2025-04-22 06:06:03] Error: Giỏ hàng trống!
+[2025-04-22 07:02:48] Starting MOMO payment process
+[2025-04-22 07:02:48] MOMO payment initiated
+[2025-04-22 07:02:48] POST data received: Array
+(
+    [momo] => true
+    [total_amount] => 229500
+    [discount_code] => T5JK
+    [discount_amount] => 500
+    [receiver_name] => Ánh
+    [receiver_phone] => 0862582026
+    [receiver_address] => Hà đông
+)
+
+[2025-04-22 07:02:49] Response from MOMO: {"partnerCode":"MOMOBKUN20180529","orderId":"1745305368","requestId":"1745305368","amount":229500,"responseTime":1745305369351,"message":"Thành công.","resultCode":0,"payUrl":"https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MzA1MzY4&s=f17ccb2ea3d4bd79fe53916b520ae99ab2bd7f28daa443ee48f2fb615d967542","signature":"23c22f17de786e3ac5783e25eff37f6726bdf17508e9086820dabceb7a3530fb"}
+[2025-04-22 07:02:49] Redirecting to payUrl: https://test-payment.momo.vn/v2/gateway/pay?t=TU9NT0JLVU4yMDE4MDUyOXwxNzQ1MzA1MzY4&s=f17ccb2ea3d4bd79fe53916b520ae99ab2bd7f28daa443ee48f2fb615d967542

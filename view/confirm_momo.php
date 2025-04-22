@@ -70,8 +70,8 @@ if (isset($_POST['momo'])) {
         $accessKey = "klm05TvNBzhg7h7j";
         $secretKey = "at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa";
         $orderInfo = "Thanh toan don hang";
-        $redirectUrl = "http://" . $_SERVER['HTTP_HOST'] . "/abc/duan_2025/index.php?act=pay";
-        $ipnUrl = "http://" . $_SERVER['HTTP_HOST'] . "/abc/duan_2025/index.php?act=pay";
+        $redirectUrl = "http://" . $_SERVER['HTTP_HOST'] . "/duan/duan_2025/index.php?act=pay";
+        $ipnUrl = "http://" . $_SERVER['HTTP_HOST'] . "/duan/duan_2025/index.php?act=pay";
         $orderId = time() . "";
         $requestId = time() . "";
         $requestType = "payWithATM";

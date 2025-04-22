@@ -139,7 +139,7 @@
                             <p class="card-text">
                                 <?= (strlen($product['description']) > 100) ? substr($product['description'], 0, 100).'...' : $product['description'] ?>
                             </p>
-                            <p class="text-muted">Lượt xem (<?= $product['view'] ?>)</p>
+                            
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
                             <p class="card-text">
                                 <?= (strlen($value['description']) > 100) ? substr($value['description'], 0, 100).'...' : $value['description'] ?>
                             </p>
-                            <p class="text-muted">Lượt xem (<?= $value['view'] ?>)</p>
+                            
                         </div>
                     </div>
                 </div>
