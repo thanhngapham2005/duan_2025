@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 21, 2025 at 05:46 PM
+-- Generation Time: Apr 22, 2025 at 12:45 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.27
 
@@ -55,7 +55,13 @@ INSERT INTO `bills` (`id_bill`, `id_customer`, `receiver_name`, `receiver_phone`
 (9, 5, 'jk', '0367324106', 'ssdf', 0, '2025-04-21 04:34:35', 3, 500000),
 (10, 5, 'jk', '0367324106', 'ssdf', 0, '2025-04-21 04:34:35', 3, 500000),
 (11, 5, 'jk', '0367324106', 'ssdf', 0, '2025-04-21 20:18:33', 3, 500000),
-(12, 5, 'jk', '0367324106', 'ssdf', 2, '2025-04-21 20:18:33', 3, 500000);
+(12, 5, 'jk', '0367324106', 'ssdf', 2, '2025-04-21 20:18:33', 3, 500000),
+(13, 5, 'jk', '0367324106', 'Hà đông', 0, '2025-04-22 00:55:14', 3, 500000),
+(14, 5, 'jk', '0367324106', 'Hà đông', 6, '2025-04-22 00:55:31', 3, 500000),
+(15, 5, 'jk', '0367324106', 'Hà đông', 6, '2025-04-22 00:55:49', 3, 500000),
+(16, 7, 'Ánh', '0367324106', 'ssdf', 0, '2025-04-22 14:01:25', 3, 500000),
+(17, 7, 'Ánh', '0862582026', 'ssdf', 0, '2025-04-22 14:02:07', 3, 500000),
+(18, 7, 'Ánh', '0862582026', 'Hà đông', 0, '2025-04-22 14:02:48', 2, 500);
 
 -- --------------------------------------------------------
 
@@ -100,7 +106,8 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id_comment`, `id_product`, `id_user`, `content`, `censorship`, `day_post`, `rating`) VALUES
-(1, 6, 2, 'ok', 1, NULL, 0);
+(1, 6, 2, 'ok', 1, NULL, 0),
+(2, 13, 1, 'tốt', 0, '2025-04-22 13:51:31', 4);
 
 -- --------------------------------------------------------
 
@@ -127,7 +134,8 @@ INSERT INTO `customers` (`id_customer`, `id_user`, `full_name`, `phone`, `addres
 (3, 3, 'xđxdxf', '', '', NULL),
 (4, 4, 'Lê Duy Nhất', '', '', NULL),
 (5, 5, 'jk', '', '', NULL),
-(6, 6, 'thanh nga', '', '', NULL);
+(6, 6, 'thanh nga', '', '', NULL),
+(7, 7, 'Ánh', '0367324106', 'Phú Thọ', NULL);
 
 -- --------------------------------------------------------
 
@@ -163,7 +171,16 @@ INSERT INTO `detail_bills` (`id_detailbill`, `id_bill`, `id_product`, `id_varian
 (11, 7, 12, 4, 'Laptop MSI Katana', 25990000, 1),
 (12, 8, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
 (13, 10, 2, 4, 'Samsung Galaxy S23', 13690000, 1),
-(14, 12, 6, 4, 'Tai nghe Bluetooth AirPods 4', 3450000, 1);
+(14, 12, 6, 4, 'Tai nghe Bluetooth AirPods 4', 3450000, 1),
+(15, 13, 8, 4, 'Tai nghe Bluetooth BH-T16', 659000, 1),
+(16, 13, 9, 4, 'Laptop Lenovo 5 14Q8X9 ', 22990000, 1),
+(17, 14, 8, 4, 'Tai nghe Bluetooth BH-T16', 659000, 1),
+(18, 14, 9, 4, 'Laptop Lenovo 5 14Q8X9 ', 22990000, 1),
+(19, 15, 8, 4, 'Tai nghe Bluetooth BH-T16', 659000, 1),
+(20, 15, 9, 4, 'Laptop Lenovo 5 14Q8X9 ', 22990000, 1),
+(21, 16, 14, 4, 'Nubia V70 Design', 2990000, 2),
+(22, 17, 14, 4, 'Nubia V70 Design', 2990000, 1),
+(23, 18, 13, 5, 'Tai nghe Bluetooth FreeGo ', 230000, 1);
 
 -- --------------------------------------------------------
 
@@ -234,7 +251,8 @@ INSERT INTO `products` (`id_product`, `id_category`, `firms`, `name`, `price`, `
 (11, 9, 'Acer ', 'Laptop Acer Gaming', 13990000, 70, 'Màn hình FHD 15.6 inch với độ sáng 250 nits và độ phủ màu 45% NTSC, mang lại hình ảnh sắc nét và sống động', 'tải xuống (9).jpg', 0, 26, '2025-03-30 00:08:33', '2025-03-30 00:08:33'),
 (12, 9, 'FPT Shop', 'Laptop MSI Katana', 25990000, 60, 'Nguyên hộp, đầy đủ phụ kiện từ nhà sản xuất\r\nBảo hành pin và bộ sạc 12 tháng\r\nBộ nguồn, máy, balo, sách hdsd\r\nBảo hành 24 tháng tại trung tâm bảo hành Chính hãng. 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng từ nhà sản xuất\r\nGiá sản phẩm đã bao gồm VAT', 'tải xuống (11).jpg', 0, 51, '2025-03-30 00:13:23', '2025-03-30 02:04:08'),
 (13, 8, 'AVA+', 'Tai nghe Bluetooth FreeGo ', 230000, 56, 'Tai nghe Bluetooth TWS AVA+ FreeGo Y913 không chỉ đem lại sự tiện lợi tối đa mà còn mang đến trải nghiệm âm nhạc chân thực và sắc nét. Với thiết kế nhỏ gọn, hiện đại cùng công nghệ tiên tiến, Y913 hứa hẹn là người bạn đồng hành hoàn hảo cho mọi hoạt động của bạn.', 'tai-nghe-bluetooth-tws-ava-freego-y913-trang-2-1-750x500.jpg', 0, 13, '2025-04-16 01:51:22', '2025-04-21 22:49:08'),
-(14, 7, 'Nubia - ZTE', 'Nubia V70 Design', 2990000, 102, 'Nubia V70 Design là mẫu smartphone mới của ZTE nubia, hướng đến người dùng muốn trải nghiệm điện thoại giá rẻ với phong cách flagship. Máy nổi bật với màn hình lớn tần số quét cao, camera AI sắc nét, pin “trâu” và đặc biệt là mặt lưng vegan leather tùy chọn sang trọng. Dù thuộc phân khúc giá phổ thông, nubia V70 Design vẫn mang đến nhiều tính năng hấp dẫn cho cả nhu cầu giải trí, chơi game và sử dụng hàng ngày.', 'nubia_v70_design_xam_5_1edc0cc884.webp', 0, 52, '2025-04-21 22:39:17', '2025-04-21 22:39:17');
+(14, 7, 'Nubia - ZTE', 'Nubia V70 Design', 2990000, 102, 'Nubia V70 Design là mẫu smartphone mới của ZTE nubia, hướng đến người dùng muốn trải nghiệm điện thoại giá rẻ với phong cách flagship. Máy nổi bật với màn hình lớn tần số quét cao, camera AI sắc nét, pin “trâu” và đặc biệt là mặt lưng vegan leather tùy chọn sang trọng. Dù thuộc phân khúc giá phổ thông, nubia V70 Design vẫn mang đến nhiều tính năng hấp dẫn cho cả nhu cầu giải trí, chơi game và sử dụng hàng ngày.', 'nubia_v70_design_xam_5_1edc0cc884.webp', 0, 52, '2025-04-21 22:39:17', '2025-04-21 22:39:17'),
+(15, 9, 'HP', 'Laptop HP 14s-em0086AU', 12790000, 108, 'Với việc trang bị sẵn tới 16GB RAM và bộ vi xử lý Ryzen 5 7520 thuộc thế hệ AMD 7000 series mới nhất, HP 14s-em0086AU tự tin cùng bạn vượt qua mọi thử thách trong học tập, công việc. Kiểu dáng nhỏ gọn, bền bỉ sẽ giúp laptop dễ dàng để đồng hành bên bạn đi khắp muôn nơi.', '2023_4_11_638168318098594588_hp-14s-em0080au-r3-7320u-bac-1.webp', 0, 0, '2025-04-22 13:48:31', '2025-04-22 13:48:31');
 
 -- --------------------------------------------------------
 
@@ -278,7 +296,9 @@ INSERT INTO `product_variant` (`id_product`, `id_variant`, `quantity`) VALUES
 (12, 4, 60),
 (13, 5, 56),
 (14, 4, 56),
-(14, 6, 46);
+(14, 6, 46),
+(15, 11, 63),
+(15, 4, 45);
 
 -- --------------------------------------------------------
 
@@ -304,7 +324,8 @@ INSERT INTO `users` (`id_user`, `email`, `password`, `role`, `day_registered`) V
 (3, 'dotuanthiendz112@gmail.com', '$2y$10$z98EbmbkYskvw5Vb0571O.UoHM5wrpZ3HSkPpAr6/KXw/e0lQMusq', 0, NULL),
 (4, 'kiennguyentrung07092005@gmail.com', '$2y$10$k4aQSky/Nve7jt/CSLhGu.W5R8UZSjUm.9mbR4yG1oIZ0kPbM7K0a', 0, NULL),
 (5, 'jk@gmail.com', '$2y$10$JXG0WgExCIoDdcSyg8wEMe8wXG/P3hTeHZ8otH1EgfKHIiZnhfezG', 0, NULL),
-(6, 'tn@gmail.com', '$2y$10$PwHElr19iJJfBBlbafQAuuiNfpiAqXIfLnDMtWszTzB.9NbpiUCja', 0, NULL);
+(6, 'tn@gmail.com', '$2y$10$PwHElr19iJJfBBlbafQAuuiNfpiAqXIfLnDMtWszTzB.9NbpiUCja', 0, NULL),
+(7, 'a@gmail.com', '$2y$10$yrJJZipW4rpBXkDBCZAJ2.SnRpda/8TvSkn7Hz.chw6nd5O3hdYNK', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -414,7 +435,7 @@ ALTER TABLE `variant`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=13;
+  MODIFY `id_bill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã đơn hàng', AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -426,19 +447,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id_comment` int NOT NULL AUTO_INCREMENT COMMENT 'Mã bình luận', AUTO_INCREMENT=2;
+  MODIFY `id_comment` int NOT NULL AUTO_INCREMENT COMMENT 'Mã bình luận', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=7;
+  MODIFY `id_customer` int NOT NULL AUTO_INCREMENT COMMENT 'Mã customer', AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `detail_bills`
 --
 ALTER TABLE `detail_bills`
-  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=15;
+  MODIFY `id_detailbill` int NOT NULL AUTO_INCREMENT COMMENT '	Mã chi tiết đơn hàng', AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `discount_codes`
@@ -450,13 +471,13 @@ ALTER TABLE `discount_codes`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm	', AUTO_INCREMENT=15;
+  MODIFY `id_product` int NOT NULL AUTO_INCREMENT COMMENT 'Mã sản phẩm	', AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=7;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT COMMENT '	Mã user', AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `variant`
